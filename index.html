@@ -75,8 +75,7 @@
     <div class="article-entry" itemprop="articleBody">
       
         <hr>
-<p>title:<br>SQL基础学习简单的总结（一）—</p>
-<p>#SQL基础学习简单的总结（一）</p>
+<h2 id="title-SQL基础学习简单的总结（一）"><a href="#title-SQL基础学习简单的总结（一）" class="headerlink" title="title:SQL基础学习简单的总结（一）"></a>title:SQL基础学习简单的总结（一）</h2><p>#SQL基础学习简单的总结（一）</p>
 <p>#数据库操作</p>
 <p>建立一个新数据库：<br><code>create  database  数据库名</code></p>
 <p>指定当前数据库：<br><code>database  数据库名</code><br></p>
@@ -106,8 +105,6 @@
 <p><br></p>
 <p>#索引</p>
 <p>##索引的定义<br>格式: </p>
-<pre> 
-
 <pre><code>create  [unique|distinct]  [cluster]  index  索引名      
 on  表名 (列名 [asc|desc]  [ , 列名[asc|desc]]…) 
 </code></pre><p>unique|distinct：唯一性索引，不允许表中不同的行在 索引列上取相同值。<br>cluster：聚集索引，表中元组按索引项的值排序并物 理地聚集在一起。一个基本表上只能建一个聚集索引。<br>asc|desc：索引表中索引值的排序次序，缺省为asc。</p>
@@ -143,22 +140,29 @@ having min(SCORE) &gt;= 60
 <pre><code>SELECT FIRST.Cno，SECOND.Cpno      
 FROM Course FIRST，Course SECOND     
 WHERE FIRST.Cpno = SECOND.Cno 
-</code></pre><p>###外连接:<br>自然连接时，可能会有信息因为失配而在结果中丢失，为避免丢失，可以假定往另一个参与连接的表中附加一个取值全为空值的行，失配的行会和空值行匹配，不至于丢失，称之为外连接。<br> 外连接 = 自然连接 + 失配的元组<br>[例]查询每个学生及其选修课程的情况<br>    SELECT Student.Sno，Sname，Ssex，Sage，Sdept，Cno，Grade<br>    FROM  Student  LEFT OUT JOIN SC ON (Student.Sno=SC.Sno)</p>
-<p>###复合条件连接：<br>WHERE子句中含多个连接条件<br>例：</p>
+</code></pre><p>###外连接:<br>自然连接时，可能会有信息因为失配而在结果中丢失，为避免丢失，可以假定往另一个参与连接的表中附加一个取值全为空值的行，失配的行会和空值行匹配，不至于丢失，称之为外连接。<br> 外连接 = 自然连接 + 失配的元组<br>[例]查询每个学生及其选修课程的情况 </p>
+<pre><code>SELECT Student.Sno，Sname，Ssex，Sage，Sdept，Cno，Grade     
+FROM  Student  LEFT OUT JOIN SC ON (Student.Sno=SC.Sno)
+</code></pre><p>###复合条件连接：<br>WHERE子句中含多个连接条件<br>例：</p>
 <pre><code>SELECT S.Sno，Sname，Cname，Grade    
 FROM S，SC，Course    /*多表连接*/    
 WHERE S.Sno = SC.Sno                     
 and SC.Cno = Course.Cno；
 </code></pre><p>####FROM S，SC，Course三者做相当于笛卡尔积    </p>
 <p>##嵌套查询<br>不相关子查询：子查询的查询条件不依赖于父查询，由里向外 逐层处理。即每个子查询在上一级查询处理 之前求解，子查询的结果用于建立其父查询的查找条件。<br>相关子查询：子查询的查询条件依赖于父查询，首先取外层查询中表的第一个元组，根据它与内层查询相关的属性值处理内层查询，若WHERE子句返回值为真，则取此元组放入结果表 然后再取外层表的下一个元组重复这一过程，直至外层表全部检查完为止。（有点像for循环）</p>
-<p>不相关例子：<br>查询与“刘晨”在同一个系学习的学生<br>    SELECT Sno，Sname，Sdept<br>    FROM Student<br>    WHERE Sdept  IN (SELECT Sdept<br>                     FROM Student<br>                     WHERE Sname= ‘ 刘晨 ’);</p>
-<p>相关例子：<br>找出每个学生超过他选修课程平均成绩的课程号。  </p>
+<p>不相关例子：<br>查询与“刘晨”在同一个系学习的学生</p>
+<pre><code>SELECT Sno，Sname，Sdept      
+FROM Student     
+WHERE Sdept  IN (SELECT Sdept                    
+                 FROM Student                    
+                 WHERE Sname= ‘ 刘晨 ’);
+</code></pre><p>相关例子：<br>找出每个学生超过他选修课程平均成绩的课程号。  </p>
 <pre><code>SELECT Sno,Cno     
 FROM SC x     /*更名 as可省略*/
 WHERE Grade &gt;=(SELECT AVG(Grade)                            
                FROM  SC y                                    
                WHERE y.Sno=x.Sno);
-</code></pre><p>###带有ANY（SOME）或ALL谓词的子查询<br> ANY：任意一个值<br>ALL：所有值<br>格式为：表达式   比较运算符  ANY|ALL （子查询）<br>例：查询其他系中比计算机科学系所有学生年龄都小 的学生姓名及年龄。 </p>
+</code></pre><p>###带有ANY（SOME）或ALL谓词的子查询<br>ANY：任意一个值<br>ALL：所有值<br>格式为：表达式   比较运算符  ANY|ALL （子查询）<br>例：查询其他系中比计算机科学系所有学生年龄都小 的学生姓名及年龄。 </p>
 <pre><code>SELECT Sname，Sage     
 FROM S     
 WHERE Sage &lt; ALL (SELECT Sage              
@@ -171,11 +175,11 @@ FROM S
 WHERE EXISTS (SELECT *               
               FROM SC             
               WHERE Sno=S.Sno AND Cno= &apos; 1 &apos;);
-</code></pre></pre>
+</code></pre>
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/10/28/sql basic/" data-id="cjnt1zx870000bsv30hio03g2" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/10/28/sql basic/" data-id="cjnt29xsw0001vsv3ew9tiqyk" class="article-share-link">Share</a>
       
       
     </footer>
@@ -220,7 +224,7 @@ WHERE EXISTS (SELECT *
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/10/23/hello-world/" data-id="cjnt1zx8g0001bsv306qkyenb" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/10/23/hello-world/" data-id="cjnt29xrg0000vsv30nzuxafe" class="article-share-link">Share</a>
       
       
     </footer>
