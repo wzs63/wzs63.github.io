@@ -85,30 +85,161 @@
 <p><br></p>
 <p>#基本表</p>
 <p>##基本表的定义（CREATE）  </p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">create  table   表名（       </span><br><span class="line">        列名  数据类型  [default  缺省值]  [not null]</span><br><span class="line">        [，列名 数据类型  [default  缺省值]  [not null]] </span><br><span class="line">                          ……      </span><br><span class="line">        [，primary  key（列名 [，列名] …）]       </span><br><span class="line">	    [，foreign  key （列名 [，列名] …） references  表名 （列名 [，列名] …）]       </span><br><span class="line">	    [，check（条件）] </span><br><span class="line">)</span><br><span class="line">    </span><br><span class="line">```     </span><br><span class="line"></span><br><span class="line">	</span><br><span class="line">例：</span><br></pre></td></tr></table></figure>
-<p>create   table   PROF<br>     ( PNO    char(10),<br>     PNAME  char(20) not null,<br>     SAL   int,<br>     AGE   int,<br>     DNO   char(10),<br>     primary key (PNO),<br>     foreign key (DNO) references DEPT(DNO),<br>     check (SAL &gt; 0))<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">##修改基本表定义（ALTER） </span><br><span class="line">格式：  </span><br><span class="line">```       </span><br><span class="line">ALTER TABLE &lt;表名&gt;</span><br><span class="line">      [ ADD &lt;新列名&gt; &lt;数据类型&gt; [ 完整性约束 ] ] --增加新列        </span><br><span class="line">      [ DROP &lt;列名、完整性约束名&gt; ]              --删除列      </span><br><span class="line">      [ ALTER COLUMN&lt;列名&gt; &lt;数据类型&gt; ]；        --修改列定义</span><br></pre></td></tr></table></figure></p>
-<p>##撤消基本表定义（drop）<br>格式：<br><code>drop  table  表名 ［RESTRICT| CASCADE］；</code></p>
-<p>RESTRICT：缺省，如果存在依赖该表的对象，则此表不能被删除<br>CASCADE：在删除基本表的同时，相关的依赖对象一起删除 </p>
-<p><br></p>
-<p>#索引</p>
-<p>##索引的定义<br>格式:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">create  [unique|distinct]  [cluster]  index  索引名      </span><br><span class="line">on  表名 (列名 [asc|desc]  [ , 列名[asc|desc]]…) </span><br><span class="line">``` </span><br><span class="line">   </span><br><span class="line">unique|distinct：唯一性索引，不允许表中不同的行在 索引列上取相同值。</span><br><span class="line">cluster：聚集索引，表中元组按索引项的值排序并物 理地聚集在一起。一个基本表上只能建一个聚集索引。     </span><br><span class="line">asc|desc：索引表中索引值的排序次序，缺省为asc。</span><br><span class="line">###在最经常查询的列上建立聚簇索引以提高查询效率。 经常更新的列不宜建立聚簇索引。</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">##索引的删除 </span><br><span class="line">格式：   </span><br><span class="line">`drop  index   索引名`</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">&lt;br&gt;</span><br><span class="line">#数据查询</span><br><span class="line"> </span><br><span class="line">##单表查询</span><br></pre></td></tr></table></figure></p>
-<p>SELECT [ALL|DISTINCT] &lt;目标列表达式&gt; [，&lt;目标列表达式&gt;] …<br>FROM &lt;表名或视图名&gt;[， &lt;表名或视图名&gt; ] …<br>[ WHERE &lt;条件表达式&gt; ]<br>[ GROUP BY &lt;列名1&gt; [ HAVING &lt;条件表达式&gt; ] ]<br>[ ORDER BY &lt;列名2&gt; [ ASC|DESC ] ]；<br>ALL：缺省，显示结果不删除重复行<br>DISTINCT：显示结果删除重复行<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">###更名运算：</span><br></pre></td></tr></table></figure></p>
-<p>old_name as new_name(as可省略)<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">###Like </span><br><span class="line">四种匹配模式：</span><br><span class="line">1、%：表示任意0个或多个字符。可匹配任意类型和长度的字符。</span><br><span class="line">`SELECT * FROM [user] WHERE u_name LIKE &apos;k%&apos;`</span><br><span class="line"></span><br><span class="line">2、\_： 表示任意单个字符。匹配单个任意字符，它常用来限定表达式的字符长度语句：</span><br><span class="line">`SELECT * FROM [user] WHERE u_name LIKE &apos;k_&apos;`</span><br><span class="line"></span><br><span class="line">3、[ ]：表示括号内所列字符中的一个（类似正则表达式）。指定一个字符、字符串或范围，要求所匹配对象为它们中的任一个。</span><br><span class="line">`SELECT * FROM [user] WHERE u_name LIKE &apos;[赵钱孙李]小明&apos;`</span><br><span class="line"></span><br><span class="line">4、[^ ] ：表示不在括号所列之内的单个字符。其取值和 [] 相同，但它要求所匹配对象为指定字符以外的任一个字符。</span><br><span class="line">`SELECT * FROM [user] WHERE u_name LIKE &apos;[^赵钱孙李]小明&apos;`</span><br><span class="line"></span><br><span class="line">定义转义字符，以去掉特殊字符的特定含义，使其被作为普通字符看待。</span><br><span class="line">可用\%去匹配 %，用\＿去匹配＿，用\ \去匹配 \ </span><br><span class="line">`LIKE &apos;DB\ Design&apos; ESCAPE &apos;\&apos;`</span><br><span class="line">ESCAPE ‘＼’ 表示“ ＼” 为换码字符</span><br><span class="line">###order by排序</span><br><span class="line">`order by    列名   [asc | desc]; `</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">可以按一个或多个属性列排序 </span><br><span class="line">升序：ASC；降序：DESC；缺省值为升序 </span><br><span class="line">###聚集函数： </span><br><span class="line">计数 COUNT（[DISTINCT|ALL] *） COUNT（[DISTINCT|ALL] &lt;列名&gt;） </span><br><span class="line">计算总和 SUM（[DISTINCT|ALL] &lt;列名&gt;） </span><br><span class="line">计算平均值 AVG（[DISTINCT|ALL] &lt;列名&gt;） </span><br><span class="line">最大值    MAX（[DISTINCT|ALL] &lt;列名&gt;）   &gt;</span><br><span class="line">最小值    MIN（[DISTINCT|ALL] &lt;列名</span><br><span class="line">例:计算1号课程的学生平均成绩。 </span><br><span class="line">`SELECT AVG(Grade)           FROM SC           WHERE Cno= &apos; 1 &apos;	 `</span><br><span class="line"></span><br><span class="line">###group by分组</span><br><span class="line">group by   列名  [having   条件表达式]</span><br><span class="line">group by将表中的元组按指定一列或多列上的值相等的 原则分组，然后在每一分组上使用聚集函数，得到单一值。 </span><br><span class="line">having则对分组进行选择，只将聚集函数作用到满足条件的分组上。 </span><br><span class="line">例：列出所有课程均及格 的学生的平均成绩。</span><br></pre></td></tr></table></figure></p>
-<p>select SNO，avg(SCORE)<br>from SC<br>group by SNO<br>having min(SCORE) &gt;= 60<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">##连接查询 </span><br><span class="line">###自然连接：</span><br><span class="line">两个表有同名的属性，此属性值相等的元组相连</span><br><span class="line">例:</span><br><span class="line">``` </span><br><span class="line"> SELECT  S.Sno，Sname，Ssex，Sage，Sdept，Cno，Grade </span><br><span class="line"> FROM     S，SC </span><br><span class="line"> WHERE  S.Sno = SC.Sno</span><br></pre></td></tr></table></figure></p>
-<p>###自身连接：<br>一个表与其自己进行连接,需要给表起别名以示区别,由于所有属性名都是同名属性，因此必须使用别名前缀<br>例:查询每一门课的间接先修课（即先修课的先修课）<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">SELECT FIRST.Cno，SECOND.Cpno      </span><br><span class="line">FROM Course FIRST，Course SECOND     </span><br><span class="line">WHERE FIRST.Cpno = SECOND.Cno</span><br></pre></td></tr></table></figure></p>
-<p>###外连接:<br>自然连接时，可能会有信息因为失配而在结果中丢失，为避免丢失，可以假定往另一个参与连接的表中附加一个取值全为空值的行，失配的行会和空值行匹配，不至于丢失，称之为外连接。<br> 外连接 = 自然连接 + 失配的元组<br>[例]查询每个学生及其选修课程的情况<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">SELECT Student.Sno，Sname，Ssex，Sage，Sdept，Cno，Grade     </span><br><span class="line">FROM  Student  LEFT OUT JOIN SC ON (Student.Sno=SC.Sno)</span><br></pre></td></tr></table></figure></p>
-<p>###复合条件连接：<br>WHERE子句中含多个连接条件<br>例：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">SELECT S.Sno，Sname，Cname，Grade    </span><br><span class="line">FROM S，SC，Course    /*多表连接*/    </span><br><span class="line">WHERE S.Sno = SC.Sno                     </span><br><span class="line">and SC.Cno = Course.Cno；</span><br></pre></td></tr></table></figure></p>
-<p>####FROM S，SC，Course三者做相当于笛卡尔积    </p>
-<p>##嵌套查询<br>不相关子查询：子查询的查询条件不依赖于父查询，由里向外 逐层处理。即每个子查询在上一级查询处理 之前求解，子查询的结果用于建立其父查询的查找条件。<br>相关子查询：子查询的查询条件依赖于父查询，首先取外层查询中表的第一个元组，根据它与内层查询相关的属性值处理内层查询，若WHERE子句返回值为真，则取此元组放入结果表 然后再取外层表的下一个元组重复这一过程，直至外层表全部检查完为止。（有点像for循环）</p>
-<p>不相关例子：<br>查询与“刘晨”在同一个系学习的学生<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">SELECT Sno，Sname，Sdept      </span><br><span class="line">FROM Student     </span><br><span class="line">WHERE Sdept  IN (SELECT Sdept                    </span><br><span class="line">				 FROM Student                    </span><br><span class="line">				 WHERE Sname= ‘ 刘晨 ’);</span><br></pre></td></tr></table></figure></p>
-<p>相关例子：<br>找出每个学生超过他选修课程平均成绩的课程号。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">SELECT Sno,Cno     </span><br><span class="line">FROM SC x     /*更名 as可省略*/</span><br><span class="line">WHERE Grade &gt;=(SELECT AVG(Grade)                            </span><br><span class="line">	           FROM  SC y                                    </span><br><span class="line">			   WHERE y.Sno=x.Sno);</span><br></pre></td></tr></table></figure></p>
-<p>###带有ANY（SOME）或ALL谓词的子查询<br> ANY：任意一个值<br>ALL：所有值<br>格式为：表达式   比较运算符  ANY|ALL （子查询）<br>例：查询其他系中比计算机科学系所有学生年龄都小 的学生姓名及年龄。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">SELECT Sname，Sage     </span><br><span class="line">FROM S     </span><br><span class="line">WHERE Sage &lt; ALL (SELECT Sage              </span><br><span class="line">				  FROM S              </span><br><span class="line">				  WHERE Sdept= &apos; CS &apos;)        </span><br><span class="line">      AND Sdept &lt;&gt; &apos; CS ’;</span><br></pre></td></tr></table></figure></p>
-<p>###带有EXISTS谓词的子查询<br>例：查询所有选修了1号课程的学生姓名。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">SELECT Sname      </span><br><span class="line">FROM S      </span><br><span class="line">WHERE EXISTS (SELECT *               </span><br><span class="line">			  FROM SC             </span><br><span class="line">			  WHERE Sno=S.Sno AND Cno= &apos; 1 &apos;);</span><br></pre></td></tr></table></figure></p>
+<pre>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">create  table   表名（       </span><br><span class="line">        列名  数据类型  [default  缺省值]  [not null]</span><br><span class="line">        [，列名 数据类型  [default  缺省值]  [not null]] </span><br><span class="line">                          ……      </span><br><span class="line">        [，primary  key（列名 [，列名] …）]       </span><br><span class="line">	    [，foreign  key （列名 [，列名] …） references  表名 （列名 [，列名] …）]       </span><br><span class="line">	    [，check（条件）] </span><br><span class="line">)  </span><br><span class="line">```     </span><br><span class="line">&lt;/pre&gt;</span><br><span class="line">	</span><br><span class="line">例：</span><br><span class="line">&lt;pre&gt;</span><br></pre></td></tr></table></figure>
 
+create   table   PROF    
+     ( PNO    char(10),      
+     PNAME  char(20) not null,     
+     SAL   int,      
+     AGE   int,     
+     DNO   char(10),     
+     primary key (PNO),     
+     foreign key (DNO) references DEPT(DNO),     
+     check (SAL > 0))
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">&lt;/pre&gt;</span><br><span class="line">##修改基本表定义（ALTER） </span><br><span class="line">格式： </span><br><span class="line">&lt;pre&gt; </span><br><span class="line">```       </span><br><span class="line">ALTER TABLE &lt;表名&gt;</span><br><span class="line">      [ ADD &lt;新列名&gt; &lt;数据类型&gt; [ 完整性约束 ] ] --增加新列        </span><br><span class="line">      [ DROP &lt;列名、完整性约束名&gt; ]              --删除列      </span><br><span class="line">      [ ALTER COLUMN&lt;列名&gt; &lt;数据类型&gt; ]；        --修改列定义</span><br></pre></td></tr></table></figure>
+
+</pre>
+##撤消基本表定义（drop）
+格式：
+
+`drop  table  表名 ［RESTRICT| CASCADE］；`
+
+RESTRICT：缺省，如果存在依赖该表的对象，则此表不能被删除 
+CASCADE：在删除基本表的同时，相关的依赖对象一起删除 
+
+<br>
+#索引
+##索引的定义
+格式: 
+<pre> 
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">create  [unique|distinct]  [cluster]  index  索引名      </span><br><span class="line">on  表名 (列名 [asc|desc]  [ , 列名[asc|desc]]…)</span><br></pre></td></tr></table></figure>
+
+</pre>  
+unique|distinct：唯一性索引，不允许表中不同的行在 索引列上取相同值。
+cluster：聚集索引，表中元组按索引项的值排序并物 理地聚集在一起。一个基本表上只能建一个聚集索引。     
+asc|desc：索引表中索引值的排序次序，缺省为asc。
+###在最经常查询的列上建立聚簇索引以提高查询效率。 经常更新的列不宜建立聚簇索引。
+
+
+
+##索引的删除 
+格式：   
+`drop  index   索引名`
+
+
+<br>
+#数据查询
+
+##单表查询
+<pre>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">SELECT [ALL|DISTINCT] &lt;目标列表达式&gt; [，&lt;目标列表达式&gt;] … </span><br><span class="line">FROM &lt;表名或视图名&gt;[， &lt;表名或视图名&gt; ] … </span><br><span class="line">[ WHERE &lt;条件表达式&gt; ] </span><br><span class="line">[ GROUP BY &lt;列名1&gt; [ HAVING &lt;条件表达式&gt; ] ] </span><br><span class="line">[ ORDER BY &lt;列名2&gt; [ ASC|DESC ] ]；</span><br><span class="line">ALL：缺省，显示结果不删除重复行</span><br><span class="line">DISTINCT：显示结果删除重复行</span><br></pre></td></tr></table></figure>
+
+</pre>
+###更名运算：
+<pre>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">old_name as new_name(as可省略)</span><br></pre></td></tr></table></figure>
+
+</pre>
+###Like 
+四种匹配模式：
+1、%：表示任意0个或多个字符。可匹配任意类型和长度的字符。
+`SELECT * FROM [user] WHERE u_name LIKE 'k%'`
+
+2、\_： 表示任意单个字符。匹配单个任意字符，它常用来限定表达式的字符长度语句：
+`SELECT * FROM [user] WHERE u_name LIKE 'k_'`
+
+3、[ ]：表示括号内所列字符中的一个（类似正则表达式）。指定一个字符、字符串或范围，要求所匹配对象为它们中的任一个。
+`SELECT * FROM [user] WHERE u_name LIKE '[赵钱孙李]小明'`
+
+4、[^ ] ：表示不在括号所列之内的单个字符。其取值和 [] 相同，但它要求所匹配对象为指定字符以外的任一个字符。
+`SELECT * FROM [user] WHERE u_name LIKE '[^赵钱孙李]小明'`
+
+定义转义字符，以去掉特殊字符的特定含义，使其被作为普通字符看待。
+可用\%去匹配 %，用\＿去匹配＿，用\ \去匹配 \ 
+`LIKE 'DB\ Design' ESCAPE '\'`
+ESCAPE ‘＼’ 表示“ ＼” 为换码字符
+###order by排序
+`order by    列名   [asc | desc]; `
+
+
+可以按一个或多个属性列排序 
+升序：ASC；降序：DESC；缺省值为升序 
+###聚集函数： 
+计数 COUNT（[DISTINCT|ALL] *） COUNT（[DISTINCT|ALL] <列名>） 
+计算总和 SUM（[DISTINCT|ALL] <列名>） 
+计算平均值 AVG（[DISTINCT|ALL] <列名>） 
+最大值    MAX（[DISTINCT|ALL] <列名>）   >
+最小值    MIN（[DISTINCT|ALL] <列名 例:计算1号课程的学生平均成绩。="" `select="" avg(grade)="" from="" sc="" where="" cno=" 1 " `="" ###group="" by分组="" group="" by="" 列名="" [having="" 条件表达式]="" by将表中的元组按指定一列或多列上的值相等的="" 原则分组，然后在每一分组上使用聚集函数，得到单一值。="" having则对分组进行选择，只将聚集函数作用到满足条件的分组上。="" 例：列出所有课程均及格="" 的学生的平均成绩。="" <pre="">
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">select SNO，avg(SCORE) </span><br><span class="line">from SC   </span><br><span class="line">group by SNO  </span><br><span class="line">having min(SCORE) &gt;= 60</span><br></pre></td></tr></table></figure>
+
+
+##连接查询 
+###自然连接：
+两个表有同名的属性，此属性值相等的元组相连
+例:
+<pre>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">SELECT  S.Sno，Sname，Ssex，Sage，Sdept，Cno，Grade </span><br><span class="line">FROM     S，SC </span><br><span class="line">WHERE  S.Sno = SC.Sno</span><br></pre></td></tr></table></figure>
+
+</pre>
+###自身连接：
+一个表与其自己进行连接,需要给表起别名以示区别,由于所有属性名都是同名属性，因此必须使用别名前缀 
+例:查询每一门课的间接先修课（即先修课的先修课）   
+<pre>   
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">SELECT FIRST.Cno，SECOND.Cpno      </span><br><span class="line">FROM Course FIRST，Course SECOND     </span><br><span class="line">WHERE FIRST.Cpno = SECOND.Cno</span><br></pre></td></tr></table></figure>
+
+</pre>
+
+<p>###外连接:<br>自然连接时，可能会有信息因为失配而在结果中丢失，为避免丢失，可以假定往另一个参与连接的表中附加一个取值全为空值的行，失配的行会和空值行匹配，不至于丢失，称之为外连接。<br> 外连接 = 自然连接 + 失配的元组<br>[例]查询每个学生及其选修课程的情况 </p>
+<pre>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">SELECT Student.Sno，Sname，Ssex，Sage，Sdept，Cno，Grade     </span><br><span class="line">FROM  Student  LEFT OUT JOIN SC ON (Student.Sno=SC.Sno)</span><br></pre></td></tr></table></figure>
+
+</pre>
+###复合条件连接：
+WHERE子句中含多个连接条件 
+例：
+<pre>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">SELECT S.Sno，Sname，Cname，Grade    </span><br><span class="line">FROM S，SC，Course    /*多表连接*/    </span><br><span class="line">WHERE S.Sno = SC.Sno                     </span><br><span class="line">and SC.Cno = Course.Cno；</span><br></pre></td></tr></table></figure>
+
+</pre>
+####FROM S，SC，Course三者做相当于笛卡尔积    
+
+##嵌套查询 
+不相关子查询：子查询的查询条件不依赖于父查询，由里向外 逐层处理。即每个子查询在上一级查询处理 之前求解，子查询的结果用于建立其父查询的查找条件。 
+相关子查询：子查询的查询条件依赖于父查询，首先取外层查询中表的第一个元组，根据它与内层查询相关的属性值处理内层查询，若WHERE子句返回值为真，则取此元组放入结果表 然后再取外层表的下一个元组重复这一过程，直至外层表全部检查完为止。（有点像for循环）
+
+不相关例子：         
+查询与“刘晨”在同一个系学习的学生
+<pre>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">SELECT Sno，Sname，Sdept      </span><br><span class="line">FROM Student     </span><br><span class="line">WHERE Sdept  IN (SELECT Sdept                    </span><br><span class="line">				 FROM Student                    </span><br><span class="line">				 WHERE Sname= ‘ 刘晨 ’);</span><br></pre></td></tr></table></figure>
+
+</pre>
+相关例子：
+找出每个学生超过他选修课程平均成绩的课程号。  
+<pre>  
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">SELECT Sno,Cno     </span><br><span class="line">FROM SC x     /*更名 as可省略*/</span><br><span class="line">WHERE Grade &gt;=(SELECT AVG(Grade)                            </span><br><span class="line">	           FROM  SC y                                    </span><br><span class="line">			   WHERE y.Sno=x.Sno);</span><br></pre></td></tr></table></figure>
+
+</pre>
+###带有ANY（SOME）或ALL谓词的子查询
+ ANY：任意一个值 
+ALL：所有值 
+格式为：表达式   比较运算符  ANY|ALL （子查询）
+例：查询其他系中比计算机科学系所有学生年龄都小 的学生姓名及年龄。 
+<pre>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">SELECT Sname，Sage     </span><br><span class="line">FROM S     </span><br><span class="line">WHERE Sage &lt; ALL (SELECT Sage              </span><br><span class="line">				  FROM S              </span><br><span class="line">				  WHERE Sdept= &apos; CS &apos;)        </span><br><span class="line">      AND Sdept &lt;&gt; &apos; CS ’;</span><br></pre></td></tr></table></figure>
+
+</pre>
+###带有EXISTS谓词的子查询
+例：查询所有选修了1号课程的学生姓名。 
+<pre>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">SELECT Sname      </span><br><span class="line">FROM S      </span><br><span class="line">WHERE EXISTS (SELECT *               </span><br><span class="line">			  FROM SC             </span><br><span class="line">			  WHERE Sno=S.Sno AND Cno= &apos; 1 &apos;);</span><br></pre></td></tr></table></figure>
+
+</pre>
+</列名></列名></列名></列名></列名>
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/10/28/sql basic/" data-id="cjnt0zcia0001t4v3lmd0lclw" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/10/28/sql basic/" data-id="cjnt1d4g300026sv3xpzsrvct" class="article-share-link">Share</a>
       
       
     </footer>
@@ -153,7 +284,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/10/23/hello-world/" data-id="cjnt0zch90000t4v3me5stzou" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/10/23/hello-world/" data-id="cjnt1d4ep00006sv33qw1ijge" class="article-share-link">Share</a>
       
       
     </footer>
