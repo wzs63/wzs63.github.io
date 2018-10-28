@@ -62,6 +62,44 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-new" class="article article-type-post" itemscope="" itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/10/29/new/" class="article-date">
+  <time datetime="2018-10-28T16:12:46.000Z" itemprop="datePublished">2018-10-29</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/10/29/new/">new</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="adsad"><a href="#adsad" class="headerlink" title="adsad"></a>adsad</h2><p>asd<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sad</span><br><span class="line">asd</span><br></pre></td></tr></table></figure></p>
+<p>sad</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2018/10/29/new/" data-id="cjnt31v0n0001esv3q0cv0hbe" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
     <article id="post-sql" class="article article-type-post" itemscope="" itemprop="blogPost">
   <div class="article-meta">
     <a href="/2018/10/29/sql/" class="article-date">
@@ -85,16 +123,20 @@
     <div class="article-entry" itemprop="articleBody">
       
         <hr>
-<h2 id="title-SQL����ѧϰ�򵥵��ܽᣨһ��"><a href="#title-SQL����ѧϰ�򵥵��ܽᣨһ��" class="headerlink" title="title:SQL����ѧϰ�򵥵��ܽᣨһ��"></a>title:SQL����ѧϰ�򵥵��ܽᣨһ��</h2><p>#SQL����ѧϰ�򵥵��ܽᣨһ��</p>
-<p>#���ݿ����</p>
-<p>����һ�������ݿ⣺<br><code>create  database  ���ݿ���</code></p>
-<p>ָ����ǰ���ݿ⣺<br><code>database  ���ݿ���</code><br></p>
-<p>�رյ�ǰ���ݿ⣺<br><code>close  database  ���ݿ���</code><br></p>
-<p>����һ�����ݿ⣺<br><code>drop  database  ���ݿ���</code></p>
+<h2 id="title-SQL基础学习简单的总结（一）"><a href="#title-SQL基础学习简单的总结（一）" class="headerlink" title="title:SQL基础学习简单的总结（一）"></a>title:SQL基础学习简单的总结（一）</h2><h1 id="SQL基础学习简单的总结（一）"><a href="#SQL基础学习简单的总结（一）" class="headerlink" title="SQL基础学习简单的总结（一）"></a>SQL基础学习简单的总结（一）</h1><h1 id="数据库操作"><a href="#数据库操作" class="headerlink" title="数据库操作"></a>数据库操作</h1><p>建立一个新数据库：<br><code>create  database  数据库名</code></p>
+<p>指定当前数据库：<br><code>database  数据库名</code><br></p>
+<p>关闭当前数据库：<br><code>close  database  数据库名</code><br></p>
+<p>撤消一个数据库：<br><code>drop  database  数据库名</code></p>
 <p><br></p>
-<p>#������</p>
-<p>##�������Ķ��壨CREATE��<br>    create  table   ������<br>        ����  ��������  [default  ȱʡֵ]  [not null]<br>        [������ ��������  [default  ȱʡֵ]  [not null]]<br>                          ����<br>        [��primary  key������ [������] ����]<br>        [��foreign  key ������ [������] ���� references  ���� ������ [������] ����]<br>        [��check��������]<br>    )  </p>
-<p>����</p>
+<h1 id="基本表"><a href="#基本表" class="headerlink" title="基本表"></a>基本表</h1><h2 id="基本表的定义（CREATE）"><a href="#基本表的定义（CREATE）" class="headerlink" title="基本表的定义（CREATE）"></a>基本表的定义（CREATE）</h2><pre><code>create  table   表名（       
+    列名  数据类型  [default  缺省值]  [not null]
+    [，列名 数据类型  [default  缺省值]  [not null]] 
+                      ……      
+    [，primary  key（列名 [，列名] …）]       
+    [，foreign  key （列名 [，列名] …） references  表名 （列名 [，列名] …）]       
+    [，check（条件）] 
+)  
+</code></pre><p>例：</p>
 <pre><code>create   table   PROF    
      ( PNO    char(10),      
      PNAME  char(20) not null,     
@@ -104,82 +146,78 @@
      primary key (PNO),     
      foreign key (DNO) references DEPT(DNO),     
      check (SAL &gt; 0))
-</code></pre><p>##�޸Ļ��������壨ALTER��<br>��ʽ�� </p>
-<pre><code>ALTER TABLE &lt;����&gt;
-      [ ADD &lt;������&gt; &lt;��������&gt; [ ������Լ�� ]     --��������        
-      [ DROP &lt;������������Լ����&gt; ]              --ɾ����      
-      [ ALTER COLUMN&lt;����&gt; &lt;��������&gt; ]��        --�޸��ж��� 
-</code></pre><p>##�������������壨drop��<br>��ʽ��</p>
-<p><code>drop  table  ���� ��RESTRICT| CASCADE�ݣ�</code></p>
-<p>RESTRICT��ȱʡ��������������ñ��Ķ�����˱����ܱ�ɾ��<br>CASCADE����ɾ����������ͬʱ����ص���������һ��ɾ�� </p>
+</code></pre><h2 id="修改基本表定义（ALTER）"><a href="#修改基本表定义（ALTER）" class="headerlink" title="修改基本表定义（ALTER）"></a>修改基本表定义（ALTER）</h2><p>格式： </p>
+<pre><code>ALTER TABLE &lt;表名&gt;
+      [ ADD &lt;新列名&gt; &lt;数据类型&gt; [ 完整性约束 ]     --增加新列        
+      [ DROP &lt;列名、完整性约束名&gt; ]              --删除列      
+      [ ALTER COLUMN&lt;列名&gt; &lt;数据类型&gt; ];         --修改列定义 
+</code></pre><h2 id="撤消基本表定义（drop）"><a href="#撤消基本表定义（drop）" class="headerlink" title="撤消基本表定义（drop）"></a>撤消基本表定义（drop）</h2><p>格式：</p>
+<p><code>drop  table  表名 ［RESTRICT| CASCADE］;</code></p>
+<p>RESTRICT：缺省，如果存在依赖该表的对象，则此表不能被删除<br>CASCADE：在删除基本表的同时，相关的依赖对象一起删除 </p>
 <p><br></p>
-<p>#����</p>
-<p>##�����Ķ���<br>��ʽ: </p>
-<pre><code>create  [unique|distinct]  [cluster]  index  ������      
-on  ���� (���� [asc|desc]  [ , ����[asc|desc]]��) 
-</code></pre><p>unique|distinct��Ψһ�����������������в�ͬ������ ��������ȡ��ֵͬ��<br>cluster���ۼ�����������Ԫ�鰴�������ֵ������ ���ؾۼ���һ��һ����������ֻ�ܽ�һ���ۼ�������<br>asc|desc��������������ֵ���������ȱʡΪasc��</p>
-<p>###�������ѯ�����Ͻ����۴���������߲�ѯЧ�ʡ� �������µ��в��˽����۴�������</p>
-<p>##������ɾ��<br>��ʽ��<br><code>drop  index   ������</code></p>
+<h1 id="索引"><a href="#索引" class="headerlink" title="索引"></a>索引</h1><h2 id="索引的定义"><a href="#索引的定义" class="headerlink" title="索引的定义"></a>索引的定义</h2><p>格式: </p>
+<pre><code>create  [unique|distinct]  [cluster]  index  索引名      
+on  表名 (列名 [asc|desc]  [ , 列名[asc|desc]]…) 
+</code></pre><p>unique|distinct：唯一性索引，不允许表中不同的行在 索引列上取相同值。<br>cluster：聚集索引，表中元组按索引项的值排序并物 理地聚集在一起。一个基本表上只能建一个聚集索引。<br>asc|desc：索引表中索引值的排序次序，缺省为asc。</p>
+<h3 id="在最经常查询的列上建立聚簇索引以提高查询效率。-经常更新的列不宜建立聚簇索引。"><a href="#在最经常查询的列上建立聚簇索引以提高查询效率。-经常更新的列不宜建立聚簇索引。" class="headerlink" title="在最经常查询的列上建立聚簇索引以提高查询效率。 经常更新的列不宜建立聚簇索引。"></a>在最经常查询的列上建立聚簇索引以提高查询效率。 经常更新的列不宜建立聚簇索引。</h3><h2 id="索引的删除"><a href="#索引的删除" class="headerlink" title="索引的删除"></a>索引的删除</h2><p>格式：<br><code>drop  index   索引名</code></p>
 <p><br></p>
-<p>#���ݲ�ѯ</p>
-<p>##������ѯ</p>
-<pre><code>SELECT [ALL|DISTINCT] &lt;Ŀ���б���ʽ&gt; [��&lt;Ŀ���б���ʽ&gt;]     �� 
-FROM &lt;��������ͼ��&gt;[�� &lt;��������ͼ��&gt; ] �� 
-[ WHERE &lt;��������ʽ&gt; ] 
-[ GROUP BY &lt;����1&gt; [ HAVING &lt;��������ʽ&gt; ] ] 
-[ ORDER BY &lt;����2&gt; [ ASC|DESC ] ]��
-ALL��ȱʡ����ʾ�����ɾ���ظ���
-DISTINCT����ʾ���ɾ���ظ���
-</code></pre><p>###�������㣺<br><code>old_name as new_name(as��ʡ��)</code></p>
-<p>###Like<br>����ƥ��ģʽ��<br>1��%����ʾ����0�������ַ�����ƥ���������ͺͳ��ȵ��ַ���<br><code>SELECT * FROM [user] WHERE u_name LIKE &#39;k%&#39;</code></p>
-<p>2��_�� ��ʾ���ⵥ���ַ���ƥ�䵥�������ַ������������޶�����ʽ���ַ�������䣺<br><code>SELECT * FROM [user] WHERE u_name LIKE &#39;k_&#39;</code></p>
-<p>3��[ ]����ʾ�����������ַ��е�һ���������������ʽ����ָ��һ���ַ����ַ�����Χ��Ҫ����ƥ�����Ϊ�����е���һ����<br><code>SELECT * FROM [user] WHERE u_name LIKE &#39;[��Ǯ����]С��&#39;</code></p>
-<p>4��[^ ] ����ʾ������������֮�ڵĵ����ַ�����ȡֵ�� [] ��ͬ������Ҫ����ƥ�����Ϊָ���ַ��������һ���ַ���<br><code>SELECT * FROM [user] WHERE u_name LIKE &#39;[^��Ǯ����]С��&#39;</code></p>
-<p>����ת���ַ�����ȥ�������ַ����ض����壬ʹ�䱻��Ϊ��ͨ�ַ�������<br>����\%ȥƥ�� %����\��ȥƥ��ߣ���\ \ȥƥ�� \<br><code>LIKE &#39;DB\ Design&#39; ESCAPE &#39;\&#39;</code><br>ESCAPE ���ܡ� ��ʾ�� �ܡ� Ϊ�����ַ�</p>
-<p>###order by����<br><code>order by    ����   [asc | desc];</code></p>
-<p>���԰�һ����������������<br>����ASC������DESC��ȱʡֵΪ���� </p>
-<p>###�ۼ�������<br>���� COUNT��[DISTINCT|ALL] *�� COUNT��[DISTINCT|ALL] &lt;����&gt;��<br>�����ܺ� SUM��[DISTINCT|ALL] &lt;����&gt;��<br>����ƽ��ֵ AVG��[DISTINCT|ALL] &lt;����&gt;��<br>���ֵ    MAX��[DISTINCT|ALL] &lt;����&gt;��   &gt;<br>��Сֵ    MIN��[DISTINCT|ALL] &lt;����<br>��:����1�ſγ̵�ѧ��ƽ���ɼ���<br><code>SELECT AVG(Grade)           FROM SC           WHERE Cno= &#39; 1 &#39;;</code></p>
-<p>###group by����<br>group by   ����  [having   ��������ʽ]<br>group by�����е�Ԫ�鰴ָ��һ�л�����ϵ�ֵ��ȵ� ԭ����飬Ȼ����ÿһ������ʹ�þۼ��������õ���һֵ��<br>having��Է������ѡ��ֻ���ۼ��������õ����������ķ����ϡ�<br>�����г����пγ̾����� ��ѧ����ƽ���ɼ���     </p>
-<pre><code>select SNO��avg(SCORE) 
+<h1 id="数据查询"><a href="#数据查询" class="headerlink" title="数据查询"></a>数据查询</h1><h2 id="单表查询"><a href="#单表查询" class="headerlink" title="单表查询"></a>单表查询</h2><pre><code>SELECT [ALL|DISTINCT] &lt;目标列表达式&gt; [，&lt;目标列表达式&gt;]     … 
+FROM &lt;表名或视图名&gt;[， &lt;表名或视图名&gt; ] … 
+[ WHERE &lt;条件表达式&gt; ] 
+[ GROUP BY &lt;列名1&gt; [ HAVING &lt;条件表达式&gt; ] ] 
+[ ORDER BY &lt;列名2&gt; [ ASC|DESC ] ];
+ALL：缺省，显示结果不删除重复行
+DISTINCT：显示结果删除重复行
+</code></pre><h3 id="更名运算："><a href="#更名运算：" class="headerlink" title="更名运算："></a>更名运算：</h3><p><code>old_name as new_name(as可省略)</code></p>
+<h3 id="Like"><a href="#Like" class="headerlink" title="Like"></a>Like</h3><p>四种匹配模式：<br>1、%：表示任意0个或多个字符。可匹配任意类型和长度的字符。<br><code>SELECT * FROM [user] WHERE u_name LIKE &#39;k%&#39;</code></p>
+<p>2、_： 表示任意单个字符。匹配单个任意字符，它常用来限定表达式的字符长度语句：<br><code>SELECT * FROM [user] WHERE u_name LIKE &#39;k_&#39;</code></p>
+<p>3、[ ]：表示括号内所列字符中的一个（类似正则表达式）。指定一个字符、字符串或范围，要求所匹配对象为它们中的任一个。<br><code>SELECT * FROM [user] WHERE u_name LIKE &#39;[赵钱孙李]小明&#39;</code></p>
+<p>4、[^ ] ：表示不在括号所列之内的单个字符。其取值和 [] 相同，但它要求所匹配对象为指定字符以外的任一个字符。<br><code>SELECT * FROM [user] WHERE u_name LIKE &#39;[^赵钱孙李]小明&#39;</code></p>
+<p>定义转义字符，以去掉特殊字符的特定含义，使其被作为普通字符看待。<br>可用\%去匹配 %，用\＿去匹配＿，用\ \去匹配 \<br><code>LIKE &#39;DB\ Design&#39; ESCAPE &#39;\&#39;</code><br>ESCAPE ‘＼’ 表示“ ＼” 为换码字符</p>
+<h3 id="order-by排序"><a href="#order-by排序" class="headerlink" title="order by排序"></a>order by排序</h3><p><code>order by    列名   [asc | desc];</code></p>
+<p>可以按一个或多个属性列排序<br>升序：ASC 降序：DESC 缺省值为升序 </p>
+<h3 id="聚集函数："><a href="#聚集函数：" class="headerlink" title="聚集函数："></a>聚集函数：</h3><p>计数 COUNT（[DISTINCT|ALL] *） COUNT（[DISTINCT|ALL] &lt;列名&gt;）<br>计算总和 SUM（[DISTINCT|ALL] &lt;列名&gt;）<br>计算平均值 AVG（[DISTINCT|ALL] &lt;列名&gt;）<br>最大值    MAX（[DISTINCT|ALL] &lt;列名&gt;）   &gt;<br>最小值    MIN（[DISTINCT|ALL] &lt;列名<br>例:计算1号课程的学生平均成绩。<br><code>SELECT AVG(Grade)           FROM SC           WHERE Cno= &#39; 1 &#39;;</code></p>
+<h3 id="group-by分组"><a href="#group-by分组" class="headerlink" title="group by分组"></a>group by分组</h3><p><code>group by   列名  [having   条件表达式]</code><br>group by将表中的元组按指定一列或多列上的值相等的 原则分组，然后在每一分组上使用聚集函数，得到单一值。<br>having则对分组进行选择，只将聚集函数作用到满足条件的分组上。<br>例：列出所有课程均及格 的学生的平均成绩。     </p>
+<pre><code>select SNO，avg(SCORE) 
 from SC   
 group by SNO  
 having min(SCORE) &gt;= 60
-</code></pre><p>##���Ӳ�ѯ </p>
-<p>###��Ȼ���ӣ�<br>��������ͬ�������ԣ�������ֵ��ȵ�Ԫ������<br>��:<br>    SELECT  S.Sno��Sname��Ssex��Sage��Sdept��Cno��Grade FROM     S��SC<br>    WHERE  S.Sno = SC.Sno</p>
-<p>###�������ӣ�<br>һ���������Լ���������,��Ҫ�����������ʾ����,������������������ͬ�����ԣ���˱���ʹ�ñ���ǰ׺<br>��:��ѯÿһ�ſεļ�����޿Σ������޿ε����޿Σ�   </p>
-<pre><code>SELECT FIRST.Cno��SECOND.Cpno      
-FROM Course FIRST��Course SECOND     
+</code></pre><h2 id="连接查询"><a href="#连接查询" class="headerlink" title="连接查询"></a>连接查询</h2><h3 id="自然连接："><a href="#自然连接：" class="headerlink" title="自然连接："></a>自然连接：</h3><p>两个表有同名的属性，此属性值相等的元组相连<br>例:</p>
+<pre><code>SELECT  S.Sno，Sname，Ssex，Sage，Sdept，Cno，Grade FROM     S，SC 
+WHERE  S.Sno = SC.Sno
+</code></pre><h3 id="自身连接："><a href="#自身连接：" class="headerlink" title="自身连接："></a>自身连接：</h3><p>一个表与其自己进行连接,需要给表起别名以示区别,由于所有属性名都是同名属性，因此必须使用别名前缀<br>例:查询每一门课的间接先修课（即先修课的先修课）   </p>
+<pre><code>SELECT FIRST.Cno，SECOND.Cpno      
+FROM Course FIRST，Course SECOND     
 WHERE FIRST.Cpno = SECOND.Cno 
-</code></pre><p>###������:<br>��Ȼ����ʱ�����ܻ�����Ϣ��Ϊʧ����ڽ���ж�ʧ��Ϊ���ⶪʧ�����Լٶ�����һ���������ӵı��и���һ��ȡֵȫΪ��ֵ���У�ʧ����л�Ϳ�ֵ��ƥ�䣬�����ڶ�ʧ����֮Ϊ�����ӡ�<br> ������ = ��Ȼ���� + ʧ���Ԫ��<br>[��]��ѯÿ��ѧ������ѡ�޿γ̵���� </p>
-<pre><code>SELECT Student.Sno��Sname��Ssex��Sage��Sdept��Cno��Grade     
-FROM  Student  LEFT OUT JOIN SC ON (Student.Sno=SC.Sno)
-</code></pre><p>###�����������ӣ�<br>WHERE�Ӿ��к������������<br>����</p>
-<pre><code>SELECT S.Sno��Sname��Cname��Grade    
-FROM S��SC��Course    /*�������*/    
+</code></pre><h3 id="外连接"><a href="#外连接" class="headerlink" title="外连接:"></a>外连接:</h3><p>自然连接时，可能会有信息因为失配而在结果中丢失，为避免丢失，可以假定往另一个参与连接的表中附加一个取值全为空值的行，失配的行会和空值行匹配，不至于丢失，称之为外连接。<br> 外连接 = 自然连接 + 失配的元组<br>例:查询每个学生及其选修课程的情况 </p>
+<pre><code>SELECT Student.Sno，Sname，Ssex，Sage，Sdept，Cno，Grade     
+FROM  Student  LEFT OUT JOIN SC ON (Student.Sno=SC.Sno);
+</code></pre><h3 id="复合条件连接："><a href="#复合条件连接：" class="headerlink" title="复合条件连接："></a>复合条件连接：</h3><p>WHERE子句中含多个连接条件<br>例：</p>
+<pre><code>SELECT S.Sno，Sname，Cname，Grade    
+FROM S，SC，Course    /*多表连接*/    
 WHERE S.Sno = SC.Sno                     
-and SC.Cno = Course.Cno��
-</code></pre><p>####FROM S��SC��Course�������൱�ڵѿ�����    </p>
-<p>##Ƕ�ײ�ѯ<br>������Ӳ�ѯ���Ӳ�ѯ�Ĳ�ѯ�����������ڸ���ѯ���������� ��㴦������ÿ���Ӳ�ѯ����һ����ѯ���� ֮ǰ��⣬�Ӳ�ѯ�Ľ�����ڽ����丸��ѯ�Ĳ���������<br>����Ӳ�ѯ���Ӳ�ѯ�Ĳ�ѯ���������ڸ���ѯ������ȡ����ѯ�б��ĵ�һ��Ԫ�飬���������ڲ��ѯ��ص�����ֵ�����ڲ��ѯ����WHERE�Ӿ䷵��ֵΪ�棬��ȡ��Ԫ��������� Ȼ����ȡ��������һ��Ԫ���ظ���һ���̣�ֱ������ȫ�������Ϊֹ�����е���forѭ����</p>
-<p>��������ӣ�<br>��ѯ�롰��������ͬһ��ϵѧϰ��ѧ��</p>
-<pre><code>SELECT Sno��Sname��Sdept      
+and SC.Cno = Course.Cno;
+</code></pre><h4 id="FROM-S，SC，Course三者做相当于笛卡尔积"><a href="#FROM-S，SC，Course三者做相当于笛卡尔积" class="headerlink" title="FROM S，SC，Course三者做相当于笛卡尔积"></a>FROM S，SC，Course三者做相当于笛卡尔积</h4><h2 id="嵌套查询"><a href="#嵌套查询" class="headerlink" title="嵌套查询"></a>嵌套查询</h2><p>不相关子查询：子查询的查询条件不依赖于父查询，由里向外 逐层处理。即每个子查询在上一级查询处理 之前求解，子查询的结果用于建立其父查询的查找条件。<br>相关子查询：子查询的查询条件依赖于父查询，首先取外层查询中表的第一个元组，根据它与内层查询相关的属性值处理内层查询，若WHERE子句返回值为真，则取此元组放入结果表 然后再取外层表的下一个元组重复这一过程，直至外层表全部检查完为止。（有点像for循环）</p>
+<p>不相关例子：<br>查询与“刘晨”在同一个系学习的学生</p>
+<pre><code>SELECT Sno，Sname，Sdept      
 FROM Student     
 WHERE Sdept  IN (SELECT Sdept                    
                  FROM Student                    
-                 WHERE Sname= �� ���� ��);
-</code></pre><p>������ӣ�<br>�ҳ�ÿ��ѧ��������ѡ�޿γ�ƽ���ɼ��Ŀγ̺š�  </p>
+                 WHERE Sname= ‘ 刘晨 ’);
+</code></pre><p>相关例子：<br>找出每个学生超过他选修课程平均成绩的课程号。  </p>
 <pre><code>SELECT Sno,Cno     
-FROM SC x     /*���� as��ʡ��*/
+FROM SC x     /*更名 as可省略*/
 WHERE Grade &gt;=(SELECT AVG(Grade)                            
                FROM  SC y                                    
                WHERE y.Sno=x.Sno);
-</code></pre><p>###����ANY��SOME����ALLν�ʵ��Ӳ�ѯ<br>ANY������һ��ֵ<br>ALL������ֵ<br>��ʽΪ������ʽ   �Ƚ������  ANY|ALL ���Ӳ�ѯ��<br>������ѯ����ϵ�бȼ������ѧϵ����ѧ�����䶼С ��ѧ�����������䡣 </p>
-<pre><code>SELECT Sname��Sage     
+</code></pre><h3 id="带有ANY（SOME）或ALL谓词的子查询"><a href="#带有ANY（SOME）或ALL谓词的子查询" class="headerlink" title="带有ANY（SOME）或ALL谓词的子查询"></a>带有ANY（SOME）或ALL谓词的子查询</h3><p>ANY：任意一个值<br>ALL：所有值<br>格式为：表达式   比较运算符  ANY|ALL （子查询）<br>例：查询其他系中比计算机科学系所有学生年龄都小 的学生姓名及年龄。 </p>
+<pre><code>SELECT Sname，Sage     
 FROM S     
 WHERE Sage &lt; ALL (SELECT Sage              
                   FROM S              
                   WHERE Sdept= &apos; CS &apos;)        
-      AND Sdept &lt;&gt; &apos; CS ��;
-</code></pre><p>###����EXISTSν�ʵ��Ӳ�ѯ<br>������ѯ����ѡ����1�ſγ̵�ѧ�������� </p>
+      AND Sdept &lt;&gt; &apos; CS ’;
+</code></pre><h3 id="带有EXISTS谓词的子查询"><a href="#带有EXISTS谓词的子查询" class="headerlink" title="带有EXISTS谓词的子查询"></a>带有EXISTS谓词的子查询</h3><p>例：查询所有选修了1号课程的学生姓名。 </p>
 <pre><code>SELECT Sname      
 FROM S      
 WHERE EXISTS (SELECT *               
@@ -189,7 +227,7 @@ WHERE EXISTS (SELECT *
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/10/29/sql/" data-id="cjnt2itnr00017ov3yvmq9eoc" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/10/29/sql/" data-id="cjnt31v1b0003esv3impf8y2q" class="article-share-link">Share</a>
       
       
     </footer>
@@ -234,7 +272,7 @@ WHERE EXISTS (SELECT *
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/10/23/hello-world/" data-id="cjnt2itne00007ov396gzicvw" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/10/23/hello-world/" data-id="cjnt31v0g0000esv3k4gn4ad7" class="article-share-link">Share</a>
       
       
     </footer>
@@ -273,6 +311,10 @@ WHERE EXISTS (SELECT *
     <h3 class="widget-title">Recent Posts</h3>
     <div class="widget">
       <ul>
+        
+          <li>
+            <a href="/2018/10/29/new/">new</a>
+          </li>
         
           <li>
             <a href="/2018/10/29/sql/">sql</a>
