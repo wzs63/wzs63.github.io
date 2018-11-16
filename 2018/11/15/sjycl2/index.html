@@ -79,21 +79,21 @@
 
 
 
-<meta name="description" content="下载对公众开放的安然(Enron)公司的电子邮件数据集。下载地址：      http://www.ahschulz.de/enron-email-data/；  ####将数据导入数据库（message表含有date字段表示发送邮件时间。Mid表示编号），根据date进行分组，统计每一组的mid的数量（即这一天邮箱数量）。 执行以下SQL语句，将每天/每周（换为weekofyear即可）数据导入">
+<meta name="description" content="下载对公众开放的安然(Enron)公司的电子邮件数据集。下载地址：      http://www.ahschulz.de/enron-email-data/；  将数据导入数据库（message表含有date字段表示发送邮件时间。Mid表示编号），根据date进行分组，统计每一组的mid的数量（即这一天邮箱数量）。执行以下SQL语句，将每天/每周（换为weekofyear即可）数据导入Excel">
 <meta property="og:type" content="article">
 <meta property="og:title" content="数据统计每一天&#x2F;每一周发邮件的数量，并用可视化软件实现可视化。">
 <meta property="og:url" content="http://yoursite.com/2018/11/15/sjycl2/index.html">
 <meta property="og:site_name" content="hello">
-<meta property="og:description" content="下载对公众开放的安然(Enron)公司的电子邮件数据集。下载地址：      http://www.ahschulz.de/enron-email-data/；  ####将数据导入数据库（message表含有date字段表示发送邮件时间。Mid表示编号），根据date进行分组，统计每一组的mid的数量（即这一天邮箱数量）。 执行以下SQL语句，将每天/每周（换为weekofyear即可）数据导入">
+<meta property="og:description" content="下载对公众开放的安然(Enron)公司的电子邮件数据集。下载地址：      http://www.ahschulz.de/enron-email-data/；  将数据导入数据库（message表含有date字段表示发送邮件时间。Mid表示编号），根据date进行分组，统计每一组的mid的数量（即这一天邮箱数量）。执行以下SQL语句，将每天/每周（换为weekofyear即可）数据导入Excel">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="https://i.imgur.com/I5AiVNb.png">
 <meta property="og:image" content="https://i.imgur.com/AP2nlN9.png">
 <meta property="og:image" content="https://i.imgur.com/WyfxjD7.png">
 <meta property="og:image" content="https://i.imgur.com/SYfhV9r.png">
-<meta property="og:updated_time" content="2018-11-15T14:25:04.413Z">
+<meta property="og:updated_time" content="2018-11-16T05:41:17.026Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="数据统计每一天&#x2F;每一周发邮件的数量，并用可视化软件实现可视化。">
-<meta name="twitter:description" content="下载对公众开放的安然(Enron)公司的电子邮件数据集。下载地址：      http://www.ahschulz.de/enron-email-data/；  ####将数据导入数据库（message表含有date字段表示发送邮件时间。Mid表示编号），根据date进行分组，统计每一组的mid的数量（即这一天邮箱数量）。 执行以下SQL语句，将每天/每周（换为weekofyear即可）数据导入">
+<meta name="twitter:description" content="下载对公众开放的安然(Enron)公司的电子邮件数据集。下载地址：      http://www.ahschulz.de/enron-email-data/；  将数据导入数据库（message表含有date字段表示发送邮件时间。Mid表示编号），根据date进行分组，统计每一组的mid的数量（即这一天邮箱数量）。执行以下SQL语句，将每天/每周（换为weekofyear即可）数据导入Excel">
 <meta name="twitter:image" content="https://i.imgur.com/I5AiVNb.png">
 
 
@@ -139,6 +139,17 @@
 
 
 
+
+<!-- Global site tag (gtag.js) - Google Analytics -->
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-129305475-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-129305475-1');
+</script>
 
 </head>
 
@@ -367,12 +378,11 @@
 
       
         <p>下载对公众开放的安然(Enron)公司的电子邮件数据集。<br>下载地址：<br>      <a href="http://www.ahschulz.de/enron-email-data/；" target="_blank" rel="noopener">http://www.ahschulz.de/enron-email-data/；</a> </p>
-<p>####将数据导入数据库（message表含有date字段表示发送邮件时间。Mid表示编号），根据date进行分组，统计每一组的mid的数量（即这一天邮箱数量）。</p>
-<p>执行以下SQL语句，将每天/每周（换为weekofyear即可）数据导入Excel（因为之后利用plot.ly进行数据可视化时感觉CSV格式更方便些）</p>
+<h4 id="将数据导入数据库（message表含有date字段表示发送邮件时间。Mid表示编号），根据date进行分组，统计每一组的mid的数量（即这一天邮箱数量）。"><a href="#将数据导入数据库（message表含有date字段表示发送邮件时间。Mid表示编号），根据date进行分组，统计每一组的mid的数量（即这一天邮箱数量）。" class="headerlink" title="将数据导入数据库（message表含有date字段表示发送邮件时间。Mid表示编号），根据date进行分组，统计每一组的mid的数量（即这一天邮箱数量）。"></a>将数据导入数据库（message表含有date字段表示发送邮件时间。Mid表示编号），根据date进行分组，统计每一组的mid的数量（即这一天邮箱数量）。</h4><p>执行以下SQL语句，将每天/每周（换为weekofyear即可）数据导入Excel（因为之后利用plot.ly进行数据可视化时感觉CSV格式更方便些）</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">select date,count(mid) from message group by dayofyear(date) </span><br><span class="line">                                into outfile &quot;F:\day_apps.csv&quot;</span><br><span class="line">                                FIELDS TERMINATED BY &apos;,&apos;;</span><br></pre></td></tr></table></figure>
-<p>####（注：FIELDS TERMINATED BY ‘,’;  靠‘，’分隔字段，如果没有这个语句date和count（mid）数据会导入到一个格子中）<br>数据库中分组查看结果：<br>每天：<br><img src="https://i.imgur.com/I5AiVNb.png" alt=""><br><br><br>每周：<br><img src="https://i.imgur.com/AP2nlN9.png" alt=""></p>
+<h4 id="（注：FIELDS-TERMINATED-BY-‘-’-靠‘，’分隔字段，如果没有这个语句date和count（mid）数据会导入到一个格子中）"><a href="#（注：FIELDS-TERMINATED-BY-‘-’-靠‘，’分隔字段，如果没有这个语句date和count（mid）数据会导入到一个格子中）" class="headerlink" title="（注：FIELDS TERMINATED BY ‘,’;  靠‘，’分隔字段，如果没有这个语句date和count（mid）数据会导入到一个格子中）"></a>（注：FIELDS TERMINATED BY ‘,’;  靠‘，’分隔字段，如果没有这个语句date和count（mid）数据会导入到一个格子中）</h4><p>数据库中分组查看结果：<br>每天：<br><img src="https://i.imgur.com/I5AiVNb.png" alt=""><br><br><br>每周：<br><img src="https://i.imgur.com/AP2nlN9.png" alt=""></p>
 <p><br></p>
-<p>###利用plot.ly进行数据可视化<br>每天的发送邮件统计：<br><img src="https://i.imgur.com/WyfxjD7.png" alt=""><br>每周的发送邮件统计：<br><img src="https://i.imgur.com/SYfhV9r.png" alt=""></p>
+<h3 id="利用plot-ly进行数据可视化"><a href="#利用plot-ly进行数据可视化" class="headerlink" title="利用plot.ly进行数据可视化"></a>利用plot.ly进行数据可视化</h3><p>每天的发送邮件统计：<br><img src="https://i.imgur.com/WyfxjD7.png" alt=""><br>每周的发送邮件统计：<br><img src="https://i.imgur.com/SYfhV9r.png" alt=""></p>
 
       
     </div>
@@ -457,8 +467,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
             
@@ -502,6 +521,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#将数据导入数据库（message表含有date字段表示发送邮件时间。Mid表示编号），根据date进行分组，统计每一组的mid的数量（即这一天邮箱数量）。"><span class="nav-number">1.</span> <span class="nav-text">将数据导入数据库（message表含有date字段表示发送邮件时间。Mid表示编号），根据date进行分组，统计每一组的mid的数量（即这一天邮箱数量）。</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#（注：FIELDS-TERMINATED-BY-‘-’-靠‘，’分隔字段，如果没有这个语句date和count（mid）数据会导入到一个格子中）"><span class="nav-number">2.</span> <span class="nav-text">（注：FIELDS TERMINATED BY ‘,’;  靠‘，’分隔字段，如果没有这个语句date和count（mid）数据会导入到一个格子中）</span></a></li></ol><li class="nav-item nav-level-3"><a class="nav-link" href="#利用plot-ly进行数据可视化"><span class="nav-number"></span> <span class="nav-text">利用plot.ly进行数据可视化</span></a></li></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
