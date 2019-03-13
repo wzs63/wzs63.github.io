@@ -79,17 +79,17 @@
 
 
 
-<meta name="description" content="java对关系数据库的支持是通过JDBC(Java DateBase Connectivity)API来提供的。 JDBC的使用分为以下几个步骤：一、初始化驱动1234567891011try &amp;#123;		//以连接mysql为例           Class.forName(&amp;quot;com.mysql.jdbc.Driver&amp;quot;);           //若要连接SqlSer">
+<meta name="description" content="java对关系数据库的支持是通过JDBC(Java DateBase Connectivity)API来提供的。 2018.12.14修改：SqlServer连接时：“jdbc:sqlserver://localhost:1433;DatabaseName=数据库名,与MySQL连接不同（不仅仅是端口号）。 JDBC的使用分为以下几个步骤：一、初始化驱动1234567891011try &amp;#123">
 <meta property="og:type" content="article">
 <meta property="og:title" content="JDBC总结">
 <meta property="og:url" content="http://yoursite.com/2018/11/26/JDBC/index.html">
 <meta property="og:site_name" content="hello">
-<meta property="og:description" content="java对关系数据库的支持是通过JDBC(Java DateBase Connectivity)API来提供的。 JDBC的使用分为以下几个步骤：一、初始化驱动1234567891011try &amp;#123;		//以连接mysql为例           Class.forName(&amp;quot;com.mysql.jdbc.Driver&amp;quot;);           //若要连接SqlSer">
+<meta property="og:description" content="java对关系数据库的支持是通过JDBC(Java DateBase Connectivity)API来提供的。 2018.12.14修改：SqlServer连接时：“jdbc:sqlserver://localhost:1433;DatabaseName=数据库名,与MySQL连接不同（不仅仅是端口号）。 JDBC的使用分为以下几个步骤：一、初始化驱动1234567891011try &amp;#123">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-11-26T13:36:38.736Z">
+<meta property="og:updated_time" content="2019-03-13T13:22:20.713Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="JDBC总结">
-<meta name="twitter:description" content="java对关系数据库的支持是通过JDBC(Java DateBase Connectivity)API来提供的。 JDBC的使用分为以下几个步骤：一、初始化驱动1234567891011try &amp;#123;		//以连接mysql为例           Class.forName(&amp;quot;com.mysql.jdbc.Driver&amp;quot;);           //若要连接SqlSer">
+<meta name="twitter:description" content="java对关系数据库的支持是通过JDBC(Java DateBase Connectivity)API来提供的。 2018.12.14修改：SqlServer连接时：“jdbc:sqlserver://localhost:1433;DatabaseName=数据库名,与MySQL连接不同（不仅仅是端口号）。 JDBC的使用分为以下几个步骤：一、初始化驱动1234567891011try &amp;#123">
 
 
 
@@ -345,6 +345,28 @@
           </span>
 
           
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
+                  <a href="/categories/java/" itemprop="url" rel="index">
+                    <span itemprop="name">java</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
 
           
             
@@ -373,6 +395,7 @@
 
       
         <p>java对关系数据库的支持是通过JDBC(Java DateBase Connectivity)API来提供的。</p>
+<p>2018.12.14修改：<br>SqlServer连接时：<br>“jdbc:sqlserver://localhost:1433;DatabaseName=数据库名,<br>与MySQL连接不同（不仅仅是端口号）。</p>
 <h1 id="JDBC的使用分为以下几个步骤："><a href="#JDBC的使用分为以下几个步骤：" class="headerlink" title="JDBC的使用分为以下几个步骤："></a>JDBC的使用分为以下几个步骤：</h1><h2 id="一、初始化驱动"><a href="#一、初始化驱动" class="headerlink" title="一、初始化驱动"></a>一、初始化驱动</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">try &#123;</span><br><span class="line">		//以连接mysql为例</span><br><span class="line">           Class.forName(&quot;com.mysql.jdbc.Driver&quot;);</span><br><span class="line">           //若要连接SqlServer，对应初始化驱动类为&quot;com.microsoft.sqlserver.jdbc.SQLServerDriver&quot; </span><br><span class="line">		//若是Oracle数据库，则为&quot;oracle.jdbc.driver.OracleDriver&quot;</span><br><span class="line">           //数据库驱动加载成功 </span><br><span class="line">  </span><br><span class="line">       &#125; catch (ClassNotFoundException e) &#123;</span><br><span class="line">           // TODO Auto-generated catch block</span><br><span class="line">           e.printStackTrace();</span><br><span class="line">       &#125;</span><br></pre></td></tr></table></figure>
 <p>初始化驱动类com.mysql.jdbc.Driver在相关包中,若未引入包，Class.forName(“com.mysql.jdbc.Driver”)会抛出ClassNotFoundException异常。</p>
 <h2 id="二、建立数据库连接"><a href="#二、建立数据库连接" class="headerlink" title="二、建立数据库连接"></a>二、建立数据库连接</h2><p>连接需要提供以下信息：<br>DBMS服务器所运行的机器的<strong>主机名</strong>:127.0.0.1或者localhost (本机)，<br>数据库的<strong>端口号</strong>，用来侦听进入的连接： 3306 （mysql专用端口号）或者1433（SqlServer专用端口号）,或者1521（Oracle专用端口号），<br>希望连接的<strong>数据库名称</strong>，<br><strong>编码方式</strong>，如UTF-8（可选），<br><strong>账号 </strong>，<br><strong>密码 </strong>。</p>
@@ -511,6 +534,15 @@
             
 
             
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">3</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
 
             
 
@@ -562,7 +594,7 @@
     <footer id="footer" class="footer">
       <div class="footer-inner">
         ﻿<script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
-<div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+<div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
   <span class="with-love">
     <i class="fa fa-user"></i>
   </span>
