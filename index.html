@@ -302,6 +302,429 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/03/16/SSM项目的配置和整体结构的总结/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="wzs63">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/image/01.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="hello">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/03/16/SSM项目的配置和整体结构的总结/" itemprop="url">SSM项目的配置和整体结构的总结</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-03-16T11:32:14+08:00">
+                2019-03-16
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
+                  <a href="/categories/Java-Web/" itemprop="url" rel="index">
+                    <span itemprop="name">Java Web</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>##Spring<br>Spring就像是整个项目中装配bean的大工厂，在配置文件中可以指定使用特定的参数去调用实体类的构造方法来实例化对象。也可以称之为项目中的粘合剂。<br>Spring的核心思想是IoC（控制反转），即不再需要程序员去显式地<code>new</code>一个对象，而是让Spring框架帮你来完成这一切。</p>
+<p>##SpringMVC<br>SpringMVC在项目中拦截用户请求，它的核心Servlet即DispatcherServlet承担中介或是前台这样的职责，将用户请求通过HandlerMapping去匹配Controller，Controller就是具体对应请求所执行的操作。</p>
+<p>##mybatis<br>mybatis是对jdbc的封装，它让数据库底层操作变的透明。mybatis的操作都是围绕一个sqlSessionFactory实例展开的。mybatis通过配置文件关联到各实体类的Mapper文件，Mapper文件中配置了每个类对数据库所需进行的sql语句映射。在每次与数据库交互时，通过sqlSessionFactory拿到一个sqlSession，再执行sql命令。<br>页面发送请求给控制器，控制器调用业务层处理逻辑，逻辑层向持久层发送请求，持久层与数据库交互，后将结果返回给业务层，业务层将处理逻辑发送给控制器，控制器再调用视图展现数据。</p>
+<p>##关于配置：</p>
+<p>###applicationContext.xml:<br>设置连接数据库用的驱动，数据库名称，编码方式，账号密码。</p>
+<pre><code>&lt;bean id=&quot;dataSource&quot;  class=&quot;org.springframework.jdbc.datasource.DriverManagerDataSource&quot;&gt; &lt;!--设置连接数据库用的驱动，数据库名称，编码方式，账号密码--&gt;
+      &lt;property name=&quot;driverClassName&quot;&gt;  
+          &lt;value&gt;com.mysql.jdbc.Driver&lt;/value&gt;  
+      &lt;/property&gt;  
+      &lt;property name=&quot;url&quot;&gt;  
+           &lt;value&gt;jdbc:mysql://127.0.0.1:3306/sjkdzy?characterEncoding=UTF-8&lt;/value&gt;  
+      &lt;/property&gt;  
+      &lt;property name=&quot;username&quot;&gt;  
+          &lt;value&gt;root&lt;/value&gt;  
+      &lt;/property&gt;  
+      &lt;property name=&quot;password&quot;&gt;  
+          &lt;value&gt;123456&lt;/value&gt;  
+      &lt;/property&gt;    
+&lt;/bean&gt;
+</code></pre><p>设置别名，自动扫描pojo下的类型，使得在后续配置文件xml中可以直接使用简单的别名，要不得写全名pojo.类名</p>
+<pre><code>&lt;bean id=&quot;sqlSession&quot;  class=&quot;org.mybatis.spring.SqlSessionFactoryBean&quot;&gt;
+     &lt;property name=&quot;typeAliasesPackage&quot;  value=&quot;pojo&quot;/&gt;&lt;!--设置别名，自动扫描pojo下的类型，使得在后续配置文件xml中可以直接使用简单的别名，要不得写全名pojo.类名--&gt;
+     &lt;property name=&quot;dataSource&quot;  ref=&quot;dataSource&quot;/&gt;&lt;!-- 对应上面配置的dataSource --&gt;
+     &lt;property name=&quot;mapperLocations&quot;  value=&quot;classpath:mapper/*.xml&quot;/&gt;&lt;!--指明映射xml的位置--&gt;
+&lt;/bean&gt;
+</code></pre><p>指定自动扫描的mapper接口的包的位置</p>
+<pre><code>&lt;bean  class=&quot;org.mybatis.spring.mapper.MapperScannerConfigurer&quot;&gt;
+     &lt;property name=&quot;basePackage&quot;  value=&quot;mapper&quot;/&gt;&lt;!-- 扫描mapper类 --&gt;
+&lt;/bean&gt;
+</code></pre><p>###springMVC.xml:</p>
+<p>设置自动扫描的controller，以便于用注解的方法表明哪些类是controller。</p>
+<pre><code>&lt;context:component-scan base-package=&quot;controller&quot;&gt;
+      &lt;context:include-filter type=&quot;annotation&quot;
+       expression=&quot;org.springframework.stereotype.Controller&quot;/&gt;
+&lt;/context:component-scan&gt;
+</code></pre><p>开启注解</p>
+<pre><code>&lt;mvc:annotation-driven /&gt;
+</code></pre><p> 设置jsp的默认路径，之后controller转的时候可以直接写jsp名，</p>
+<pre><code>&lt;bean
+         class=&quot;org.springframework.web.servlet.view.InternalResourceViewResolver&quot;&gt;
+        &lt;property name=&quot;viewClass&quot;
+             value=&quot;org.springframework.web.servlet.view.JstlView&quot; /&gt;
+        &lt;property name=&quot;prefix&quot;  value=&quot;/WEB-INF/jsp/&quot; /&gt;
+        &lt;property name=&quot;suffix&quot; value=&quot;.jsp&quot; /&gt;
+    &lt;/bean&gt;
+</code></pre><p>开放对上传功能的支持，我们的项目有上传头像的功能</p>
+<pre><code>&lt;bean id=&quot;multipartResolver&quot;  class=&quot;org.springframework.web.multipart.commons.CommonsMultipartResolver&quot;/&gt;
+</code></pre><p>###Web.xml:<br>配置spring</p>
+<pre><code>&lt;context-param&gt;
+     &lt;param-name&gt;contextConfigLocation&lt;/param-name&gt;
+     &lt;param-value&gt;classpath:applicationContext.xml&lt;/param-value&gt;
+&lt;/context-param&gt;
+</code></pre><p>解决中文问题的过滤器</p>
+<pre><code>&lt;filter&gt;
+     &lt;filter-name&gt;SetCharacterEncodingFilter&lt;/filter-name&gt;
+    &lt;!-- 过滤器设置编码文件 --&gt;
+     &lt;filter-class&gt;filter.SetCharacterEncodingFilter&lt;/filter-class&gt;
+    &lt;init-param&gt;
+        &lt;!-- init-param元素定义了过滤器的初始化参数--&gt;
+        &lt;description&gt;给参数和值设置名称和编码类型&lt;/description&gt;
+        &lt;param-name&gt;encode&lt;/param-name&gt;
+        &lt;param-value&gt;utf-8&lt;/param-value&gt;
+    &lt;/init-param&gt;
+&lt;/filter&gt;
+&lt;filter-mapping&gt;
+    &lt;!--  filter-mapping告诉容器所有与模式向匹配的请求都应该允许通过访问控制过滤器。
+            所有以.action结尾的访问都先通过过滤器文件过滤 --&gt;
+     &lt;filter-name&gt;SetCharacterEncodingFilter&lt;/filter-name&gt;
+    &lt;url-pattern&gt;*.do&lt;/url-pattern&gt;
+&lt;/filter-mapping&gt;
+</code></pre><p>配置springmvc</p>
+<pre><code>&lt;servlet&gt;
+     &lt;servlet-name&gt;mvc-dispatcher&lt;/servlet-name&gt;
+     &lt;servlet-class&gt;org.springframework.web.servlet.DispatcherServlet&lt;/servlet-class&gt;
+     &lt;!-- spring mvc的配置文件 --&gt;
+     &lt;init-param&gt;
+         &lt;param-name&gt;contextConfigLocation&lt;/param-name&gt;
+         &lt;param-value&gt;classpath:springMVC.xml&lt;/param-value&gt;
+     &lt;/init-param&gt;
+     &lt;load-on-startup&gt;1&lt;/load-on-startup&gt;
+&lt;/servlet&gt;
+&lt;servlet-mapping&gt;
+     &lt;servlet-name&gt;mvc-dispatcher&lt;/servlet-name&gt;
+     &lt;url-pattern&gt;*.do&lt;/url-pattern&gt;
+&lt;/servlet-mapping&gt;
+</code></pre><hr>
+<p>##全部的结构<br><img src="https://i.imgur.com/820anO0.png" alt=""></p>
+<p>###Controller：接收相应请求，执行相应方法，并转到相应页面<br>以UserController为例：<br>先用注解声明是 UserController一个Controller我们拦截所有.do的请求，UserController写关于user的请求，例如请求login.do,即登录，我们执行login方法，<br>之后转到view层，即jsp页面，在登录完成后填完信息请求loginwc.do,将提取的信息进行验证，数据库里是否有uid为所填uid并且up为所填up的，若记录不为空，则登陆成功，此时我们将uid存入HttpSession中记录了用户登录状态，之后还要用这个数据</p>
+<pre><code>@Controller
+public class UserController {
+    @Autowired
+    UserService userService;
+
+
+    @RequestMapping(&quot;login.do&quot;)//处理login.do这个请求
+    public ModelAndView login() {
+        ModelAndView mav = new ModelAndView();
+        mav.addObject(&quot;islogincg&quot;, 1);
+        mav.setViewName(&quot;login&quot;);
+
+        return mav;
+    }
+    @RequestMapping(&quot;loginwc.do&quot;)//处理loginwc.do这个请求
+    public ModelAndView loginwc(User user,HttpServletRequest req,HttpServletResponse resp) {
+        ModelAndView mav = new ModelAndView();
+        System.out.println(user.getUid());
+        System.out.println(user.getUp());
+        if(userService.isCanLogin(user)) {
+            req.getSession().setAttribute(&quot;uid&quot;, user.getUid());
+            String tximg = userService.selectByUid(user.getUid()).getTximg();
+            req.getSession().setAttribute(&quot;tximg&quot;, tximg);
+            System.out.println(tximg);
+            if(userService.isStore(user)) {
+                req.getSession().setAttribute(&quot;isStore&quot;, 1);
+            }else {
+                req.getSession().setAttribute(&quot;isStore&quot;, 0);
+            }
+            req.getSession().setAttribute(&quot;tximg&quot;, &quot;mrtx.png&quot;);
+            mav.setViewName(&quot;welcome&quot;);
+
+        }else {
+            mav.addObject(&quot;islogincg&quot;, 0);
+            System.out.println(&quot;登录失败&quot;);
+            mav.setViewName(&quot;login&quot;);
+        }
+        return mav;
+    }
+}
+</code></pre><p>###Mapper：用于操作数据库</p>
+<p>另外我们需要pojo来一一对应我们的数据库的表</p>
+<p>我们将相应的SQL语句写到mapper的xml中</p>
+<pre><code>&lt;mapper namespace=&quot;mapper.CommodityMapper&quot;&gt;
+     &lt;select id=&quot;selectAll&quot;  resultType=&quot;Commodity&quot;&gt;
+         select * from commodity and cs != 0
+     &lt;/select&gt;
+    &lt;insert id=&quot;add&quot; parameterType=&quot;Commodity&quot;  &gt;
+       insert into  commodity(cname,cs,cp,uid,type) values  (#{cname},#{cs},#{cp},#{uid},#{type})    
+     &lt;/insert&gt;
+     &lt;select id=&quot;selectByUid&quot;  parameterType=&quot;String&quot; resultType=&quot;Commodity&quot;&gt;
+         select * from commodity where uid =  &apos;${_parameter}&apos; and cs != 0
+     &lt;/select&gt;
+     &lt;select id=&quot;selectByType&quot;  parameterType=&quot;_int&quot; resultType=&quot;Commodity&quot;&gt;
+         select * from commodity where type =  ${_parameter} and cs != 0
+     &lt;/select&gt;
+     &lt;select id=&quot;selectByLikeCname&quot;  parameterType=&quot;map&quot; resultType=&quot;Commodity&quot;&gt;
+         select * from commodity where cname  like &apos;%${part}%&apos; and cs != 0 order by cid asc limit  ${first},6
+     &lt;/select&gt;
+     &lt;select id=&quot;selectByCid&quot;  parameterType=&quot;_int&quot; resultType=&quot;Commodity&quot;&gt;
+         select * from commodity where cid =  ${_parameter} and cs != 0
+     &lt;/select&gt;
+     &lt;select id=&quot;selectByYeShu&quot;  parameterType=&quot;map&quot; resultType=&quot;Commodity&quot;&gt;
+         select * from commodity where cs != 0  and type = ${type} order by cid asc limit  ${first},6
+     &lt;/select&gt;
+     &lt;delete id=&quot;delete&quot; parameterType=&quot;_int&quot;&gt;
+         delete from commodity where cid =  ${_parameter}
+     &lt;/delete&gt;
+     &lt;update id=&quot;updateCs&quot; parameterType=&quot;map&quot;&gt;
+         update commodity set cs=#{cs}  where  cid=#{cid}
+     &lt;/update&gt;
+&lt;/mapper&gt;
+</code></pre><p>在同一个包中写相应mapper接口，每个方法都对应xml的语句id，同一个包下自动对应，之后方便对数据库操作</p>
+<pre><code>package mapper;
+
+import java.util.List;
+import java.util.Map;
+
+import pojo.Commodity;
+import pojo.Purchase;
+
+public interface CommodityMapper {
+    void add(Commodity c);
+    List&lt;Commodity&gt; selectAll();
+    List&lt;Commodity&gt; selectByUid(String uid);
+    List&lt;Commodity&gt; selectByType(int type);
+    List&lt;Commodity&gt; selectByLikeCname(Map&lt;String, Object&gt; map);
+    List&lt;Commodity&gt; selectByCid(int cid);
+    List&lt;Commodity&gt; selectByYeShu(Map&lt;String, Integer&gt; map);
+    void delete(int cid);
+    void updateCs(Map&lt;String,Integer&gt; map);
+}
+</code></pre><p>###Service：相对具体的业务逻辑服务层<br>    public interface CommodityService {<br>        void add(Commodity c);<br>        List<commodity> selectAll();<br>        List<commodity> selectByUid(String uid);<br>        List<commodity> selectByType(int type);<br>        List<commodity> selectByLikeCname(String part,int first);<br>        List<commodity> selectByCid(int cid);<br>        List<commodity> selectByYeShu(int type,int first);<br>        void delete(int cid);<br>        void updateCs(int cs,int cid);<br>    }</commodity></commodity></commodity></commodity></commodity></commodity></p>
+<p>###ServiceImpl: Service实现类(持有自动注入的mapper对象以便操作数据库)</p>
+<pre><code>@Service(&quot;CommodityService&quot;)
+public class CommodityServiceImpl implements CommodityService{
+
+    @Autowired
+    CommodityMapper commodityMapper;
+    @Override
+    public void add(Commodity c) {
+        commodityMapper.add(c);
+    }
+
+
+    @Override
+    public List&lt;Commodity&gt; selectAll() {
+        return commodityMapper.selectAll();
+    }
+
+
+    @Override
+    public List&lt;Commodity&gt; selectByUid(String uid) {
+        return commodityMapper.selectByUid(uid);
+
+    }
+    public List&lt;Commodity&gt; selectByType(int type){
+        return commodityMapper.selectByType(type);
+    }
+    public List&lt;Commodity&gt; selectByLikeCname(String part,int first){
+        Map&lt;String,Object&gt; map = new HashMap&lt;&gt;();
+        map.put(&quot;part&quot;, part);
+        map.put(&quot;first&quot;, first);
+        return commodityMapper.selectByLikeCname(map);
+    }
+    public List&lt;Commodity&gt; selectByCid(int cid){
+        return commodityMapper.selectByCid(cid);
+    }
+
+    @Override
+    public List&lt;Commodity&gt; selectByYeShu(int type, int first) {
+        Map&lt;String,Integer&gt; map = new HashMap&lt;&gt;();
+        map.put(&quot;type&quot;, type);
+        map.put(&quot;first&quot;, first);
+        return commodityMapper.selectByYeShu(map);
+    }
+    @Override
+    public void delete(int cid) {
+        commodityMapper.delete(cid);
+    }
+
+
+    @Override
+    public void updateCs(int cs, int cid) {
+        Map&lt;String,Integer&gt; map = new HashMap&lt;&gt;();
+        map.put(&quot;cs&quot;, cs);
+        map.put(&quot;cid&quot;, cid);
+        commodityMapper.updateCs(map);
+    }
+
+}
+</code></pre><p>###Filter：<br>实现拦截请求，将请求的编码设为utf-8,以至于支持中文</p>
+<pre><code>public void doFilter(ServletRequest req,  ServletResponse resp,
+            FilterChain chain) throws IOException,  ServletException {
+        // TODO Auto-generated method stub
+         //转换
+           HttpServletRequest request =  (HttpServletRequest)req;
+           HttpServletResponse response =  (HttpServletResponse)resp;
+
+           /*
+            * 判断在web.xml文件中是否配置了编码格式的信息
+            * 如果为空，则设置编码格式为配置文件中的编码格式
+            * 否则编码格式设置为utf-8
+            */
+           if(this.encode != null &amp;&amp;  !this.encode.equals(&quot;&quot;)){
+             request.setCharacterEncoding(this.encode);
+             response.setCharacterEncoding(this.encode);
+           }else{
+            request.setCharacterEncoding(&quot;utf-8&quot;);
+            response.setCharacterEncoding(&quot;utf-8&quot;);
+           }
+           /*
+            * 使用doFilter方法调用链中的下一个过滤器或目标资源（servlet或JSP页面）。
+            * chain.doFilter处理过滤器的其余部分（如果有的话），最终处理请求的servlet或JSP页面。
+            */
+           chain.doFilter(request, response);
+
+    }
+</code></pre><p>###Page:</p>
+<p>用于分页的实现</p>
+<pre><code>public class Page&lt;T&gt; {
+    int first;      // 开始数据
+    int count;      // 每一页的数量
+    int total;      // 总共的数据量
+    private List&lt;T&gt; list;//当前页的数据
+    public Page() {
+
+    }
+    public Page(int first, int count) {
+         super();
+         this.first = first;
+         this.count = count;
+    }
+</code></pre><p>相关jar包：<br><img src="https://i.imgur.com/tgntyfy.png" alt=""></p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/11/26/JDBC/">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
@@ -1171,7 +1594,7 @@ WHERE EXISTS (SELECT *
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">5</span>
+                  <span class="site-state-item-count">6</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -1182,7 +1605,7 @@ WHERE EXISTS (SELECT *
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">3</span>
+                  <span class="site-state-item-count">4</span>
                   <span class="site-state-item-name">分类</span>
                 </a>
               </div>
