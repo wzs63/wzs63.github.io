@@ -79,19 +79,19 @@
 
 
 
-<meta name="description" content="##SpringSpring就像是整个项目中装配bean的大工厂，在配置文件中可以指定使用特定的参数去调用实体类的构造方法来实例化对象。也可以称之为项目中的粘合剂。Spring的核心思想是IoC（控制反转），即不再需要程序员去显式地new一个对象，而是让Spring框架帮你来完成这一切。 ##SpringMVCSpringMVC在项目中拦截用户请求，它的核心Servlet即DispatcherSe">
+<meta name="description" content="SpringSpring就像是整个项目中装配bean的大工厂，在配置文件中可以指定使用特定的参数去调用实体类的构造方法来实例化对象。也可以称之为项目中的粘合剂。Spring的核心思想是IoC（控制反转），即不再需要程序员去显式地new一个对象，而是让Spring框架帮你来完成这一切。 SpringMVCSpringMVC在项目中拦截用户请求，它的核心Servlet即DispatcherServle">
 <meta property="og:type" content="article">
 <meta property="og:title" content="SSM项目的配置和整体结构的总结">
 <meta property="og:url" content="http://yoursite.com/2019/03/16/SSM项目的配置和整体结构的总结/index.html">
 <meta property="og:site_name" content="hello">
-<meta property="og:description" content="##SpringSpring就像是整个项目中装配bean的大工厂，在配置文件中可以指定使用特定的参数去调用实体类的构造方法来实例化对象。也可以称之为项目中的粘合剂。Spring的核心思想是IoC（控制反转），即不再需要程序员去显式地new一个对象，而是让Spring框架帮你来完成这一切。 ##SpringMVCSpringMVC在项目中拦截用户请求，它的核心Servlet即DispatcherSe">
+<meta property="og:description" content="SpringSpring就像是整个项目中装配bean的大工厂，在配置文件中可以指定使用特定的参数去调用实体类的构造方法来实例化对象。也可以称之为项目中的粘合剂。Spring的核心思想是IoC（控制反转），即不再需要程序员去显式地new一个对象，而是让Spring框架帮你来完成这一切。 SpringMVCSpringMVC在项目中拦截用户请求，它的核心Servlet即DispatcherServle">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="https://i.imgur.com/820anO0.png">
 <meta property="og:image" content="https://i.imgur.com/tgntyfy.png">
-<meta property="og:updated_time" content="2019-03-16T03:35:26.289Z">
+<meta property="og:updated_time" content="2019-03-16T03:42:46.552Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="SSM项目的配置和整体结构的总结">
-<meta name="twitter:description" content="##SpringSpring就像是整个项目中装配bean的大工厂，在配置文件中可以指定使用特定的参数去调用实体类的构造方法来实例化对象。也可以称之为项目中的粘合剂。Spring的核心思想是IoC（控制反转），即不再需要程序员去显式地new一个对象，而是让Spring框架帮你来完成这一切。 ##SpringMVCSpringMVC在项目中拦截用户请求，它的核心Servlet即DispatcherSe">
+<meta name="twitter:description" content="SpringSpring就像是整个项目中装配bean的大工厂，在配置文件中可以指定使用特定的参数去调用实体类的构造方法来实例化对象。也可以称之为项目中的粘合剂。Spring的核心思想是IoC（控制反转），即不再需要程序员去显式地new一个对象，而是让Spring框架帮你来完成这一切。 SpringMVCSpringMVC在项目中拦截用户请求，它的核心Servlet即DispatcherServle">
 <meta name="twitter:image" content="https://i.imgur.com/820anO0.png">
 
 
@@ -397,11 +397,10 @@
       
 
       
-        <p>##Spring<br>Spring就像是整个项目中装配bean的大工厂，在配置文件中可以指定使用特定的参数去调用实体类的构造方法来实例化对象。也可以称之为项目中的粘合剂。<br>Spring的核心思想是IoC（控制反转），即不再需要程序员去显式地<code>new</code>一个对象，而是让Spring框架帮你来完成这一切。</p>
-<p>##SpringMVC<br>SpringMVC在项目中拦截用户请求，它的核心Servlet即DispatcherServlet承担中介或是前台这样的职责，将用户请求通过HandlerMapping去匹配Controller，Controller就是具体对应请求所执行的操作。</p>
-<p>##mybatis<br>mybatis是对jdbc的封装，它让数据库底层操作变的透明。mybatis的操作都是围绕一个sqlSessionFactory实例展开的。mybatis通过配置文件关联到各实体类的Mapper文件，Mapper文件中配置了每个类对数据库所需进行的sql语句映射。在每次与数据库交互时，通过sqlSessionFactory拿到一个sqlSession，再执行sql命令。<br>页面发送请求给控制器，控制器调用业务层处理逻辑，逻辑层向持久层发送请求，持久层与数据库交互，后将结果返回给业务层，业务层将处理逻辑发送给控制器，控制器再调用视图展现数据。</p>
-<p>##关于配置：</p>
-<p>###applicationContext.xml:<br>设置连接数据库用的驱动，数据库名称，编码方式，账号密码。</p>
+        <h2 id="Spring"><a href="#Spring" class="headerlink" title="Spring"></a>Spring</h2><p>Spring就像是整个项目中装配bean的大工厂，在配置文件中可以指定使用特定的参数去调用实体类的构造方法来实例化对象。也可以称之为项目中的粘合剂。<br>Spring的核心思想是IoC（控制反转），即不再需要程序员去显式地<code>new</code>一个对象，而是让Spring框架帮你来完成这一切。</p>
+<h2 id="SpringMVC"><a href="#SpringMVC" class="headerlink" title="SpringMVC"></a>SpringMVC</h2><p>SpringMVC在项目中拦截用户请求，它的核心Servlet即DispatcherServlet承担中介或是前台这样的职责，将用户请求通过HandlerMapping去匹配Controller，Controller就是具体对应请求所执行的操作。</p>
+<h2 id="mybatis"><a href="#mybatis" class="headerlink" title="mybatis"></a>mybatis</h2><p>mybatis是对jdbc的封装，它让数据库底层操作变的透明。mybatis的操作都是围绕一个sqlSessionFactory实例展开的。mybatis通过配置文件关联到各实体类的Mapper文件，Mapper文件中配置了每个类对数据库所需进行的sql语句映射。在每次与数据库交互时，通过sqlSessionFactory拿到一个sqlSession，再执行sql命令。<br>页面发送请求给控制器，控制器调用业务层处理逻辑，逻辑层向持久层发送请求，持久层与数据库交互，后将结果返回给业务层，业务层将处理逻辑发送给控制器，控制器再调用视图展现数据。</p>
+<h2 id="关于配置："><a href="#关于配置：" class="headerlink" title="关于配置："></a>关于配置：</h2><h3 id="applicationContext-xml"><a href="#applicationContext-xml" class="headerlink" title="applicationContext.xml:"></a>applicationContext.xml:</h3><p>设置连接数据库用的驱动，数据库名称，编码方式，账号密码。</p>
 <pre><code>&lt;bean id=&quot;dataSource&quot;  class=&quot;org.springframework.jdbc.datasource.DriverManagerDataSource&quot;&gt; &lt;!--设置连接数据库用的驱动，数据库名称，编码方式，账号密码--&gt;
       &lt;property name=&quot;driverClassName&quot;&gt;  
           &lt;value&gt;com.mysql.jdbc.Driver&lt;/value&gt;  
@@ -426,8 +425,7 @@
 <pre><code>&lt;bean  class=&quot;org.mybatis.spring.mapper.MapperScannerConfigurer&quot;&gt;
      &lt;property name=&quot;basePackage&quot;  value=&quot;mapper&quot;/&gt;&lt;!-- 扫描mapper类 --&gt;
 &lt;/bean&gt;
-</code></pre><p>###springMVC.xml:</p>
-<p>设置自动扫描的controller，以便于用注解的方法表明哪些类是controller。</p>
+</code></pre><h3 id="springMVC-xml"><a href="#springMVC-xml" class="headerlink" title="springMVC.xml:"></a>springMVC.xml:</h3><p>设置自动扫描的controller，以便于用注解的方法表明哪些类是controller。</p>
 <pre><code>&lt;context:component-scan base-package=&quot;controller&quot;&gt;
       &lt;context:include-filter type=&quot;annotation&quot;
        expression=&quot;org.springframework.stereotype.Controller&quot;/&gt;
@@ -444,7 +442,7 @@
     &lt;/bean&gt;
 </code></pre><p>开放对上传功能的支持，我们的项目有上传头像的功能</p>
 <pre><code>&lt;bean id=&quot;multipartResolver&quot;  class=&quot;org.springframework.web.multipart.commons.CommonsMultipartResolver&quot;/&gt;
-</code></pre><p>###Web.xml:<br>配置spring</p>
+</code></pre><h3 id="Web-xml"><a href="#Web-xml" class="headerlink" title="Web.xml:"></a>Web.xml:</h3><p>配置spring</p>
 <pre><code>&lt;context-param&gt;
      &lt;param-name&gt;contextConfigLocation&lt;/param-name&gt;
      &lt;param-value&gt;classpath:applicationContext.xml&lt;/param-value&gt;
@@ -483,8 +481,8 @@
      &lt;url-pattern&gt;*.do&lt;/url-pattern&gt;
 &lt;/servlet-mapping&gt;
 </code></pre><hr>
-<p>##全部的结构<br><img src="https://i.imgur.com/820anO0.png" alt=""></p>
-<p>###Controller：接收相应请求，执行相应方法，并转到相应页面<br>以UserController为例：<br>先用注解声明是 UserController一个Controller我们拦截所有.do的请求，UserController写关于user的请求，例如请求login.do,即登录，我们执行login方法，<br>之后转到view层，即jsp页面，在登录完成后填完信息请求loginwc.do,将提取的信息进行验证，数据库里是否有uid为所填uid并且up为所填up的，若记录不为空，则登陆成功，此时我们将uid存入HttpSession中记录了用户登录状态，之后还要用这个数据</p>
+<h2 id="全部的结构"><a href="#全部的结构" class="headerlink" title="全部的结构"></a>全部的结构</h2><p><img src="https://i.imgur.com/820anO0.png" alt=""></p>
+<h3 id="Controller：接收相应请求，执行相应方法，并转到相应页面"><a href="#Controller：接收相应请求，执行相应方法，并转到相应页面" class="headerlink" title="Controller：接收相应请求，执行相应方法，并转到相应页面"></a>Controller：接收相应请求，执行相应方法，并转到相应页面</h3><p>以UserController为例：<br>先用注解声明是 UserController一个Controller我们拦截所有.do的请求，UserController写关于user的请求，例如请求login.do,即登录，我们执行login方法，<br>之后转到view层，即jsp页面，在登录完成后填完信息请求loginwc.do,将提取的信息进行验证，数据库里是否有uid为所填uid并且up为所填up的，若记录不为空，则登陆成功，此时我们将uid存入HttpSession中记录了用户登录状态，之后还要用这个数据</p>
 <pre><code>@Controller
 public class UserController {
     @Autowired
@@ -525,8 +523,7 @@ public class UserController {
         return mav;
     }
 }
-</code></pre><p>###Mapper：用于操作数据库</p>
-<p>另外我们需要pojo来一一对应我们的数据库的表</p>
+</code></pre><h3 id="Mapper：用于操作数据库"><a href="#Mapper：用于操作数据库" class="headerlink" title="Mapper：用于操作数据库"></a>Mapper：用于操作数据库</h3><p>另外我们需要pojo来一一对应我们的数据库的表</p>
 <p>我们将相应的SQL语句写到mapper的xml中</p>
 <pre><code>&lt;mapper namespace=&quot;mapper.CommodityMapper&quot;&gt;
      &lt;select id=&quot;selectAll&quot;  resultType=&quot;Commodity&quot;&gt;
@@ -577,8 +574,18 @@ public interface CommodityMapper {
     void delete(int cid);
     void updateCs(Map&lt;String,Integer&gt; map);
 }
-</code></pre><p>###Service：相对具体的业务逻辑服务层<br>    public interface CommodityService {<br>        void add(Commodity c);<br>        List<commodity> selectAll();<br>        List<commodity> selectByUid(String uid);<br>        List<commodity> selectByType(int type);<br>        List<commodity> selectByLikeCname(String part,int first);<br>        List<commodity> selectByCid(int cid);<br>        List<commodity> selectByYeShu(int type,int first);<br>        void delete(int cid);<br>        void updateCs(int cs,int cid);<br>    }</commodity></commodity></commodity></commodity></commodity></commodity></p>
-<p>###ServiceImpl: Service实现类(持有自动注入的mapper对象以便操作数据库)</p>
+</code></pre><h3 id="Service：相对具体的业务逻辑服务层"><a href="#Service：相对具体的业务逻辑服务层" class="headerlink" title="Service：相对具体的业务逻辑服务层"></a>Service：相对具体的业务逻辑服务层</h3><pre><code>public interface CommodityService {
+    void add(Commodity c);
+    List&lt;Commodity&gt; selectAll();
+    List&lt;Commodity&gt; selectByUid(String uid);
+    List&lt;Commodity&gt; selectByType(int type);
+    List&lt;Commodity&gt; selectByLikeCname(String part,int first);
+    List&lt;Commodity&gt; selectByCid(int cid);
+    List&lt;Commodity&gt; selectByYeShu(int type,int first);
+    void delete(int cid);
+    void updateCs(int cs,int cid);
+}
+</code></pre><p>###ServiceImpl: Service实现类(持有自动注入的mapper对象以便操作数据库)</p>
 <pre><code>@Service(&quot;CommodityService&quot;)
 public class CommodityServiceImpl implements CommodityService{
 
@@ -636,7 +643,7 @@ public class CommodityServiceImpl implements CommodityService{
     }
 
 }
-</code></pre><p>###Filter：<br>实现拦截请求，将请求的编码设为utf-8,以至于支持中文</p>
+</code></pre><h3 id="Filter："><a href="#Filter：" class="headerlink" title="Filter："></a>Filter：</h3><p>实现拦截请求，将请求的编码设为utf-8,以至于支持中文</p>
 <pre><code>public void doFilter(ServletRequest req,  ServletResponse resp,
             FilterChain chain) throws IOException,  ServletException {
         // TODO Auto-generated method stub
@@ -663,8 +670,7 @@ public class CommodityServiceImpl implements CommodityService{
            chain.doFilter(request, response);
 
     }
-</code></pre><p>###Page:</p>
-<p>用于分页的实现</p>
+</code></pre><h3 id="Page"><a href="#Page" class="headerlink" title="Page:"></a>Page:</h3><p>用于分页的实现</p>
 <pre><code>public class Page&lt;T&gt; {
     int first;      // 开始数据
     int count;      // 每一页的数量
@@ -763,8 +769,17 @@ public class CommodityServiceImpl implements CommodityService{
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
             
@@ -817,6 +832,22 @@ public class CommodityServiceImpl implements CommodityService{
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Spring"><span class="nav-number">1.</span> <span class="nav-text">Spring</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#SpringMVC"><span class="nav-number">2.</span> <span class="nav-text">SpringMVC</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#mybatis"><span class="nav-number">3.</span> <span class="nav-text">mybatis</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#关于配置："><span class="nav-number">4.</span> <span class="nav-text">关于配置：</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#applicationContext-xml"><span class="nav-number">4.1.</span> <span class="nav-text">applicationContext.xml:</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#springMVC-xml"><span class="nav-number">4.2.</span> <span class="nav-text">springMVC.xml:</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Web-xml"><span class="nav-number">4.3.</span> <span class="nav-text">Web.xml:</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#全部的结构"><span class="nav-number">5.</span> <span class="nav-text">全部的结构</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Controller：接收相应请求，执行相应方法，并转到相应页面"><span class="nav-number">5.1.</span> <span class="nav-text">Controller：接收相应请求，执行相应方法，并转到相应页面</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Mapper：用于操作数据库"><span class="nav-number">5.2.</span> <span class="nav-text">Mapper：用于操作数据库</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Service：相对具体的业务逻辑服务层"><span class="nav-number">5.3.</span> <span class="nav-text">Service：相对具体的业务逻辑服务层</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Filter："><span class="nav-number">5.4.</span> <span class="nav-text">Filter：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Page"><span class="nav-number">5.5.</span> <span class="nav-text">Page:</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
