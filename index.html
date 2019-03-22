@@ -302,6 +302,340 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/03/22/java-web/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="wzs63">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/image/01.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="hello">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/03/22/java-web/" itemprop="url">java web学习笔记（一）</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-03-22T15:02:24+08:00">
+                2019-03-22
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
+                  <a href="/categories/javaEE/" itemprop="url" rel="index">
+                    <span itemprop="name">javaEE</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="Tomcat"><a href="#Tomcat" class="headerlink" title="Tomcat"></a>Tomcat</h2><p>Apache开发的Servlet容器，实现了对Servlet和JSP的支持,并且内含了一个HTTP服务器。<br><img src="https://i.imgur.com/VccxdpG.png" alt=""><br>tomcat容器模型</p>
+<p>其中Context容器直接管理Servlet在容器中的包装类Wrapper,并且一个Context容器对应一个web项目</p>
+<h3 id="启动Tomcat"><a href="#启动Tomcat" class="headerlink" title="启动Tomcat"></a>启动Tomcat</h3><p>方式一：运行apache-tomcat-version\bin\startup.bat启动<br>shutdown.bat关闭。<br>ps:如果闪退应该是JDK环境变量没配置好</p>
+<p>方法二：可以在eclipse中添加服务器，之后run就可以了</p>
+<p>Tomcat默认端口号为8080，开启后访问<a href="http://localhost:8080/出现" target="_blank" rel="noopener">http://localhost:8080/出现</a>    Apache Tomcat页面则为开启成功。</p>
+<p>ps:开启时如果提醒端口被占用，可通过命令netstat -ano|findstr 8080查询占用进程的pid，任务管理器中关闭即可，或者也可以改Tomcat的端口。</p>
+<h3 id="web应用初始化"><a href="#web应用初始化" class="headerlink" title="web应用初始化"></a>web应用初始化</h3><p>web应用初始化在ContextConfig的configureStart方法中实现。<br>初始化的任务主要是解析web.xml文件（描述了整个web应用的关键信息，是整个web应用的入口）。<br>过程：Tomcat找globalWebXml-&gt;找hostWebXml-&gt;找WEB-INF/web.xml-&gt;将web.xml中的配置项解析为相应属性放入WebXml对象中-&gt;将WebXml对象的属性设置到Context容器中（这一步将Servlet包装成StandardWrapper,作为子容器存于Context容器中。除了创建servlet对象外还创建了filter和listener）</p>
+<h2 id="Servlet"><a href="#Servlet" class="headerlink" title="Servlet"></a>Servlet</h2><h3 id="生命周期"><a href="#生命周期" class="headerlink" title="生命周期"></a>生命周期</h3><p><strong>加载和实例化</strong><br>创建servelet实例：web.xml中配置load-on-startup&gt;0时服务器启动时就创建，load-on-startup=0（即默认）第一次请求该servlet时才创建<br>无论访问了多少次Servlet，构造方法 只会执行一次，所以Servlet是单实例的</p>
+<p><strong>初始化</strong><br>执行初始化方法init(ServletConfig conf)，将包装了StandardWrapper对象的StandardWrapperFacade作为ServletConfig对象传入方法。</p>
+<p><strong>请求处理</strong><br>servlet对象去处理客户端请求，在service(ServletRequest req，ServletResponse res)方法中执行，URL映射到servlet容器的工作由org.apache.tomcat.util.http.mapper类完成。mapper在request进入container容器之前就更加URL将host和context容器存入request的mappingData属性中，以至于使request知道要访问哪一个子容器</p>
+<p><strong>销毁</strong><br>该Servlet所在的web应用重新启动或者Tomcat关闭时<br>执行destroy()方法。</p>
+<p>###创建servlet<br>创建类，继承HttpServlet类即可<br>主要用的方法doGet（处理get请求，即直接输入URL的访问方式）和doPost（处理post请求，多为表单提交的方式）需根据需求覆写</p>
+<pre><code>public class ServletName extends HttpServlet{
+    @Override
+    protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        doPost(req, resp);
+    }
+    @Override
+    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        //doSometing
+    }
+}
+</code></pre><p>###在xml中配置<br>servlet-name：servlet名字，可随意定义<br>servlet-class：servlet的实际路径<br>url-pattern：对应的请求URL映射配置</p>
+<pre><code>&lt;servlet&gt;
+   &lt;servlet-name&gt;showImg&lt;/servlet-name&gt;
+   &lt;servlet-class&gt;com.zr.controller.ImgController&lt;/servlet-class&gt;
+ &lt;/servlet&gt;
+ &lt;servlet-mapping&gt;
+   &lt;servlet-name&gt;showImg&lt;/servlet-name&gt;
+   &lt;url-pattern&gt;/getImg&lt;/url-pattern&gt;
+ &lt;/servlet-mapping&gt;
+</code></pre><p>URL映射两大原则<br>1.精确匹配<br>如servlet1为/index.html,servlet2为/*,请求URL为http:/localhost:8080/项目名/index.html,则匹配到第一个。</p>
+<p>2.最长路径匹配<br>无法精确匹配情况下使用，如servlet1为/ind/<em>,servlet2为/</em>,请求URL为http:/localhost:8080/项目名/index.html,则匹配到第一个。</p>
+<p>###注释配URL置映射也可以<br>在类上加注释<br>@WebServlet(name=”…”,urlPatterns=”/…”)</p>
+<p>之后访问<a href="http://localhost:8080/项目名/配置的urlPatterns" target="_blank" rel="noopener">http://localhost:8080/项目名/配置的urlPatterns</a><br>就可以将请求发送到刚刚配置的servlet了。</p>
+<p>###ServletConfig、ServletRequest、ServletResponse(这三个都是通过容器传给servlet的)、ServletContext</p>
+<p>####ServletConfig<br>在servlet初始化时就传给了servlet<br>获取途径：getServletConfig();<br>主要方法：<br>getServletName();  //获取servlet的名称，也就是我们在web.xml中配置的servlet-name<br>getServletContext(); //获取ServletContext对象<br>getInitParameter(String); //获取在servlet中初始化参数的值。<br>getInitParameterNames(); //获取在Servlet中所有初始化参数的名字</p>
+<p>####ServletContext对象<br>获取途径：getServletContext()<br>一个web项目，就存在一个ServletContext实例，在tomcat在启动时创建，服务器关闭时销毁，每个Servlet读可以访问到它。<br>getAttribute(String name)<br>setAttribute(String name, Object obj)<br>removeAttribute(String name)<br>getServletContext().getRealPath(“”)//获取项目绝对路径</p>
+<p>####ServletRequest、ServletResponse：请求到达时容器传给servlet<br>常用方法<br>request.getRequestURL(): 浏览器发出请求时的完整URL，包括协议 主机名 端口(如果有)”<br>request.getRequestURI(): 浏览器发出请求的资源名部分，去掉了协议和主机名”<br>request.getQueryString(): 请求行中的参数部分，只能显示以get方式发出的参数，post方式的看不到<br>request.getRemoteAddr(): 浏览器所处于的客户机的IP地址<br>request.getRemoteHost(): 浏览器所处于的客户机的主机名<br>request.getRemotePort(): 浏览器所处于的客户机使用的网络端口<br>request.getLocalAddr(): 服务器的IP地址<br>request.getLocalName(): 服务器的主机名<br>request.getMethod(): 得到客户机请求方式一般是GET或者POST<br>request.getHeader() 获取浏览器传递过来的头信息。<br>request.getHeaderNames() 获取浏览器所有的头信息名称，根据头信息名称就能遍历出所有的头信息</p>
+<p>response.setContentType(“text/html; charset=UTF-8”);//不仅发送到浏览器的内容会使用UTF-8编码，而且还通知浏览器使用UTF-8编码方式进行显示。所以总能正常显示中文</p>
+<p>response.setCharacterEncoding(“UTF-8”); //仅仅是发送的浏览器的内容是UTF-8编码的，至于浏览器是用哪种编码方式显示不管。 所以当浏览器的显示编码方式不是UTF-8的时候，就会看到乱码，需要手动再进行一次设置。</p>
+<p>设置不用缓存<br>response.setDateHeader(“Expires”,0 );<br>response.setHeader(“Cache-Control”,”no-cache”);<br>response.setHeader(“pragma”,”no-cache”);</p>
+<p>请求转发<br>request.getRequestDispatcher(String path).forward(request,response);　　<br>path:转发后跳转的页面，这里不管用不用”/“开头，都是以web项目根开始，请求转发只局限与在同一个web项目下使用。</p>
+<p>重定向<br>方式一：手动方案<br>response.setStatus(302);　　//状态码302就代表重定向<br>response.setHeader(“location”,”<a href="http://www.baidu.com&quot;)" target="_blank" rel="noopener">http://www.baidu.com&quot;)</a>;<br>方式二：使用封装好的，通过response.sendRedirect(“<a href="http://www.baidu.com&quot;)" target="_blank" rel="noopener">http://www.baidu.com&quot;)</a>;</p>
+<h4 id="请求转发和重定向的区别"><a href="#请求转发和重定向的区别" class="headerlink" title="请求转发和重定向的区别"></a>请求转发和重定向的区别</h4><p><strong>forward（转发）</strong>：客户浏览器发送http请求–&gt;web服务器接受此请求–&gt;调用内部的一个方法在容器内部完成请求处理和转发动作–&gt;将目标资源发送给客户。<br>转发的路径必须是同一个web容器下的url,在客户浏览器<strong>地址栏还是原来的地址</strong>，也就是说客户是感觉不到服务器做了转发的。<strong>转发跳转过程是在服务器实现</strong>,浏览器只做了一次访问请求。</p>
+<p><strong>redirect（重定向）</strong>：客户浏览器发送http请求–&gt;web服务器接受后发送302状态码响应及对应新的location给客户浏览器–&gt;客户浏览器发现是302响应，则自动再发送一个新的http请求，请求url是新的location地址–&gt;服务器根据此请求寻找资源并发送给客户。<br>可以重定向到任意URL，既然是浏览器重新发出了请求，则就没有什么request传递的概念了。<strong>在客户浏览器路径栏显示新地址</strong>。重定向行为是浏览器做了至少两次的访问请求的。<br>(<strong>转发是服务器行为，重定向是客户端行为</strong>。)</p>
+<p>##Listener监听器<br> 按监听的对象划分，可以分为</p>
+<p>ServletContext对象监听器<br>HttpSession对象监听器<br>ServletRequest对象监听器 </p>
+<p>接口<strong>ServletContextListener</strong><br>监听当前web应用的初始化<br>public void contextInitialized(ServletContextEvent arg0)<br>监听当前web应用的销毁<br>public void contextDestroyed(ServletContextEvent arg0)   </p>
+<p>接口<strong>ServletContextAttributeListener</strong><br>监听属性的增加<br>public void attributeAdded(ServletContextAttributeEvent e)<br>监听属性的移除<br>public void attributeRemoved(ServletContextAttributeEvent e)<br>监听属性的替换<br>public void attributeReplaced(ServletContextAttributeEvent e)</p>
+<p>接口<strong>HttpSessionListener </strong><br>监听session创建<br>sessionCreated()<br>监听session销毁<br>sessionDestroyed()</p>
+<p>接口<strong>HttpSessionAttributeListener</strong><br>session中增加属性时<br>attributeAdded()<br>session中移除属性时<br>attributeRemoved()<br>替换session中的属性时<br>attributeReplaced()</p>
+<p>接口 <strong>ServletRequestListener</strong>和<strong>ServletRequestAttributeListener </strong><br>创建了一个Request的时候触发<br>requestInitialized()<br>当本次请求结束的时候触发<br>requestDestroyed()<br>当有新增属性时触发<br>attributeAdded()<br>当有替换属性时触发<br>attributeReplaced()<br>当有移除属性时触发<br>attributeRemoved()</p>
+<p>web.xml中配置listener</p>
+<pre><code>&lt;listener&gt;
+   &lt;listener-class&gt;listener类路径&lt;/listener-class&gt;
+&lt;/listener&gt;
+</code></pre><p>利用listener统计在线人数，即监听session创建和销毁。</p>
+<pre><code>public class OnlineNumberListener implements HttpSessionListener {
+
+    @Override
+    public void sessionCreated(HttpSessionEvent e) {
+
+        ServletContext application = e.getSession().getServletContext();
+
+        Integer online_number = (Integer) application.getAttribute(&quot;online_number&quot;);
+
+        if (null == online_number)
+            online_number = 0;
+        online_number++;
+        application.setAttribute(&quot;online_number&quot;, online_number);
+
+        System.out.println(&quot;新增一位在线用户&quot;);
+    }
+
+    @Override
+    public void sessionDestroyed(HttpSessionEvent e) {
+
+        ServletContext application = e.getSession().getServletContext();
+
+        Integer online_number = (Integer) application.getAttribute(&quot;online_number&quot;);
+
+        if(null==online_number){
+            online_number = 0;
+        }
+        else
+            online_number--;
+        application.setAttribute(&quot;online_number&quot;, online_number);
+        System.out.println(&quot;一位用户离线&quot;);
+    }
+}
+</code></pre><p>web.xml配置：</p>
+<pre><code>&lt;listener&gt;
+    &lt;listener-class&gt;listener.OnlineNumberListener&lt;/listener-class&gt;
+&lt;/listener&gt; 
+</code></pre><p>##Filter过滤器<br>截取用户端的请求和响应信息，并对这些信息进行过滤<br>Filter会随着tomcat的启动自启动。</p>
+<p>新建filter实现Filter接口即可</p>
+<pre><code>public class FilterName implements Filter {
+
+    @Override
+    public void destroy() {
+
+    }
+
+    @Override
+    public void doFilter(ServletRequest req, ServletResponse res, FilterChain chain)
+        //dosomething
+    }
+
+    @Override
+    public void init(FilterConfig arg0) throws ServletException {
+
+    }
+
+}
+</code></pre><p>web.xml配置</p>
+<pre><code>&lt;filter&gt;
+    &lt;filter-name&gt;Filter&lt;/filter-name&gt;
+    &lt;filter-class&gt;filter.Filter&lt;/filter-class&gt;
+&lt;/filter&gt;
+
+&lt;filter-mapping&gt;
+    &lt;filter-name&gt;Filter&lt;/filter-name&gt;
+    &lt;url-pattern&gt;/*&lt;/url-pattern&gt;
+&lt;/filter-mapping&gt;
+</code></pre><p>利用filter解决中文编码问题</p>
+<pre><code>public class  SetCharacterEncodingFilter implements Filter {
+
+     //存储编码格式信息
+      private String encode = null;
+    @Override
+    public void destroy() {
+        // TODO Auto-generated method stub
+
+    }
+
+    @Override
+    public void doFilter(ServletRequest req, ServletResponse resp,
+            FilterChain chain) throws IOException, ServletException {
+        // TODO Auto-generated method stub
+         //转换
+           HttpServletRequest request = (HttpServletRequest)req;
+           HttpServletResponse response = (HttpServletResponse)resp;
+
+           /*
+            * 判断在web.xml文件中是否配置了编码格式的信息
+            * 如果为空，则设置编码格式为配置文件中的编码格式
+            * 否则编码格式设置为utf-8
+            */
+           if(this.encode != null &amp;&amp; !this.encode.equals(&quot;&quot;)){
+            request.setCharacterEncoding(this.encode);
+            response.setCharacterEncoding(this.encode);
+           }else{
+            request.setCharacterEncoding(&quot;utf-8&quot;);
+            response.setCharacterEncoding(&quot;utf-8&quot;);
+           }
+           /*
+            * 使用doFilter方法调用链中的下一个过滤器或目标资源（servlet或JSP页面）。
+            * chain.doFilter处理过滤器的其余部分（如果有的话），最终处理请求的servlet或JSP页面。
+            */
+           chain.doFilter(request, response);
+
+    }
+
+    @Override
+    public void init(FilterConfig arg0) throws ServletException {
+        // TODO Auto-generated method stub
+
+        this.encode=arg0.getInitParameter(&quot;encode&quot;);
+        System.out.println(&quot;this.encode:&quot;+encode);
+    }
+
+}
+</code></pre><p>web.xml配置：</p>
+<pre><code>&lt;!-- 过滤器配置信息 --&gt;
+    &lt;filter&gt;
+        &lt;filter-name&gt;SetCharacterEncodingFilter&lt;/filter-name&gt;
+        &lt;!-- 过滤器设置编码文件 --&gt;
+        &lt;filter-class&gt;filter.SetCharacterEncodingFilter&lt;/filter-class&gt;
+        &lt;init-param&gt;
+            &lt;!-- init-param元素定义了过滤器的初始化参数--&gt;
+            &lt;description&gt;给参数和值设置名称和编码类型&lt;/description&gt;
+            &lt;param-name&gt;encode&lt;/param-name&gt;
+            &lt;param-value&gt;utf-8&lt;/param-value&gt;
+        &lt;/init-param&gt;
+    &lt;/filter&gt;
+    &lt;filter-mapping&gt;
+        &lt;!--  filter-mapping告诉容器所有与模式向匹配的请求都应该允许通过访问控制过滤器。
+                所有以.action结尾的访问都先通过过滤器文件过滤 --&gt;
+        &lt;filter-name&gt;SetCharacterEncodingFilter&lt;/filter-name&gt;
+        &lt;url-pattern&gt;*.do&lt;/url-pattern&gt;
+    &lt;/filter-mapping&gt;
+</code></pre><hr>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/03/16/SSM项目的配置和整体结构的总结/">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
@@ -1600,7 +1934,7 @@ WHERE EXISTS (SELECT *
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">6</span>
+                  <span class="site-state-item-count">7</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -1611,7 +1945,7 @@ WHERE EXISTS (SELECT *
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">4</span>
+                  <span class="site-state-item-count">5</span>
                   <span class="site-state-item-name">分类</span>
                 </a>
               </div>
