@@ -87,7 +87,7 @@
 <meta property="og:description" content="TomcatApache开发的Servlet容器，实现了对Servlet和JSP的支持,并且内含了一个HTTP服务器。tomcat容器模型其中Context容器直接管理Servlet在容器中的包装类Wrapper,并且一个Context容器对应一个web项目 启动Tomcat方式一：运行apache-tomcat-version\bin\startup.bat启动shutdown.bat关闭。ps">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="https://i.imgur.com/o2FtBhE.png">
-<meta property="og:updated_time" content="2019-03-22T16:32:26.206Z">
+<meta property="og:updated_time" content="2019-03-22T16:34:21.371Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="java web学习笔记（一）">
 <meta name="twitter:description" content="TomcatApache开发的Servlet容器，实现了对Servlet和JSP的支持,并且内含了一个HTTP服务器。tomcat容器模型其中Context容器直接管理Servlet在容器中的包装类Wrapper,并且一个Context容器对应一个web项目 启动Tomcat方式一：运行apache-tomcat-version\bin\startup.bat启动shutdown.bat关闭。ps">
@@ -402,7 +402,6 @@
 <p>Tomcat默认端口号为8080，开启后访问<a href="http://localhost:8080/出现" target="_blank" rel="noopener">http://localhost:8080/出现</a>    Apache Tomcat页面则为开启成功。</p>
 <p>ps:开启时如果提醒端口被占用，可通过命令netstat -ano|findstr 8080查询占用进程的pid，任务管理器中关闭即可，或者也可以改Tomcat的端口。</p>
 <h3 id="web应用初始化"><a href="#web应用初始化" class="headerlink" title="web应用初始化"></a>web应用初始化</h3><p>web应用初始化在ContextConfig的configureStart方法中实现。<br>初始化的任务主要是解析web.xml文件（描述了整个web应用的关键信息，是整个web应用的入口）。<br>过程：Tomcat找globalWebXml-&gt;找hostWebXml-&gt;找WEB-INF/web.xml-&gt;将web.xml中的配置项解析为相应属性放入WebXml对象中-&gt;将WebXml对象的属性设置到Context容器中（这一步将Servlet包装成StandardWrapper,作为子容器存于Context容器中。除了创建servlet对象外还创建了filter和listener）</p>
-<hr>
 <h2 id="Servlet"><a href="#Servlet" class="headerlink" title="Servlet"></a>Servlet</h2><h3 id="生命周期"><a href="#生命周期" class="headerlink" title="生命周期"></a>生命周期</h3><p><strong>加载和实例化</strong><br>创建servelet实例：web.xml中配置load-on-startup&gt;0时服务器启动时就创建，load-on-startup=0（即默认）第一次请求该servlet时才创建<br>无论访问了多少次Servlet，构造方法 只会执行一次，所以Servlet是单实例的</p>
 <p><strong>初始化</strong><br>执行初始化方法init(ServletConfig conf)，将包装了StandardWrapper对象的StandardWrapperFacade作为ServletConfig对象传入方法。</p>
 <p><strong>请求处理</strong><br>servlet对象去处理客户端请求，在service(ServletRequest req，ServletResponse res)方法中执行，URL映射到servlet容器的工作由org.apache.tomcat.util.http.mapper类完成。mapper在request进入container容器之前就更加URL将host和context容器存入request的mappingData属性中，以至于使request知道要访问哪一个子容器</p>
@@ -441,7 +440,6 @@
 <p>重定向<br>方式一：手动方案<br>response.setStatus(302);　　//状态码302就代表重定向<br>response.setHeader(“location”,”<a href="http://www.baidu.com&quot;)" target="_blank" rel="noopener">http://www.baidu.com&quot;)</a>;<br>方式二：使用封装好的，通过response.sendRedirect(“<a href="http://www.baidu.com&quot;)" target="_blank" rel="noopener">http://www.baidu.com&quot;)</a>;</p>
 <h4 id="请求转发和重定向的区别"><a href="#请求转发和重定向的区别" class="headerlink" title="请求转发和重定向的区别"></a>请求转发和重定向的区别</h4><p><strong>forward（转发）</strong>：客户浏览器发送http请求–&gt;web服务器接受此请求–&gt;调用内部的一个方法在容器内部完成请求处理和转发动作–&gt;将目标资源发送给客户。<br>转发的路径必须是同一个web容器下的url,在客户浏览器<strong>地址栏还是原来的地址</strong>，也就是说客户是感觉不到服务器做了转发的。<strong>转发跳转过程是在服务器实现</strong>,浏览器只做了一次访问请求。</p>
 <p><strong>redirect（重定向）</strong>：客户浏览器发送http请求–&gt;web服务器接受后发送302状态码响应及对应新的location给客户浏览器–&gt;客户浏览器发现是302响应，则自动再发送一个新的http请求，请求url是新的location地址–&gt;服务器根据此请求寻找资源并发送给客户。<br>可以重定向到任意URL，既然是浏览器重新发出了请求，则就没有什么request传递的概念了。<strong>在客户浏览器路径栏显示新地址</strong>。重定向行为是浏览器做了至少两次的访问请求的。<br>(<strong>转发是服务器行为，重定向是客户端行为</strong>。)</p>
-<hr>
 <h2 id="Listener监听器"><a href="#Listener监听器" class="headerlink" title="Listener监听器"></a>Listener监听器</h2><p> 按监听的对象划分，可以分为</p>
 <p>ServletContext对象监听器<br>HttpSession对象监听器<br>ServletRequest对象监听器 </p>
 <p>接口<strong>ServletContextListener</strong><br>监听当前web应用的初始化<br>public void contextInitialized(ServletContextEvent arg0)<br>监听当前web应用的销毁<br>public void contextDestroyed(ServletContextEvent arg0)   </p>
@@ -490,9 +488,8 @@
 </code></pre><p>web.xml配置：</p>
 <pre><code>&lt;listener&gt;
     &lt;listener-class&gt;listener.OnlineNumberListener&lt;/listener-class&gt;
-&lt;/listener&gt;
-</code></pre><hr>
-<h2 id="Filter过滤器"><a href="#Filter过滤器" class="headerlink" title="Filter过滤器"></a>Filter过滤器</h2><p>截取用户端的请求和响应信息，并对这些信息进行过滤<br>Filter会随着tomcat的启动自启动。</p>
+&lt;/listener&gt; 
+</code></pre><h2 id="Filter过滤器"><a href="#Filter过滤器" class="headerlink" title="Filter过滤器"></a>Filter过滤器</h2><p>截取用户端的请求和响应信息，并对这些信息进行过滤<br>Filter会随着tomcat的启动自启动。</p>
 <p>新建filter实现Filter接口即可</p>
 <pre><code>public class FilterName implements Filter {
 
