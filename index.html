@@ -395,9 +395,8 @@
       
         
           
-            <h2 id="JAVA只有值传递"><a href="#JAVA只有值传递" class="headerlink" title="JAVA只有值传递"></a>JAVA只有值传递</h2><p><strong>值传递即方法传入的是拷贝（比如传入string，就是传入string对象的引用的拷贝</strong>），所以交换什么的，没有用，不过可以将int转为stringbuffer（这个才是参数），利用此类的方法将引用的对象的属性（值）改变。</p>
-<p>####ps：引用传递传入的就是对象的地址，不必再开内存空间，即传入方法的对象就是自己，当然会随之改变了。</p>
-<p>企图用方法直接交换int、交换String(未交换成功)</p>
+            <h2 id="JAVA只有值传递"><a href="#JAVA只有值传递" class="headerlink" title="JAVA只有值传递"></a>JAVA只有值传递</h2><p><strong>值传递即方法传入的是拷贝（比如传入string，就是传入string对象的引用的拷贝</strong>），所以交换什么的，没有用。</p>
+<h4 id="ps：引用传递传入的就是对象的地址，不必再开内存空间，即传入方法的对象就是自己，当然会随之改变了。"><a href="#ps：引用传递传入的就是对象的地址，不必再开内存空间，即传入方法的对象就是自己，当然会随之改变了。" class="headerlink" title="ps：引用传递传入的就是对象的地址，不必再开内存空间，即传入方法的对象就是自己，当然会随之改变了。"></a>ps：引用传递传入的就是对象的地址，不必再开内存空间，即传入方法的对象就是自己，当然会随之改变了。</h4><p>企图用方法直接交换int、交换String(未交换成功)</p>
 <pre><code>public static void main(String[] args) {
          int a=1;11
          int b=2;
