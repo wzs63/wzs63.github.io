@@ -79,19 +79,19 @@
 
 
 
-<meta name="description" content="JAVA只有值传递即传入的是拷贝（比如传入string，就是传入string对象的引用的拷贝），所以交换什么的，没有用，不过可以将int转为stringbuffer（这个才是参数），利用此类的方法将引用的对象的属性（值）改变。 ####ps：引用传递传入的就是对象的地址，不必再开内存空间，即传入方法的对象就是自己，当然会随之改变了。 企图用方法直接交换int、交换String(未交换成功) pub">
+<meta name="description" content="JAVA只有值传递值传递即方法传入的是拷贝（比如传入string，就是传入string对象的引用的拷贝），所以交换什么的，没有用，不过可以将int转为stringbuffer（这个才是参数），利用此类的方法将引用的对象的属性（值）改变。 ####ps：引用传递传入的就是对象的地址，不必再开内存空间，即传入方法的对象就是自己，当然会随之改变了。 企图用方法直接交换int、交换String(未交换成功">
 <meta property="og:type" content="article">
 <meta property="og:title" content="JAVA只有值传递">
 <meta property="og:url" content="http://yoursite.com/2019/03/23/Java只有值传递/index.html">
 <meta property="og:site_name" content="hello">
-<meta property="og:description" content="JAVA只有值传递即传入的是拷贝（比如传入string，就是传入string对象的引用的拷贝），所以交换什么的，没有用，不过可以将int转为stringbuffer（这个才是参数），利用此类的方法将引用的对象的属性（值）改变。 ####ps：引用传递传入的就是对象的地址，不必再开内存空间，即传入方法的对象就是自己，当然会随之改变了。 企图用方法直接交换int、交换String(未交换成功) pub">
+<meta property="og:description" content="JAVA只有值传递值传递即方法传入的是拷贝（比如传入string，就是传入string对象的引用的拷贝），所以交换什么的，没有用，不过可以将int转为stringbuffer（这个才是参数），利用此类的方法将引用的对象的属性（值）改变。 ####ps：引用传递传入的就是对象的地址，不必再开内存空间，即传入方法的对象就是自己，当然会随之改变了。 企图用方法直接交换int、交换String(未交换成功">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="https://s2.ax1x.com/2019/03/23/AJJBX8.th.png">
 <meta property="og:image" content="https://s2.ax1x.com/2019/03/23/AJt1de.th.png">
-<meta property="og:updated_time" content="2019-03-23T13:36:23.589Z">
+<meta property="og:updated_time" content="2019-03-23T13:42:09.456Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="JAVA只有值传递">
-<meta name="twitter:description" content="JAVA只有值传递即传入的是拷贝（比如传入string，就是传入string对象的引用的拷贝），所以交换什么的，没有用，不过可以将int转为stringbuffer（这个才是参数），利用此类的方法将引用的对象的属性（值）改变。 ####ps：引用传递传入的就是对象的地址，不必再开内存空间，即传入方法的对象就是自己，当然会随之改变了。 企图用方法直接交换int、交换String(未交换成功) pub">
+<meta name="twitter:description" content="JAVA只有值传递值传递即方法传入的是拷贝（比如传入string，就是传入string对象的引用的拷贝），所以交换什么的，没有用，不过可以将int转为stringbuffer（这个才是参数），利用此类的方法将引用的对象的属性（值）改变。 ####ps：引用传递传入的就是对象的地址，不必再开内存空间，即传入方法的对象就是自己，当然会随之改变了。 企图用方法直接交换int、交换String(未交换成功">
 <meta name="twitter:image" content="https://s2.ax1x.com/2019/03/23/AJJBX8.th.png">
 
 
@@ -397,7 +397,7 @@
       
 
       
-        <h2 id="JAVA只有值传递"><a href="#JAVA只有值传递" class="headerlink" title="JAVA只有值传递"></a>JAVA只有值传递</h2><p><strong>即传入的是拷贝（比如传入string，就是传入string对象的引用的拷贝</strong>），所以交换什么的，没有用，不过可以将int转为stringbuffer（这个才是参数），利用此类的方法将引用的对象的属性（值）改变。</p>
+        <h2 id="JAVA只有值传递"><a href="#JAVA只有值传递" class="headerlink" title="JAVA只有值传递"></a>JAVA只有值传递</h2><p><strong>值传递即方法传入的是拷贝（比如传入string，就是传入string对象的引用的拷贝</strong>），所以交换什么的，没有用，不过可以将int转为stringbuffer（这个才是参数），利用此类的方法将引用的对象的属性（值）改变。</p>
 <p>####ps：引用传递传入的就是对象的地址，不必再开内存空间，即传入方法的对象就是自己，当然会随之改变了。</p>
 <p>企图用方法直接交换int、交换String(未交换成功)</p>
 <pre><code>public static void main(String[] args) {
