@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title><![CDATA[Session和cookie]]></title>
+    <title><![CDATA[Session和Cookie]]></title>
     <url>%2F2019%2F03%2F24%2FSession%E5%92%8Ccookie%2F</url>
     <content type="text"><![CDATA[HTTP协议是无状态连接，一次请求响应后即断开，多次请求之间互相不知道对方。（即连接只为一个请求响应存在）那怎么才能知道哪几个请求是来自于同一个客户呢（记录客户）？会话（session）原理机制：在客户第一次请求时，容器为此客户生成一个唯一会话ID，并且随响应返回给客户，客户在请求时会带上这个会话ID，容器看到这个会话ID后会找与之匹配的会话和此次请求相关联。（会话ID须存于服务器） 那客户服务器两端通过什么交流会话ID呢？用cookie（就是用于客户和服务器交换的一小段数据（一个名/值String对））容器负责生生成会话ID–&gt;创建cookie对象–&gt;将会话ID放于cookie中–&gt;把cookie设为响应的一部分。ps:为什么不用客户IP地址识别客户呢？因为对于服务器来说，客户的IP地址是路由的地址，所以这个客户和在这个网络的所有客户的IP地址一样，无法唯一识别。 在浏览器选项中清除所有Cookie之后再访问，即第一次请求,响应有Set-Cookie。（ps:因为此请求对应的servlet用到了session对象（即getSession（）调用），所以才会有Set-Cookie。如果没有用到session对象就没有Set-Cookie，当然之后再请求也没有Cookie了。）之后再请求一次请求多了cookie项，内容就是之前响应的set-cookie 因为服务器找到了客户对应的会话，所以不用新建会话，此时响应没有了set-cookie。 如何得到session对象？request.getSession() 如果之前没有这个客户对应的会话，会新建一个，有的话返回之前的session。 如何判断session是否是新建的呢？request.getSession().isNew() 如果完全不想创建新的会话呢？request.getSession(false) 当然这样有可能会为null 如果客户不支持cookie呢？最后一条后路–URL重写（encodeURL()）容器在发现用getSesion调用，请求却没有cookie时（可能是第一次请求也可能是不支持cookie），会同时尝试cookie和URL重写两种方法。因为容器不会知道客户是否不支持cookie。没有会话，每一次请求响应直接没有关系（HTTP无状态），容器不会知道自己是不是对这个客户使用过cookie。 如何结束一个会话？三种方法1.超时web.xml设置，单位为分钟 &lt;session-config&gt; &lt;session-timeout&gt;15&lt;/session-timeout&gt; &lt;/session-config&gt; 如果要设置某个session request.getSession().setMaxInactiveInterval(15*60);//15分钟 2.invalidate()方法 request.getSession().invalidate(); 3.应用结束 但是cookie可以活的更长！默认会话结束后，cookie会消失。但是也可以设置让cookie继续活下去。在一个星期后再发出请求，此时虽然会话已到期，客户还存着cookie。服务器还是可以识别到是之前那个客户。]]></content>
       <categories>
