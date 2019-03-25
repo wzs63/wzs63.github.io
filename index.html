@@ -302,6 +302,330 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/03/25/springMVC/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="wzs63">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/image/01.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="hello">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/03/25/springMVC/" itemprop="url">springMVC笔记</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-03-25T16:38:59+08:00">
+                2019-03-25
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
+                  <a href="/categories/JavaEE/" itemprop="url" rel="index">
+                    <span itemprop="name">JavaEE</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>MVC模式（Model–view–controller）是软件工程中的一种软件架构模式，把软件系统分为三个基本部分：模型（Model）、视图（View）和控制器（Controller）。</p>
+<p>控制器（Controller）- 负责转发请求，对请求进行处理。</p>
+<p>视图（View） - 负责显示数据，这个部分多为前端应用，而 Controller 会有一个机制将处理的结果 (可能是 Model, 集合或是状态等) 交给 View，然后由 View 来决定怎么显示<br>模型（Model） -    负责数据访问,掌管数据源</p>
+<h4 id="DispatcherServlet是springMVC的入口（所有的请求都提交到该Servlet）"><a href="#DispatcherServlet是springMVC的入口（所有的请求都提交到该Servlet）" class="headerlink" title="DispatcherServlet是springMVC的入口（所有的请求都提交到该Servlet）"></a>DispatcherServlet是springMVC的入口（所有的请求都提交到该Servlet）</h4><p>springmvc自带有org.springframework.web.servlet.DispatcherServlet<br>充当调度员的一个servlet，拦截匹配的请求，并且依据相应的规则分发到目标Controller来处理。</p>
+<h2 id="配置及整体过程"><a href="#配置及整体过程" class="headerlink" title="配置及整体过程"></a>配置及整体过程</h2><h3 id="web-xml下的配置"><a href="#web-xml下的配置" class="headerlink" title="web.xml下的配置"></a>web.xml下的配置</h3><pre><code>&lt;!-- spring mvc核心：分发servlet --&gt;
+    &lt;servlet&gt;
+         &lt;servlet-name&gt;mvc-dispatcher&lt;/servlet-name&gt;
+         &lt;servlet-class&gt;org.springframework.web.servlet.DispatcherServlet&lt;/servlet-class&gt;
+         &lt;!-- spring mvc的配置文件 --&gt;
+         &lt;init-param&gt;
+             &lt;param-name&gt;contextConfigLocation&lt;/param-name&gt;
+             &lt;param-value&gt;classpath:springMVC.xml&lt;/param-value&gt;
+         &lt;/init-param&gt;
+         &lt;load-on-startup&gt;1&lt;/load-on-startup&gt;
+    &lt;/servlet&gt;
+
+    &lt;servlet-mapping&gt;
+         &lt;servlet-name&gt;mvc-dispatcher&lt;/servlet-name&gt;
+         &lt;url-pattern&gt;*.do&lt;/url-pattern&gt;
+    &lt;/servlet-mapping&gt;
+</code></pre><p>设置在web应用启动时就将此servlet创建并初始化（默认值为0，就是在用对应请求到来时才创建）</p>
+<pre><code>&lt;load-on-startup&gt;1&lt;/load-on-startup&gt;
+</code></pre><p>此servlet初始化时会找一个WEB-INF目录下的一个配置文件，命名规则为servletName-servlet.xml（比如对于 <servlet-name>mvc-dispatcher</servlet-name>默认是找WEB-INF\mvc-dispatcher-servlet.xml配置文件）。<br>当然这个配置文件路径和名字可以自己设置</p>
+<pre><code>&lt;!-- spring mvc的配置文件 --&gt;
+         &lt;init-param&gt;
+             &lt;param-name&gt;contextConfigLocation&lt;/param-name&gt;
+             &lt;param-value&gt;classpath:springMVC.xml&lt;/param-value&gt;
+         &lt;/init-param&gt;
+</code></pre><p>这样直接把springMVC.xml放src目录下就可以了</p>
+<p>拦截使用为*.do的请求：</p>
+<pre><code>&lt;servlet-mapping&gt;
+     &lt;servlet-name&gt;mvc-dispatcher&lt;/servlet-name&gt;
+     &lt;url-pattern&gt;*.do&lt;/url-pattern&gt;
+&lt;/servlet-mapping&gt;
+</code></pre><h3 id="springMVC-xml（Spring-MVC的-映射配置文件）"><a href="#springMVC-xml（Spring-MVC的-映射配置文件）" class="headerlink" title="springMVC.xml（Spring MVC的 映射配置文件）"></a>springMVC.xml（Spring MVC的 映射配置文件）</h3><pre><code>&lt;beans&gt;
+    &lt;bean id=&quot;simpleUrlHandlerMapping&quot;
+
+
+        class=&quot;org.springframework.web.servlet.handler.SimpleUrlHandlerMapping&quot;&gt;
+        &lt;property name=&quot;mappings&quot;&gt;
+            &lt;props&gt;
+                &lt;prop key=&quot;/hello.do&quot;&gt;HelloController&lt;/prop&gt;
+            &lt;/props&gt;
+        &lt;/property&gt;
+    &lt;/bean&gt;
+    &lt;bean id=&quot;helloController&quot; class=&quot;controller.HelloController&quot;&gt;&lt;/bean&gt;
+&lt;/beans&gt;
+</code></pre><p>访问路径/hello.do会交给id=helloController的bean处理</p>
+<p>创建控制类控制类 <strong>helloController</strong>实现接口Controller ，提供方法处理请求</p>
+<pre><code>public class HelloController implements Controller {
+    public ModelAndView handleRequest(HttpServletRequest request, HttpServletResponse response)throws Exception {
+        ModelAndView mav = new ModelAndView(&quot;hello.jsp&quot;);//跳转到这个页面
+        mav.addObject(&quot;message&quot;, &quot;Hello Spring MVC&quot;);//JSP中可用&lt;h1&gt;${message}&lt;/h1&gt;  
+        return mav;
+    }
+}
+</code></pre><p>WebContent目录下创建<strong>hello.jsp</strong>，可以用喜欢的方式展示数据（ ${message}）<br>例如： </p>
+<pre><code>&lt;%@ page language=&quot;java&quot; contentType=&quot;text/html; charset=UTF-8&quot;
+    pageEncoding=&quot;UTF-8&quot; isELIgnored=&quot;false&quot;%&gt;
+&lt;h1&gt;${message}&lt;/h1&gt;
+</code></pre><p> 这样一来在用户请求/hello.do时，因为web.xml中的配置 *.do的所有请求都经过DispatcherServlet，再根据配置文件springMVC.xml ，访问路径/hello.do<br>对应HelloController类，在HelloController中指定跳转到页面hello.jsp，并传递message数据，最后在hello.jsp中显示message信息。</p>
+<h2 id="视图定位"><a href="#视图定位" class="headerlink" title="视图定位"></a>视图定位</h2><pre><code>&lt;bean
+         class=&quot;org.springframework.web.servlet.view.InternalResourceViewResolver&quot;&gt;
+        &lt;property name=&quot;viewClass&quot;
+             value=&quot;org.springframework.web.servlet.view.JstlView&quot; /&gt;
+        &lt;property name=&quot;prefix&quot;  value=&quot;/WEB-INF/jsp/&quot; /&gt;
+        &lt;property name=&quot;suffix&quot; value=&quot;.jsp&quot; /&gt;
+    &lt;/bean&gt;
+</code></pre><p>这样一来把视图约定在 /WEB-INF/page/*.jsp 这个位置s<br>Controller中写 ModelAndView mav = new ModelAndView(“hello”)，就是跳转到/WEB-INF/jsp/hello.jsp了</p>
+<h2 id="用注释的方式"><a href="#用注释的方式" class="headerlink" title="用注释的方式"></a>用注释的方式</h2><p>@Controller 表示该类是一个控制器<br>@RequestMapping(“register.do”) 表示此请求会映射到此方法</p>
+<pre><code>@Controller
+public class UserController {
+    @Autowired
+    UserService userService;
+
+    @RequestMapping(&quot;register.do&quot;)
+    public ModelAndView register(){
+         ModelAndView mav = new ModelAndView();
+         mav.setViewName(&quot;register&quot;);
+         return mav;
+    }
+}
+</code></pre><p>springMVC.xml需要添加以下内容<br>1.声明spring-context部分</p>
+<pre><code>&lt;beans 
+        ......
+     xmlns:context=&quot;http://www.springframework.org/schema/context&quot;
+......
+&gt;
+</code></pre><p>2.指定扫描注释的包，把类放到这个包下面并加以@Controller注释就会知道这是个控制器类</p>
+<pre><code>&lt;context:component-scan base-package=&quot;controller&quot; /&gt;
+</code></pre><h3 id="表单提交并自动将数据注入对象"><a href="#表单提交并自动将数据注入对象" class="headerlink" title="表单提交并自动将数据注入对象"></a>表单提交并自动将数据注入对象</h3><p>pojo包下建User类</p>
+<pre><code>package pojo;
+public class User {
+    String uid;
+    String uname;
+    String up;
+    public String getUid() {
+         return uid;
+    }
+    public void setUid(String uid) {
+         this.uid = uid;
+    }
+    public String getUname() {
+         return uname;
+    }
+    public void setUname(String uname) {
+         this.uname = uname;
+    }
+    public String getUp() {
+         return up;
+    }
+    public void setUid(String uid){
+         this.up = up;
+    }
+    public float getUb() {
+         return ub;
+    }
+    public User(){
+
+    }
+}
+</code></pre><p>表单中，要填的两项分别为name=”uid”，name=”up” 与User类setUid(String uid)，setUid(String uid)对应</p>
+<pre><code>&lt;form action=&quot;loginwc.do&quot; method=&quot;post&quot;&gt;
+         &lt;div class=&quot;form-group&quot;&gt;
+           &lt;label&gt;账户&lt;/label&gt;
+           &lt;input type=&quot;text&quot; name=&quot;uid&quot;  placeholder=&quot;用户名/手机&quot; class=&quot;form-control&quot;   style=&quot;width:300px&quot;/&gt;
+        &lt;/div&gt;
+
+         &lt;div class=&quot;form-group&quot;&gt;
+           &lt;label&gt;密码&lt;/label&gt;
+           &lt;input type=&quot;password&quot; name=&quot;up&quot;  placeholder=&quot;密码&quot; class=&quot;form-control&quot;   style=&quot;width:300px&quot;/&gt;
+         &lt;/div&gt; 
+
+&lt;div class=&quot;form-group&quot;&gt;
+              &lt;button type=&quot;submit&quot; class=&quot;btn  btn-primary&quot;&gt;登录&lt;/button&gt;
+        &lt;/div&gt;
+&lt;/form&gt;
+</code></pre><p>对应Controller<br>springmvc发现页面传递过来有参数uid的时候，同时检测到参数的User这个类有setUid方法，那么就会把参数uid的值，注入到这个user对象里去了(up同理）</p>
+<pre><code>@RequestMapping(&quot;loginwc.do&quot;)
+    public ModelAndView loginwc(User  user,HttpServletRequest req,HttpServletResponse  resp) {
+         ModelAndView mav = new ModelAndView();
+         System.out.println(user.getUid());//就是表单输入的值
+         System.out.println(user.getUp());//就是表单输入的值
+        //dosomething
+         return mav;
+    }
+</code></pre><p>另外也可以用@RequestParam注释直接提取表单的数据到方法参数中(当然不一定是非要是String了，springMVC 会尽力转化的)</p>
+<pre><code>public ModelAndView loginwc(@RequestParam String uid,@RequestParam String up,) {
+     ModelAndView mav = new ModelAndView();
+     System.out.println(user.getUid());//就是表单输入的值
+     System.out.println(user.getUp());//就是表单输入的值
+    //dosomething
+     return mav;
+}
+</code></pre><p>字段不同名也可以设置value值 @RequestParam(value=””)</p>
+<pre><code>public ModelAndView loginwc(@RequestParam(value=&quot;uid&quot;) String userId,@RequestParam(value=&quot;uid&quot;) String userPassword,)
+</code></pre><h2 id="请求重定向redirect"><a href="#请求重定向redirect" class="headerlink" title="请求重定向redirect:"></a>请求重定向redirect:</h2><pre><code>@RequestMapping(&quot;/jump.do&quot;)
+    public ModelAndView jump() {
+        ModelAndView mav = new ModelAndView(&quot;redirect:/hello.do&quot;);
+        return mav;
+    }  
+</code></pre><h2 id="页面上传"><a href="#页面上传" class="headerlink" title="页面上传"></a>页面上传</h2><p>springMVC.xml新增加一段配置，开放对上传功能的支持</p>
+<pre><code>&lt;bean id=&quot;multipartResolver&quot; class=&quot;org.springframework.web.multipart.commons.CommonsMultipartResolver&quot;/&gt;
+</code></pre><p>upload.jsp 上传页面<br>上传页面，需要注意的是form 的两个属性必须提供<br>method=”post” 和 enctype=”multipart/form-data” 缺一不可<br>上传组件 增加一个属性 accept=”image/*” 表示只能选择图片进行上传</p>
+<pre><code>&lt;%@ page language=&quot;java&quot; contentType=&quot;text/html; charset=UTF-8&quot;
+    pageEncoding=&quot;UTF-8&quot; import=&quot;java.util.*&quot; isELIgnored=&quot;false&quot;%&gt;
+
+&lt;form action=&quot;uploadImage.do&quot; method=&quot;post&quot; enctype=&quot;multipart/form-data&quot;&gt;
+  选择图片:&lt;input type=&quot;file&quot; name=&quot;image&quot; accept=&quot;image/*&quot; /&gt;
+
+  &lt;input type=&quot;submit&quot; value=&quot;上传&quot;&gt;
+&lt;/form&gt;
+</code></pre><p>pojo.UploadedImageFile</p>
+<pre><code>public class UploadedImageFile {
+    MultipartFile image;
+    public MultipartFile getImage() {
+        return image;
+    }
+    public void setImage(MultipartFile image) {
+        this.image = image;
+    }
+}
+</code></pre><p>之后编写uploadImage.do请求对应的controller的方法对图片进行操作（保存展示等）。</p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/03/24/Session和cookie/">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
@@ -2263,137 +2587,13 @@ WHERE EXISTS (SELECT *
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/10/23/hello-world/">
-
-    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="wzs63">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/image/01.png">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="hello">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/10/23/hello-world/" itemprop="url">Hello World</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-10-23T13:05:37+08:00">
-                2018-10-23
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="noopener">Deployment</a></p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
+  <nav class="pagination">
+    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right"></i></a>
+  </nav>
+
 
 
           </div>
@@ -2439,7 +2639,7 @@ WHERE EXISTS (SELECT *
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">10</span>
+                  <span class="site-state-item-count">11</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
