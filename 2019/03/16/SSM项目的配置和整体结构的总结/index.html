@@ -86,13 +86,13 @@
 <meta property="og:site_name" content="hello">
 <meta property="og:description" content="SpringSpring就像是整个项目中装配bean的大工厂，在配置文件中可以指定使用特定的参数去调用实体类的构造方法来实例化对象。也可以称之为项目中的粘合剂。Spring的核心思想是IoC（控制反转），即不再需要程序员去显式地new一个对象，而是让Spring框架帮你来完成这一切。 SpringMVCSpringMVC在项目中拦截用户请求，它的核心Servlet即DispatcherServle">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="https://i.imgur.com/820anO0.png">
-<meta property="og:image" content="https://i.imgur.com/tgntyfy.png">
-<meta property="og:updated_time" content="2019-03-23T13:36:56.311Z">
+<meta property="og:image" content="https://s2.ax1x.com/2019/03/23/AJ8x8x.png">
+<meta property="og:image" content="https://s2.ax1x.com/2019/03/23/AJ8z26.md.png">
+<meta property="og:updated_time" content="2019-04-27T01:52:00.438Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="SSM项目的配置和整体结构的总结">
 <meta name="twitter:description" content="SpringSpring就像是整个项目中装配bean的大工厂，在配置文件中可以指定使用特定的参数去调用实体类的构造方法来实例化对象。也可以称之为项目中的粘合剂。Spring的核心思想是IoC（控制反转），即不再需要程序员去显式地new一个对象，而是让Spring框架帮你来完成这一切。 SpringMVCSpringMVC在项目中拦截用户请求，它的核心Servlet即DispatcherServle">
-<meta name="twitter:image" content="https://i.imgur.com/820anO0.png">
+<meta name="twitter:image" content="https://s2.ax1x.com/2019/03/23/AJ8x8x.png">
 
 
 
@@ -481,7 +481,7 @@
      &lt;url-pattern&gt;*.do&lt;/url-pattern&gt;
 &lt;/servlet-mapping&gt;
 </code></pre><hr>
-<h2 id="全部的结构"><a href="#全部的结构" class="headerlink" title="全部的结构"></a>全部的结构</h2><p><img src="https://i.imgur.com/820anO0.png" alt=""></p>
+<h2 id="全部的结构"><a href="#全部的结构" class="headerlink" title="全部的结构"></a>全部的结构</h2><p><img src="https://s2.ax1x.com/2019/03/23/AJ8x8x.png" alt="AJ8x8x.png"></p>
 <h3 id="Controller：接收相应请求，执行相应方法，并转到相应页面"><a href="#Controller：接收相应请求，执行相应方法，并转到相应页面" class="headerlink" title="Controller：接收相应请求，执行相应方法，并转到相应页面"></a>Controller：接收相应请求，执行相应方法，并转到相应页面</h3><p>以UserController为例：<br>先用注解声明是 UserController一个Controller我们拦截所有.do的请求，UserController写关于user的请求，例如请求login.do,即登录，我们执行login方法，<br>之后转到view层，即jsp页面，在登录完成后填完信息请求loginwc.do,将提取的信息进行验证，数据库里是否有uid为所填uid并且up为所填up的，若记录不为空，则登陆成功，此时我们将uid存入HttpSession中记录了用户登录状态，之后还要用这个数据</p>
 <pre><code>@Controller
 public class UserController {
@@ -684,7 +684,7 @@ public class CommodityServiceImpl implements CommodityService{
          this.first = first;
          this.count = count;
     }
-</code></pre><p>相关jar包：<br><img src="https://i.imgur.com/tgntyfy.png" alt=""></p>
+</code></pre><p>相关jar包：<br><img src="https://s2.ax1x.com/2019/03/23/AJ8z26.md.png" alt="AJ8z26.md.png"></p>
 
       
     </div>
