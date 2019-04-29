@@ -6,20 +6,15 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="https://wzs63.github.io">
-  <title>springMVC笔记 | wzs63的博客</title>
+  <title>Tag: Java | wzs63的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="MVC模式（Model–view–controller）是软件工程中的一种软件架构模式，把软件系统分为三个基本部分：模型（Model）、视图（View）和控制器（Controller）。 控制器（Controller）- 负责转发请求，对请求进行处理。 视图（View） - 负责显示数据，这个部分多为前端应用，而 Controller 会有一个机制将处理的结果 (可能是 Model, 集合或是状态">
-<meta name="keywords" content="JavaEE">
-<meta property="og:type" content="article">
-<meta property="og:title" content="springMVC笔记">
-<meta property="og:url" content="https://wzs63.github.io/2019/03/25/springMVC/index.html">
+  <meta property="og:type" content="website">
+<meta property="og:title" content="wzs63的博客">
+<meta property="og:url" content="https://wzs63.github.io/tags/Java/index.html">
 <meta property="og:site_name" content="wzs63的博客">
-<meta property="og:description" content="MVC模式（Model–view–controller）是软件工程中的一种软件架构模式，把软件系统分为三个基本部分：模型（Model）、视图（View）和控制器（Controller）。 控制器（Controller）- 负责转发请求，对请求进行处理。 视图（View） - 负责显示数据，这个部分多为前端应用，而 Controller 会有一个机制将处理的结果 (可能是 Model, 集合或是状态">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-04-29T09:14:25.727Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="springMVC笔记">
-<meta name="twitter:description" content="MVC模式（Model–view–controller）是软件工程中的一种软件架构模式，把软件系统分为三个基本部分：模型（Model）、视图（View）和控制器（Controller）。 控制器（Controller）- 负责转发请求，对请求进行处理。 视图（View） - 负责显示数据，这个部分多为前端应用，而 Controller 会有一个机制将处理的结果 (可能是 Model, 集合或是状态">
+<meta name="twitter:title" content="wzs63的博客">
   
     <link rel="alternative" href="/atom.xml" title="wzs63的博客" type="application/atom+xml">
   
@@ -172,352 +167,179 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-springMVC" class="article article-type-post " itemscope="" itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
+            
   
-    <h1 class="article-title" itemprop="name">
-      springMVC笔记
+  
+    
+    
+      
+      
+      <section class="archives-wrap">
+        <div class="archive-year-wrap">
+          <a href="/archives/2019" class="archive-year">2019</a>
+        </div>
+        <div class="archives">
+    
+    <article class="archive-article archive-type-post">
+  <div class="archive-article-inner">
+    <header class="archive-article-header">
+      	<div class="article-meta">
+	      	<a href="/2019/03/27/Java集合/" class="archive-article-date">
+  	<time datetime="2019-03-27T14:15:07.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-03-27</time>
+</a>
+        </div>
+    	 
+  
+    <h1 itemprop="name">
+      <a class="archive-article-title" href="/2019/03/27/Java集合/">Java集合笔记</a>
     </h1>
   
 
-        
-        <a href="/2019/03/25/springMVC/" class="archive-article-date">
-  	<time datetime="2019-03-25T08:38:59.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-03-25</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-
-    	
-    		<p>MVC模式（Model–view–controller）是软件工程中的一种软件架构模式，把软件系统分为三个基本部分：模型（Model）、视图（View）和控制器（Controller）。</p>
-<p>控制器（Controller）- 负责转发请求，对请求进行处理。</p>
-<p>视图（View） - 负责显示数据，这个部分多为前端应用，而 Controller 会有一个机制将处理的结果 (可能是 Model, 集合或是状态等) 交给 View，然后由 View 来决定怎么显示<br>模型（Model） -    负责数据访问,掌管数据源</p>
-<h4 id="DispatcherServlet是springMVC的入口（所有的请求都提交到该Servlet）"><a href="#DispatcherServlet是springMVC的入口（所有的请求都提交到该Servlet）" class="headerlink" title="DispatcherServlet是springMVC的入口（所有的请求都提交到该Servlet）"></a>DispatcherServlet是springMVC的入口（所有的请求都提交到该Servlet）</h4><p>springmvc自带有org.springframework.web.servlet.DispatcherServlet<br>充当调度员的一个servlet，拦截匹配的请求，并且依据相应的规则分发到目标Controller来处理。</p>
-<h2 id="配置及整体过程"><a href="#配置及整体过程" class="headerlink" title="配置及整体过程"></a>配置及整体过程</h2><h3 id="web-xml下的配置"><a href="#web-xml下的配置" class="headerlink" title="web.xml下的配置"></a>web.xml下的配置</h3><pre><code>&lt;!-- spring mvc核心：分发servlet --&gt;
-    &lt;servlet&gt;
-         &lt;servlet-name&gt;mvc-dispatcher&lt;/servlet-name&gt;
-         &lt;servlet-class&gt;org.springframework.web.servlet.DispatcherServlet&lt;/servlet-class&gt;
-         &lt;!-- spring mvc的配置文件 --&gt;
-         &lt;init-param&gt;
-             &lt;param-name&gt;contextConfigLocation&lt;/param-name&gt;
-             &lt;param-value&gt;classpath:springMVC.xml&lt;/param-value&gt;
-         &lt;/init-param&gt;
-         &lt;load-on-startup&gt;1&lt;/load-on-startup&gt;
-    &lt;/servlet&gt;
-
-    &lt;servlet-mapping&gt;
-         &lt;servlet-name&gt;mvc-dispatcher&lt;/servlet-name&gt;
-         &lt;url-pattern&gt;*.do&lt;/url-pattern&gt;
-    &lt;/servlet-mapping&gt;
-</code></pre><p>设置在web应用启动时就将此servlet创建并初始化（默认值为0，就是在用对应请求到来时才创建）</p>
-<pre><code>&lt;load-on-startup&gt;1&lt;/load-on-startup&gt;
-</code></pre><p>此servlet初始化时会找一个WEB-INF目录下的一个配置文件，命名规则为servletName-servlet.xml（比如对于 <servlet-name>mvc-dispatcher</servlet-name>默认是找WEB-INF\mvc-dispatcher-servlet.xml配置文件）。<br>当然这个配置文件路径和名字可以自己设置</p>
-<pre><code>&lt;!-- spring mvc的配置文件 --&gt;
-         &lt;init-param&gt;
-             &lt;param-name&gt;contextConfigLocation&lt;/param-name&gt;
-             &lt;param-value&gt;classpath:springMVC.xml&lt;/param-value&gt;
-         &lt;/init-param&gt;
-</code></pre><p>这样直接把springMVC.xml放src目录下就可以了</p>
-<p>拦截使用为*.do的请求：</p>
-<pre><code>&lt;servlet-mapping&gt;
-     &lt;servlet-name&gt;mvc-dispatcher&lt;/servlet-name&gt;
-     &lt;url-pattern&gt;*.do&lt;/url-pattern&gt;
-&lt;/servlet-mapping&gt;
-</code></pre><h3 id="springMVC-xml（Spring-MVC的-映射配置文件）"><a href="#springMVC-xml（Spring-MVC的-映射配置文件）" class="headerlink" title="springMVC.xml（Spring MVC的 映射配置文件）"></a>springMVC.xml（Spring MVC的 映射配置文件）</h3><pre><code>&lt;beans&gt;
-    &lt;bean id=&quot;simpleUrlHandlerMapping&quot;
-
-
-        class=&quot;org.springframework.web.servlet.handler.SimpleUrlHandlerMapping&quot;&gt;
-        &lt;property name=&quot;mappings&quot;&gt;
-            &lt;props&gt;
-                &lt;prop key=&quot;/hello.do&quot;&gt;HelloController&lt;/prop&gt;
-            &lt;/props&gt;
-        &lt;/property&gt;
-    &lt;/bean&gt;
-    &lt;bean id=&quot;helloController&quot; class=&quot;controller.HelloController&quot;&gt;&lt;/bean&gt;
-&lt;/beans&gt;
-</code></pre><p>访问路径/hello.do会交给id=helloController的bean处理</p>
-<p>创建控制类控制类 <strong>helloController</strong>实现接口Controller ，提供方法处理请求</p>
-<pre><code>public class HelloController implements Controller {
-    public ModelAndView handleRequest(HttpServletRequest request, HttpServletResponse response)throws Exception {
-        ModelAndView mav = new ModelAndView(&quot;hello.jsp&quot;);//跳转到这个页面
-        mav.addObject(&quot;message&quot;, &quot;Hello Spring MVC&quot;);//JSP中可用&lt;h1&gt;${message}&lt;/h1&gt;  
-        return mav;
-    }
-}
-</code></pre><p>WebContent目录下创建<strong>hello.jsp</strong>，可以用喜欢的方式展示数据（ ${message}）<br>例如： </p>
-<pre><code>&lt;%@ page language=&quot;java&quot; contentType=&quot;text/html; charset=UTF-8&quot;
-    pageEncoding=&quot;UTF-8&quot; isELIgnored=&quot;false&quot;%&gt;
-&lt;h1&gt;${message}&lt;/h1&gt;
-</code></pre><p> 这样一来在用户请求/hello.do时，因为web.xml中的配置 *.do的所有请求都经过DispatcherServlet，再根据配置文件springMVC.xml ，访问路径/hello.do<br>对应HelloController类，在HelloController中指定跳转到页面hello.jsp，并传递message数据，最后在hello.jsp中显示message信息。</p>
-<h2 id="视图定位"><a href="#视图定位" class="headerlink" title="视图定位"></a>视图定位</h2><pre><code>&lt;bean
-         class=&quot;org.springframework.web.servlet.view.InternalResourceViewResolver&quot;&gt;
-        &lt;property name=&quot;viewClass&quot;
-             value=&quot;org.springframework.web.servlet.view.JstlView&quot; /&gt;
-        &lt;property name=&quot;prefix&quot;  value=&quot;/WEB-INF/jsp/&quot; /&gt;
-        &lt;property name=&quot;suffix&quot; value=&quot;.jsp&quot; /&gt;
-    &lt;/bean&gt;
-</code></pre><p>这样一来把视图约定在 /WEB-INF/page/*.jsp 这个位置s<br>Controller中写 ModelAndView mav = new ModelAndView(“hello”)，就是跳转到/WEB-INF/jsp/hello.jsp了</p>
-<h2 id="用注释的方式"><a href="#用注释的方式" class="headerlink" title="用注释的方式"></a>用注释的方式</h2><p>@Controller 表示该类是一个控制器<br>@RequestMapping(“register.do”) 表示此请求会映射到此方法</p>
-<pre><code>@Controller
-public class UserController {
-    @Autowired
-    UserService userService;
-
-    @RequestMapping(&quot;register.do&quot;)
-    public ModelAndView register(){
-         ModelAndView mav = new ModelAndView();
-         mav.setViewName(&quot;register&quot;);
-         return mav;
-    }
-}
-</code></pre><p>springMVC.xml需要添加以下内容<br>1.声明spring-context部分</p>
-<pre><code>&lt;beans 
-        ......
-     xmlns:context=&quot;http://www.springframework.org/schema/context&quot;
-......
-&gt;
-</code></pre><p>2.指定扫描注释的包，把类放到这个包下面并加以@Controller注释就会知道这是个控制器类</p>
-<pre><code>&lt;context:component-scan base-package=&quot;controller&quot; /&gt;
-</code></pre><h3 id="表单提交并自动将数据注入对象"><a href="#表单提交并自动将数据注入对象" class="headerlink" title="表单提交并自动将数据注入对象"></a>表单提交并自动将数据注入对象</h3><p>pojo包下建User类</p>
-<pre><code>package pojo;
-public class User {
-    String uid;
-    String uname;
-    String up;
-    public String getUid() {
-         return uid;
-    }
-    public void setUid(String uid) {
-         this.uid = uid;
-    }
-    public String getUname() {
-         return uname;
-    }
-    public void setUname(String uname) {
-         this.uname = uname;
-    }
-    public String getUp() {
-         return up;
-    }
-    public void setUid(String uid){
-         this.up = up;
-    }
-    public float getUb() {
-         return ub;
-    }
-    public User(){
-
-    }
-}
-</code></pre><p>表单中，要填的两项分别为name=”uid”，name=”up” 与User类setUid(String uid)，setUid(String uid)对应</p>
-<pre><code>&lt;form action=&quot;loginwc.do&quot; method=&quot;post&quot;&gt;
-         &lt;div class=&quot;form-group&quot;&gt;
-           &lt;label&gt;账户&lt;/label&gt;
-           &lt;input type=&quot;text&quot; name=&quot;uid&quot;  placeholder=&quot;用户名/手机&quot; class=&quot;form-control&quot;   style=&quot;width:300px&quot;/&gt;
-        &lt;/div&gt;
-
-         &lt;div class=&quot;form-group&quot;&gt;
-           &lt;label&gt;密码&lt;/label&gt;
-           &lt;input type=&quot;password&quot; name=&quot;up&quot;  placeholder=&quot;密码&quot; class=&quot;form-control&quot;   style=&quot;width:300px&quot;/&gt;
-         &lt;/div&gt; 
-
-&lt;div class=&quot;form-group&quot;&gt;
-              &lt;button type=&quot;submit&quot; class=&quot;btn  btn-primary&quot;&gt;登录&lt;/button&gt;
-        &lt;/div&gt;
-&lt;/form&gt;
-</code></pre><p>对应Controller<br>springmvc发现页面传递过来有参数uid的时候，同时检测到参数的User这个类有setUid方法，那么就会把参数uid的值，注入到这个user对象里去了(up同理）</p>
-<pre><code>@RequestMapping(&quot;loginwc.do&quot;)
-    public ModelAndView loginwc(User  user,HttpServletRequest req,HttpServletResponse  resp) {
-         ModelAndView mav = new ModelAndView();
-         System.out.println(user.getUid());//就是表单输入的值
-         System.out.println(user.getUp());//就是表单输入的值
-        //dosomething
-         return mav;
-    }
-</code></pre><p>另外也可以用@RequestParam注释直接提取表单的数据到方法参数中(当然不一定是非要是String了，springMVC 会尽力转化的)</p>
-<pre><code>public ModelAndView loginwc(@RequestParam String uid,@RequestParam String up,) {
-     ModelAndView mav = new ModelAndView();
-     System.out.println(user.getUid());//就是表单输入的值
-     System.out.println(user.getUp());//就是表单输入的值
-    //dosomething
-     return mav;
-}
-</code></pre><p>字段不同名也可以设置value值 @RequestParam(value=””)</p>
-<pre><code>public ModelAndView loginwc(@RequestParam(value=&quot;uid&quot;) String userId,@RequestParam(value=&quot;uid&quot;) String userPassword,)
-</code></pre><h2 id="请求重定向redirect"><a href="#请求重定向redirect" class="headerlink" title="请求重定向redirect:"></a>请求重定向redirect:</h2><pre><code>@RequestMapping(&quot;/jump.do&quot;)
-    public ModelAndView jump() {
-        ModelAndView mav = new ModelAndView(&quot;redirect:/hello.do&quot;);
-        return mav;
-    }  
-</code></pre><h2 id="页面上传"><a href="#页面上传" class="headerlink" title="页面上传"></a>页面上传</h2><p>springMVC.xml新增加一段配置，开放对上传功能的支持</p>
-<pre><code>&lt;bean id=&quot;multipartResolver&quot; class=&quot;org.springframework.web.multipart.commons.CommonsMultipartResolver&quot;/&gt;
-</code></pre><p>upload.jsp 上传页面<br>上传页面，需要注意的是form 的两个属性必须提供<br>method=”post” 和 enctype=”multipart/form-data” 缺一不可<br>上传组件 增加一个属性 accept=”image/*” 表示只能选择图片进行上传</p>
-<pre><code>&lt;%@ page language=&quot;java&quot; contentType=&quot;text/html; charset=UTF-8&quot;
-    pageEncoding=&quot;UTF-8&quot; import=&quot;java.util.*&quot; isELIgnored=&quot;false&quot;%&gt;
-
-&lt;form action=&quot;uploadImage.do&quot; method=&quot;post&quot; enctype=&quot;multipart/form-data&quot;&gt;
-  选择图片:&lt;input type=&quot;file&quot; name=&quot;image&quot; accept=&quot;image/*&quot; /&gt;
-
-  &lt;input type=&quot;submit&quot; value=&quot;上传&quot;&gt;
-&lt;/form&gt;
-</code></pre><p>pojo.UploadedImageFile</p>
-<pre><code>public class UploadedImageFile {
-    MultipartFile image;
-    public MultipartFile getImage() {
-        return image;
-    }
-    public void setImage(MultipartFile image) {
-        this.image = image;
-    }
-}
-</code></pre><p>之后编写uploadImage.do请求对应的controller的方法对图片进行操作（保存展示等）。</p>
-
-    	
-    
-
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
+        <div class="article-info info-on-right">
+          
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">JavaEE</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">Java</a>
         		</li>
       		
 		</ul>
 	</div>
 
-      
+          
 	<div class="article-category tagcloud">
 		<i class="icon-book icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="/categories/JavaEE//" class="article-tag-list-link color2">JavaEE</a>
+        			<a href="/categories/Java//" class="article-tag-list-link color5">Java</a>
         		</li>
       		
 		</ul>
 	</div>
 
 
-      
-
-      
-        
-<div class="share-btn share-icons tooltip-left">
-  <div class="tooltip tooltip-east">
-    <span class="tooltip-item">
-      <a href="javascript:;" class="share-sns share-outer">
-        <i class="icon icon-share"></i>
-      </a>
-    </span>
-    <span class="tooltip-content">
-      <div class="share-wrap">
-        <div class="share-icons">
-          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
-            <i class="icon icon-weibo"></i>
-          </a>
-          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
-            <i class="icon icon-weixin"></i>
-          </a>
-          <a class="qq share-sns" href="javascript:;" data-type="qq">
-            <i class="icon icon-qq"></i>
-          </a>
-          <a class="douban share-sns" href="javascript:;" data-type="douban">
-            <i class="icon icon-douban"></i>
-          </a>
-          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
-            <i class="icon icon-qzone"></i>
-          </a>
-          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
-            <i class="icon icon-facebook"></i>
-          </a>
-          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
-            <i class="icon icon-twitter"></i>
-          </a>
-          <a class="google share-sns" href="javascript:;" data-type="google">
-            <i class="icon icon-google"></i>
-          </a>
         </div>
-      </div>
-    </span>
-  </div>
-</div>
-
-<div class="page-modal wx-share js-wx-box">
-    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
-    <p>扫一扫，分享到微信</p>
-    <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=https://wzs63.github.io/2019/03/25/springMVC/" alt="微信分享二维码">
-    </div>
-</div>
-
-<div class="mask js-mask"></div>
-      
-      <div class="clearfix"></div>
-    </div>
+        <div class="clearfix"></div>
+    </header>
   </div>
 </article>
-
   
-<nav id="article-nav">
-  
-    <a href="/2019/03/27/Java集合/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          Java集合笔记
-        
-      </div>
-    </a>
-  
-  
-    <a href="/2019/03/24/Session和cookie/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">Session和Cookie</div>
-      <i class="icon-circle-right"></i>
-    </a>
-  
-</nav>
-
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
+    
+    
+    <article class="archive-article archive-type-post">
+  <div class="archive-article-inner">
+    <header class="archive-article-header">
+      	<div class="article-meta">
+	      	<a href="/2019/03/23/Java只有值传递/" class="archive-article-date">
+  	<time datetime="2019-03-23T13:27:18.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-03-23</time>
+</a>
         </div>
-        
-        
-    </div>
-</aside>
-
-
-
+    	 
+  
+    <h1 itemprop="name">
+      <a class="archive-article-title" href="/2019/03/23/Java只有值传递/">JAVA只有值传递</a>
+    </h1>
   
 
+        <div class="article-info info-on-right">
+          
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">Java</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+          
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/Java//" class="article-tag-list-link color5">Java</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+        </div>
+        <div class="clearfix"></div>
+    </header>
+  </div>
+</article>
+  
+    
+    
+      
+        </div></section>
+      
+      
+      <section class="archives-wrap">
+        <div class="archive-year-wrap">
+          <a href="/archives/2018" class="archive-year">2018</a>
+        </div>
+        <div class="archives">
+    
+    <article class="archive-article archive-type-post">
+  <div class="archive-article-inner">
+    <header class="archive-article-header">
+      	<div class="article-meta">
+	      	<a href="/2018/11/26/JDBC/" class="archive-article-date">
+  	<time datetime="2018-11-26T10:22:43.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-11-26</time>
+</a>
+        </div>
+    	 
+  
+    <h1 itemprop="name">
+      <a class="archive-article-title" href="/2018/11/26/JDBC/">JDBC总结</a>
+    </h1>
   
 
+        <div class="article-info info-on-right">
+          
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">Java</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+          
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/Java//" class="article-tag-list-link color5">Java</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+        </div>
+        <div class="clearfix"></div>
+    </header>
+  </div>
+</article>
+  
+  
+    </div></section>
   
 
-  
-
-  
+    
 
 
           </div>
@@ -544,9 +366,9 @@ public class User {
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: true,
+		isPost: false,
 		isArchive: false,
-		isTag: false,
+		isTag: true,
 		isCategory: false,
 		open_in_new: false,
 		toc_hide_index: true,
