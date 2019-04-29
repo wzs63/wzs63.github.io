@@ -1,0 +1,649 @@
+<!DOCTYPE html>
+<html lang="en">
+
+
+
+
+<head><meta name="generator" content="Hexo 3.8.0">
+
+  <!-- Basic Page Needs
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  <meta charset="utf-8">
+  
+      <title>Java集合笔记 - hello</title>
+  
+
+  
+  
+  <meta name="description" content="">
+  <meta name="author" content="wzs63">
+
+  <!-- Mobile Specific Metas
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- load loadjs.js -->
+  <script src="/libs/loadjs/dist/loadjs.min.js"></script>
+
+<link rel="stylesheet" href="/libs/animate.css/animate.min.css">
+  <!-- load lightgallery -->
+<link rel="stylesheet" href="/css/lightgallery.css">
+<link rel="stylesheet" href="/libs/noty/lib/noty.css">
+<script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+  
+
+
+
+
+
+
+    <link rel="stylesheet" href="/css/taurus.css">
+    
+        <link rel="stylesheet" href="/css/scheme-taurus/animations.css">
+    
+
+
+<link rel="stylesheet" href="/.css">
+
+  <!-- load font awesome 5 -->
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ" crossorigin="anonymous">
+
+  <script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+  tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}
+  });
+  </script>
+  <!-- load mathjax -->
+  <script type="text/javascript" async src="https://cdnjs.cloudflare.com/ajax//libs/mathjax/2.7.4/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+
+  <!-- load js-cookie -->
+  <script src="https://cdn.jsdelivr.net/npm/js-cookie@2/src/js.cookie.min.js"></script>
+    <script src="/js/social-share.min.js"></script>
+    <script src="/js/theme.js"></script>
+
+  <!-- include cookie.js -->
+  
+  
+
+  <!-- include comment system code -->
+  
+    <script src="//cdn1.lncld.net/static/js/3.6.4/av-min.js"></script>
+<script src="//unpkg.com/valine/dist/Valine.min.js"></script>
+  
+  <!-- Favicon
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  <link rel="icon" type="image/png" href="/images/favicon.png">
+</head>
+<body style="display: flex; flex-direction: column; min-height: 100vh;">
+
+ 
+
+<header id="header" class="header">
+	<div class="header-title">
+		
+		<div class="header-logo">
+			<a href="/">
+				<img src="/images/theme-icon.svg">
+			</a>
+		</div>
+		<div class="header-text">
+			<h1>
+				<a href="/">hello</a>
+			</h1>
+			<subtitle>
+				
+			</subtitle>
+		</div>
+		
+	</div>
+	<div id="header-nav">
+		
+
+
+
+<nav id="nav">
+	
+	
+	
+	<div class="nav-item" id="nav-item-toc">
+		
+
+
+<div class="toc-container">
+<i class="far fa-times-circle" id="toc-close" onclick="closeTOC(event);" ontouchstart="closeTOC(event);"></i>
+<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#接口总览"><span class="toc-number">1.</span> <span class="toc-text">接口总览</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#–《Java技术核心-卷一》集合章节笔记"><span class="toc-number">2.</span> <span class="toc-text">–《Java技术核心 卷一》集合章节笔记</span></a></li></ol>
+</div>
+<div class="toc-button" onclick="toggleTOC(event);" ontouchstart="toggleTOC(event);">
+    <img src="/images/icons/blue-shadow/toc.svg" alt="">
+</div>
+
+	</div>
+	
+	<div class="nav-item" id="nav-item-archive">
+		
+				<div class="nav-icon">
+				
+			<a href="/archives/" title="Archives">
+			<img src="/images/icons/blue-shadow/archive.svg" alt="">
+			</a>
+		</div>
+	</div>
+	<div class="nav-item" id="nav-item-search">
+		
+		<div class="nav-icon">
+		
+			<a href="/search/" title="Search">
+			<img src="/images/icons/blue-shadow/search.svg" alt="">
+			</a>
+		</div>
+	</div>
+	<div class="nav-item" id="nav-item-more">
+		<div class="nav-icon">
+				<a href="#" onclick="onClickMenuIcon(event);" ontouchstart="onClickMenuIcon(event);">
+				<img src="/images/icons/blue-shadow/menu.svg" alt="">
+				</a>
+		</div>
+		<div class="nav-more-menu">
+				<i class="far fa-times-circle" id="nav-more-menu-close" onclick="onClickNavMenuClose(event);" ontouchstart="onClickNavMenuClose(event);"></i>
+		
+		
+		<div class="nav-more-item">
+				<div class="nav-name">
+					<a class="nav-link" href="/categories/Java/">
+						<span>Java</span>
+					</a>
+				</div>
+		</div>
+		
+		<div class="nav-more-item">
+				<div class="nav-name">
+					<a class="nav-link" href="/categories/java/">
+						<span>Java</span>
+					</a>
+				</div>
+		</div>
+		
+		<div class="nav-more-item">
+				<div class="nav-name">
+					<a class="nav-link" href="/categories/JavaEE/">
+						<span>Javaee</span>
+					</a>
+				</div>
+		</div>
+		
+		<div class="nav-more-item">
+				<div class="nav-name">
+					<a class="nav-link" href="/categories/一些bug/">
+						<span>一些bug</span>
+					</a>
+				</div>
+		</div>
+		
+		<div class="nav-more-item">
+				<div class="nav-name">
+					<a class="nav-link" href="/categories/数据处理/">
+						<span>数据处理</span>
+					</a>
+				</div>
+		</div>
+		
+		<div class="nav-more-item">
+				<div class="nav-name">
+					<a class="nav-link" href="/categories/数据库/">
+						<span>数据库</span>
+					</a>
+				</div>
+		</div>
+		
+	</div>
+	</div>
+</nav>
+
+	</div>
+</header>
+
+ 
+
+  
+
+
+
+
+  <!-- Primary Page Layout
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  <div style="flex: 1;">
+      <style>
+    body {
+        background-color: white;
+    }
+</style>
+
+
+
+
+
+
+
+
+    
+        
+            
+            
+        
+    
+
+
+
+
+
+
+    
+    
+        
+    
+
+    
+        
+    
+
+
+
+
+
+
+
+
+
+<article class="article" id="/2019/03/27/Java集合/" data-name="Java集合笔记" data-version="">
+
+    <!-- Title -->
+    <div class="article-header">
+         
+         <h1 class="article-title">
+            <a href="/2019/03/27/Java集合/">
+                Java集合笔记
+            </a>
+        </h1>
+        <!-- TODO: support nested categories,display them nicely -->
+        
+        <ul class="article-categories">
+            
+            
+                <li><a href="/categories/Java/" data-no-instant="">
+                    <img src="/images/Java.svg" alt="Java" onerror="if(this.src != " images="" uncategorized.svg")="" this.src="/images/uncategorized.svg" "="" title="Java">
+                </a></li>
+            
+        </ul>
+        
+    </div>
+    
+    <!-- Date and Author -->
+    <div class="article-meta">
+    <ul>
+            <li><i class="fa fa-calendar"></i> 2019-03-27</li>
+            
+            <li><i class="fa fa-user"></i> wzs63</li>
+            <li><i class="fas fa-copyright"></i>
+            
+                
+                
+            
+            
+                <a href="https://creativecommons.org/licenses/by-nc-nd/4.0/">CC BY-NC-ND 4.0</a>
+            
+            </li>
+    </ul>
+    
+    </div>
+    <div class="article-cards">
+        <!-- Author Card -->
+        <!---
+        <div class='Card-article Card-author'>
+            <div class='card-title'>
+                <h3></h3>
+            </div>
+            <div class='card-content'>
+                    <div class="author-meta">
+                            <div class='author-figure'>
+                                <img src="" alt="">
+                            </div>
+                            <div class='author-name'>
+                                wzs63
+                            </div>
+                        </div>
+                        <div class="author-ai">
+                            <div class='author-intro'>
+                                <!-- TODO: auto generating author description -->
+                                <!-- 
+                            </div>
+                            <div class="author-articles">
+                                <!-- TODO: auto generating author articles -->
+                                <!-- <ul>
+                                    <li>Article 1</li>
+                                    <li>Article 2</li>
+                                    <li>Article 3</li>
+                                    <li>Article 4</li>
+                                    <li>Article 5</li>
+                                    <li>Article 6</li>
+                                </ul>
+                            </div>
+                        </div>
+            </div>
+            
+        </div> -->
+
+        <!-- Visit Card -->
+        <!-- <div class="Card-article Card-visit"> -->
+            <!-- <div class="card-title">
+  <h3>Post Visit</h3>
+</div>
+<div class="card-chart">
+  <div id="chart-post-visit"></div>
+</div> -->
+        <!-- </div> -->
+        
+        <!-- Auto Excerpt Card -->
+        <!-- <div class="Card-article Card-excerpt">
+            <div class="card-title">
+  <h3>Quick Read</h3>
+</div>
+<div class="card-text">
+  <p id="text-post-summary">接口总览
+Iterable接口:实现此接口允许对象成为“for-each loop”语句的目标。所以集合都可以用foreach遍历访问
+Collection接口：主要方法：boolean add(E element)Iterator iterator()//返回一个实现了Iterator接口的对象，作为Java迭代器
+一些实用方法
+Iterator接口主要方法E next()boolean hasNext()void...</p>
+</div>
+        </div> -->
+    </div>
+    
+    <!-- Gallery -->
+    <!-- TODO: add a slider to gallery -->
+    
+
+    <!-- Content -->
+    <!-- TODO: support table of content -->
+    <div class="article-toc" id="article-toc">
+    
+        
+
+
+<div class="toc-container">
+<i class="far fa-times-circle" id="toc-close" onclick="closeTOC(event);" ontouchstart="closeTOC(event);"></i>
+<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#接口总览"><span class="toc-number">1.</span> <span class="toc-text">接口总览</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#–《Java技术核心-卷一》集合章节笔记"><span class="toc-number">2.</span> <span class="toc-text">–《Java技术核心 卷一》集合章节笔记</span></a></li></ol>
+</div>
+<div class="toc-button" onclick="toggleTOC(event);" ontouchstart="toggleTOC(event);">
+    <img src="/images/icons/blue-shadow/toc.svg" alt="">
+</div>
+
+    </div>
+    <div class="article-content">
+    <h2 id="接口总览"><a href="#接口总览" class="headerlink" title="接口总览"></a>接口总览</h2><p><img src="https://s2.ax1x.com/2019/03/27/AddODH.md.png" alt="AddODH.md.png"></p>
+<h3 id="Iterable接口"><a href="#Iterable接口" class="headerlink" title="Iterable接口:"></a>Iterable接口:</h3><p>实现此接口允许对象成为“for-each loop”语句的目标。所以集合都可以用<strong>foreach遍历</strong>访问</p>
+<h3 id="Collection接口："><a href="#Collection接口：" class="headerlink" title="Collection接口："></a>Collection接口：</h3><p>主要方法：<br>boolean add(E element)<br>Iterator<e> iterator()//返回一个实现了Iterator接口的对象，作为Java迭代器</e></p>
+<p>一些实用方法<br><img src="https://s2.ax1x.com/2019/03/27/AdwPxS.png" alt="AdwPxS.png"></p>
+<h3 id="Iterator接口"><a href="#Iterator接口" class="headerlink" title="Iterator接口"></a>Iterator接口</h3><p>主要方法<br>E next()<br>boolean hasNext()<br>void remove()</p>
+<p><strong>Java迭代器</strong><br>在两个元素之间，刚开始在在第一个元素之前，<strong>next()方法越过后面的元素并返回这个元素。</strong>越过所有元素后，迭代器后面无元素，hasNext返回false<br><strong>remove()和next()需绑定使用</strong>，next()越过元素后再remove()删除这个元素<br>例：输出两个相邻元素</p>
+<pre><code>it.remove();
+it.next();
+it.remove();//不写next()会报IllegalStateException异常
+</code></pre><h3 id="Queue接口-先进先出，头部减，尾部加"><a href="#Queue接口-先进先出，头部减，尾部加" class="headerlink" title="Queue接口(先进先出，头部减，尾部加)"></a>Queue接口(先进先出，头部减，尾部加)</h3><p>主要方法：<br>void add(E element)<br>E remove()<br>int size()<br>实现方式<br>1.循环队列（不循环容易假溢出）：实现类–<strong>ArrayDeque</strong><br>2.链表:实现类–<strong>LinkedList</strong></p>
+<h3 id="List接口-有序集合，所以可以使用索引来获取元素"><a href="#List接口-有序集合，所以可以使用索引来获取元素" class="headerlink" title="List接口,有序集合，所以可以使用索引来获取元素"></a>List接口,有序集合，所以可以使用索引来获取元素</h3><p>主要方法<br>void add(E element)<br>void add(E element, int index)<br>void  remove(int position)<br>void  remove(E element)//删除第一次出现<br>E get(int index)<br>E set(int index,E element)</p>
+<p>实现方式<br>1.数组，很适合随机访问：<strong>ArrayList</strong>（和Vector类的区别是Vector方法都是同步）<br>2.链表，最好用迭代器访问，随机访问很慢:<strong>ListedList</strong><br>ps:Java中所有链表结构都是双向链表，即不仅有next，还有previous前驱节点</p>
+<p>ListedList的listIterator方法返回了一个实现了ListLterator接口的迭代器对象</p>
+<h3 id="ListLterator接口主要方法"><a href="#ListLterator接口主要方法" class="headerlink" title="ListLterator接口主要方法"></a>ListLterator接口主要方法</h3><p>void add(E element)//在迭代器位置前加元素，因为有集合（Set是无序的，所以Lterator接口没有add方法）<br>E previous()<br>boolean hasPrevious()<br>后两个方法可以用来反向遍历链表</p>
+<h3 id="Set接口"><a href="#Set接口" class="headerlink" title="Set接口"></a>Set接口</h3><p>不允许添加重复的元素，hashCode方法要确保两个元素相同的Set对应相同的散列码<br>实现方式<br><strong>HashSet类</strong>，无序，基于散列表，contains方法重新定义为在对应的桶中寻找<br>ps:散列表：每个对象都有一个散列码，对应某个桶，桶中若有多个对象（即散列冲突，新对象会先和桶中所有对象比较是否一样）则以链表形式排列。一般来讲装填因子（对象数/桶数)=0.75正好。<br><strong>TreeSet类</strong>:有序,排序基于红黑树，每次添加元素都会调整树的结构，新对象和树节点比较，放到正确位置。所有元素要能比较，即实现了Comparable接口。</p>
+<p>Map接口（键值对，减唯一，相当于Python的字典）<br>主要方法<br>V get(Object key）<br>V put(K key,V value)<br>实现类<br><strong>HashMap</strong>无序<br><strong>TreeMap</strong>有序基于红黑树（Red-Black tree）的 NavigableMap 实现,元素得能比较<br>遍历key（Set<k> keySet()）</k></p>
+<pre><code>for (String key : map.keySet()) {//keySet()返回key组成的Set
+   //dosomething
+}
+</code></pre><p>遍历value(Collection&lt;K,V&gt; entrySet())</p>
+<pre><code>for (String value : map.values()) {
+    //dosomething
+}
+</code></pre><p>遍历键值(Set&lt;Map.Entry&lt;K,V&gt;&gt; entrySet())</p>
+<pre><code>for (Map.Entry&lt;String,String&gt; entry : map.entrySet()) {
+    System.out.println(&quot;Key = &quot; + entry.getKey() + &quot;, Value = &quot; + entry.getValue());
+}
+</code></pre><p>根据键排序<br>TreeMap默认根据key升序排列，改变为降序：</p>
+<pre><code>Map&lt;String, String&gt; map = new TreeMap&lt;String, String&gt;(
+                new Comparator&lt;String&gt;() {
+                    public int compare(String obj1, String obj2) {
+                        // 降序排序
+                        return obj2.compareTo(obj1);
+                    }
+                });
+</code></pre><p>根据值排序(HashMap也可以)</p>
+<pre><code>//按照value排序
+    List&lt;Map.Entry&lt;String, Integer&gt;&gt;  entryArrayList = new ArrayList&lt;&gt;(map.entrySet());
+    Collections.sort(entryArrayList, new  Comparator&lt;Entry&lt;String, Integer&gt;&gt;() {
+
+         //降序
+         public int compare(Entry&lt;String,  Integer&gt; o1, Entry&lt;String, Integer&gt; o2) {
+             return  o2.getValue().compareTo(o1.getValue());
+         }
+     });
+    Map&lt;String,Integer&gt; map2 = new HashMap&lt;&gt;();
+    for (Map.Entry&lt;String, Integer&gt; entry :  entryArrayList) {
+        //dosomething with entry.getKey(),  entry.getValue()
+    }
+</code></pre><p>实现类总览<br><img src="https://s2.ax1x.com/2019/03/27/AdwK2T.md.png" alt="AdwK2T.md.png"></p>
+<p><img src="https://s2.ax1x.com/2019/03/27/AdwJaR.md.png" alt="AdwJaR.md.png"></p>
+<h2 id="–《Java技术核心-卷一》集合章节笔记"><a href="#–《Java技术核心-卷一》集合章节笔记" class="headerlink" title="–《Java技术核心 卷一》集合章节笔记"></a>–《Java技术核心 卷一》集合章节笔记</h2>
+    
+    </div>
+    
+    
+        <div class="article-comment" id="article-comment">
+            
+
+<h1>Comment</h1>
+
+  
+    <div id="comment-not-available">
+      Not available
+      <p><strong>For site maintainer: Please provide <code>appId</code> and <code>appKey</code> in your <code>_data/cutie.yml</code> file for <code>valine</code> comment system.</strong></p>
+    </div>
+  
+
+
+        </div>
+        
+</article>
+  </div>
+
+  
+
+<footer id="footer">
+    <div class="footer-copyright">
+        <div>
+            <p> Copyright by <a href="">wzs63 </a> @ 2019</p>
+            <p>Designed by: <i class="fas fa-paint-brush"></i> <a href="https://moober.cn">Moober</a> and <i class="fas fa-graduation-cap"></i> <a href="https://qutang.github.io">Qu Tang</a> &bull; Theme: <a href="https://qutang.github.io/cutie/">Cutie 2.1.3-Taurus</a> &bull; Powered by <a href="http://hexo.io">Hexo.</a></p>
+        </div>
+    </div>
+    
+    <div class="footer-social">
+        
+    </div>
+</footer>
+
+  <br>
+
+  <div id="footer-nav" class='footer-nav'>
+		
+
+
+
+<nav id="nav">
+	
+	
+	
+	<div class="nav-item" id="nav-item-toc">
+		
+
+
+<div class="toc-container">
+<i class="far fa-times-circle" id="toc-close" onclick="closeTOC(event);" ontouchstart="closeTOC(event);"></i>
+<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#接口总览"><span class="toc-number">1.</span> <span class="toc-text">接口总览</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#–《Java技术核心-卷一》集合章节笔记"><span class="toc-number">2.</span> <span class="toc-text">–《Java技术核心 卷一》集合章节笔记</span></a></li></ol>
+</div>
+<div class="toc-button" onclick="toggleTOC(event);" ontouchstart="toggleTOC(event);">
+    <img src="/images/icons/blue-shadow/toc.svg" alt="">
+</div>
+
+	</div>
+	
+	<div class="nav-item" id="nav-item-archive">
+		
+				<div class="nav-icon">
+				
+			<a href="/archives/" title="Archives">
+			<img src="/images/icons/blue-shadow/archive.svg" alt="">
+			</a>
+		</div>
+	</div>
+	<div class="nav-item" id="nav-item-search">
+		
+		<div class="nav-icon">
+		
+			<a href="/search/" title="Search">
+			<img src="/images/icons/blue-shadow/search.svg" alt="">
+			</a>
+		</div>
+	</div>
+	<div class="nav-item" id="nav-item-more">
+		<div class="nav-icon">
+				<a href="#" onclick="onClickMenuIcon(event);" ontouchstart="onClickMenuIcon(event);">
+				<img src="/images/icons/blue-shadow/menu.svg" alt="">
+				</a>
+		</div>
+		<div class="nav-more-menu">
+				<i class="far fa-times-circle" id="nav-more-menu-close" onclick="onClickNavMenuClose(event);" ontouchstart="onClickNavMenuClose(event);"></i>
+		
+		
+		<div class="nav-more-item">
+				<div class="nav-name">
+					<a class="nav-link" href="/categories/Java/">
+						<span>Java</span>
+					</a>
+				</div>
+		</div>
+		
+		<div class="nav-more-item">
+				<div class="nav-name">
+					<a class="nav-link" href="/categories/java/">
+						<span>Java</span>
+					</a>
+				</div>
+		</div>
+		
+		<div class="nav-more-item">
+				<div class="nav-name">
+					<a class="nav-link" href="/categories/JavaEE/">
+						<span>Javaee</span>
+					</a>
+				</div>
+		</div>
+		
+		<div class="nav-more-item">
+				<div class="nav-name">
+					<a class="nav-link" href="/categories/一些bug/">
+						<span>一些bug</span>
+					</a>
+				</div>
+		</div>
+		
+		<div class="nav-more-item">
+				<div class="nav-name">
+					<a class="nav-link" href="/categories/数据处理/">
+						<span>数据处理</span>
+					</a>
+				</div>
+		</div>
+		
+		<div class="nav-more-item">
+				<div class="nav-name">
+					<a class="nav-link" href="/categories/数据库/">
+						<span>数据库</span>
+					</a>
+				</div>
+		</div>
+		
+	</div>
+	</div>
+</nav>
+
+	</div>
+
+  
+
+
+
+    
+
+
+
+
+
+
+
+    <script src="/js/lightgallery.min.js"></script>
+<script src="/js/lg-zoom.min.js"></script>
+<script type="text/javascript">
+    $(document).ready(function() {
+        $("#lightgallery").lightGallery(); 
+        $(".article-content img").each(function(){
+            console.log($(this).attr('src'))
+            $(this).attr('data-src', $(this).attr('src')).lightGallery({
+                selector: 'this'
+            })
+        });
+    });
+</script>
+
+
+
+
+
+
+<script type="text/javascript">
+
+  
+  // update cookie if this page is opened (directly)
+  loadjs(['/libs/jshashes/hashes.min.js', '/libs/js-cookie/src/js.cookie.js', '/js/post.v2.js'], 'post-version');
+  loadjs.ready('post-version', function(){
+    
+    new Postv2('hashit_73d8b33ca1f7d53c5d82dcbf6470054a965a4b6b541998b8710c49cb13ad17c4').update('hashit_bd753ad073609e4c9d7085c18f3b022ec1eeb8f44db2bbf4585dbaaa3fdd0fd9', function(){});
+  });
+  
+</script>
+
+
+
+<!-- <script src="/js/post.js"></script> -->
+
+<script src="/js/headroom.min.js"></script>
+
+<script data-no-instant="" type="text/javascript">
+
+initHeadroom();
+
+changeLayoutOnTouchScreen();
+
+// 
+// var post = new Post('', '');
+// post.getCommentCount(window.location.pathname, function(count){
+//     $('#article-comment-count').text(count);
+// });
+// post.addVisitRecord(window.location.pathname, userip);
+// post.getVisitCount(window.location.pathname, function(count){
+//     $('#article-visit-count').text(count);
+// });
+
+// 
+</script>
+
+
+<!-- End Document
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+</body>
+</html>

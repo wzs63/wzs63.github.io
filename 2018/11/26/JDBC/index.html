@@ -1,0 +1,717 @@
+<!DOCTYPE html>
+<html lang="en">
+
+
+
+
+<head><meta name="generator" content="Hexo 3.8.0">
+
+  <!-- Basic Page Needs
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  <meta charset="utf-8">
+  
+      <title>JDBC总结 - hello</title>
+  
+
+  
+  
+  <meta name="description" content="">
+  <meta name="author" content="wzs63">
+
+  <!-- Mobile Specific Metas
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- load loadjs.js -->
+  <script src="/libs/loadjs/dist/loadjs.min.js"></script>
+
+<link rel="stylesheet" href="/libs/animate.css/animate.min.css">
+  <!-- load lightgallery -->
+<link rel="stylesheet" href="/css/lightgallery.css">
+<link rel="stylesheet" href="/libs/noty/lib/noty.css">
+<script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+  
+
+
+
+
+
+
+    <link rel="stylesheet" href="/css/taurus.css">
+    
+        <link rel="stylesheet" href="/css/scheme-taurus/animations.css">
+    
+
+
+<link rel="stylesheet" href="/.css">
+
+  <!-- load font awesome 5 -->
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ" crossorigin="anonymous">
+
+  <script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+  tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}
+  });
+  </script>
+  <!-- load mathjax -->
+  <script type="text/javascript" async src="https://cdnjs.cloudflare.com/ajax//libs/mathjax/2.7.4/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+
+  <!-- load js-cookie -->
+  <script src="https://cdn.jsdelivr.net/npm/js-cookie@2/src/js.cookie.min.js"></script>
+    <script src="/js/social-share.min.js"></script>
+    <script src="/js/theme.js"></script>
+
+  <!-- include cookie.js -->
+  
+  
+
+  <!-- include comment system code -->
+  
+    <script src="//cdn1.lncld.net/static/js/3.6.4/av-min.js"></script>
+<script src="//unpkg.com/valine/dist/Valine.min.js"></script>
+  
+  <!-- Favicon
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  <link rel="icon" type="image/png" href="/images/favicon.png">
+</head>
+<body style="display: flex; flex-direction: column; min-height: 100vh;">
+
+ 
+
+<header id="header" class="header">
+	<div class="header-title">
+		
+		<div class="header-logo">
+			<a href="/">
+				<img src="/images/theme-icon.svg">
+			</a>
+		</div>
+		<div class="header-text">
+			<h1>
+				<a href="/">hello</a>
+			</h1>
+			<subtitle>
+				
+			</subtitle>
+		</div>
+		
+	</div>
+	<div id="header-nav">
+		
+
+
+
+<nav id="nav">
+	
+	
+	
+	<div class="nav-item" id="nav-item-toc">
+		
+
+
+<div class="toc-container">
+<i class="far fa-times-circle" id="toc-close" onclick="closeTOC(event);" ontouchstart="closeTOC(event);"></i>
+<ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#JDBC的使用分为以下几个步骤："><span class="toc-number">1.</span> <span class="toc-text">JDBC的使用分为以下几个步骤：</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#一、初始化驱动"><span class="toc-number">1.1.</span> <span class="toc-text">一、初始化驱动</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#二、建立数据库连接"><span class="toc-number">1.2.</span> <span class="toc-text">二、建立数据库连接</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#三、创建Statement实例"><span class="toc-number">1.3.</span> <span class="toc-text">三、创建Statement实例</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#四、利用Statement实例执行SQL命令"><span class="toc-number">1.4.</span> <span class="toc-text">四、利用Statement实例执行SQL命令</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#五、最后关闭连接，释放资源"><span class="toc-number">1.5.</span> <span class="toc-text">五、最后关闭连接，释放资源</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#事务"><span class="toc-number">2.</span> <span class="toc-text">事务</span></a></li></ol>
+</div>
+<div class="toc-button" onclick="toggleTOC(event);" ontouchstart="toggleTOC(event);">
+    <img src="/images/icons/blue-shadow/toc.svg" alt="">
+</div>
+
+	</div>
+	
+	<div class="nav-item" id="nav-item-archive">
+		
+				<div class="nav-icon">
+				
+			<a href="/archives/" title="Archives">
+			<img src="/images/icons/blue-shadow/archive.svg" alt="">
+			</a>
+		</div>
+	</div>
+	<div class="nav-item" id="nav-item-search">
+		
+		<div class="nav-icon">
+		
+			<a href="/search/" title="Search">
+			<img src="/images/icons/blue-shadow/search.svg" alt="">
+			</a>
+		</div>
+	</div>
+	<div class="nav-item" id="nav-item-more">
+		<div class="nav-icon">
+				<a href="#" onclick="onClickMenuIcon(event);" ontouchstart="onClickMenuIcon(event);">
+				<img src="/images/icons/blue-shadow/menu.svg" alt="">
+				</a>
+		</div>
+		<div class="nav-more-menu">
+				<i class="far fa-times-circle" id="nav-more-menu-close" onclick="onClickNavMenuClose(event);" ontouchstart="onClickNavMenuClose(event);"></i>
+		
+		
+		<div class="nav-more-item">
+				<div class="nav-name">
+					<a class="nav-link" href="/categories/Java/">
+						<span>Java</span>
+					</a>
+				</div>
+		</div>
+		
+		<div class="nav-more-item">
+				<div class="nav-name">
+					<a class="nav-link" href="/categories/java/">
+						<span>Java</span>
+					</a>
+				</div>
+		</div>
+		
+		<div class="nav-more-item">
+				<div class="nav-name">
+					<a class="nav-link" href="/categories/JavaEE/">
+						<span>Javaee</span>
+					</a>
+				</div>
+		</div>
+		
+		<div class="nav-more-item">
+				<div class="nav-name">
+					<a class="nav-link" href="/categories/一些bug/">
+						<span>一些bug</span>
+					</a>
+				</div>
+		</div>
+		
+		<div class="nav-more-item">
+				<div class="nav-name">
+					<a class="nav-link" href="/categories/数据处理/">
+						<span>数据处理</span>
+					</a>
+				</div>
+		</div>
+		
+		<div class="nav-more-item">
+				<div class="nav-name">
+					<a class="nav-link" href="/categories/数据库/">
+						<span>数据库</span>
+					</a>
+				</div>
+		</div>
+		
+	</div>
+	</div>
+</nav>
+
+	</div>
+</header>
+
+ 
+
+  
+
+
+
+
+  <!-- Primary Page Layout
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  <div style="flex: 1;">
+      <style>
+    body {
+        background-color: white;
+    }
+</style>
+
+
+
+
+
+
+
+
+    
+        
+            
+            
+        
+    
+
+
+
+
+
+
+    
+    
+        
+    
+
+    
+        
+    
+
+
+
+
+
+
+
+
+
+<article class="article" id="/2018/11/26/JDBC/" data-name="JDBC总结" data-version="">
+
+    <!-- Title -->
+    <div class="article-header">
+         
+         <h1 class="article-title">
+            <a href="/2018/11/26/JDBC/">
+                JDBC总结
+            </a>
+        </h1>
+        <!-- TODO: support nested categories,display them nicely -->
+        
+        <ul class="article-categories">
+            
+            
+                <li><a href="/categories/java/" data-no-instant="">
+                    <img src="/images/java.svg" alt="java" onerror="if(this.src != " images="" uncategorized.svg")="" this.src="/images/uncategorized.svg" "="" title="java">
+                </a></li>
+            
+        </ul>
+        
+    </div>
+    
+    <!-- Date and Author -->
+    <div class="article-meta">
+    <ul>
+            <li><i class="fa fa-calendar"></i> 2018-11-26</li>
+            
+            <li><i class="fa fa-user"></i> wzs63</li>
+            <li><i class="fas fa-copyright"></i>
+            
+                
+                
+            
+            
+                <a href="https://creativecommons.org/licenses/by-nc-nd/4.0/">CC BY-NC-ND 4.0</a>
+            
+            </li>
+    </ul>
+    
+    </div>
+    <div class="article-cards">
+        <!-- Author Card -->
+        <!---
+        <div class='Card-article Card-author'>
+            <div class='card-title'>
+                <h3></h3>
+            </div>
+            <div class='card-content'>
+                    <div class="author-meta">
+                            <div class='author-figure'>
+                                <img src="" alt="">
+                            </div>
+                            <div class='author-name'>
+                                wzs63
+                            </div>
+                        </div>
+                        <div class="author-ai">
+                            <div class='author-intro'>
+                                <!-- TODO: auto generating author description -->
+                                <!-- 
+                            </div>
+                            <div class="author-articles">
+                                <!-- TODO: auto generating author articles -->
+                                <!-- <ul>
+                                    <li>Article 1</li>
+                                    <li>Article 2</li>
+                                    <li>Article 3</li>
+                                    <li>Article 4</li>
+                                    <li>Article 5</li>
+                                    <li>Article 6</li>
+                                </ul>
+                            </div>
+                        </div>
+            </div>
+            
+        </div> -->
+
+        <!-- Visit Card -->
+        <!-- <div class="Card-article Card-visit"> -->
+            <!-- <div class="card-title">
+  <h3>Post Visit</h3>
+</div>
+<div class="card-chart">
+  <div id="chart-post-visit"></div>
+</div> -->
+        <!-- </div> -->
+        
+        <!-- Auto Excerpt Card -->
+        <!-- <div class="Card-article Card-excerpt">
+            <div class="card-title">
+  <h3>Quick Read</h3>
+</div>
+<div class="card-text">
+  <p id="text-post-summary">java对关系数据库的支持是通过JDBC(Java DateBase Connectivity)API来提供的。
+2018.12.14修改：SqlServer连接时：“jdbc:sqlserver://localhost:1433;DatabaseName=数据库名,与MySQL连接不同（不仅仅是端口号）。
+JDBC的使用分为以下几个步骤：一、初始化驱动 try {
+            //以连接mysql为例
+            Class.forName(&quot;com.mysql.jdbc.Driver&quot;);
+           ...</p>
+</div>
+        </div> -->
+    </div>
+    
+    <!-- Gallery -->
+    <!-- TODO: add a slider to gallery -->
+    
+
+    <!-- Content -->
+    <!-- TODO: support table of content -->
+    <div class="article-toc" id="article-toc">
+    
+        
+
+
+<div class="toc-container">
+<i class="far fa-times-circle" id="toc-close" onclick="closeTOC(event);" ontouchstart="closeTOC(event);"></i>
+<ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#JDBC的使用分为以下几个步骤："><span class="toc-number">1.</span> <span class="toc-text">JDBC的使用分为以下几个步骤：</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#一、初始化驱动"><span class="toc-number">1.1.</span> <span class="toc-text">一、初始化驱动</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#二、建立数据库连接"><span class="toc-number">1.2.</span> <span class="toc-text">二、建立数据库连接</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#三、创建Statement实例"><span class="toc-number">1.3.</span> <span class="toc-text">三、创建Statement实例</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#四、利用Statement实例执行SQL命令"><span class="toc-number">1.4.</span> <span class="toc-text">四、利用Statement实例执行SQL命令</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#五、最后关闭连接，释放资源"><span class="toc-number">1.5.</span> <span class="toc-text">五、最后关闭连接，释放资源</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#事务"><span class="toc-number">2.</span> <span class="toc-text">事务</span></a></li></ol>
+</div>
+<div class="toc-button" onclick="toggleTOC(event);" ontouchstart="toggleTOC(event);">
+    <img src="/images/icons/blue-shadow/toc.svg" alt="">
+</div>
+
+    </div>
+    <div class="article-content">
+    <p>java对关系数据库的支持是通过JDBC(Java DateBase Connectivity)API来提供的。</p>
+<p>2018.12.14修改：<br>SqlServer连接时：<br>“jdbc:sqlserver://localhost:1433;DatabaseName=数据库名,<br>与MySQL连接不同（不仅仅是端口号）。</p>
+<h1 id="JDBC的使用分为以下几个步骤："><a href="#JDBC的使用分为以下几个步骤：" class="headerlink" title="JDBC的使用分为以下几个步骤："></a>JDBC的使用分为以下几个步骤：</h1><h2 id="一、初始化驱动"><a href="#一、初始化驱动" class="headerlink" title="一、初始化驱动"></a>一、初始化驱动</h2><pre><code> try {
+            //以连接mysql为例
+            Class.forName(&quot;com.mysql.jdbc.Driver&quot;);
+            //若要连接SqlServer，对应初始化驱动类为&quot;com.microsoft.sqlserver.jdbc.SQLServerDriver&quot; 
+            //若是Oracle数据库，则为&quot;oracle.jdbc.driver.OracleDriver&quot;
+            //数据库驱动加载成功 
+
+        } catch (ClassNotFoundException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
+</code></pre><p>初始化驱动类com.mysql.jdbc.Driver在相关包中,若未引入包，Class.forName(“com.mysql.jdbc.Driver”)会抛出ClassNotFoundException异常。</p>
+<h2 id="二、建立数据库连接"><a href="#二、建立数据库连接" class="headerlink" title="二、建立数据库连接"></a>二、建立数据库连接</h2><p>连接需要提供以下信息：<br>DBMS服务器所运行的机器的<strong>主机名</strong>:127.0.0.1或者localhost (本机)，<br>数据库的<strong>端口号</strong>，用来侦听进入的连接： 3306 （mysql专用端口号）或者1433（SqlServer专用端口号）,或者1521（Oracle专用端口号），<br>希望连接的<strong>数据库名称</strong>，<br><strong>编码方式</strong>，如UTF-8（可选），<br><strong>账号 </strong>，<br><strong>密码 </strong>。</p>
+<p>JDBC中的数据库连接是通过Connection类的实例来表示的，这个类的实例由DriverManager类的静态方法getConnection()返回。</p>
+<pre><code>  try {
+            Class.forName(&quot;com.mysql.jdbc.Driver&quot;);
+
+            // 建立与数据库的Connection连接
+            Connection c = DriverManager.getConnection(
+                            &quot;jdbc:mysql://127.0.0.1:3306/数据库名称?characterEncoding=UTF-8&quot;,
+                            &quot;账号&quot;, &quot;密码&quot;);
+            //连接成功，c为获取连接对象
+
+        } catch (ClassNotFoundException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        } catch (SQLException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
+</code></pre><h2 id="三、创建Statement实例"><a href="#三、创建Statement实例" class="headerlink" title="三、创建Statement实例"></a>三、创建Statement实例</h2><p>Statement是用于执行SQL命令的接口。<br>创建一个Statement或其子接口之一（PreparedStatement接口或者CallablesStatement接口）的实例。<br>可以通过调用Connection的createStatement()方法来创建Statement的实例</p>
+<pre><code> try {
+            Class.forName(&quot;com.mysql.jdbc.Driver&quot;);
+
+            Connection c = DriverManager .getConnection(&quot;jdbc:mysql://127.0.0.1:3306/数据库名称?characterEncoding=UTF-8&quot;,  &quot;用户名&quot;, &quot;密码&quot;);
+
+            // 注意：使用的是 java.sql.Statement， 不要不小心使用到： com.mysql.jdbc.Statement
+
+            Statement s = c.createStatement();
+
+
+        } catch (ClassNotFoundException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        } catch (SQLException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
+</code></pre><h2 id="四、利用Statement实例执行SQL命令"><a href="#四、利用Statement实例执行SQL命令" class="headerlink" title="四、利用Statement实例执行SQL命令"></a>四、利用Statement实例执行SQL命令</h2><h3 id="Statement实例执行方法："><a href="#Statement实例执行方法：" class="headerlink" title="Statement实例执行方法："></a>Statement实例执行方法：</h3><h4 id="executeUpdata-方法"><a href="#executeUpdata-方法" class="headerlink" title="executeUpdata()方法"></a>executeUpdata()方法</h4><p>int executeUpdate(String sql)<br>执行给定的SQL语句，这可能是 <strong>INSERT ， UPDATE ，或 DELETE语句</strong>，或者不返回任何内容，如SQL DDL语句的SQL语句。<br>返回类型为int，表示所更改的行数。</p>
+<h4 id="executeQuery-方法"><a href="#executeQuery-方法" class="headerlink" title="executeQuery()方法"></a>executeQuery()方法</h4><p>ResultSet executeQuery(String sql)<br>当希望执行查询时（<strong>SELECT语句</strong>）可使用executeQuery()方法。<br>执行给定的SQL语句，该语句返回单个 ResultSet对象，用来处理查询的结果。 </p>
+<h4 id="execute-方法"><a href="#execute-方法" class="headerlink" title="execute()方法"></a>execute()方法</h4><p>boolean execute(String sql)<br>此方法可能会返回多个更新数或者ResultSet实例。<br>如果第一个返回值是ResultSet则返回true<br>如果第一个返回值是int则发布会false<br>可以使用方法getResultSet或getUpdateCount检索结果，然后getMoreResults移动到任何后续结果。（getUpdateCount返回值为-1就会到达结果队列的尾部）</p>
+<pre><code>try {
+            Class.forName(&quot;com.mysql.jdbc.Driver&quot;);
+
+            Connection c = DriverManager .getConnection(&quot;jdbc:mysql://127.0.0.1:3306/数据库名称?characterEncoding=UTF-8&quot;,&quot;用户名&quot;, &quot;密码&quot;);
+
+            Statement s = c.createStatement();
+
+            // 注意： 字符串要用单引号&#39;
+            String sql = &quot;insert into tableName values(&#39;value&#39;)&quot;;
+            s.execute(sql);
+
+        } catch (ClassNotFoundException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        } catch (SQLException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
+</code></pre><h3 id="ResultSet介绍"><a href="#ResultSet介绍" class="headerlink" title="ResultSet介绍"></a>ResultSet介绍</h3><h4 id="1-光标定位"><a href="#1-光标定位" class="headerlink" title="1.光标定位"></a>1.光标定位</h4><h5 id="boolean-next-throws-SQLException"><a href="#boolean-next-throws-SQLException" class="headerlink" title="boolean next() throws SQLException"></a>boolean next() throws SQLException</h5><p>将光标从当前位置向前移动一行。</p>
+<pre><code>ResultSet rs = s.executeQuery(SELECT * FROM TABLE1);
+while(rs.next()){
+    //do something...
+}
+</code></pre><p>光标最初位于第一行之前; 第一次调用方法next使第一行成为当前行; 第二个调用使第二行成为当前行，依此类推。<br>当返回false时，光标位于最后一行之后。 </p>
+<h5 id="boolean-relative-int-rows-throws-SQLException"><a href="#boolean-relative-int-rows-throws-SQLException" class="headerlink" title="boolean relative(int rows) throws SQLException"></a>boolean relative(int rows) throws SQLException</h5><p>将光标移动到正或负的相对行数。<br>调用relative(0)是有效的，但不会更改光标位置。</p>
+<h4 id="2-数据检索"><a href="#2-数据检索" class="headerlink" title="2.数据检索"></a>2.数据检索</h4><h5 id="getXXX-，例如String-getString-int-columnIndex-throws-SQLException"><a href="#getXXX-，例如String-getString-int-columnIndex-throws-SQLException" class="headerlink" title="getXXX()，例如String getString(int columnIndex) throws SQLException"></a>getXXX()，例如String getString(int columnIndex) throws SQLException</h5><p>这个检索的当前行中指定列的值，<strong>索引从1开始</strong>。</p>
+<pre><code>//从第二列检索String值
+columnValue = rs.getString(2);
+</code></pre><h5 id="根据属性名检索，例如String-getString-String-columnLabel-throws-SQLException"><a href="#根据属性名检索，例如String-getString-String-columnLabel-throws-SQLException" class="headerlink" title="根据属性名检索，例如String getString(String columnLabel) throws SQLException"></a>根据属性名检索，例如String getString(String columnLabel) throws SQLException</h5><h4 id="3-数值修改"><a href="#3-数值修改" class="headerlink" title="3.数值修改"></a>3.数值修改</h4><p>updateXXX(),insertXXX(),deleteXXX()</p>
+<h3 id="PreparedStatement介绍"><a href="#PreparedStatement介绍" class="headerlink" title="PreparedStatement介绍"></a>PreparedStatement介绍</h3><p>PreparedStatement是Statement类的一个子类<br>有时候需要执行的SQL语句相似，仅仅是通过某个参数而区分。<br>那么编译每一个SQL语句会使得性能变差。</p>
+<p>PreparedStatement可以使得这样的SQL语句<strong>只编译一次</strong>（预编译机制），执行多次，使用可改变的参数来修改执行的SQL语句，<br>使得<strong>性能更好</strong>。</p>
+<pre><code>String sql = &quot;insert into table1 values(?,?)&quot;;
+PreparedStatement ps = c.prepareStatement(sql);
+ps.setString(1, &quot;value&quot;);//设置参数从一开始
+ps.setInt(2, 123);
+ps.execute();
+</code></pre><h5 id="注意：PreparedStatement设置参数时，从1开始。"><a href="#注意：PreparedStatement设置参数时，从1开始。" class="headerlink" title="注意：PreparedStatement设置参数时，从1开始。"></a>注意：PreparedStatement设置参数时，从1开始。</h5><p>另外，PreparedStatement不需要字符串拼接，而是<strong>参数设置</strong>，所以还有<strong>防止SQL注入式攻击</strong>功能。</p>
+<h2 id="五、最后关闭连接，释放资源"><a href="#五、最后关闭连接，释放资源" class="headerlink" title="五、最后关闭连接，释放资源"></a>五、最后关闭连接，释放资源</h2><p>先关闭Statement<br>后关闭Connection</p>
+<pre><code>finally {
+            if (s != null)
+                try {
+                    s.close();
+                } catch (SQLException e) {
+                    // TODO Auto-generated catch block
+                    e.printStackTrace();
+                }
+            if (c != null)
+                try {
+                    c.close();
+                } catch (SQLException e) {
+                    // TODO Auto-generated catch block
+                    e.printStackTrace();
+                }
+
+        }
+</code></pre><h1 id="事务"><a href="#事务" class="headerlink" title="事务"></a>事务</h1><p>在事务中的多个操作，要么都成功，要么都失败<br>通过 c.setAutoCommit(false);关闭自动提交<br>使用 c.commit();进行手动提交</p>
+<pre><code>c.setAutoCommit(false);
+//提交前发生了错误，则rollback
+String sql1 = &quot;update...&quot;;
+s.execute(sql1);
+String sql2 = &quot;updata...&quot;;
+s.execute(sql2);
+// 手动提交
+c.commit();
+</code></pre><p>参考书籍：Java高级编程（第二版）。<br>参考网站：how2j</p>
+
+    
+    </div>
+    
+    
+        <div class="article-comment" id="article-comment">
+            
+
+<h1>Comment</h1>
+
+  
+    <div id="comment-not-available">
+      Not available
+      <p><strong>For site maintainer: Please provide <code>appId</code> and <code>appKey</code> in your <code>_data/cutie.yml</code> file for <code>valine</code> comment system.</strong></p>
+    </div>
+  
+
+
+        </div>
+        
+</article>
+  </div>
+
+  
+
+<footer id="footer">
+    <div class="footer-copyright">
+        <div>
+            <p> Copyright by <a href="">wzs63 </a> @ 2019</p>
+            <p>Designed by: <i class="fas fa-paint-brush"></i> <a href="https://moober.cn">Moober</a> and <i class="fas fa-graduation-cap"></i> <a href="https://qutang.github.io">Qu Tang</a> &bull; Theme: <a href="https://qutang.github.io/cutie/">Cutie 2.1.3-Taurus</a> &bull; Powered by <a href="http://hexo.io">Hexo.</a></p>
+        </div>
+    </div>
+    
+    <div class="footer-social">
+        
+    </div>
+</footer>
+
+  <br>
+
+  <div id="footer-nav" class='footer-nav'>
+		
+
+
+
+<nav id="nav">
+	
+	
+	
+	<div class="nav-item" id="nav-item-toc">
+		
+
+
+<div class="toc-container">
+<i class="far fa-times-circle" id="toc-close" onclick="closeTOC(event);" ontouchstart="closeTOC(event);"></i>
+<ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#JDBC的使用分为以下几个步骤："><span class="toc-number">1.</span> <span class="toc-text">JDBC的使用分为以下几个步骤：</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#一、初始化驱动"><span class="toc-number">1.1.</span> <span class="toc-text">一、初始化驱动</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#二、建立数据库连接"><span class="toc-number">1.2.</span> <span class="toc-text">二、建立数据库连接</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#三、创建Statement实例"><span class="toc-number">1.3.</span> <span class="toc-text">三、创建Statement实例</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#四、利用Statement实例执行SQL命令"><span class="toc-number">1.4.</span> <span class="toc-text">四、利用Statement实例执行SQL命令</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#五、最后关闭连接，释放资源"><span class="toc-number">1.5.</span> <span class="toc-text">五、最后关闭连接，释放资源</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#事务"><span class="toc-number">2.</span> <span class="toc-text">事务</span></a></li></ol>
+</div>
+<div class="toc-button" onclick="toggleTOC(event);" ontouchstart="toggleTOC(event);">
+    <img src="/images/icons/blue-shadow/toc.svg" alt="">
+</div>
+
+	</div>
+	
+	<div class="nav-item" id="nav-item-archive">
+		
+				<div class="nav-icon">
+				
+			<a href="/archives/" title="Archives">
+			<img src="/images/icons/blue-shadow/archive.svg" alt="">
+			</a>
+		</div>
+	</div>
+	<div class="nav-item" id="nav-item-search">
+		
+		<div class="nav-icon">
+		
+			<a href="/search/" title="Search">
+			<img src="/images/icons/blue-shadow/search.svg" alt="">
+			</a>
+		</div>
+	</div>
+	<div class="nav-item" id="nav-item-more">
+		<div class="nav-icon">
+				<a href="#" onclick="onClickMenuIcon(event);" ontouchstart="onClickMenuIcon(event);">
+				<img src="/images/icons/blue-shadow/menu.svg" alt="">
+				</a>
+		</div>
+		<div class="nav-more-menu">
+				<i class="far fa-times-circle" id="nav-more-menu-close" onclick="onClickNavMenuClose(event);" ontouchstart="onClickNavMenuClose(event);"></i>
+		
+		
+		<div class="nav-more-item">
+				<div class="nav-name">
+					<a class="nav-link" href="/categories/Java/">
+						<span>Java</span>
+					</a>
+				</div>
+		</div>
+		
+		<div class="nav-more-item">
+				<div class="nav-name">
+					<a class="nav-link" href="/categories/java/">
+						<span>Java</span>
+					</a>
+				</div>
+		</div>
+		
+		<div class="nav-more-item">
+				<div class="nav-name">
+					<a class="nav-link" href="/categories/JavaEE/">
+						<span>Javaee</span>
+					</a>
+				</div>
+		</div>
+		
+		<div class="nav-more-item">
+				<div class="nav-name">
+					<a class="nav-link" href="/categories/一些bug/">
+						<span>一些bug</span>
+					</a>
+				</div>
+		</div>
+		
+		<div class="nav-more-item">
+				<div class="nav-name">
+					<a class="nav-link" href="/categories/数据处理/">
+						<span>数据处理</span>
+					</a>
+				</div>
+		</div>
+		
+		<div class="nav-more-item">
+				<div class="nav-name">
+					<a class="nav-link" href="/categories/数据库/">
+						<span>数据库</span>
+					</a>
+				</div>
+		</div>
+		
+	</div>
+	</div>
+</nav>
+
+	</div>
+
+  
+
+
+
+    
+
+
+
+
+
+
+
+    <script src="/js/lightgallery.min.js"></script>
+<script src="/js/lg-zoom.min.js"></script>
+<script type="text/javascript">
+    $(document).ready(function() {
+        $("#lightgallery").lightGallery(); 
+        $(".article-content img").each(function(){
+            console.log($(this).attr('src'))
+            $(this).attr('data-src', $(this).attr('src')).lightGallery({
+                selector: 'this'
+            })
+        });
+    });
+</script>
+
+
+
+
+
+
+<script type="text/javascript">
+
+  
+  // update cookie if this page is opened (directly)
+  loadjs(['/libs/jshashes/hashes.min.js', '/libs/js-cookie/src/js.cookie.js', '/js/post.v2.js'], 'post-version');
+  loadjs.ready('post-version', function(){
+    
+    new Postv2('hashit_646a51908ea178ed06b399857b0036c28303bc319014dfc04a77c4e0a27c5e2c').update('hashit_deab40d0aa0522ac9e512f82a54cd1098f9852d68a75cefa2a3cfce0a27a26e4', function(){});
+  });
+  
+</script>
+
+
+
+<!-- <script src="/js/post.js"></script> -->
+
+<script src="/js/headroom.min.js"></script>
+
+<script data-no-instant="" type="text/javascript">
+
+initHeadroom();
+
+changeLayoutOnTouchScreen();
+
+// 
+// var post = new Post('', '');
+// post.getCommentCount(window.location.pathname, function(count){
+//     $('#article-comment-count').text(count);
+// });
+// post.addVisitRecord(window.location.pathname, userip);
+// post.getVisitCount(window.location.pathname, function(count){
+//     $('#article-visit-count').text(count);
+// });
+
+// 
+</script>
+
+
+<!-- End Document
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+</body>
+</html>

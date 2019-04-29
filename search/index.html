@@ -1,0 +1,466 @@
+<!DOCTYPE html>
+<html lang="en">
+
+
+
+
+<head><meta name="generator" content="Hexo 3.8.0">
+
+  <!-- Basic Page Needs
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  <meta charset="utf-8">
+  
+      <title>Search - hello</title>
+  
+
+  
+  
+  <meta name="description" content="">
+  <meta name="author" content="wzs63">
+
+  <!-- Mobile Specific Metas
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- load loadjs.js -->
+  <script src="/libs/loadjs/dist/loadjs.min.js"></script>
+
+<link rel="stylesheet" href="/libs/animate.css/animate.min.css">
+  <!-- load lightgallery -->
+<link rel="stylesheet" href="/css/lightgallery.css">
+<link rel="stylesheet" href="/libs/noty/lib/noty.css">
+<script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+  
+
+
+
+
+
+
+    <link rel="stylesheet" href="/css/taurus.css">
+    
+        <link rel="stylesheet" href="/css/scheme-taurus/animations.css">
+    
+
+
+<link rel="stylesheet" href="/.css">
+
+  <!-- load font awesome 5 -->
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ" crossorigin="anonymous">
+
+  <script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+  tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}
+  });
+  </script>
+  <!-- load mathjax -->
+  <script type="text/javascript" async src="https://cdnjs.cloudflare.com/ajax//libs/mathjax/2.7.4/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+
+  <!-- load js-cookie -->
+  <script src="https://cdn.jsdelivr.net/npm/js-cookie@2/src/js.cookie.min.js"></script>
+    <script src="/js/social-share.min.js"></script>
+    <script src="/js/theme.js"></script>
+
+  <!-- include cookie.js -->
+  
+  
+
+  <!-- include comment system code -->
+  
+    <script src="//cdn1.lncld.net/static/js/3.6.4/av-min.js"></script>
+<script src="//unpkg.com/valine/dist/Valine.min.js"></script>
+  
+  <!-- Favicon
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  <link rel="icon" type="image/png" href="/images/favicon.png">
+</head>
+<body style="display: flex; flex-direction: column; min-height: 100vh;">
+
+ 
+
+<header id="header" class="header">
+	<div class="header-title">
+		
+		<div class="header-logo">
+			<a href="/">
+				<img src="/images/theme-icon.svg">
+			</a>
+		</div>
+		<div class="header-text">
+			<h1>
+				<a href="/">hello</a>
+			</h1>
+			<subtitle>
+				
+			</subtitle>
+		</div>
+		
+	</div>
+	<div id="header-nav">
+		
+
+
+
+<nav id="nav">
+	
+	
+	
+	<div class="nav-item" id="nav-item-archive">
+		
+				<div class="nav-icon">
+				
+			<a href="/archives/" title="Archives">
+			<img src="/images/icons/blue-shadow/archive.svg" alt="">
+			</a>
+		</div>
+	</div>
+	<div class="nav-item" id="nav-item-search">
+		
+		<div class="nav-icon active_dot">
+		
+			<a href="/search/" title="Search">
+			<img src="/images/icons/blue-shadow/search.svg" alt="">
+			</a>
+		</div>
+	</div>
+	<div class="nav-item" id="nav-item-more">
+		<div class="nav-icon">
+				<a href="#" onclick="onClickMenuIcon(event);" ontouchstart="onClickMenuIcon(event);">
+				<img src="/images/icons/blue-shadow/menu.svg" alt="">
+				</a>
+		</div>
+		<div class="nav-more-menu">
+				<i class="far fa-times-circle" id="nav-more-menu-close" onclick="onClickNavMenuClose(event);" ontouchstart="onClickNavMenuClose(event);"></i>
+		
+		
+		<div class="nav-more-item">
+				<div class="nav-name">
+					<a class="nav-link" href="/categories/Java/">
+						<span>Java</span>
+					</a>
+				</div>
+		</div>
+		
+		<div class="nav-more-item">
+				<div class="nav-name">
+					<a class="nav-link" href="/categories/java/">
+						<span>Java</span>
+					</a>
+				</div>
+		</div>
+		
+		<div class="nav-more-item">
+				<div class="nav-name">
+					<a class="nav-link" href="/categories/JavaEE/">
+						<span>Javaee</span>
+					</a>
+				</div>
+		</div>
+		
+		<div class="nav-more-item">
+				<div class="nav-name">
+					<a class="nav-link" href="/categories/一些bug/">
+						<span>一些bug</span>
+					</a>
+				</div>
+		</div>
+		
+		<div class="nav-more-item">
+				<div class="nav-name">
+					<a class="nav-link" href="/categories/数据处理/">
+						<span>数据处理</span>
+					</a>
+				</div>
+		</div>
+		
+		<div class="nav-more-item">
+				<div class="nav-name">
+					<a class="nav-link" href="/categories/数据库/">
+						<span>数据库</span>
+					</a>
+				</div>
+		</div>
+		
+	</div>
+	</div>
+</nav>
+
+	</div>
+</header>
+
+ 
+
+
+
+
+  <!-- Primary Page Layout
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  <div style="flex: 1;">
+      <style>
+    body {
+        background-color: white;
+    }
+</style>
+<div class="search-container">
+	<input type="text" id="search-form">
+
+	<ul class="cat-list">
+		
+			<li><a href="/categories/Java/"><img src="/images/Java.svg" alt="Java" onerror="if(this.src != "/images/uncategorized.svg") this.src="/images/uncategorized.svg"" title="Java"></a></li>
+		
+			<li><a href="/categories/java/"><img src="/images/java.svg" alt="java" onerror="if(this.src != "/images/uncategorized.svg") this.src="/images/uncategorized.svg"" title="java"></a></li>
+		
+			<li><a href="/categories/JavaEE/"><img src="/images/JavaEE.svg" alt="JavaEE" onerror="if(this.src != "/images/uncategorized.svg") this.src="/images/uncategorized.svg"" title="JavaEE"></a></li>
+		
+			<li><a href="/categories/一些bug/"><img src="/images/一些bug.svg" alt="一些bug" onerror="if(this.src != "/images/uncategorized.svg") this.src="/images/uncategorized.svg"" title="一些bug"></a></li>
+		
+			<li><a href="/categories/数据处理/"><img src="/images/数据处理.svg" alt="数据处理" onerror="if(this.src != "/images/uncategorized.svg") this.src="/images/uncategorized.svg"" title="数据处理"></a></li>
+		
+			<li><a href="/categories/数据库/"><img src="/images/数据库.svg" alt="数据库" onerror="if(this.src != "/images/uncategorized.svg") this.src="/images/uncategorized.svg"" title="数据库"></a></li>
+		
+	</ul>
+
+	<div class="archive-cards">
+			<div class="Card-archive" style="display:none">
+				<div class="Card-body">
+					<h3 class="Card-title">
+						<a>
+						</a>
+					</h3>
+					<div class="Card-meta">
+						<ul>
+							<li><i class="fa fa-calendar"></i> <span class="Card-date"></span></li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+</div>
+
+<script src="/libs/fuse.js/dist/fuse.min.js"></script>
+<script>
+	var options = {
+		shouldSort: true,
+		threshold: 0.4,
+		tokenize: true,
+		location: 0,
+		distance: 100,
+		maxPatternLength: 32,
+		minMatchCharLength: 2,
+		keys: [
+			"title",
+			"author",
+			"tags"
+		]
+	};
+	var s = '[{"title":"JAVA只有值传递","date":"2019-03-23T13:27:18.000Z","content":"JAVA只有值传递值传递即方法传入的是拷贝（比如传入string，就是传入string对象的引用的拷贝），所以交换什么的，没有用。\nps：引用传递传入的就是对象的地址，不必再开内存空间，即传入方法的对象就是自己，当然会随之改变了。企图用方法直接交换int、交换String(未交换成功)\npublic static void main(String[] args) {\n         int a=1;11\n         int b=2;\n         String str1=&quot;str1&quot;;\n         String str2=&quot;str2&quot;;\n         System.out.println(&quot;交换前&quot;);\n         System.out.println(&quot;a:&quot;+a);\n         System.out.println(&quot;b:&quot;+b);\n         System.out.println(&quot;str1:&quot;+str1);\n         System.out.println(&quot;str2:&quot;+str2);\n         change(a, b);\n         change(str1, str2);\n         System.out.println(&quot;交换后&quot;);\n         System.out.println(&quot;a:&quot;+a);\n         System.out.println(&quot;b:&quot;+b);\n         System.out.println(&quot;str1:&quot;+str1);\n         System.out.println(&quot;str2:&quot;+str2);\n    }\n     public static void change(int a,int b) {\n          int c=0;\n          c=a;\n          a=b;\n          b=c;\n     }\n     public static void change(String str1,String  str2) {\n          String str3;\n          str3=str1;\n          str1=str2;\n          str2=str3;\n     }\n控制台输出\n那到底怎么能用方法进行String交换呢？可以将String转为stringbuffer（这个才是参数），利用此类的方法将引用的对象的属性（值）改变，最后交换结束再赋值给原来的String。不过总感觉意义不大。ps:int通过Integer.parseInt()方法也可以同理转换。\npublic static void main(String[] args) {\n         String str1=&quot;str1&quot;;\n         String str2=&quot;str2&quot;;\n\n         System.out.println(&quot;交换前&quot;);\n         System.out.println(&quot;str1:&quot;+str1);\n         System.out.println(&quot;str2:&quot;+str2);\n         StringBuffer strbf1=new  StringBuffer(str1);\n         StringBuffer strbf2=new  StringBuffer(str2);\n         change(strbf1, strbf2);\n         str1=strbf1.toString();\n         str2=strbf2.toString();\n         System.out.println(&quot;交换后&quot;);\n         System.out.println(&quot;str1:&quot;+str1);\n         System.out.println(&quot;str2:&quot;+str2);\n    }\n     public static void change(StringBuffer  strbf1,StringBuffer strbf2) {\n          StringBuffer strbf3= new StringBuffer();\n          strbf3.append(strbf1);\n          strbf1.delete(0, strbf1.length()-1);清空str1\n          strbf1.append(strbf2);\n          strbf2.delete(0, strbf2.length()-1);清空str2\n          strbf2.append(strbf3);\n     }\n}\n控制台输出\n","tags":[],"path":"2019/03/23/Java只有值传递/","external_link":""},{"title":"JDBC总结","date":"2018-11-26T10:22:43.000Z","content":"java对关系数据库的支持是通过JDBC(Java DateBase Connectivity)API来提供的。\n2018.12.14修改：SqlServer连接时：“jdbc:sqlserver:localhost:1433;DatabaseName=数据库名,与MySQL连接不同（不仅仅是端口号）。\nJDBC的使用分为以下几个步骤：一、初始化驱动 try {\n            以连接mysql为例\n            Class.forName(&quot;com.mysql.jdbc.Driver&quot;);\n            若要连接SqlServer，对应初始化驱动类为&quot;com.microsoft.sqlserver.jdbc.SQLServerDriver&quot; \n            若是Oracle数据库，则为&quot;oracle.jdbc.driver.OracleDriver&quot;\n            数据库驱动加载成功 \n\n        } catch (ClassNotFoundException e) {\n             TODO Auto-generated catch block\n            e.printStackTrace();\n        }\n初始化驱动类com.mysql.jdbc.Driver在相关包中,若未引入包，Class.forName(“com.mysql.jdbc.Driver”)会抛出ClassNotFoundException异常。\n二、建立数据库连接连接需要提供以下信息：DBMS服务器所运行的机器的主机名:127.0.0.1或者localhost (本机)，数据库的端口号，用来侦听进入的连接： 3306 （mysql专用端口号）或者1433（SqlServer专用端口号）,或者1521（Oracle专用端口号），希望连接的数据库名称，编码方式，如UTF-8（可选），账号 ，密码 。\nJDBC中的数据库连接是通过Connection类的实例来表示的，这个类的实例由DriverManager类的静态方法getConnection()返回。\n  try {\n            Class.forName(&quot;com.mysql.jdbc.Driver&quot;);\n\n             建立与数据库的Connection连接\n            Connection c = DriverManager.getConnection(\n                            &quot;jdbc:mysql:127.0.0.1:3306数据库名称?characterEncoding=UTF-8&quot;,\n                            &quot;账号&quot;, &quot;密码&quot;);\n            连接成功，c为获取连接对象\n\n        } catch (ClassNotFoundException e) {\n             TODO Auto-generated catch block\n            e.printStackTrace();\n        } catch (SQLException e) {\n             TODO Auto-generated catch block\n            e.printStackTrace();\n        }\n三、创建Statement实例Statement是用于执行SQL命令的接口。创建一个Statement或其子接口之一（PreparedStatement接口或者CallablesStatement接口）的实例。可以通过调用Connection的createStatement()方法来创建Statement的实例\n try {\n            Class.forName(&quot;com.mysql.jdbc.Driver&quot;);\n\n            Connection c = DriverManager .getConnection(&quot;jdbc:mysql:127.0.0.1:3306数据库名称?characterEncoding=UTF-8&quot;,  &quot;用户名&quot;, &quot;密码&quot;);\n\n             注意：使用的是 java.sql.Statement， 不要不小心使用到： com.mysql.jdbc.Statement\n\n            Statement s = c.createStatement();\n\n\n        } catch (ClassNotFoundException e) {\n             TODO Auto-generated catch block\n            e.printStackTrace();\n        } catch (SQLException e) {\n             TODO Auto-generated catch block\n            e.printStackTrace();\n        }\n四、利用Statement实例执行SQL命令Statement实例执行方法：executeUpdata()方法int executeUpdate(String sql)执行给定的SQL语句，这可能是 INSERT ， UPDATE ，或 DELETE语句，或者不返回任何内容，如SQL DDL语句的SQL语句。返回类型为int，表示所更改的行数。\nexecuteQuery()方法ResultSet executeQuery(String sql)当希望执行查询时（SELECT语句）可使用executeQuery()方法。执行给定的SQL语句，该语句返回单个 ResultSet对象，用来处理查询的结果。 \nexecute()方法boolean execute(String sql)此方法可能会返回多个更新数或者ResultSet实例。如果第一个返回值是ResultSet则返回true如果第一个返回值是int则发布会false可以使用方法getResultSet或getUpdateCount检索结果，然后getMoreResults移动到任何后续结果。（getUpdateCount返回值为-1就会到达结果队列的尾部）\ntry {\n            Class.forName(&quot;com.mysql.jdbc.Driver&quot;);\n\n            Connection c = DriverManager .getConnection(&quot;jdbc:mysql:127.0.0.1:3306数据库名称?characterEncoding=UTF-8&quot;,&quot;用户名&quot;, &quot;密码&quot;);\n\n            Statement s = c.createStatement();\n\n             注意： 字符串要用单引号&#39;\n            String sql = &quot;insert into tableName values(&#39;value&#39;)&quot;;\n            s.execute(sql);\n\n        } catch (ClassNotFoundException e) {\n             TODO Auto-generated catch block\n            e.printStackTrace();\n        } catch (SQLException e) {\n             TODO Auto-generated catch block\n            e.printStackTrace();\n        }\nResultSet介绍1.光标定位boolean next() throws SQLException将光标从当前位置向前移动一行。\nResultSet rs = s.executeQuery(SELECT * FROM TABLE1);\nwhile(rs.next()){\n    do something...\n}\n光标最初位于第一行之前; 第一次调用方法next使第一行成为当前行; 第二个调用使第二行成为当前行，依此类推。当返回false时，光标位于最后一行之后。 \nboolean relative(int rows) throws SQLException将光标移动到正或负的相对行数。调用relative(0)是有效的，但不会更改光标位置。\n2.数据检索getXXX()，例如String getString(int columnIndex) throws SQLException这个检索的当前行中指定列的值，索引从1开始。\n从第二列检索String值\ncolumnValue = rs.getString(2);\n根据属性名检索，例如String getString(String columnLabel) throws SQLException3.数值修改updateXXX(),insertXXX(),deleteXXX()\nPreparedStatement介绍PreparedStatement是Statement类的一个子类有时候需要执行的SQL语句相似，仅仅是通过某个参数而区分。那么编译每一个SQL语句会使得性能变差。\nPreparedStatement可以使得这样的SQL语句只编译一次（预编译机制），执行多次，使用可改变的参数来修改执行的SQL语句，使得性能更好。\nString sql = &quot;insert into table1 values(?,?)&quot;;\nPreparedStatement ps = c.prepareStatement(sql);\nps.setString(1, &quot;value&quot;);设置参数从一开始\nps.setInt(2, 123);\nps.execute();\n注意：PreparedStatement设置参数时，从1开始。另外，PreparedStatement不需要字符串拼接，而是参数设置，所以还有防止SQL注入式攻击功能。\n五、最后关闭连接，释放资源先关闭Statement后关闭Connection\nfinally {\n            if (s != null)\n                try {\n                    s.close();\n                } catch (SQLException e) {\n                     TODO Auto-generated catch block\n                    e.printStackTrace();\n                }\n            if (c != null)\n                try {\n                    c.close();\n                } catch (SQLException e) {\n                     TODO Auto-generated catch block\n                    e.printStackTrace();\n                }\n\n        }\n事务在事务中的多个操作，要么都成功，要么都失败通过 c.setAutoCommit(false);关闭自动提交使用 c.commit();进行手动提交\nc.setAutoCommit(false);\n提交前发生了错误，则rollback\nString sql1 = &quot;update...&quot;;\ns.execute(sql1);\nString sql2 = &quot;updata...&quot;;\ns.execute(sql2);\n 手动提交\nc.commit();\n参考书籍：Java高级编程（第二版）。参考网站：how2j\n","tags":[],"path":"2018/11/26/JDBC/","external_link":""},{"title":"Java集合笔记","date":"2019-03-27T14:15:07.000Z","content":"接口总览\nIterable接口:实现此接口允许对象成为“for-each loop”语句的目标。所以集合都可以用foreach遍历访问\nCollection接口：主要方法：boolean add(E element)Iterator iterator()返回一个实现了Iterator接口的对象，作为Java迭代器\n一些实用方法\nIterator接口主要方法E next()boolean hasNext()void remove()\nJava迭代器在两个元素之间，刚开始在在第一个元素之前，next()方法越过后面的元素并返回这个元素。越过所有元素后，迭代器后面无元素，hasNext返回falseremove()和next()需绑定使用，next()越过元素后再remove()删除这个元素例：输出两个相邻元素\nit.remove();\nit.next();\nit.remove();不写next()会报IllegalStateException异常\nQueue接口(先进先出，头部减，尾部加)主要方法：void add(E element)E remove()int size()实现方式1.循环队列（不循环容易假溢出）：实现类–ArrayDeque2.链表:实现类–LinkedList\nList接口,有序集合，所以可以使用索引来获取元素主要方法void add(E element)void add(E element, int index)void  remove(int position)void  remove(E element)删除第一次出现E get(int index)E set(int index,E element)\n实现方式1.数组，很适合随机访问：ArrayList（和Vector类的区别是Vector方法都是同步）2.链表，最好用迭代器访问，随机访问很慢:ListedListps:Java中所有链表结构都是双向链表，即不仅有next，还有previous前驱节点\nListedList的listIterator方法返回了一个实现了ListLterator接口的迭代器对象\nListLterator接口主要方法void add(E element)在迭代器位置前加元素，因为有集合（Set是无序的，所以Lterator接口没有add方法）E previous()boolean hasPrevious()后两个方法可以用来反向遍历链表\nSet接口不允许添加重复的元素，hashCode方法要确保两个元素相同的Set对应相同的散列码实现方式HashSet类，无序，基于散列表，contains方法重新定义为在对应的桶中寻找ps:散列表：每个对象都有一个散列码，对应某个桶，桶中若有多个对象（即散列冲突，新对象会先和桶中所有对象比较是否一样）则以链表形式排列。一般来讲装填因子（对象数桶数)=0.75正好。TreeSet类:有序,排序基于红黑树，每次添加元素都会调整树的结构，新对象和树节点比较，放到正确位置。所有元素要能比较，即实现了Comparable接口。\nMap接口（键值对，减唯一，相当于Python的字典）主要方法V get(Object key）V put(K key,V value)实现类HashMap无序TreeMap有序基于红黑树（Red-Black tree）的 NavigableMap 实现,元素得能比较遍历key（Set keySet()）\nfor (String key : map.keySet()) {keySet()返回key组成的Set\n   dosomething\n}\n遍历value(Collection&lt;K,V&gt; entrySet())\nfor (String value : map.values()) {\n    dosomething\n}\n遍历键值(Set&lt;Map.Entry&lt;K,V&gt;&gt; entrySet())\nfor (Map.Entry&lt;String,String&gt; entry : map.entrySet()) {\n    System.out.println(&quot;Key = &quot; + entry.getKey() + &quot;, Value = &quot; + entry.getValue());\n}\n根据键排序TreeMap默认根据key升序排列，改变为降序：\nMap&lt;String, String&gt; map = new TreeMap&lt;String, String&gt;(\n                new Comparator&lt;String&gt;() {\n                    public int compare(String obj1, String obj2) {\n                         降序排序\n                        return obj2.compareTo(obj1);\n                    }\n                });\n根据值排序(HashMap也可以)\n按照value排序\n    List&lt;Map.Entry&lt;String, Integer&gt;&gt;  entryArrayList = new ArrayList&lt;&gt;(map.entrySet());\n    Collections.sort(entryArrayList, new  Comparator&lt;Entry&lt;String, Integer&gt;&gt;() {\n\n         降序\n         public int compare(Entry&lt;String,  Integer&gt; o1, Entry&lt;String, Integer&gt; o2) {\n             return  o2.getValue().compareTo(o1.getValue());\n         }\n     });\n    Map&lt;String,Integer&gt; map2 = new HashMap&lt;&gt;();\n    for (Map.Entry&lt;String, Integer&gt; entry :  entryArrayList) {\n        dosomething with entry.getKey(),  entry.getValue()\n    }\n实现类总览\n\n–《Java技术核心 卷一》集合章节笔记","tags":[],"path":"2019/03/27/Java集合/","external_link":""},{"title":"Session和Cookie","date":"2019-03-24T07:40:31.000Z","content":"HTTP协议是无状态连接，一次请求响应后即断开，多次请求之间互相不知道对方。（即连接只为一个请求响应存在）那怎么才能知道哪几个请求是来自于同一个客户呢（记录客户）？会话（session）原理机制：在客户第一次请求时，容器为此客户生成一个唯一会话ID，并且随响应返回给客户，客户在请求时会带上这个会话ID，容器看到这个会话ID后会找与之匹配的会话和此次请求相关联。（会话ID须存于服务器）\n那客户服务器两端通过什么交流会话ID呢？用cookie（就是用于客户和服务器交换的一小段数据（一个名值String对））容器负责生生成会话ID–&gt;创建cookie对象–&gt;将会话ID放于cookie中–&gt;把cookie设为响应的一部分。ps:为什么不用客户IP地址识别客户呢？因为对于服务器来说，客户的IP地址是路由的地址，所以这个客户和在这个网络的所有客户的IP地址一样，无法唯一识别。\n在浏览器选项中清除所有Cookie之后再访问，即第一次请求,响应有Set-Cookie。（ps:因为此请求对应的servlet用到了session对象（即getSession（）调用），所以才会有Set-Cookie。如果没有用到session对象就没有Set-Cookie，当然之后再请求也没有Cookie了。）之后再请求一次请求多了cookie项，内容就是之前响应的set-cookie\n因为服务器找到了客户对应的会话，所以不用新建会话，此时响应没有了set-cookie。\n如何得到session对象？request.getSession()\n 如果之前没有这个客户对应的会话，会新建一个，有的话返回之前的session。\n如何判断session是否是新建的呢？request.getSession().isNew()\n如果完全不想创建新的会话呢？request.getSession(false)\n当然这样有可能会为null\n如果客户不支持cookie呢？最后一条后路–URL重写（encodeURL()）容器在发现用getSesion调用，请求却没有cookie时（可能是第一次请求也可能是不支持cookie），会同时尝试cookie和URL重写两种方法。因为容器不会知道客户是否不支持cookie。没有会话，每一次请求响应直接没有关系（HTTP无状态），容器不会知道自己是不是对这个客户使用过cookie。\n如何结束一个会话？三种方法1.超时web.xml设置，单位为分钟\n&lt;session-config&gt;\n    &lt;session-timeout&gt;15&lt;session-timeout&gt;\n&lt;session-config&gt;    \n如果要设置某个session\nrequest.getSession().setMaxInactiveInterval(15*60);15分钟\n2.invalidate()方法\nrequest.getSession().invalidate();\n3.应用结束\n但是cookie可以活的更长！默认会话结束后，cookie会消失。但是也可以设置让cookie继续活下去。在一个星期后再发出请求，此时虽然会话已到期，客户还存着cookie。服务器还是可以识别到是之前那个客户。\n","tags":[],"path":"2019/03/24/Session和cookie/","external_link":""},{"title":"failed to load the jni shared library报错","date":"2019-03-23T11:58:35.000Z","content":"打开eclipse报错failed to load the jni shared library，经上网搜索知道了是jdk和eclipse位数不匹配。想起上午为了运用一个软件被迫安装了新的jdk是32位，所以在环境变量中将path新添加的jdk路径全部删除，并将控制面板中的Java设置为只开启那个64位的jdk之后再看jdk版本为64位之后查看eclipse文件夹下eclipse.ini文件\n\n\n可以看出eclipse是64位（32位的话x86后无_64）jdk和eclipse位数一致了，但是打开eclipse依旧报同样的错。之后重启了电脑，eclipse运行正常了。\n","tags":[],"path":"2019/03/23/bug1/","external_link":""},{"title":"Hello World","date":"2018-10-23T05:05:37.871Z","content":"Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub.\nQuick StartCreate a new post$ hexo new &quot;My New Post&quot;\n\nMore info: Writing\nRun server$ hexo server\n\nMore info: Server\nGenerate static files$ hexo generate\n\nMore info: Generating\nDeploy to remote sites$ hexo deploy\n\nMore info: Deployment\n","tags":[],"path":"2018/10/23/hello-world/","external_link":""},{"title":"利用Python从json数据集提取出the Growlers的所有音乐的歌名","date":"2018-11-15T12:10:42.000Z","content":"json数据集下载地址：http:itunes.apple.comsearch?term=the-growlers \n提取歌名并放入MySQL数据库中先在MySQL数据库中创建相应数据库和表\n  create database yvchuli                    \n\n create table music(\n\n        trackName varchar(60)\n        )\n\n利用Python提取数据集中的歌名，并连接MySQL数据库，存入数据\nimport json \nimport pymysql.cursors\n#连接mysql数据库\nconnection = pymysql.Connect(host=&#39;localhost&#39;,\n                             port=3306,\n                             user=&#39;root&#39;,\n                             password=&#39;123456&#39;,\n                             db=&#39;yvchuli&#39;,\n                             charset=&#39;utf8&#39;)\nwith open(&#39;1.txt&#39;) as f:\n    date = json.load(f)\nlist = date[&quot;results&quot;]\n# 获取游标\ncursor = connection.cursor()\nfor item in list:\n\n    #插入数据\n    sql = &quot;INSERT INTO music VALUES (&quot;%s&quot;)&quot;\n    data = item[&#39;trackName&#39;]\n    print(data)\n    cursor.execute(sql % data)\n    connection.commit()\n\n\nMySQL数据库储存结果：\n\n另外，也可以提取数据存放入Excelimport json \nimport pymysql.cursors\n#连接mysql数据库\nconnection = pymysql.Connect(host=&#39;localhost&#39;,\n                             port=3306,\n                             user=&#39;root&#39;,\n                             password=&#39;123456&#39;,\n                             db=&#39;yvchuli&#39;,\n                             charset=&#39;utf8&#39;)\nwith open(&#39;1.txt&#39;) as f:\n    date = json.load(f)\nlist = date[&quot;results&quot;]\n# 获取游标\ncursor = connection.cursor()\nfor item in list:\n\n    #插入数据\n    sql = &quot;INSERT INTO music VALUES (&quot;%s&quot;)&quot;\n    data = item[&#39;trackName&#39;]\n    print(data)\n    cursor.execute(sql % data)\n    connection.commit()\n\n\n注：若不加newline=’’，每行数据都会有空行\n\n加newline=’’后变正常：\nIf newline=’’ is not specified, newlines embedded inside quoted fields will not be interpreted correctly, and on platforms that use rn linendings on write an extra r will be added. It should always be safe to specify newline=’’, since the csv module does its own (universal) newline handling.– python参考手册\n","tags":[],"path":"2018/11/15/sjycl/","external_link":""},{"title":"数据统计每一天/每一周发邮件的数量，并用可视化软件实现可视化。","date":"2018-11-15T12:50:26.000Z","content":"下载对公众开放的安然(Enron)公司的电子邮件数据集。下载地址：      http:www.ahschulz.deenron-email-data； \n将数据导入数据库（message表含有date字段表示发送邮件时间。Mid表示编号），根据date进行分组，统计每一组的mid的数量（即这一天邮箱数量）。执行以下SQL语句，将每天每周（换为weekofyear即可）数据导入Excel（因为之后利用plot.ly进行数据可视化时感觉CSV格式更方便些）\nselect date,count(mid) from message group by dayofyear(date) \n                                into outfile &quot;F:day_apps.csv&quot;\n                                FIELDS TERMINATED BY &#39;,&#39;;  \n（注：FIELDS TERMINATED BY ‘,’;  靠‘，’分隔字段，如果没有这个语句date和count（mid）数据会导入到一个格子中）数据库中分组查看结果：每天：每周：\n\n利用plot.ly进行数据可视化每天的发送邮件统计：每周的发送邮件统计：\n","tags":[],"path":"2018/11/15/sjycl2/","external_link":""},{"title":"java web学习笔记（一）","date":"2019-03-22T07:02:24.000Z","content":"TomcatApache开发的Servlet容器，实现了对Servlet和JSP的支持,并且内含了一个HTTP服务器。tomcat容器模型其中Context容器直接管理Servlet在容器中的包装类Wrapper,并且一个Context容器对应一个web项目\n启动Tomcat方式一：运行apache-tomcat-versionbinstartup.bat启动shutdown.bat关闭。ps:如果闪退应该是JDK环境变量没配置好\n方法二：可以在eclipse中添加服务器，之后run就可以了\nTomcat默认端口号为8080，开启后访问http:localhost:8080出现    Apache Tomcat页面则为开启成功。\nps:开启时如果提醒端口被占用，可通过命令netstat -ano|findstr 8080查询占用进程的pid，任务管理器中关闭即可，或者也可以改Tomcat的端口。\nweb应用初始化web应用初始化在ContextConfig的configureStart方法中实现。初始化的任务主要是解析web.xml文件（描述了整个web应用的关键信息，是整个web应用的入口）。过程：Tomcat找globalWebXml-&gt;找hostWebXml-&gt;找WEB-INFweb.xml-&gt;将web.xml中的配置项解析为相应属性放入WebXml对象中-&gt;将WebXml对象的属性设置到Context容器中（这一步将Servlet包装成StandardWrapper,作为子容器存于Context容器中。除了创建servlet对象外还创建了filter和listener）\nServlet生命周期加载和实例化创建servelet实例：web.xml中配置load-on-startup&gt;0时服务器启动时就创建，load-on-startup=0（即默认）第一次请求该servlet时才创建无论访问了多少次Servlet，构造方法 只会执行一次，所以Servlet是单实例的\n初始化执行初始化方法init(ServletConfig conf)，将包装了StandardWrapper对象的StandardWrapperFacade作为ServletConfig对象传入方法。\n请求处理servlet对象去处理客户端请求，在service(ServletRequest req，ServletResponse res)方法中执行，URL映射到servlet容器的工作由org.apache.tomcat.util.http.mapper类完成。mapper在request进入container容器之前就更加URL将host和context容器存入request的mappingData属性中，以至于使request知道要访问哪一个子容器\n销毁该Servlet所在的web应用重新启动或者Tomcat关闭时执行destroy()方法。\n创建servlet创建类，继承HttpServlet类即可主要用的方法doGet（处理get请求，即直接输入URL的访问方式）和doPost（处理post请求，多为表单提交的方式）需根据需求覆写\npublic class ServletName extends HttpServlet{\n    @Override\n    protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {\n        doPost(req, resp);\n    }\n    @Override\n    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {\n        doSometing\n    }\n}\n在xml中配置servlet-name：servlet名字，可随意定义servlet-class：servlet的实际路径url-pattern：对应的请求URL映射配置\n &lt;servlet&gt;\n    &lt;servlet-name&gt;showImg&lt;servlet-name&gt;\n    &lt;servlet-class&gt;com.zr.controller.ImgController&lt;servlet-class&gt;\n  &lt;servlet&gt;\n  &lt;servlet-mapping&gt;\n    &lt;servlet-name&gt;showImg&lt;servlet-name&gt;\n    &lt;url-pattern&gt;getImg&lt;url-pattern&gt;\n  &lt;servlet-mapping&gt;\nURL映射两大原则1.精确匹配如servlet1为index.html,servlet2为*,请求URL为http:localhost:8080项目名index.html,则匹配到第一个。\n2.最长路径匹配无法精确匹配情况下使用，如servlet1为ind,servlet2为,请求URL为http:localhost:8080项目名index.html,则匹配到第一个。\n注释配URL置映射也可以在类上加注释@WebServlet(name=”…”,urlPatterns=”…”)\n之后访问http:localhost:8080项目名配置的urlPatterns就可以将请求发送到刚刚配置的servlet了。\nServletConfig、ServletRequest、ServletResponse(这三个都是通过容器传给servlet的)、ServletContextServletConfig在servlet初始化时就传给了servlet获取途径：getServletConfig();主要方法：getServletName();  获取servlet的名称，也就是我们在web.xml中配置的servlet-namegetServletContext(); 获取ServletContext对象getInitParameter(String); 获取在servlet中初始化参数的值。getInitParameterNames(); 获取在Servlet中所有初始化参数的名字\nServletContext对象获取途径：getServletContext()一个web项目，就存在一个ServletContext实例，在tomcat在启动时创建，服务器关闭时销毁，每个Servlet读可以访问到它。getAttribute(String name)setAttribute(String name, Object obj)removeAttribute(String name)getServletContext().getRealPath(“”)获取项目绝对路径\nServletRequest、ServletResponse：请求到达时容器传给servlet常用方法request.getRequestURL(): 浏览器发出请求时的完整URL，包括协议 主机名 端口(如果有)”request.getRequestURI(): 浏览器发出请求的资源名部分，去掉了协议和主机名”request.getQueryString(): 请求行中的参数部分，只能显示以get方式发出的参数，post方式的看不到request.getRemoteAddr(): 浏览器所处于的客户机的IP地址request.getRemoteHost(): 浏览器所处于的客户机的主机名request.getRemotePort(): 浏览器所处于的客户机使用的网络端口request.getLocalAddr(): 服务器的IP地址request.getLocalName(): 服务器的主机名request.getMethod(): 得到客户机请求方式一般是GET或者POSTrequest.getHeader() 获取浏览器传递过来的头信息。request.getHeaderNames() 获取浏览器所有的头信息名称，根据头信息名称就能遍历出所有的头信息\nresponse.setContentType(“texthtml; charset=UTF-8”);不仅发送到浏览器的内容会使用UTF-8编码，而且还通知浏览器使用UTF-8编码方式进行显示。所以总能正常显示中文\nresponse.setCharacterEncoding(“UTF-8”); 仅仅是发送的浏览器的内容是UTF-8编码的，至于浏览器是用哪种编码方式显示不管。 所以当浏览器的显示编码方式不是UTF-8的时候，就会看到乱码，需要手动再进行一次设置。\n设置不用缓存response.setDateHeader(“Expires”,0 );response.setHeader(“Cache-Control”,”no-cache”);response.setHeader(“pragma”,”no-cache”);\n请求转发request.getRequestDispatcher(String path).forward(request,response);　　path:转发后跳转的页面，这里不管用不用”“开头，都是以web项目根开始，请求转发只局限与在同一个web项目下使用。\n重定向方式一：手动方案response.setStatus(302);　　状态码302就代表重定向response.setHeader(“location”,”http:www.baidu.com&quot;);方式二：使用封装好的，通过response.sendRedirect(“http:www.baidu.com&quot;);\n请求转发和重定向的区别forward（转发）：客户浏览器发送http请求–&gt;web服务器接受此请求–&gt;调用内部的一个方法在容器内部完成请求处理和转发动作–&gt;将目标资源发送给客户。转发的路径必须是同一个web容器下的url,在客户浏览器地址栏还是原来的地址，也就是说客户是感觉不到服务器做了转发的。转发跳转过程是在服务器实现,浏览器只做了一次访问请求。\nredirect（重定向）：客户浏览器发送http请求–&gt;web服务器接受后发送302状态码响应及对应新的location给客户浏览器–&gt;客户浏览器发现是302响应，则自动再发送一个新的http请求，请求url是新的location地址–&gt;服务器根据此请求寻找资源并发送给客户。可以重定向到任意URL，既然是浏览器重新发出了请求，则就没有什么request传递的概念了。在客户浏览器路径栏显示新地址。重定向行为是浏览器做了至少两次的访问请求的。(转发是服务器行为，重定向是客户端行为。)\nListener监听器 按监听的对象划分，可以分为\nServletContext对象监听器HttpSession对象监听器ServletRequest对象监听器 \n接口ServletContextListener监听当前web应用的初始化public void contextInitialized(ServletContextEvent arg0)监听当前web应用的销毁public void contextDestroyed(ServletContextEvent arg0)   \n接口ServletContextAttributeListener监听属性的增加public void attributeAdded(ServletContextAttributeEvent e)监听属性的移除public void attributeRemoved(ServletContextAttributeEvent e)监听属性的替换public void attributeReplaced(ServletContextAttributeEvent e)\n接口HttpSessionListener 监听session创建sessionCreated()监听session销毁sessionDestroyed()\n接口HttpSessionAttributeListenersession中增加属性时attributeAdded()session中移除属性时attributeRemoved()替换session中的属性时attributeReplaced()\n接口 ServletRequestListener和ServletRequestAttributeListener 创建了一个Request的时候触发requestInitialized()当本次请求结束的时候触发requestDestroyed()当有新增属性时触发attributeAdded()当有替换属性时触发attributeReplaced()当有移除属性时触发attributeRemoved()\nweb.xml中配置listener\n&lt;listener&gt;\n   &lt;listener-class&gt;listener类路径&lt;listener-class&gt;\n&lt;listener&gt;\n利用listener统计在线人数，即监听session创建和销毁。\npublic class OnlineNumberListener implements HttpSessionListener {\n\n    @Override\n    public void sessionCreated(HttpSessionEvent e) {\n\n        ServletContext application = e.getSession().getServletContext();\n\n        Integer online_number = (Integer) application.getAttribute(&quot;online_number&quot;);\n\n        if (null == online_number)\n            online_number = 0;\n        online_number++;\n        application.setAttribute(&quot;online_number&quot;, online_number);\n\n        System.out.println(&quot;新增一位在线用户&quot;);\n    }\n\n    @Override\n    public void sessionDestroyed(HttpSessionEvent e) {\n\n        ServletContext application = e.getSession().getServletContext();\n\n        Integer online_number = (Integer) application.getAttribute(&quot;online_number&quot;);\n\n        if(null==online_number){\n            online_number = 0;\n        }\n        else\n            online_number--;\n        application.setAttribute(&quot;online_number&quot;, online_number);\n        System.out.println(&quot;一位用户离线&quot;);\n    }\n}\nweb.xml配置：\n&lt;listener&gt;\n    &lt;listener-class&gt;listener.OnlineNumberListener&lt;listener-class&gt;\n&lt;listener&gt; \nFilter过滤器截取用户端的请求和响应信息，并对这些信息进行过滤Filter会随着tomcat的启动自启动。\n新建filter实现Filter接口即可\npublic class FilterName implements Filter {\n\n    @Override\n    public void destroy() {\n\n    }\n\n    @Override\n    public void doFilter(ServletRequest req, ServletResponse res, FilterChain chain)\n        dosomething\n    }\n\n    @Override\n    public void init(FilterConfig arg0) throws ServletException {\n\n    }\n\n}\nweb.xml配置\n&lt;filter&gt;\n    &lt;filter-name&gt;Filter&lt;filter-name&gt;\n    &lt;filter-class&gt;filter.Filter&lt;filter-class&gt;\n&lt;filter&gt;\n\n&lt;filter-mapping&gt;\n    &lt;filter-name&gt;Filter&lt;filter-name&gt;\n    &lt;url-pattern&gt;*&lt;url-pattern&gt;\n&lt;filter-mapping&gt;\n利用filter解决中文编码问题\npublic class  SetCharacterEncodingFilter implements Filter {\n\n     存储编码格式信息\n      private String encode = null;\n    @Override\n    public void destroy() {\n         TODO Auto-generated method stub\n\n    }\n\n    @Override\n    public void doFilter(ServletRequest req, ServletResponse resp,\n            FilterChain chain) throws IOException, ServletException {\n         TODO Auto-generated method stub\n         转换\n           HttpServletRequest request = (HttpServletRequest)req;\n           HttpServletResponse response = (HttpServletResponse)resp;\n\n           *\n            * 判断在web.xml文件中是否配置了编码格式的信息\n            * 如果为空，则设置编码格式为配置文件中的编码格式\n            * 否则编码格式设置为utf-8\n            *\n           if(this.encode != null &amp;&amp; !this.encode.equals(&quot;&quot;)){\n            request.setCharacterEncoding(this.encode);\n            response.setCharacterEncoding(this.encode);\n           }else{\n            request.setCharacterEncoding(&quot;utf-8&quot;);\n            response.setCharacterEncoding(&quot;utf-8&quot;);\n           }\n           *\n            * 使用doFilter方法调用链中的下一个过滤器或目标资源（servlet或JSP页面）。\n            * chain.doFilter处理过滤器的其余部分（如果有的话），最终处理请求的servlet或JSP页面。\n            *\n           chain.doFilter(request, response);\n\n    }\n\n    @Override\n    public void init(FilterConfig arg0) throws ServletException {\n         TODO Auto-generated method stub\n\n        this.encode=arg0.getInitParameter(&quot;encode&quot;);\n        System.out.println(&quot;this.encode:&quot;+encode);\n    }\n\n}\nweb.xml配置：\n&lt;!-- 过滤器配置信息 --&gt;\n    &lt;filter&gt;\n        &lt;filter-name&gt;SetCharacterEncodingFilter&lt;filter-name&gt;\n        &lt;!-- 过滤器设置编码文件 --&gt;\n        &lt;filter-class&gt;filter.SetCharacterEncodingFilter&lt;filter-class&gt;\n        &lt;init-param&gt;\n            &lt;!-- init-param元素定义了过滤器的初始化参数--&gt;\n            &lt;description&gt;给参数和值设置名称和编码类型&lt;description&gt;\n            &lt;param-name&gt;encode&lt;param-name&gt;\n            &lt;param-value&gt;utf-8&lt;param-value&gt;\n        &lt;init-param&gt;\n    &lt;filter&gt;\n    &lt;filter-mapping&gt;\n        &lt;!--  filter-mapping告诉容器所有与模式向匹配的请求都应该允许通过访问控制过滤器。\n                所有以.action结尾的访问都先通过过滤器文件过滤 --&gt;\n        &lt;filter-name&gt;SetCharacterEncodingFilter&lt;filter-name&gt;\n        &lt;url-pattern&gt;*.do&lt;url-pattern&gt;\n    &lt;filter-mapping&gt;\n\n","tags":[],"path":"2019/03/22/Java-web/","external_link":""},{"title":"SSM项目的配置和整体结构的总结","date":"2019-03-16T03:32:14.000Z","content":"SpringSpring就像是整个项目中装配bean的大工厂，在配置文件中可以指定使用特定的参数去调用实体类的构造方法来实例化对象。也可以称之为项目中的粘合剂。Spring的核心思想是IoC（控制反转），即不再需要程序员去显式地new一个对象，而是让Spring框架帮你来完成这一切。\nSpringMVCSpringMVC在项目中拦截用户请求，它的核心Servlet即DispatcherServlet承担中介或是前台这样的职责，将用户请求通过HandlerMapping去匹配Controller，Controller就是具体对应请求所执行的操作。\nmybatismybatis是对jdbc的封装，它让数据库底层操作变的透明。mybatis的操作都是围绕一个sqlSessionFactory实例展开的。mybatis通过配置文件关联到各实体类的Mapper文件，Mapper文件中配置了每个类对数据库所需进行的sql语句映射。在每次与数据库交互时，通过sqlSessionFactory拿到一个sqlSession，再执行sql命令。页面发送请求给控制器，控制器调用业务层处理逻辑，逻辑层向持久层发送请求，持久层与数据库交互，后将结果返回给业务层，业务层将处理逻辑发送给控制器，控制器再调用视图展现数据。\n关于配置：applicationContext.xml:设置连接数据库用的驱动，数据库名称，编码方式，账号密码。\n&lt;bean id=&quot;dataSource&quot;  class=&quot;org.springframework.jdbc.datasource.DriverManagerDataSource&quot;&gt; &lt;!--设置连接数据库用的驱动，数据库名称，编码方式，账号密码--&gt;\n      &lt;property name=&quot;driverClassName&quot;&gt;  \n          &lt;value&gt;com.mysql.jdbc.Driver&lt;value&gt;  \n      &lt;property&gt;  \n      &lt;property name=&quot;url&quot;&gt;  \n           &lt;value&gt;jdbc:mysql:127.0.0.1:3306sjkdzy?characterEncoding=UTF-8&lt;value&gt;  \n      &lt;property&gt;  \n      &lt;property name=&quot;username&quot;&gt;  \n          &lt;value&gt;root&lt;value&gt;  \n      &lt;property&gt;  \n      &lt;property name=&quot;password&quot;&gt;  \n          &lt;value&gt;123456&lt;value&gt;  \n      &lt;property&gt;    \n&lt;bean&gt;\n设置别名，自动扫描pojo下的类型，使得在后续配置文件xml中可以直接使用简单的别名，要不得写全名pojo.类名\n&lt;bean id=&quot;sqlSession&quot;  class=&quot;org.mybatis.spring.SqlSessionFactoryBean&quot;&gt;\n     &lt;property name=&quot;typeAliasesPackage&quot;  value=&quot;pojo&quot;&gt;&lt;!--设置别名，自动扫描pojo下的类型，使得在后续配置文件xml中可以直接使用简单的别名，要不得写全名pojo.类名--&gt;\n     &lt;property name=&quot;dataSource&quot;  ref=&quot;dataSource&quot;&gt;&lt;!-- 对应上面配置的dataSource --&gt;\n     &lt;property name=&quot;mapperLocations&quot;  value=&quot;classpath:mapper*.xml&quot;&gt;&lt;!--指明映射xml的位置--&gt;\n&lt;bean&gt;\n指定自动扫描的mapper接口的包的位置\n&lt;bean  class=&quot;org.mybatis.spring.mapper.MapperScannerConfigurer&quot;&gt;\n     &lt;property name=&quot;basePackage&quot;  value=&quot;mapper&quot;&gt;&lt;!-- 扫描mapper类 --&gt;\n&lt;bean&gt;\nspringMVC.xml:设置自动扫描的controller，以便于用注解的方法表明哪些类是controller。\n&lt;context:component-scan base-package=&quot;controller&quot;&gt;\n      &lt;context:include-filter type=&quot;annotation&quot;\n       expression=&quot;org.springframework.stereotype.Controller&quot;&gt;\n&lt;context:component-scan&gt;\n开启注解\n&lt;mvc:annotation-driven &gt;\n 设置jsp的默认路径，之后controller转的时候可以直接写jsp名，\n&lt;bean\n         class=&quot;org.springframework.web.servlet.view.InternalResourceViewResolver&quot;&gt;\n        &lt;property name=&quot;viewClass&quot;\n             value=&quot;org.springframework.web.servlet.view.JstlView&quot; &gt;\n        &lt;property name=&quot;prefix&quot;  value=&quot;WEB-INFjsp&quot; &gt;\n        &lt;property name=&quot;suffix&quot; value=&quot;.jsp&quot; &gt;\n    &lt;bean&gt;\n开放对上传功能的支持，我们的项目有上传头像的功能\n&lt;bean id=&quot;multipartResolver&quot;  class=&quot;org.springframework.web.multipart.commons.CommonsMultipartResolver&quot;&gt;\nWeb.xml:配置spring\n&lt;context-param&gt;\n     &lt;param-name&gt;contextConfigLocation&lt;param-name&gt;\n     &lt;param-value&gt;classpath:applicationContext.xml&lt;param-value&gt;\n&lt;context-param&gt;\n解决中文问题的过滤器\n&lt;filter&gt;\n     &lt;filter-name&gt;SetCharacterEncodingFilter&lt;filter-name&gt;\n    &lt;!-- 过滤器设置编码文件 --&gt;\n     &lt;filter-class&gt;filter.SetCharacterEncodingFilter&lt;filter-class&gt;\n    &lt;init-param&gt;\n        &lt;!-- init-param元素定义了过滤器的初始化参数--&gt;\n        &lt;description&gt;给参数和值设置名称和编码类型&lt;description&gt;\n        &lt;param-name&gt;encode&lt;param-name&gt;\n        &lt;param-value&gt;utf-8&lt;param-value&gt;\n    &lt;init-param&gt;\n&lt;filter&gt;\n&lt;filter-mapping&gt;\n    &lt;!--  filter-mapping告诉容器所有与模式向匹配的请求都应该允许通过访问控制过滤器。\n            所有以.action结尾的访问都先通过过滤器文件过滤 --&gt;\n     &lt;filter-name&gt;SetCharacterEncodingFilter&lt;filter-name&gt;\n    &lt;url-pattern&gt;*.do&lt;url-pattern&gt;\n&lt;filter-mapping&gt;\n配置springmvc\n&lt;servlet&gt;\n     &lt;servlet-name&gt;mvc-dispatcher&lt;servlet-name&gt;\n     &lt;servlet-class&gt;org.springframework.web.servlet.DispatcherServlet&lt;servlet-class&gt;\n     &lt;!-- spring mvc的配置文件 --&gt;\n     &lt;init-param&gt;\n         &lt;param-name&gt;contextConfigLocation&lt;param-name&gt;\n         &lt;param-value&gt;classpath:springMVC.xml&lt;param-value&gt;\n     &lt;init-param&gt;\n     &lt;load-on-startup&gt;1&lt;load-on-startup&gt;\n&lt;servlet&gt;\n&lt;servlet-mapping&gt;\n     &lt;servlet-name&gt;mvc-dispatcher&lt;servlet-name&gt;\n     &lt;url-pattern&gt;*.do&lt;url-pattern&gt;\n&lt;servlet-mapping&gt;\n\n全部的结构\nController：接收相应请求，执行相应方法，并转到相应页面以UserController为例：先用注解声明是 UserController一个Controller我们拦截所有.do的请求，UserController写关于user的请求，例如请求login.do,即登录，我们执行login方法，之后转到view层，即jsp页面，在登录完成后填完信息请求loginwc.do,将提取的信息进行验证，数据库里是否有uid为所填uid并且up为所填up的，若记录不为空，则登陆成功，此时我们将uid存入HttpSession中记录了用户登录状态，之后还要用这个数据\n@Controller\npublic class UserController {\n    @Autowired\n    UserService userService;\n\n\n    @RequestMapping(&quot;login.do&quot;)处理login.do这个请求\n    public ModelAndView login() {\n        ModelAndView mav = new ModelAndView();\n        mav.addObject(&quot;islogincg&quot;, 1);\n        mav.setViewName(&quot;login&quot;);\n\n        return mav;\n    }\n    @RequestMapping(&quot;loginwc.do&quot;)处理loginwc.do这个请求\n    public ModelAndView loginwc(User user,HttpServletRequest req,HttpServletResponse resp) {\n        ModelAndView mav = new ModelAndView();\n        System.out.println(user.getUid());\n        System.out.println(user.getUp());\n        if(userService.isCanLogin(user)) {\n            req.getSession().setAttribute(&quot;uid&quot;, user.getUid());\n            String tximg = userService.selectByUid(user.getUid()).getTximg();\n            req.getSession().setAttribute(&quot;tximg&quot;, tximg);\n            System.out.println(tximg);\n            if(userService.isStore(user)) {\n                req.getSession().setAttribute(&quot;isStore&quot;, 1);\n            }else {\n                req.getSession().setAttribute(&quot;isStore&quot;, 0);\n            }\n            req.getSession().setAttribute(&quot;tximg&quot;, &quot;mrtx.png&quot;);\n            mav.setViewName(&quot;welcome&quot;);\n\n        }else {\n            mav.addObject(&quot;islogincg&quot;, 0);\n            System.out.println(&quot;登录失败&quot;);\n            mav.setViewName(&quot;login&quot;);\n        }\n        return mav;\n    }\n}\nMapper：用于操作数据库另外我们需要pojo来一一对应我们的数据库的表\n我们将相应的SQL语句写到mapper的xml中\n&lt;mapper namespace=&quot;mapper.CommodityMapper&quot;&gt;\n     &lt;select id=&quot;selectAll&quot;  resultType=&quot;Commodity&quot;&gt;\n         select * from commodity and cs != 0\n     &lt;select&gt;\n    &lt;insert id=&quot;add&quot; parameterType=&quot;Commodity&quot;  &gt;\n       insert into  commodity(cname,cs,cp,uid,type) values  (#{cname},#{cs},#{cp},#{uid},#{type})    \n     &lt;insert&gt;\n     &lt;select id=&quot;selectByUid&quot;  parameterType=&quot;String&quot; resultType=&quot;Commodity&quot;&gt;\n         select * from commodity where uid =  &#39;${_parameter}&#39; and cs != 0\n     &lt;select&gt;\n     &lt;select id=&quot;selectByType&quot;  parameterType=&quot;_int&quot; resultType=&quot;Commodity&quot;&gt;\n         select * from commodity where type =  ${_parameter} and cs != 0\n     &lt;select&gt;\n     &lt;select id=&quot;selectByLikeCname&quot;  parameterType=&quot;map&quot; resultType=&quot;Commodity&quot;&gt;\n         select * from commodity where cname  like &#39;%${part}%&#39; and cs != 0 order by cid asc limit  ${first},6\n     &lt;select&gt;\n     &lt;select id=&quot;selectByCid&quot;  parameterType=&quot;_int&quot; resultType=&quot;Commodity&quot;&gt;\n         select * from commodity where cid =  ${_parameter} and cs != 0\n     &lt;select&gt;\n     &lt;select id=&quot;selectByYeShu&quot;  parameterType=&quot;map&quot; resultType=&quot;Commodity&quot;&gt;\n         select * from commodity where cs != 0  and type = ${type} order by cid asc limit  ${first},6\n     &lt;select&gt;\n     &lt;delete id=&quot;delete&quot; parameterType=&quot;_int&quot;&gt;\n         delete from commodity where cid =  ${_parameter}\n     &lt;delete&gt;\n     &lt;update id=&quot;updateCs&quot; parameterType=&quot;map&quot;&gt;\n         update commodity set cs=#{cs}  where  cid=#{cid}\n     &lt;update&gt;\n&lt;mapper&gt;\n在同一个包中写相应mapper接口，每个方法都对应xml的语句id，同一个包下自动对应，之后方便对数据库操作\npackage mapper;\n\nimport java.util.List;\nimport java.util.Map;\n\nimport pojo.Commodity;\nimport pojo.Purchase;\n\npublic interface CommodityMapper {\n    void add(Commodity c);\n    List&lt;Commodity&gt; selectAll();\n    List&lt;Commodity&gt; selectByUid(String uid);\n    List&lt;Commodity&gt; selectByType(int type);\n    List&lt;Commodity&gt; selectByLikeCname(Map&lt;String, Object&gt; map);\n    List&lt;Commodity&gt; selectByCid(int cid);\n    List&lt;Commodity&gt; selectByYeShu(Map&lt;String, Integer&gt; map);\n    void delete(int cid);\n    void updateCs(Map&lt;String,Integer&gt; map);\n}\nService：相对具体的业务逻辑服务层public interface CommodityService {\n    void add(Commodity c);\n    List&lt;Commodity&gt; selectAll();\n    List&lt;Commodity&gt; selectByUid(String uid);\n    List&lt;Commodity&gt; selectByType(int type);\n    List&lt;Commodity&gt; selectByLikeCname(String part,int first);\n    List&lt;Commodity&gt; selectByCid(int cid);\n    List&lt;Commodity&gt; selectByYeShu(int type,int first);\n    void delete(int cid);\n    void updateCs(int cs,int cid);\n}\n###ServiceImpl: Service实现类(持有自动注入的mapper对象以便操作数据库)\n@Service(&quot;CommodityService&quot;)\npublic class CommodityServiceImpl implements CommodityService{\n\n    @Autowired\n    CommodityMapper commodityMapper;\n    @Override\n    public void add(Commodity c) {\n        commodityMapper.add(c);\n    }\n\n\n    @Override\n    public List&lt;Commodity&gt; selectAll() {\n        return commodityMapper.selectAll();\n    }\n\n\n    @Override\n    public List&lt;Commodity&gt; selectByUid(String uid) {\n        return commodityMapper.selectByUid(uid);\n\n    }\n    public List&lt;Commodity&gt; selectByType(int type){\n        return commodityMapper.selectByType(type);\n    }\n    public List&lt;Commodity&gt; selectByLikeCname(String part,int first){\n        Map&lt;String,Object&gt; map = new HashMap&lt;&gt;();\n        map.put(&quot;part&quot;, part);\n        map.put(&quot;first&quot;, first);\n        return commodityMapper.selectByLikeCname(map);\n    }\n    public List&lt;Commodity&gt; selectByCid(int cid){\n        return commodityMapper.selectByCid(cid);\n    }\n\n    @Override\n    public List&lt;Commodity&gt; selectByYeShu(int type, int first) {\n        Map&lt;String,Integer&gt; map = new HashMap&lt;&gt;();\n        map.put(&quot;type&quot;, type);\n        map.put(&quot;first&quot;, first);\n        return commodityMapper.selectByYeShu(map);\n    }\n    @Override\n    public void delete(int cid) {\n        commodityMapper.delete(cid);\n    }\n\n\n    @Override\n    public void updateCs(int cs, int cid) {\n        Map&lt;String,Integer&gt; map = new HashMap&lt;&gt;();\n        map.put(&quot;cs&quot;, cs);\n        map.put(&quot;cid&quot;, cid);\n        commodityMapper.updateCs(map);\n    }\n\n}\nFilter：实现拦截请求，将请求的编码设为utf-8,以至于支持中文\npublic void doFilter(ServletRequest req,  ServletResponse resp,\n            FilterChain chain) throws IOException,  ServletException {\n         TODO Auto-generated method stub\n         转换\n           HttpServletRequest request =  (HttpServletRequest)req;\n           HttpServletResponse response =  (HttpServletResponse)resp;\n\n           *\n            * 判断在web.xml文件中是否配置了编码格式的信息\n            * 如果为空，则设置编码格式为配置文件中的编码格式\n            * 否则编码格式设置为utf-8\n            *\n           if(this.encode != null &amp;&amp;  !this.encode.equals(&quot;&quot;)){\n             request.setCharacterEncoding(this.encode);\n             response.setCharacterEncoding(this.encode);\n           }else{\n            request.setCharacterEncoding(&quot;utf-8&quot;);\n            response.setCharacterEncoding(&quot;utf-8&quot;);\n           }\n           *\n            * 使用doFilter方法调用链中的下一个过滤器或目标资源（servlet或JSP页面）。\n            * chain.doFilter处理过滤器的其余部分（如果有的话），最终处理请求的servlet或JSP页面。\n            *\n           chain.doFilter(request, response);\n\n    }\nPage:用于分页的实现\npublic class Page&lt;T&gt; {\n    int first;       开始数据\n    int count;       每一页的数量\n    int total;       总共的数据量\n    private List&lt;T&gt; list;当前页的数据\n    public Page() {\n\n    }\n    public Page(int first, int count) {\n         super();\n         this.first = first;\n         this.count = count;\n    }\n相关jar包：\n","tags":[],"path":"2019/03/16/SSM项目的配置和整体结构的总结/","external_link":""},{"title":"sql","date":"2018-10-28T16:06:41.000Z","content":"\ntitle:SQL基础学习简单的总结（一）SQL基础学习简单的总结（一）数据库操作建立一个新数据库：create  database  数据库名\n指定当前数据库：database  数据库名\n关闭当前数据库：close  database  数据库名\n撤消一个数据库：drop  database  数据库名\n\n基本表基本表的定义（CREATE）create  table   表名（       \n    列名  数据类型  [default  缺省值]  [not null]\n    [，列名 数据类型  [default  缺省值]  [not null]] \n                      ……      \n    [，primary  key（列名 [，列名] …）]       \n    [，foreign  key （列名 [，列名] …） references  表名 （列名 [，列名] …）]       \n    [，check（条件）] \n)  \n例：\ncreate   table   PROF    \n     ( PNO    char(10),      \n     PNAME  char(20) not null,     \n     SAL   int,      \n     AGE   int,     \n     DNO   char(10),     \n     primary key (PNO),     \n     foreign key (DNO) references DEPT(DNO),     \n     check (SAL &gt; 0))\n修改基本表定义（ALTER）格式： \nALTER TABLE &lt;表名&gt;\n      [ ADD &lt;新列名&gt; &lt;数据类型&gt; [ 完整性约束 ]     --增加新列        \n      [ DROP &lt;列名、完整性约束名&gt; ]              --删除列      \n      [ ALTER COLUMN&lt;列名&gt; &lt;数据类型&gt; ];         --修改列定义 \n撤消基本表定义（drop）格式：\ndrop  table  表名 ［RESTRICT| CASCADE］;\nRESTRICT：缺省，如果存在依赖该表的对象，则此表不能被删除CASCADE：在删除基本表的同时，相关的依赖对象一起删除 \n\n索引索引的定义格式: \ncreate  [unique|distinct]  [cluster]  index  索引名      \non  表名 (列名 [asc|desc]  [ , 列名[asc|desc]]…) \nunique|distinct：唯一性索引，不允许表中不同的行在 索引列上取相同值。cluster：聚集索引，表中元组按索引项的值排序并物 理地聚集在一起。一个基本表上只能建一个聚集索引。asc|desc：索引表中索引值的排序次序，缺省为asc。\n在最经常查询的列上建立聚簇索引以提高查询效率。 经常更新的列不宜建立聚簇索引。索引的删除格式：drop  index   索引名\n\n数据查询单表查询SELECT [ALL|DISTINCT] &lt;目标列表达式&gt; [，&lt;目标列表达式&gt;]     … \nFROM &lt;表名或视图名&gt;[， &lt;表名或视图名&gt; ] … \n[ WHERE &lt;条件表达式&gt; ] \n[ GROUP BY &lt;列名1&gt; [ HAVING &lt;条件表达式&gt; ] ] \n[ ORDER BY &lt;列名2&gt; [ ASC|DESC ] ];\nALL：缺省，显示结果不删除重复行\nDISTINCT：显示结果删除重复行\n更名运算：old_name as new_name(as可省略)\nLike四种匹配模式：1、%：表示任意0个或多个字符。可匹配任意类型和长度的字符。SELECT * FROM [user] WHERE u_name LIKE &#39;k%&#39;\n2、_： 表示任意单个字符。匹配单个任意字符，它常用来限定表达式的字符长度语句：SELECT * FROM [user] WHERE u_name LIKE &#39;k_&#39;\n3、[ ]：表示括号内所列字符中的一个（类似正则表达式）。指定一个字符、字符串或范围，要求所匹配对象为它们中的任一个。SELECT * FROM [user] WHERE u_name LIKE &#39;[赵钱孙李]小明&#39;\n4、[^ ] ：表示不在括号所列之内的单个字符。其取值和 [] 相同，但它要求所匹配对象为指定字符以外的任一个字符。SELECT * FROM [user] WHERE u_name LIKE &#39;[^赵钱孙李]小明&#39;\n定义转义字符，以去掉特殊字符的特定含义，使其被作为普通字符看待。可用%去匹配 %，用＿去匹配＿，用 去匹配 LIKE &#39;DB Design&#39; ESCAPE &#39;&#39;ESCAPE ‘＼’ 表示“ ＼” 为换码字符\norder by排序order by    列名   [asc | desc];\n可以按一个或多个属性列排序升序：ASC 降序：DESC 缺省值为升序 \n聚集函数：计数 COUNT（[DISTINCT|ALL] *） COUNT（[DISTINCT|ALL] &lt;列名&gt;）计算总和 SUM（[DISTINCT|ALL] &lt;列名&gt;）计算平均值 AVG（[DISTINCT|ALL] &lt;列名&gt;）最大值    MAX（[DISTINCT|ALL] &lt;列名&gt;）   &gt;最小值    MIN（[DISTINCT|ALL] &lt;列名例:计算1号课程的学生平均成绩。SELECT AVG(Grade)           FROM SC           WHERE Cno= &#39; 1 &#39;;\ngroup by分组group by   列名  [having   条件表达式]group by将表中的元组按指定一列或多列上的值相等的 原则分组，然后在每一分组上使用聚集函数，得到单一值。having则对分组进行选择，只将聚集函数作用到满足条件的分组上。例：列出所有课程均及格 的学生的平均成绩。     \nselect SNO，avg(SCORE) \nfrom SC   \ngroup by SNO  \nhaving min(SCORE) &gt;= 60\n连接查询自然连接：两个表有同名的属性，此属性值相等的元组相连例:\nSELECT  S.Sno，Sname，Ssex，Sage，Sdept，Cno，Grade FROM     S，SC \nWHERE  S.Sno = SC.Sno\n自身连接：一个表与其自己进行连接,需要给表起别名以示区别,由于所有属性名都是同名属性，因此必须使用别名前缀例:查询每一门课的间接先修课（即先修课的先修课）   \nSELECT FIRST.Cno，SECOND.Cpno      \nFROM Course FIRST，Course SECOND     \nWHERE FIRST.Cpno = SECOND.Cno \n外连接:自然连接时，可能会有信息因为失配而在结果中丢失，为避免丢失，可以假定往另一个参与连接的表中附加一个取值全为空值的行，失配的行会和空值行匹配，不至于丢失，称之为外连接。 外连接 = 自然连接 + 失配的元组例:查询每个学生及其选修课程的情况 \nSELECT Student.Sno，Sname，Ssex，Sage，Sdept，Cno，Grade     \nFROM  Student  LEFT OUT JOIN SC ON (Student.Sno=SC.Sno);\n复合条件连接：WHERE子句中含多个连接条件例：\nSELECT S.Sno，Sname，Cname，Grade    \nFROM S，SC，Course    *多表连接*    \nWHERE S.Sno = SC.Sno                     \nand SC.Cno = Course.Cno;\nFROM S，SC，Course三者做相当于笛卡尔积嵌套查询不相关子查询：子查询的查询条件不依赖于父查询，由里向外 逐层处理。即每个子查询在上一级查询处理 之前求解，子查询的结果用于建立其父查询的查找条件。相关子查询：子查询的查询条件依赖于父查询，首先取外层查询中表的第一个元组，根据它与内层查询相关的属性值处理内层查询，若WHERE子句返回值为真，则取此元组放入结果表 然后再取外层表的下一个元组重复这一过程，直至外层表全部检查完为止。（有点像for循环）\n不相关例子：查询与“刘晨”在同一个系学习的学生\nSELECT Sno，Sname，Sdept      \nFROM Student     \nWHERE Sdept  IN (SELECT Sdept                    \n                 FROM Student                    \n                 WHERE Sname= ‘ 刘晨 ’);\n相关例子：找出每个学生超过他选修课程平均成绩的课程号。  \nSELECT Sno,Cno     \nFROM SC x     *更名 as可省略*\nWHERE Grade &gt;=(SELECT AVG(Grade)                            \n               FROM  SC y                                    \n               WHERE y.Sno=x.Sno);\n带有ANY（SOME）或ALL谓词的子查询ANY：任意一个值ALL：所有值格式为：表达式   比较运算符  ANY|ALL （子查询）例：查询其他系中比计算机科学系所有学生年龄都小 的学生姓名及年龄。 \nSELECT Sname，Sage     \nFROM S     \nWHERE Sage &lt; ALL (SELECT Sage              \n                  FROM S              \n                  WHERE Sdept= &#39; CS &#39;)        \n      AND Sdept &lt;&gt; &#39; CS ’;\n带有EXISTS谓词的子查询例：查询所有选修了1号课程的学生姓名。 \nSELECT Sname      \nFROM S      \nWHERE EXISTS (SELECT *               \n              FROM SC             \n              WHERE Sno=S.Sno AND Cno= &#39; 1 &#39;);\n","tags":[],"path":"2018/10/29/sql/","external_link":""},{"title":"springMVC笔记","date":"2019-03-25T08:38:59.000Z","content":"MVC模式（Model–view–controller）是软件工程中的一种软件架构模式，把软件系统分为三个基本部分：模型（Model）、视图（View）和控制器（Controller）。\n控制器（Controller）- 负责转发请求，对请求进行处理。\n视图（View） - 负责显示数据，这个部分多为前端应用，而 Controller 会有一个机制将处理的结果 (可能是 Model, 集合或是状态等) 交给 View，然后由 View 来决定怎么显示模型（Model） -    负责数据访问,掌管数据源\nDispatcherServlet是springMVC的入口（所有的请求都提交到该Servlet）springmvc自带有org.springframework.web.servlet.DispatcherServlet充当调度员的一个servlet，拦截匹配的请求，并且依据相应的规则分发到目标Controller来处理。\n配置及整体过程web.xml下的配置&lt;!-- spring mvc核心：分发servlet --&gt;\n    &lt;servlet&gt;\n         &lt;servlet-name&gt;mvc-dispatcher&lt;servlet-name&gt;\n         &lt;servlet-class&gt;org.springframework.web.servlet.DispatcherServlet&lt;servlet-class&gt;\n         &lt;!-- spring mvc的配置文件 --&gt;\n         &lt;init-param&gt;\n             &lt;param-name&gt;contextConfigLocation&lt;param-name&gt;\n             &lt;param-value&gt;classpath:springMVC.xml&lt;param-value&gt;\n         &lt;init-param&gt;\n         &lt;load-on-startup&gt;1&lt;load-on-startup&gt;\n    &lt;servlet&gt;\n\n    &lt;servlet-mapping&gt;\n         &lt;servlet-name&gt;mvc-dispatcher&lt;servlet-name&gt;\n         &lt;url-pattern&gt;*.do&lt;url-pattern&gt;\n    &lt;servlet-mapping&gt;\n设置在web应用启动时就将此servlet创建并初始化（默认值为0，就是在用对应请求到来时才创建）\n&lt;load-on-startup&gt;1&lt;load-on-startup&gt;\n此servlet初始化时会找一个WEB-INF目录下的一个配置文件，命名规则为servletName-servlet.xml（比如对于 mvc-dispatcher默认是找WEB-INFmvc-dispatcher-servlet.xml配置文件）。当然这个配置文件路径和名字可以自己设置\n&lt;!-- spring mvc的配置文件 --&gt;\n         &lt;init-param&gt;\n             &lt;param-name&gt;contextConfigLocation&lt;param-name&gt;\n             &lt;param-value&gt;classpath:springMVC.xml&lt;param-value&gt;\n         &lt;init-param&gt;\n这样直接把springMVC.xml放src目录下就可以了\n拦截使用为*.do的请求：\n&lt;servlet-mapping&gt;\n     &lt;servlet-name&gt;mvc-dispatcher&lt;servlet-name&gt;\n     &lt;url-pattern&gt;*.do&lt;url-pattern&gt;\n&lt;servlet-mapping&gt;\nspringMVC.xml（Spring MVC的 映射配置文件）&lt;beans&gt;\n    &lt;bean id=&quot;simpleUrlHandlerMapping&quot;\n\n\n        class=&quot;org.springframework.web.servlet.handler.SimpleUrlHandlerMapping&quot;&gt;\n        &lt;property name=&quot;mappings&quot;&gt;\n            &lt;props&gt;\n                &lt;prop key=&quot;hello.do&quot;&gt;HelloController&lt;prop&gt;\n            &lt;props&gt;\n        &lt;property&gt;\n    &lt;bean&gt;\n    &lt;bean id=&quot;helloController&quot; class=&quot;controller.HelloController&quot;&gt;&lt;bean&gt;\n&lt;beans&gt;\n访问路径hello.do会交给id=helloController的bean处理\n创建控制类控制类 helloController实现接口Controller ，提供方法处理请求\npublic class HelloController implements Controller {\n    public ModelAndView handleRequest(HttpServletRequest request, HttpServletResponse response)throws Exception {\n        ModelAndView mav = new ModelAndView(&quot;hello.jsp&quot;);跳转到这个页面\n        mav.addObject(&quot;message&quot;, &quot;Hello Spring MVC&quot;);JSP中可用&lt;h1&gt;${message}&lt;h1&gt;  \n        return mav;\n    }\n}\nWebContent目录下创建hello.jsp，可以用喜欢的方式展示数据（ ${message}）例如： \n&lt;%@ page language=&quot;java&quot; contentType=&quot;texthtml; charset=UTF-8&quot;\n    pageEncoding=&quot;UTF-8&quot; isELIgnored=&quot;false&quot;%&gt;\n&lt;h1&gt;${message}&lt;h1&gt;\n 这样一来在用户请求hello.do时，因为web.xml中的配置 *.do的所有请求都经过DispatcherServlet，再根据配置文件springMVC.xml ，访问路径hello.do对应HelloController类，在HelloController中指定跳转到页面hello.jsp，并传递message数据，最后在hello.jsp中显示message信息。\n视图定位&lt;bean\n         class=&quot;org.springframework.web.servlet.view.InternalResourceViewResolver&quot;&gt;\n        &lt;property name=&quot;viewClass&quot;\n             value=&quot;org.springframework.web.servlet.view.JstlView&quot; &gt;\n        &lt;property name=&quot;prefix&quot;  value=&quot;WEB-INFjsp&quot; &gt;\n        &lt;property name=&quot;suffix&quot; value=&quot;.jsp&quot; &gt;\n    &lt;bean&gt;\n这样一来把视图约定在 WEB-INFpage*.jsp 这个位置sController中写 ModelAndView mav = new ModelAndView(“hello”)，就是跳转到WEB-INFjsphello.jsp了\n用注释的方式@Controller 表示该类是一个控制器@RequestMapping(“register.do”) 表示此请求会映射到此方法\n@Controller\npublic class UserController {\n    @Autowired\n    UserService userService;\n\n    @RequestMapping(&quot;register.do&quot;)\n    public ModelAndView register(){\n         ModelAndView mav = new ModelAndView();\n         mav.setViewName(&quot;register&quot;);\n         return mav;\n    }\n}\nspringMVC.xml需要添加以下内容1.声明spring-context部分\n&lt;beans \n        ......\n     xmlns:context=&quot;http:www.springframework.orgschemacontext&quot;\n......\n&gt;\n2.指定扫描注释的包，把类放到这个包下面并加以@Controller注释就会知道这是个控制器类\n&lt;context:component-scan base-package=&quot;controller&quot; &gt;\n表单提交并自动将数据注入对象pojo包下建User类\npackage pojo;\npublic class User {\n    String uid;\n    String uname;\n    String up;\n    public String getUid() {\n         return uid;\n    }\n    public void setUid(String uid) {\n         this.uid = uid;\n    }\n    public String getUname() {\n         return uname;\n    }\n    public void setUname(String uname) {\n         this.uname = uname;\n    }\n    public String getUp() {\n         return up;\n    }\n    public void setUid(String uid){\n         this.up = up;\n    }\n    public float getUb() {\n         return ub;\n    }\n    public User(){\n\n    }\n}\n表单中，要填的两项分别为name=”uid”，name=”up” 与User类setUid(String uid)，setUid(String uid)对应\n&lt;form action=&quot;loginwc.do&quot; method=&quot;post&quot;&gt;\n         &lt;div class=&quot;form-group&quot;&gt;\n           &lt;label&gt;账户&lt;label&gt;\n           &lt;input type=&quot;text&quot; name=&quot;uid&quot;  placeholder=&quot;用户名手机&quot; class=&quot;form-control&quot;   style=&quot;width:300px&quot;&gt;\n        &lt;div&gt;\n\n         &lt;div class=&quot;form-group&quot;&gt;\n           &lt;label&gt;密码&lt;label&gt;\n           &lt;input type=&quot;password&quot; name=&quot;up&quot;  placeholder=&quot;密码&quot; class=&quot;form-control&quot;   style=&quot;width:300px&quot;&gt;\n         &lt;div&gt; \n\n&lt;div class=&quot;form-group&quot;&gt;\n              &lt;button type=&quot;submit&quot; class=&quot;btn  btn-primary&quot;&gt;登录&lt;button&gt;\n        &lt;div&gt;\n&lt;form&gt;\n对应Controllerspringmvc发现页面传递过来有参数uid的时候，同时检测到参数的User这个类有setUid方法，那么就会把参数uid的值，注入到这个user对象里去了(up同理）\n@RequestMapping(&quot;loginwc.do&quot;)\n    public ModelAndView loginwc(User  user,HttpServletRequest req,HttpServletResponse  resp) {\n         ModelAndView mav = new ModelAndView();\n         System.out.println(user.getUid());就是表单输入的值\n         System.out.println(user.getUp());就是表单输入的值\n        dosomething\n         return mav;\n    }\n另外也可以用@RequestParam注释直接提取表单的数据到方法参数中(当然不一定是非要是String了，springMVC 会尽力转化的)\npublic ModelAndView loginwc(@RequestParam String uid,@RequestParam String up,) {\n     ModelAndView mav = new ModelAndView();\n     System.out.println(user.getUid());就是表单输入的值\n     System.out.println(user.getUp());就是表单输入的值\n    dosomething\n     return mav;\n}\n字段不同名也可以设置value值 @RequestParam(value=””)\npublic ModelAndView loginwc(@RequestParam(value=&quot;uid&quot;) String userId,@RequestParam(value=&quot;uid&quot;) String userPassword,)\n请求重定向redirect:@RequestMapping(&quot;jump.do&quot;)\n    public ModelAndView jump() {\n        ModelAndView mav = new ModelAndView(&quot;redirect:hello.do&quot;);\n        return mav;\n    }  \n页面上传springMVC.xml新增加一段配置，开放对上传功能的支持\n&lt;bean id=&quot;multipartResolver&quot; class=&quot;org.springframework.web.multipart.commons.CommonsMultipartResolver&quot;&gt;\nupload.jsp 上传页面上传页面，需要注意的是form 的两个属性必须提供method=”post” 和 enctype=”multipartform-data” 缺一不可上传组件 增加一个属性 accept=”image*” 表示只能选择图片进行上传\n&lt;%@ page language=&quot;java&quot; contentType=&quot;texthtml; charset=UTF-8&quot;\n    pageEncoding=&quot;UTF-8&quot; import=&quot;java.util.*&quot; isELIgnored=&quot;false&quot;%&gt;\n\n&lt;form action=&quot;uploadImage.do&quot; method=&quot;post&quot; enctype=&quot;multipartform-data&quot;&gt;\n  选择图片:&lt;input type=&quot;file&quot; name=&quot;image&quot; accept=&quot;image*&quot; &gt;\n\n  &lt;input type=&quot;submit&quot; value=&quot;上传&quot;&gt;\n&lt;form&gt;\npojo.UploadedImageFile\npublic class UploadedImageFile {\n    MultipartFile image;\n    public MultipartFile getImage() {\n        return image;\n    }\n    public void setImage(MultipartFile image) {\n        this.image = image;\n    }\n}\n之后编写uploadImage.do请求对应的controller的方法对图片进行操作（保存展示等）。\n","tags":[],"path":"2019/03/25/springMVC/","external_link":""}]';
+
+	s = s.replace(/\\n/g, "\\n")
+               .replace(/\\'/g, "\\'")
+               .replace(/\\"/g, '\\"')
+               .replace(/\\&/g, "\\&")
+               .replace(/\\r/g, "\\r")
+               .replace(/\\t/g, "\\t")
+               .replace(/\\b/g, "\\b")
+               .replace(/\\f/g, "\\f")
+
+// remove non-printable and other non-valid JSON chars
+	s = s.replace(/[\u0000-\u0019]+/g,"");
+	var list = JSON.parse(s);
+	var fuse = new Fuse(list, options);
+	var el = document.getElementById('search-form');
+	var newBox = $('.Card-archive').first().clone();
+	el.oninput = function(event){
+		var searchText = el.value;
+		var result = fuse.search(searchText);
+		$('.archive-cards .Card-archive').remove();
+		for(var i in result){
+			var anotherBox = newBox.clone();
+			var dateStr = new Date(result[i].date);
+			anotherBox.css('display','flex');
+			var url = "";
+			if(result[i].external_link !== ""){
+				url = result[i].external_link;
+			}else{
+				url = '/' + result[i].path;
+			}
+
+			anotherBox.find('.Card-title a').text(result[i].title).attr('href', url);
+			anotherBox.find('.Card-date').text(dateStr.toDateString());
+			anotherBox.appendTo('.archive-cards');
+		}
+	}
+</script>
+
+<div class="tagcloud-container">
+<div class="tag-cloud">
+	
+</div>
+</div>
+
+  </div>
+
+  
+
+<footer id="footer">
+    <div class="footer-copyright">
+        <div>
+            <p> Copyright by <a href="">wzs63 </a> @ 2019</p>
+            <p>Designed by: <i class="fas fa-paint-brush"></i> <a href="https://moober.cn">Moober</a> and <i class="fas fa-graduation-cap"></i> <a href="https://qutang.github.io">Qu Tang</a> &bull; Theme: <a href="https://qutang.github.io/cutie/">Cutie 2.1.3-Taurus</a> &bull; Powered by <a href="http://hexo.io">Hexo.</a></p>
+        </div>
+    </div>
+    
+    <div class="footer-social">
+        
+    </div>
+</footer>
+
+  <br>
+
+  <div id="footer-nav" class='footer-nav'>
+		
+
+
+
+<nav id="nav">
+	
+	
+	
+	<div class="nav-item" id="nav-item-archive">
+		
+				<div class="nav-icon">
+				
+			<a href="/archives/" title="Archives">
+			<img src="/images/icons/blue-shadow/archive.svg" alt="">
+			</a>
+		</div>
+	</div>
+	<div class="nav-item" id="nav-item-search">
+		
+		<div class="nav-icon active_dot">
+		
+			<a href="/search/" title="Search">
+			<img src="/images/icons/blue-shadow/search.svg" alt="">
+			</a>
+		</div>
+	</div>
+	<div class="nav-item" id="nav-item-more">
+		<div class="nav-icon">
+				<a href="#" onclick="onClickMenuIcon(event);" ontouchstart="onClickMenuIcon(event);">
+				<img src="/images/icons/blue-shadow/menu.svg" alt="">
+				</a>
+		</div>
+		<div class="nav-more-menu">
+				<i class="far fa-times-circle" id="nav-more-menu-close" onclick="onClickNavMenuClose(event);" ontouchstart="onClickNavMenuClose(event);"></i>
+		
+		
+		<div class="nav-more-item">
+				<div class="nav-name">
+					<a class="nav-link" href="/categories/Java/">
+						<span>Java</span>
+					</a>
+				</div>
+		</div>
+		
+		<div class="nav-more-item">
+				<div class="nav-name">
+					<a class="nav-link" href="/categories/java/">
+						<span>Java</span>
+					</a>
+				</div>
+		</div>
+		
+		<div class="nav-more-item">
+				<div class="nav-name">
+					<a class="nav-link" href="/categories/JavaEE/">
+						<span>Javaee</span>
+					</a>
+				</div>
+		</div>
+		
+		<div class="nav-more-item">
+				<div class="nav-name">
+					<a class="nav-link" href="/categories/一些bug/">
+						<span>一些bug</span>
+					</a>
+				</div>
+		</div>
+		
+		<div class="nav-more-item">
+				<div class="nav-name">
+					<a class="nav-link" href="/categories/数据处理/">
+						<span>数据处理</span>
+					</a>
+				</div>
+		</div>
+		
+		<div class="nav-more-item">
+				<div class="nav-name">
+					<a class="nav-link" href="/categories/数据库/">
+						<span>数据库</span>
+					</a>
+				</div>
+		</div>
+		
+	</div>
+	</div>
+</nav>
+
+	</div>
+
+  
+
+
+
+    
+
+
+
+
+
+
+
+    <script src="/js/lightgallery.min.js"></script>
+<script src="/js/lg-zoom.min.js"></script>
+<script type="text/javascript">
+    $(document).ready(function() {
+        $("#lightgallery").lightGallery(); 
+        $(".article-content img").each(function(){
+            console.log($(this).attr('src'))
+            $(this).attr('data-src', $(this).attr('src')).lightGallery({
+                selector: 'this'
+            })
+        });
+    });
+</script>
+
+
+
+
+
+
+<script type="text/javascript">
+
+  
+</script>
+
+
+
+<!-- <script src="/js/post.js"></script> -->
+
+<script src="/js/headroom.min.js"></script>
+
+<script data-no-instant="" type="text/javascript">
+
+initHeadroom();
+
+changeLayoutOnTouchScreen();
+
+// 
+</script>
+
+
+<!-- End Document
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+</body>
+</html>

@@ -1,0 +1,1278 @@
+<!DOCTYPE html>
+<html lang="en">
+
+
+
+
+<head><meta name="generator" content="Hexo 3.8.0">
+
+  <!-- Basic Page Needs
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  <meta charset="utf-8">
+  
+      <title>hello</title>
+  
+
+  
+  
+  <meta name="description" content="">
+  <meta name="author" content="wzs63">
+
+  <!-- Mobile Specific Metas
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- load loadjs.js -->
+  <script src="/libs/loadjs/dist/loadjs.min.js"></script>
+
+<link rel="stylesheet" href="/libs/animate.css/animate.min.css">
+  <!-- load lightgallery -->
+<link rel="stylesheet" href="/css/lightgallery.css">
+<link rel="stylesheet" href="/libs/noty/lib/noty.css">
+<script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+  
+
+
+
+
+
+
+    <link rel="stylesheet" href="/css/taurus.css">
+    
+        <link rel="stylesheet" href="/css/scheme-taurus/animations.css">
+    
+
+
+<link rel="stylesheet" href="/.css">
+
+  <!-- load font awesome 5 -->
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ" crossorigin="anonymous">
+
+  <script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+  tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}
+  });
+  </script>
+  <!-- load mathjax -->
+  <script type="text/javascript" async src="https://cdnjs.cloudflare.com/ajax//libs/mathjax/2.7.4/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+
+  <!-- load js-cookie -->
+  <script src="https://cdn.jsdelivr.net/npm/js-cookie@2/src/js.cookie.min.js"></script>
+    <script src="/js/social-share.min.js"></script>
+    <script src="/js/theme.js"></script>
+
+  <!-- include cookie.js -->
+  
+  
+
+  <!-- include comment system code -->
+  
+    <script src="//cdn1.lncld.net/static/js/3.6.4/av-min.js"></script>
+<script src="//unpkg.com/valine/dist/Valine.min.js"></script>
+  
+  <!-- Favicon
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  <link rel="icon" type="image/png" href="/images/favicon.png">
+</head>
+<body style="display: flex; flex-direction: column; min-height: 100vh;">
+
+ 
+
+<header id="header" class="header">
+	<div class="header-title">
+		
+		<div class="header-logo">
+			<a href="/">
+				<img src="/images/theme-icon.svg">
+			</a>
+		</div>
+		<div class="header-text">
+			<h1>
+				<a href="/">hello</a>
+			</h1>
+			<subtitle>
+				
+			</subtitle>
+		</div>
+		
+	</div>
+	<div id="header-nav">
+		
+
+
+
+<nav id="nav">
+	
+	
+	
+	<div class="nav-item" id="nav-item-archive">
+		
+				<div class="nav-icon">
+				
+			<a href="/archives/" title="Archives">
+			<img src="/images/icons/blue-shadow/archive.svg" alt="">
+			</a>
+		</div>
+	</div>
+	<div class="nav-item" id="nav-item-search">
+		
+		<div class="nav-icon">
+		
+			<a href="/search/" title="Search">
+			<img src="/images/icons/blue-shadow/search.svg" alt="">
+			</a>
+		</div>
+	</div>
+	<div class="nav-item" id="nav-item-more">
+		<div class="nav-icon">
+				<a href="#" onclick="onClickMenuIcon(event);" ontouchstart="onClickMenuIcon(event);">
+				<img src="/images/icons/blue-shadow/menu.svg" alt="">
+				</a>
+		</div>
+		<div class="nav-more-menu">
+				<i class="far fa-times-circle" id="nav-more-menu-close" onclick="onClickNavMenuClose(event);" ontouchstart="onClickNavMenuClose(event);"></i>
+		
+		
+		<div class="nav-more-item">
+				<div class="nav-name">
+					<a class="nav-link" href="/categories/Java/">
+						<span>Java</span>
+					</a>
+				</div>
+		</div>
+		
+		<div class="nav-more-item">
+				<div class="nav-name">
+					<a class="nav-link" href="/categories/java/">
+						<span>Java</span>
+					</a>
+				</div>
+		</div>
+		
+		<div class="nav-more-item">
+				<div class="nav-name">
+					<a class="nav-link" href="/categories/JavaEE/">
+						<span>Javaee</span>
+					</a>
+				</div>
+		</div>
+		
+		<div class="nav-more-item">
+				<div class="nav-name">
+					<a class="nav-link" href="/categories/一些bug/">
+						<span>一些bug</span>
+					</a>
+				</div>
+		</div>
+		
+		<div class="nav-more-item">
+				<div class="nav-name">
+					<a class="nav-link" href="/categories/数据处理/">
+						<span>数据处理</span>
+					</a>
+				</div>
+		</div>
+		
+		<div class="nav-more-item">
+				<div class="nav-name">
+					<a class="nav-link" href="/categories/数据库/">
+						<span>数据库</span>
+					</a>
+				</div>
+		</div>
+		
+	</div>
+	</div>
+</nav>
+
+	</div>
+</header>
+
+ 
+
+  
+
+
+
+
+  <!-- Primary Page Layout
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  <div style="flex: 1;">
+      
+
+
+<div class="index-container" id="/index.html" data-name="index" data-version="2.1.3">
+	<div class="index-intro">
+		Bazinga, theme cutie!
+	</div>
+	
+		<div class="grid-2_md-1 grid-equalHeight index-cards">
+		
+			
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="Card Card-hover Card-index-1" id="hashit_73d8b33ca1f7d53c5d82dcbf6470054a965a4b6b541998b8710c49cb13ad17c4" data-name="Java集合笔记" data-version="">
+	
+		
+			
+				
+				
+			
+		
+	
+	<mark class="Card-badge" style="{visibility: " hidden"}"=""></mark>
+	<div class="Card-figure">
+		
+			<a href="/2019/03/27/Java集合/">
+		
+
+		 
+			<img class="grow" src="Java" alt="" onerror="this.src = " images="" jdenticon="" 4796afb206c6312431fa88e3b8fda9e30c10657430ee4caa4d8386d22751fa6c.png""=""> 
+		
+		</a>
+	</div>
+	<div class="Card-body">
+
+			<div class="Card-title">
+				<h2>
+				
+					<a href="/2019/03/27/Java集合/">
+				
+				Java集合笔记</a></h2>
+			</div>
+			<div class="Card-excerpt">
+				<p>
+				
+					<a href="/2019/03/27/Java集合/">
+				
+				
+				
+				接口总览
+Iterable接口:实现此接口允许对象成为“for-each loop”语句的目标。所以集合都可以用foreach遍历访问
+Collection接口：主要方法：boolean add(E element)Iterator...
+				</a></p>
+				
+			</div>
+
+			
+			
+			<div class="Card-meta">
+				
+				<div class="Card-tags"></div>
+				
+				<ul>
+						<li class="card-calendar">
+							<a href="/archives/">
+								<i class="fa fa-calendar"></i> 2019-03-27
+							</a>
+						</li>
+						
+						
+						
+				</ul>
+			</div>
+		
+	</div>
+</div>
+		
+			
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="Card Card-hover Card-index-2" id="hashit_b83fa06bd528be8dbfda9ad54547cd1de62ef4106d6a2c11247dabf83d127c65" data-name="springMVC笔记" data-version="">
+	
+		
+			
+				
+				
+			
+		
+	
+	<mark class="Card-badge" style="{visibility: " hidden"}"=""></mark>
+	<div class="Card-figure">
+		
+			<a href="/2019/03/25/springMVC/">
+		
+
+		 
+			<img class="grow" src="JavaEE" alt="" onerror="this.src = " images="" jdenticon="" a4699adab5467aed2a253f2c8402e6ead513cf287d4750731cc828f86bc470f8.png""=""> 
+		
+		</a>
+	</div>
+	<div class="Card-body">
+
+			<div class="Card-title">
+				<h2>
+				
+					<a href="/2019/03/25/springMVC/">
+				
+				springMVC笔记</a></h2>
+			</div>
+			<div class="Card-excerpt">
+				<p>
+				
+					<a href="/2019/03/25/springMVC/">
+				
+				
+				
+				MVC模式（Model–view–controller）是软件工程中的一种软件架构模式，把软件系统分为三个基本部分：模型（Model）、视图（View）和控制器（Controller）。
+控制器（Controller）- 负责转发请求，对请求进行处理。
+视图（View） -...
+				</a></p>
+				
+			</div>
+
+			
+			
+			<div class="Card-meta">
+				
+				<div class="Card-tags"></div>
+				
+				<ul>
+						<li class="card-calendar">
+							<a href="/archives/">
+								<i class="fa fa-calendar"></i> 2019-03-25
+							</a>
+						</li>
+						
+						
+						
+				</ul>
+			</div>
+		
+	</div>
+</div>
+		
+			
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="Card Card-hover Card-index-3" id="hashit_f778f42169c75b49c0418ff3d5e5196a94b255984da8a291e724277331c1c7b9" data-name="Session和Cookie" data-version="">
+	
+		
+			
+				
+				
+			
+		
+	
+	<mark class="Card-badge" style="{visibility: " hidden"}"=""></mark>
+	<div class="Card-figure">
+		
+			<a href="/2019/03/24/Session和cookie/">
+		
+
+		 
+			<img class="grow" src="JavaEE" alt="" onerror="this.src = " images="" jdenticon="" cde35a76e5754c768547c50c5eced30ea8e85cb5e42288318eff7ba6f94b630a.png""=""> 
+		
+		</a>
+	</div>
+	<div class="Card-body">
+
+			<div class="Card-title">
+				<h2>
+				
+					<a href="/2019/03/24/Session和cookie/">
+				
+				Session和Cookie</a></h2>
+			</div>
+			<div class="Card-excerpt">
+				<p>
+				
+					<a href="/2019/03/24/Session和cookie/">
+				
+				
+				
+				...
+				</a></p>
+				
+			</div>
+
+			
+			
+			<div class="Card-meta">
+				
+				<div class="Card-tags"></div>
+				
+				<ul>
+						<li class="card-calendar">
+							<a href="/archives/">
+								<i class="fa fa-calendar"></i> 2019-03-24
+							</a>
+						</li>
+						
+						
+						
+				</ul>
+			</div>
+		
+	</div>
+</div>
+		
+			
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="Card Card-hover Card-index-4" id="hashit_7478f8e5bd444fdf054f03fae5e19ef4686251c310b2e0f0b1658a9be714266a" data-name="JAVA只有值传递" data-version="">
+	
+		
+			
+				
+				
+			
+		
+	
+	<mark class="Card-badge" style="{visibility: " hidden"}"=""></mark>
+	<div class="Card-figure">
+		
+			<a href="/2019/03/23/Java只有值传递/">
+		
+
+		 
+			<img class="grow" src="Java" alt="" onerror="this.src = " images="" jdenticon="" b61efbbef3515b09133f776eb35388d6132aeec9df5e04ac577fae3b315d821d.png""=""> 
+		
+		</a>
+	</div>
+	<div class="Card-body">
+
+			<div class="Card-title">
+				<h2>
+				
+					<a href="/2019/03/23/Java只有值传递/">
+				
+				JAVA只有值传递</a></h2>
+			</div>
+			<div class="Card-excerpt">
+				<p>
+				
+					<a href="/2019/03/23/Java只有值传递/">
+				
+				
+				
+				...
+				</a></p>
+				
+			</div>
+
+			
+			
+			<div class="Card-meta">
+				
+				<div class="Card-tags"></div>
+				
+				<ul>
+						<li class="card-calendar">
+							<a href="/archives/">
+								<i class="fa fa-calendar"></i> 2019-03-23
+							</a>
+						</li>
+						
+						
+						
+				</ul>
+			</div>
+		
+	</div>
+</div>
+		
+			
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="Card Card-hover Card-index-5" id="hashit_3f46d6eefb9f229a58825ba2c004b16fc0c37f9bd5d186fcf025c0930cc15112" data-name="failed to load the jni shared library报错" data-version="">
+	
+		
+			
+				
+				
+			
+		
+	
+	<mark class="Card-badge" style="{visibility: " hidden"}"=""></mark>
+	<div class="Card-figure">
+		
+			<a href="/2019/03/23/bug1/">
+		
+
+		 
+			<img class="grow" src="一些bug" alt="" onerror="this.src = " images="" jdenticon="" 1bfe645e1d9aee669379bdf6428a9a30cbfe3508277fa296d0a83669b98ee90e.png""=""> 
+		
+		</a>
+	</div>
+	<div class="Card-body">
+
+			<div class="Card-title">
+				<h2>
+				
+					<a href="/2019/03/23/bug1/">
+				
+				Failed to Load the Jni Shared Library报错</a></h2>
+			</div>
+			<div class="Card-excerpt">
+				<p>
+				
+					<a href="/2019/03/23/bug1/">
+				
+				
+				
+				打开eclipse报错failed to load the jni shared...
+				</a></p>
+				
+			</div>
+
+			
+			
+			<div class="Card-meta">
+				
+				<div class="Card-tags"></div>
+				
+				<ul>
+						<li class="card-calendar">
+							<a href="/archives/">
+								<i class="fa fa-calendar"></i> 2019-03-23
+							</a>
+						</li>
+						
+						
+						
+				</ul>
+			</div>
+		
+	</div>
+</div>
+		
+			
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="Card Card-hover Card-index-6" id="hashit_48f0358797caab37ce02873eaa9ae8d63800c95e2465ef44cafffc09b0c4c291" data-name="java web学习笔记（一）" data-version="">
+	
+		
+			
+				
+				
+			
+		
+	
+	<mark class="Card-badge" style="{visibility: " hidden"}"=""></mark>
+	<div class="Card-figure">
+		
+			<a href="/2019/03/22/Java-web/">
+		
+
+		 
+			<img class="grow" src="JavaEE" alt="" onerror="this.src = " images="" jdenticon="" 91d07f2e53b385b5d4e109ebf584b6b6594bc4303d13b904d08d4383021a9f1b.png""=""> 
+		
+		</a>
+	</div>
+	<div class="Card-body">
+
+			<div class="Card-title">
+				<h2>
+				
+					<a href="/2019/03/22/Java-web/">
+				
+				Java Web学习笔记（一）</a></h2>
+			</div>
+			<div class="Card-excerpt">
+				<p>
+				
+					<a href="/2019/03/22/Java-web/">
+				
+				
+				
+				...
+				</a></p>
+				
+			</div>
+
+			
+			
+			<div class="Card-meta">
+				
+				<div class="Card-tags"></div>
+				
+				<ul>
+						<li class="card-calendar">
+							<a href="/archives/">
+								<i class="fa fa-calendar"></i> 2019-03-22
+							</a>
+						</li>
+						
+						
+						
+				</ul>
+			</div>
+		
+	</div>
+</div>
+		
+			
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="Card Card-hover Card-index-7" id="hashit_4d82f68597c1ae8c988c6af0c410220940ebe6afda8376fc418d4e89675cdd52" data-name="SSM项目的配置和整体结构的总结" data-version="">
+	
+		
+			
+				
+				
+			
+		
+	
+	<mark class="Card-badge" style="{visibility: " hidden"}"=""></mark>
+	<div class="Card-figure">
+		
+			<a href="/2019/03/16/SSM项目的配置和整体结构的总结/">
+		
+
+		 
+			<img class="grow" src="JavaEE" alt="" onerror="this.src = " images="" jdenticon="" da49ab8360ca16d9238f35dadd017000d1c3092d0a7c7f46b3f3127375f1e5d4.png""=""> 
+		
+		</a>
+	</div>
+	<div class="Card-body">
+
+			<div class="Card-title">
+				<h2>
+				
+					<a href="/2019/03/16/SSM项目的配置和整体结构的总结/">
+				
+				SSM项目的配置和整体结构的总结</a></h2>
+			</div>
+			<div class="Card-excerpt">
+				<p>
+				
+					<a href="/2019/03/16/SSM项目的配置和整体结构的总结/">
+				
+				
+				
+				...
+				</a></p>
+				
+			</div>
+
+			
+			
+			<div class="Card-meta">
+				
+				<div class="Card-tags"></div>
+				
+				<ul>
+						<li class="card-calendar">
+							<a href="/archives/">
+								<i class="fa fa-calendar"></i> 2019-03-16
+							</a>
+						</li>
+						
+						
+						
+				</ul>
+			</div>
+		
+	</div>
+</div>
+		
+			
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="Card Card-hover Card-index-8" id="hashit_646a51908ea178ed06b399857b0036c28303bc319014dfc04a77c4e0a27c5e2c" data-name="JDBC总结" data-version="">
+	
+		
+			
+				
+				
+			
+		
+	
+	<mark class="Card-badge" style="{visibility: " hidden"}"=""></mark>
+	<div class="Card-figure">
+		
+			<a href="/2018/11/26/JDBC/">
+		
+
+		 
+			<img class="grow" src="java" alt="" onerror="this.src = " images="" jdenticon="" d21b6025dbf2b887b90acbc2548df82a2990be037a28e4659f72aad589fef842.png""=""> 
+		
+		</a>
+	</div>
+	<div class="Card-body">
+
+			<div class="Card-title">
+				<h2>
+				
+					<a href="/2018/11/26/JDBC/">
+				
+				JDBC总结</a></h2>
+			</div>
+			<div class="Card-excerpt">
+				<p>
+				
+					<a href="/2018/11/26/JDBC/">
+				
+				
+				
+				java对关系数据库的支持是通过JDBC(Java DateBase...
+				</a></p>
+				
+			</div>
+
+			
+			
+			<div class="Card-meta">
+				
+				<div class="Card-tags"></div>
+				
+				<ul>
+						<li class="card-calendar">
+							<a href="/archives/">
+								<i class="fa fa-calendar"></i> 2018-11-26
+							</a>
+						</li>
+						
+						
+						
+				</ul>
+			</div>
+		
+	</div>
+</div>
+		
+			
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="Card Card-hover Card-index-9" id="hashit_e81e1a37bd1cb6c4bea593c28eac470c89a0491de3aa953a6b555abf484bac19" data-name="数据统计每一天/每一周发邮件的数量，并用可视化软件实现可视化。" data-version="">
+	
+		
+			
+				
+				
+			
+		
+	
+	<mark class="Card-badge" style="{visibility: " hidden"}"=""></mark>
+	<div class="Card-figure">
+		
+			<a href="/2018/11/15/sjycl2/">
+		
+
+		 
+			<img class="grow" src="数据处理" alt="" onerror="this.src = " images="" jdenticon="" 7f7629b43e94fe61702a15a43c21ea67254cacd657e09b453ed70b46f4219eb5.png""=""> 
+		
+		</a>
+	</div>
+	<div class="Card-body">
+
+			<div class="Card-title">
+				<h2>
+				
+					<a href="/2018/11/15/sjycl2/">
+				
+				数据统计每一天/每一周发邮件的数量，并用可视化软件实现可视化。</a></h2>
+			</div>
+			<div class="Card-excerpt">
+				<p>
+				
+					<a href="/2018/11/15/sjycl2/">
+				
+				
+				
+				下载对公众开放的安然(Enron)公司的电子邮件数据集。下载地址：      http://www.ahschulz.de/enron-email-data/；...
+				</a></p>
+				
+			</div>
+
+			
+			
+			<div class="Card-meta">
+				
+				<div class="Card-tags"></div>
+				
+				<ul>
+						<li class="card-calendar">
+							<a href="/archives/">
+								<i class="fa fa-calendar"></i> 2018-11-15
+							</a>
+						</li>
+						
+						
+						
+				</ul>
+			</div>
+		
+	</div>
+</div>
+		
+			
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="Card Card-hover Card-index-10" id="hashit_3a0e368349241ea6f4c13c230895203820fc74cdeab5870ae3fd4d701c762318" data-name="利用Python从json数据集提取出the Growlers的所有音乐的歌名" data-version="">
+	
+		
+			
+				
+				
+			
+		
+	
+	<mark class="Card-badge" style="{visibility: " hidden"}"=""></mark>
+	<div class="Card-figure">
+		
+			<a href="/2018/11/15/sjycl/">
+		
+
+		 
+			<img class="grow" src="数据处理" alt="" onerror="this.src = " images="" jdenticon="" f08086aade7c5b5d1df824430f0deb1aab13a6402cc0e7ace7a6d613415ec725.png""=""> 
+		
+		</a>
+	</div>
+	<div class="Card-body">
+
+			<div class="Card-title">
+				<h2>
+				
+					<a href="/2018/11/15/sjycl/">
+				
+				利用Python从json数据集提取出the Growlers的所有音乐的歌名</a></h2>
+			</div>
+			<div class="Card-excerpt">
+				<p>
+				
+					<a href="/2018/11/15/sjycl/">
+				
+				
+				
+				json数据集下载地址：http://itunes.apple.com/search?term=the-growlers 
+提取歌名并放入MySQL数据库中先在MySQL数据库中创建相应数据库和表
+  create database yvchuli                    
+
+...
+				</a></p>
+				
+			</div>
+
+			
+			
+			<div class="Card-meta">
+				
+				<div class="Card-tags"></div>
+				
+				<ul>
+						<li class="card-calendar">
+							<a href="/archives/">
+								<i class="fa fa-calendar"></i> 2018-11-15
+							</a>
+						</li>
+						
+						
+						
+				</ul>
+			</div>
+		
+	</div>
+</div>
+		
+		</div>
+	
+	<br>
+	
+	<div class="pagination">
+	
+	
+	
+	
+		
+		
+		<div class="pagination-item">
+			
+			
+				<span>1</span>
+			
+		</div>
+		
+		
+	
+		
+		
+		<div class="pagination-item">
+			
+			
+				
+					<a class="grow" href="/page/2/">2</a>
+				
+			
+		</div>
+		
+		
+	
+	
+		<div class="pagination-item">
+			<a href="/page/2/" class="grow next"><b><i class="fas fa-arrow-circle-right"></i></b></a>
+		</div>
+	
+</div>
+</div>
+  </div>
+
+  
+
+<footer id="footer">
+    <div class="footer-copyright">
+        <div>
+            <p> Copyright by <a href="">wzs63 </a> @ 2019</p>
+            <p>Designed by: <i class="fas fa-paint-brush"></i> <a href="https://moober.cn">Moober</a> and <i class="fas fa-graduation-cap"></i> <a href="https://qutang.github.io">Qu Tang</a> &bull; Theme: <a href="https://qutang.github.io/cutie/">Cutie 2.1.3-Taurus</a> &bull; Powered by <a href="http://hexo.io">Hexo.</a></p>
+        </div>
+    </div>
+    
+    <div class="footer-social">
+        
+    </div>
+</footer>
+
+  <br>
+
+  <div id="footer-nav" class='footer-nav'>
+		
+
+
+
+<nav id="nav">
+	
+	
+	
+	<div class="nav-item" id="nav-item-archive">
+		
+				<div class="nav-icon">
+				
+			<a href="/archives/" title="Archives">
+			<img src="/images/icons/blue-shadow/archive.svg" alt="">
+			</a>
+		</div>
+	</div>
+	<div class="nav-item" id="nav-item-search">
+		
+		<div class="nav-icon">
+		
+			<a href="/search/" title="Search">
+			<img src="/images/icons/blue-shadow/search.svg" alt="">
+			</a>
+		</div>
+	</div>
+	<div class="nav-item" id="nav-item-more">
+		<div class="nav-icon">
+				<a href="#" onclick="onClickMenuIcon(event);" ontouchstart="onClickMenuIcon(event);">
+				<img src="/images/icons/blue-shadow/menu.svg" alt="">
+				</a>
+		</div>
+		<div class="nav-more-menu">
+				<i class="far fa-times-circle" id="nav-more-menu-close" onclick="onClickNavMenuClose(event);" ontouchstart="onClickNavMenuClose(event);"></i>
+		
+		
+		<div class="nav-more-item">
+				<div class="nav-name">
+					<a class="nav-link" href="/categories/Java/">
+						<span>Java</span>
+					</a>
+				</div>
+		</div>
+		
+		<div class="nav-more-item">
+				<div class="nav-name">
+					<a class="nav-link" href="/categories/java/">
+						<span>Java</span>
+					</a>
+				</div>
+		</div>
+		
+		<div class="nav-more-item">
+				<div class="nav-name">
+					<a class="nav-link" href="/categories/JavaEE/">
+						<span>Javaee</span>
+					</a>
+				</div>
+		</div>
+		
+		<div class="nav-more-item">
+				<div class="nav-name">
+					<a class="nav-link" href="/categories/一些bug/">
+						<span>一些bug</span>
+					</a>
+				</div>
+		</div>
+		
+		<div class="nav-more-item">
+				<div class="nav-name">
+					<a class="nav-link" href="/categories/数据处理/">
+						<span>数据处理</span>
+					</a>
+				</div>
+		</div>
+		
+		<div class="nav-more-item">
+				<div class="nav-name">
+					<a class="nav-link" href="/categories/数据库/">
+						<span>数据库</span>
+					</a>
+				</div>
+		</div>
+		
+	</div>
+	</div>
+</nav>
+
+	</div>
+
+  
+
+
+
+    
+
+
+
+
+
+
+
+    <script src="/js/lightgallery.min.js"></script>
+<script src="/js/lg-zoom.min.js"></script>
+<script type="text/javascript">
+    $(document).ready(function() {
+        $("#lightgallery").lightGallery(); 
+        $(".article-content img").each(function(){
+            console.log($(this).attr('src'))
+            $(this).attr('data-src', $(this).attr('src')).lightGallery({
+                selector: 'this'
+            })
+        });
+    });
+</script>
+
+
+
+
+
+
+<script type="text/javascript">
+
+  
+    loadjs(['/libs/jshashes/hashes.min.js', '/libs/js-cookie/src/js.cookie.js', '/js/post.v2.js'], 'post-version');
+    loadjs.ready('post-version', {
+      success: function(){
+        console.log('ready to run badge script')
+        
+          
+          
+          
+            var postBadge = document.querySelector('#hashit_73d8b33ca1f7d53c5d82dcbf6470054a965a4b6b541998b8710c49cb13ad17c4 mark.Card-badge');
+            $(postBadge).fadeOut();
+            
+          
+        
+          
+          
+          
+            var postBadge = document.querySelector('#hashit_b83fa06bd528be8dbfda9ad54547cd1de62ef4106d6a2c11247dabf83d127c65 mark.Card-badge');
+            $(postBadge).fadeOut();
+            
+          
+        
+          
+          
+          
+            var postBadge = document.querySelector('#hashit_f778f42169c75b49c0418ff3d5e5196a94b255984da8a291e724277331c1c7b9 mark.Card-badge');
+            $(postBadge).fadeOut();
+            
+          
+        
+          
+          
+          
+            var postBadge = document.querySelector('#hashit_7478f8e5bd444fdf054f03fae5e19ef4686251c310b2e0f0b1658a9be714266a mark.Card-badge');
+            $(postBadge).fadeOut();
+            
+          
+        
+          
+          
+          
+            var postBadge = document.querySelector('#hashit_3f46d6eefb9f229a58825ba2c004b16fc0c37f9bd5d186fcf025c0930cc15112 mark.Card-badge');
+            $(postBadge).fadeOut();
+            
+          
+        
+          
+          
+          
+            var postBadge = document.querySelector('#hashit_48f0358797caab37ce02873eaa9ae8d63800c95e2465ef44cafffc09b0c4c291 mark.Card-badge');
+            $(postBadge).fadeOut();
+            
+          
+        
+          
+          
+          
+            var postBadge = document.querySelector('#hashit_4d82f68597c1ae8c988c6af0c410220940ebe6afda8376fc418d4e89675cdd52 mark.Card-badge');
+            $(postBadge).fadeOut();
+            
+          
+        
+          
+          
+          
+            var postBadge = document.querySelector('#hashit_646a51908ea178ed06b399857b0036c28303bc319014dfc04a77c4e0a27c5e2c mark.Card-badge');
+            $(postBadge).fadeOut();
+            
+          
+        
+          
+          
+          
+            var postBadge = document.querySelector('#hashit_e81e1a37bd1cb6c4bea593c28eac470c89a0491de3aa953a6b555abf484bac19 mark.Card-badge');
+            $(postBadge).fadeOut();
+            
+          
+        
+          
+          
+          
+            var postBadge = document.querySelector('#hashit_3a0e368349241ea6f4c13c230895203820fc74cdeab5870ae3fd4d701c762318 mark.Card-badge');
+            $(postBadge).fadeOut();
+            
+          
+        
+      }
+    })
+  
+</script>
+
+
+
+<!-- <script src="/js/post.js"></script> -->
+
+<script src="/js/headroom.min.js"></script>
+
+<script data-no-instant="" type="text/javascript">
+
+initHeadroom();
+
+changeLayoutOnTouchScreen();
+
+// 
+// var post = new Post('', '');
+// console.log(post);
+// $('.Card').each(function(){
+//     var post_url = $(this).attr('id');
+//     var true_url = $(this).find('.Card-title a').first().attr('href');
+//     var card = this;
+//     post.getCommentCount(post_url, function(count){
+//         $(card).find('.card-comment-count').first().text(count);
+//     });
+//     post.getVisitCount(post_url, function(count){
+//         $(card).find('.card-visit-count').first().text(count);
+//     });
+    
+// });
+
+// 
+</script>
+
+
+<!-- End Document
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+</body>
+</html>
