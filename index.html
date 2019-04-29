@@ -1,0 +1,2837 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-Hans">
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="Hexo, NexT">
+
+
+
+
+
+
+
+
+
+
+<meta property="og:type" content="website">
+<meta property="og:title" content="hello">
+<meta property="og:url" content="http://yoursite.com/index.html">
+<meta property="og:site_name" content="hello">
+<meta property="og:locale" content="zh-Hans">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="hello">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '5.1.4',
+    sidebar: {"position":"right","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/">
+
+
+
+
+
+  <title>hello</title>
+  
+
+
+
+
+
+
+
+
+<!-- Global site tag (gtag.js) - Google Analytics -->
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-129305475-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-129305475-1');
+</script>
+
+</head>
+
+<body itemscope="" itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-right 
+  page-home">
+    <div class="headband"></div>
+  
+    <a href="https://github.com/wzs63"><img style="position: absolute; top: 0; left: 0; border: 0;" src="https://s3.amazonaws.com/github/ribbons/forkme_left_darkblue_121621.png" alt="Fork me on GitHub"></a>
+
+    <header id="header" class="header" itemscope="" itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">hello</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br>
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br>
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-search">
+          <a href="/search" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-question-circle"></i> <br>
+            
+            搜索
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-commonweal">
+          <a href="/404/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-heartbeat"></i> <br>
+            
+            公益404
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-something">
+          <a href="/something" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-question-circle"></i> <br>
+            
+            啦啦啦
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+  <section id="posts" class="posts-expand">
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/03/27/Java集合/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="wzs63">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/image/01.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="hello">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/03/27/Java集合/" itemprop="url">Java集合笔记</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-03-27T22:15:07+08:00">
+                2019-03-27
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
+                  <a href="/categories/Java/" itemprop="url" rel="index">
+                    <span itemprop="name">Java</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="接口总览"><a href="#接口总览" class="headerlink" title="接口总览"></a>接口总览</h2><p><img src="https://s2.ax1x.com/2019/03/27/AddODH.md.png" alt="AddODH.md.png"></p>
+<h3 id="Iterable接口"><a href="#Iterable接口" class="headerlink" title="Iterable接口:"></a>Iterable接口:</h3><p>实现此接口允许对象成为“for-each loop”语句的目标。所以集合都可以用<strong>foreach遍历</strong>访问</p>
+<h3 id="Collection接口："><a href="#Collection接口：" class="headerlink" title="Collection接口："></a>Collection接口：</h3><p>主要方法：<br>boolean add(E element)<br>Iterator<e> iterator()//返回一个实现了Iterator接口的对象，作为Java迭代器</e></p>
+<p>一些实用方法<br><img src="https://s2.ax1x.com/2019/03/27/AdwPxS.png" alt="AdwPxS.png"></p>
+<h3 id="Iterator接口"><a href="#Iterator接口" class="headerlink" title="Iterator接口"></a>Iterator接口</h3><p>主要方法<br>E next()<br>boolean hasNext()<br>void remove()</p>
+<p><strong>Java迭代器</strong><br>在两个元素之间，刚开始在在第一个元素之前，<strong>next()方法越过后面的元素并返回这个元素。</strong>越过所有元素后，迭代器后面无元素，hasNext返回false<br><strong>remove()和next()需绑定使用</strong>，next()越过元素后再remove()删除这个元素<br>例：输出两个相邻元素</p>
+<pre><code>it.remove();
+it.next();
+it.remove();//不写next()会报IllegalStateException异常
+</code></pre><h3 id="Queue接口-先进先出，头部减，尾部加"><a href="#Queue接口-先进先出，头部减，尾部加" class="headerlink" title="Queue接口(先进先出，头部减，尾部加)"></a>Queue接口(先进先出，头部减，尾部加)</h3><p>主要方法：<br>void add(E element)<br>E remove()<br>int size()<br>实现方式<br>1.循环队列（不循环容易假溢出）：实现类–<strong>ArrayDeque</strong><br>2.链表:实现类–<strong>LinkedList</strong></p>
+<h3 id="List接口-有序集合，所以可以使用索引来获取元素"><a href="#List接口-有序集合，所以可以使用索引来获取元素" class="headerlink" title="List接口,有序集合，所以可以使用索引来获取元素"></a>List接口,有序集合，所以可以使用索引来获取元素</h3><p>主要方法<br>void add(E element)<br>void add(E element, int index)<br>void  remove(int position)<br>void  remove(E element)//删除第一次出现<br>E get(int index)<br>E set(int index,E element)</p>
+<p>实现方式<br>1.数组，很适合随机访问：<strong>ArrayList</strong>（和Vector类的区别是Vector方法都是同步）<br>2.链表，最好用迭代器访问，随机访问很慢:<strong>ListedList</strong><br>ps:Java中所有链表结构都是双向链表，即不仅有next，还有previous前驱节点</p>
+<p>ListedList的listIterator方法返回了一个实现了ListLterator接口的迭代器对象</p>
+<h3 id="ListLterator接口主要方法"><a href="#ListLterator接口主要方法" class="headerlink" title="ListLterator接口主要方法"></a>ListLterator接口主要方法</h3><p>void add(E element)//在迭代器位置前加元素，因为有集合（Set是无序的，所以Lterator接口没有add方法）<br>E previous()<br>boolean hasPrevious()<br>后两个方法可以用来反向遍历链表</p>
+<h3 id="Set接口"><a href="#Set接口" class="headerlink" title="Set接口"></a>Set接口</h3><p>不允许添加重复的元素，hashCode方法要确保两个元素相同的Set对应相同的散列码<br>实现方式<br><strong>HashSet类</strong>，无序，基于散列表，contains方法重新定义为在对应的桶中寻找<br>ps:散列表：每个对象都有一个散列码，对应某个桶，桶中若有多个对象（即散列冲突，新对象会先和桶中所有对象比较是否一样）则以链表形式排列。一般来讲装填因子（对象数/桶数)=0.75正好。<br><strong>TreeSet类</strong>:有序,排序基于红黑树，每次添加元素都会调整树的结构，新对象和树节点比较，放到正确位置。所有元素要能比较，即实现了Comparable接口。</p>
+<p>Map接口（键值对，减唯一，相当于Python的字典）<br>主要方法<br>V get(Object key）<br>V put(K key,V value)<br>实现类<br><strong>HashMap</strong>无序<br><strong>TreeMap</strong>有序基于红黑树（Red-Black tree）的 NavigableMap 实现,元素得能比较<br>遍历key（Set<k> keySet()）</k></p>
+<pre><code>for (String key : map.keySet()) {//keySet()返回key组成的Set
+   //dosomething
+}
+</code></pre><p>遍历value(Collection&lt;K,V&gt; entrySet())</p>
+<pre><code>for (String value : map.values()) {
+    //dosomething
+}
+</code></pre><p>遍历键值(Set&lt;Map.Entry&lt;K,V&gt;&gt; entrySet())</p>
+<pre><code>for (Map.Entry&lt;String,String&gt; entry : map.entrySet()) {
+    System.out.println(&quot;Key = &quot; + entry.getKey() + &quot;, Value = &quot; + entry.getValue());
+}
+</code></pre><p>根据键排序<br>TreeMap默认根据key升序排列，改变为降序：</p>
+<pre><code>Map&lt;String, String&gt; map = new TreeMap&lt;String, String&gt;(
+                new Comparator&lt;String&gt;() {
+                    public int compare(String obj1, String obj2) {
+                        // 降序排序
+                        return obj2.compareTo(obj1);
+                    }
+                });
+</code></pre><p>根据值排序(HashMap也可以)</p>
+<pre><code>//按照value排序
+    List&lt;Map.Entry&lt;String, Integer&gt;&gt;  entryArrayList = new ArrayList&lt;&gt;(map.entrySet());
+    Collections.sort(entryArrayList, new  Comparator&lt;Entry&lt;String, Integer&gt;&gt;() {
+
+         //降序
+         public int compare(Entry&lt;String,  Integer&gt; o1, Entry&lt;String, Integer&gt; o2) {
+             return  o2.getValue().compareTo(o1.getValue());
+         }
+     });
+    Map&lt;String,Integer&gt; map2 = new HashMap&lt;&gt;();
+    for (Map.Entry&lt;String, Integer&gt; entry :  entryArrayList) {
+        //dosomething with entry.getKey(),  entry.getValue()
+    }
+</code></pre><p>实现类总览<br><img src="https://s2.ax1x.com/2019/03/27/AdwK2T.md.png" alt="AdwK2T.md.png"></p>
+<p><img src="https://s2.ax1x.com/2019/03/27/AdwJaR.md.png" alt="AdwJaR.md.png"></p>
+<h2 id="–《Java技术核心-卷一》集合章节笔记"><a href="#–《Java技术核心-卷一》集合章节笔记" class="headerlink" title="–《Java技术核心 卷一》集合章节笔记"></a>–《Java技术核心 卷一》集合章节笔记</h2>
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/03/25/springMVC/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="wzs63">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/image/01.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="hello">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/03/25/springMVC/" itemprop="url">springMVC笔记</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-03-25T16:38:59+08:00">
+                2019-03-25
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
+                  <a href="/categories/JavaEE/" itemprop="url" rel="index">
+                    <span itemprop="name">JavaEE</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>MVC模式（Model–view–controller）是软件工程中的一种软件架构模式，把软件系统分为三个基本部分：模型（Model）、视图（View）和控制器（Controller）。</p>
+<p>控制器（Controller）- 负责转发请求，对请求进行处理。</p>
+<p>视图（View） - 负责显示数据，这个部分多为前端应用，而 Controller 会有一个机制将处理的结果 (可能是 Model, 集合或是状态等) 交给 View，然后由 View 来决定怎么显示<br>模型（Model） -    负责数据访问,掌管数据源</p>
+<h4 id="DispatcherServlet是springMVC的入口（所有的请求都提交到该Servlet）"><a href="#DispatcherServlet是springMVC的入口（所有的请求都提交到该Servlet）" class="headerlink" title="DispatcherServlet是springMVC的入口（所有的请求都提交到该Servlet）"></a>DispatcherServlet是springMVC的入口（所有的请求都提交到该Servlet）</h4><p>springmvc自带有org.springframework.web.servlet.DispatcherServlet<br>充当调度员的一个servlet，拦截匹配的请求，并且依据相应的规则分发到目标Controller来处理。</p>
+<h2 id="配置及整体过程"><a href="#配置及整体过程" class="headerlink" title="配置及整体过程"></a>配置及整体过程</h2><h3 id="web-xml下的配置"><a href="#web-xml下的配置" class="headerlink" title="web.xml下的配置"></a>web.xml下的配置</h3><pre><code>&lt;!-- spring mvc核心：分发servlet --&gt;
+    &lt;servlet&gt;
+         &lt;servlet-name&gt;mvc-dispatcher&lt;/servlet-name&gt;
+         &lt;servlet-class&gt;org.springframework.web.servlet.DispatcherServlet&lt;/servlet-class&gt;
+         &lt;!-- spring mvc的配置文件 --&gt;
+         &lt;init-param&gt;
+             &lt;param-name&gt;contextConfigLocation&lt;/param-name&gt;
+             &lt;param-value&gt;classpath:springMVC.xml&lt;/param-value&gt;
+         &lt;/init-param&gt;
+         &lt;load-on-startup&gt;1&lt;/load-on-startup&gt;
+    &lt;/servlet&gt;
+
+    &lt;servlet-mapping&gt;
+         &lt;servlet-name&gt;mvc-dispatcher&lt;/servlet-name&gt;
+         &lt;url-pattern&gt;*.do&lt;/url-pattern&gt;
+    &lt;/servlet-mapping&gt;
+</code></pre><p>设置在web应用启动时就将此servlet创建并初始化（默认值为0，就是在用对应请求到来时才创建）</p>
+<pre><code>&lt;load-on-startup&gt;1&lt;/load-on-startup&gt;
+</code></pre><p>此servlet初始化时会找一个WEB-INF目录下的一个配置文件，命名规则为servletName-servlet.xml（比如对于 <servlet-name>mvc-dispatcher</servlet-name>默认是找WEB-INF\mvc-dispatcher-servlet.xml配置文件）。<br>当然这个配置文件路径和名字可以自己设置</p>
+<pre><code>&lt;!-- spring mvc的配置文件 --&gt;
+         &lt;init-param&gt;
+             &lt;param-name&gt;contextConfigLocation&lt;/param-name&gt;
+             &lt;param-value&gt;classpath:springMVC.xml&lt;/param-value&gt;
+         &lt;/init-param&gt;
+</code></pre><p>这样直接把springMVC.xml放src目录下就可以了</p>
+<p>拦截使用为*.do的请求：</p>
+<pre><code>&lt;servlet-mapping&gt;
+     &lt;servlet-name&gt;mvc-dispatcher&lt;/servlet-name&gt;
+     &lt;url-pattern&gt;*.do&lt;/url-pattern&gt;
+&lt;/servlet-mapping&gt;
+</code></pre><h3 id="springMVC-xml（Spring-MVC的-映射配置文件）"><a href="#springMVC-xml（Spring-MVC的-映射配置文件）" class="headerlink" title="springMVC.xml（Spring MVC的 映射配置文件）"></a>springMVC.xml（Spring MVC的 映射配置文件）</h3><pre><code>&lt;beans&gt;
+    &lt;bean id=&quot;simpleUrlHandlerMapping&quot;
+
+
+        class=&quot;org.springframework.web.servlet.handler.SimpleUrlHandlerMapping&quot;&gt;
+        &lt;property name=&quot;mappings&quot;&gt;
+            &lt;props&gt;
+                &lt;prop key=&quot;/hello.do&quot;&gt;HelloController&lt;/prop&gt;
+            &lt;/props&gt;
+        &lt;/property&gt;
+    &lt;/bean&gt;
+    &lt;bean id=&quot;helloController&quot; class=&quot;controller.HelloController&quot;&gt;&lt;/bean&gt;
+&lt;/beans&gt;
+</code></pre><p>访问路径/hello.do会交给id=helloController的bean处理</p>
+<p>创建控制类控制类 <strong>helloController</strong>实现接口Controller ，提供方法处理请求</p>
+<pre><code>public class HelloController implements Controller {
+    public ModelAndView handleRequest(HttpServletRequest request, HttpServletResponse response)throws Exception {
+        ModelAndView mav = new ModelAndView(&quot;hello.jsp&quot;);//跳转到这个页面
+        mav.addObject(&quot;message&quot;, &quot;Hello Spring MVC&quot;);//JSP中可用&lt;h1&gt;${message}&lt;/h1&gt;  
+        return mav;
+    }
+}
+</code></pre><p>WebContent目录下创建<strong>hello.jsp</strong>，可以用喜欢的方式展示数据（ ${message}）<br>例如： </p>
+<pre><code>&lt;%@ page language=&quot;java&quot; contentType=&quot;text/html; charset=UTF-8&quot;
+    pageEncoding=&quot;UTF-8&quot; isELIgnored=&quot;false&quot;%&gt;
+&lt;h1&gt;${message}&lt;/h1&gt;
+</code></pre><p> 这样一来在用户请求/hello.do时，因为web.xml中的配置 *.do的所有请求都经过DispatcherServlet，再根据配置文件springMVC.xml ，访问路径/hello.do<br>对应HelloController类，在HelloController中指定跳转到页面hello.jsp，并传递message数据，最后在hello.jsp中显示message信息。</p>
+<h2 id="视图定位"><a href="#视图定位" class="headerlink" title="视图定位"></a>视图定位</h2><pre><code>&lt;bean
+         class=&quot;org.springframework.web.servlet.view.InternalResourceViewResolver&quot;&gt;
+        &lt;property name=&quot;viewClass&quot;
+             value=&quot;org.springframework.web.servlet.view.JstlView&quot; /&gt;
+        &lt;property name=&quot;prefix&quot;  value=&quot;/WEB-INF/jsp/&quot; /&gt;
+        &lt;property name=&quot;suffix&quot; value=&quot;.jsp&quot; /&gt;
+    &lt;/bean&gt;
+</code></pre><p>这样一来把视图约定在 /WEB-INF/page/*.jsp 这个位置s<br>Controller中写 ModelAndView mav = new ModelAndView(“hello”)，就是跳转到/WEB-INF/jsp/hello.jsp了</p>
+<h2 id="用注释的方式"><a href="#用注释的方式" class="headerlink" title="用注释的方式"></a>用注释的方式</h2><p>@Controller 表示该类是一个控制器<br>@RequestMapping(“register.do”) 表示此请求会映射到此方法</p>
+<pre><code>@Controller
+public class UserController {
+    @Autowired
+    UserService userService;
+
+    @RequestMapping(&quot;register.do&quot;)
+    public ModelAndView register(){
+         ModelAndView mav = new ModelAndView();
+         mav.setViewName(&quot;register&quot;);
+         return mav;
+    }
+}
+</code></pre><p>springMVC.xml需要添加以下内容<br>1.声明spring-context部分</p>
+<pre><code>&lt;beans 
+        ......
+     xmlns:context=&quot;http://www.springframework.org/schema/context&quot;
+......
+&gt;
+</code></pre><p>2.指定扫描注释的包，把类放到这个包下面并加以@Controller注释就会知道这是个控制器类</p>
+<pre><code>&lt;context:component-scan base-package=&quot;controller&quot; /&gt;
+</code></pre><h3 id="表单提交并自动将数据注入对象"><a href="#表单提交并自动将数据注入对象" class="headerlink" title="表单提交并自动将数据注入对象"></a>表单提交并自动将数据注入对象</h3><p>pojo包下建User类</p>
+<pre><code>package pojo;
+public class User {
+    String uid;
+    String uname;
+    String up;
+    public String getUid() {
+         return uid;
+    }
+    public void setUid(String uid) {
+         this.uid = uid;
+    }
+    public String getUname() {
+         return uname;
+    }
+    public void setUname(String uname) {
+         this.uname = uname;
+    }
+    public String getUp() {
+         return up;
+    }
+    public void setUid(String uid){
+         this.up = up;
+    }
+    public float getUb() {
+         return ub;
+    }
+    public User(){
+
+    }
+}
+</code></pre><p>表单中，要填的两项分别为name=”uid”，name=”up” 与User类setUid(String uid)，setUid(String uid)对应</p>
+<pre><code>&lt;form action=&quot;loginwc.do&quot; method=&quot;post&quot;&gt;
+         &lt;div class=&quot;form-group&quot;&gt;
+           &lt;label&gt;账户&lt;/label&gt;
+           &lt;input type=&quot;text&quot; name=&quot;uid&quot;  placeholder=&quot;用户名/手机&quot; class=&quot;form-control&quot;   style=&quot;width:300px&quot;/&gt;
+        &lt;/div&gt;
+
+         &lt;div class=&quot;form-group&quot;&gt;
+           &lt;label&gt;密码&lt;/label&gt;
+           &lt;input type=&quot;password&quot; name=&quot;up&quot;  placeholder=&quot;密码&quot; class=&quot;form-control&quot;   style=&quot;width:300px&quot;/&gt;
+         &lt;/div&gt; 
+
+&lt;div class=&quot;form-group&quot;&gt;
+              &lt;button type=&quot;submit&quot; class=&quot;btn  btn-primary&quot;&gt;登录&lt;/button&gt;
+        &lt;/div&gt;
+&lt;/form&gt;
+</code></pre><p>对应Controller<br>springmvc发现页面传递过来有参数uid的时候，同时检测到参数的User这个类有setUid方法，那么就会把参数uid的值，注入到这个user对象里去了(up同理）</p>
+<pre><code>@RequestMapping(&quot;loginwc.do&quot;)
+    public ModelAndView loginwc(User  user,HttpServletRequest req,HttpServletResponse  resp) {
+         ModelAndView mav = new ModelAndView();
+         System.out.println(user.getUid());//就是表单输入的值
+         System.out.println(user.getUp());//就是表单输入的值
+        //dosomething
+         return mav;
+    }
+</code></pre><p>另外也可以用@RequestParam注释直接提取表单的数据到方法参数中(当然不一定是非要是String了，springMVC 会尽力转化的)</p>
+<pre><code>public ModelAndView loginwc(@RequestParam String uid,@RequestParam String up,) {
+     ModelAndView mav = new ModelAndView();
+     System.out.println(user.getUid());//就是表单输入的值
+     System.out.println(user.getUp());//就是表单输入的值
+    //dosomething
+     return mav;
+}
+</code></pre><p>字段不同名也可以设置value值 @RequestParam(value=””)</p>
+<pre><code>public ModelAndView loginwc(@RequestParam(value=&quot;uid&quot;) String userId,@RequestParam(value=&quot;uid&quot;) String userPassword,)
+</code></pre><h2 id="请求重定向redirect"><a href="#请求重定向redirect" class="headerlink" title="请求重定向redirect:"></a>请求重定向redirect:</h2><pre><code>@RequestMapping(&quot;/jump.do&quot;)
+    public ModelAndView jump() {
+        ModelAndView mav = new ModelAndView(&quot;redirect:/hello.do&quot;);
+        return mav;
+    }  
+</code></pre><h2 id="页面上传"><a href="#页面上传" class="headerlink" title="页面上传"></a>页面上传</h2><p>springMVC.xml新增加一段配置，开放对上传功能的支持</p>
+<pre><code>&lt;bean id=&quot;multipartResolver&quot; class=&quot;org.springframework.web.multipart.commons.CommonsMultipartResolver&quot;/&gt;
+</code></pre><p>upload.jsp 上传页面<br>上传页面，需要注意的是form 的两个属性必须提供<br>method=”post” 和 enctype=”multipart/form-data” 缺一不可<br>上传组件 增加一个属性 accept=”image/*” 表示只能选择图片进行上传</p>
+<pre><code>&lt;%@ page language=&quot;java&quot; contentType=&quot;text/html; charset=UTF-8&quot;
+    pageEncoding=&quot;UTF-8&quot; import=&quot;java.util.*&quot; isELIgnored=&quot;false&quot;%&gt;
+
+&lt;form action=&quot;uploadImage.do&quot; method=&quot;post&quot; enctype=&quot;multipart/form-data&quot;&gt;
+  选择图片:&lt;input type=&quot;file&quot; name=&quot;image&quot; accept=&quot;image/*&quot; /&gt;
+
+  &lt;input type=&quot;submit&quot; value=&quot;上传&quot;&gt;
+&lt;/form&gt;
+</code></pre><p>pojo.UploadedImageFile</p>
+<pre><code>public class UploadedImageFile {
+    MultipartFile image;
+    public MultipartFile getImage() {
+        return image;
+    }
+    public void setImage(MultipartFile image) {
+        this.image = image;
+    }
+}
+</code></pre><p>之后编写uploadImage.do请求对应的controller的方法对图片进行操作（保存展示等）。</p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/03/24/Session和cookie/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="wzs63">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/image/01.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="hello">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/03/24/Session和cookie/" itemprop="url">Session和Cookie</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-03-24T15:40:31+08:00">
+                2019-03-24
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
+                  <a href="/categories/JavaEE/" itemprop="url" rel="index">
+                    <span itemprop="name">JavaEE</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h3 id="HTTP协议是无状态连接，一次请求响应后即断开，多次请求之间互相不知道对方。（即连接只为一个请求响应存在）"><a href="#HTTP协议是无状态连接，一次请求响应后即断开，多次请求之间互相不知道对方。（即连接只为一个请求响应存在）" class="headerlink" title="HTTP协议是无状态连接，一次请求响应后即断开，多次请求之间互相不知道对方。（即连接只为一个请求响应存在）"></a>HTTP协议是无状态连接，一次请求响应后即断开，多次请求之间互相不知道对方。（即连接只为一个请求响应存在）</h3><h4 id="那怎么才能知道哪几个请求是来自于同一个客户呢（记录客户）？"><a href="#那怎么才能知道哪几个请求是来自于同一个客户呢（记录客户）？" class="headerlink" title="那怎么才能知道哪几个请求是来自于同一个客户呢（记录客户）？"></a>那怎么才能知道哪几个请求是来自于同一个客户呢（记录客户）？</h4><p><strong>会话（session）</strong><br>原理机制：在客户第一次请求时，容器为此客户生成一个唯一会话ID，并且随响应返回给客户，客户在请求时会带上这个会话ID，容器看到这个会话ID后会找与之匹配的会话和此次请求相关联。（会话ID须存于服务器）</p>
+<h4 id="那客户服务器两端通过什么交流会话ID呢？"><a href="#那客户服务器两端通过什么交流会话ID呢？" class="headerlink" title="那客户服务器两端通过什么交流会话ID呢？"></a>那客户服务器两端通过什么交流会话ID呢？</h4><p><strong>用cookie（就是用于客户和服务器交换的一小段数据（一个名/值String对））</strong><br>容器负责生生成会话ID–&gt;创建cookie对象–&gt;将会话ID放于cookie中–&gt;把cookie设为响应的一部分。<br>ps:为什么不用客户IP地址识别客户呢？因为对于服务器来说，客户的IP地址是路由的地址，所以这个客户和在这个网络的所有客户的IP地址一样，无法唯一识别。</p>
+<p>在浏览器选项中清除所有Cookie<br><img src="https://s2.ax1x.com/2019/03/24/AYJdx0.md.png" alt=""><br>之后再访问，即第一次请求,响应有Set-Cookie。（ps:因为此请求对应的servlet用到了session对象（即getSession（）调用），所以才会有Set-Cookie。如果没有用到session对象就没有Set-Cookie，当然之后再请求也没有Cookie了。）<br><img src="https://s2.ax1x.com/2019/03/24/AYJBrT.png" alt=""><br>之后再请求一次<br>请求多了cookie项，内容就是之前响应的set-cookie<br><img src="https://s2.ax1x.com/2019/03/24/AYJRR1.png" alt=""></p>
+<p>因为服务器找到了客户对应的会话，所以不用新建会话，此时响应没有了set-cookie。</p>
+<h4 id="如何得到session对象？"><a href="#如何得到session对象？" class="headerlink" title="如何得到session对象？"></a>如何得到session对象？</h4><pre><code>request.getSession()
+</code></pre><p> 如果之前没有这个客户对应的会话，会新建一个，有的话返回之前的session。</p>
+<h4 id="如何判断session是否是新建的呢？"><a href="#如何判断session是否是新建的呢？" class="headerlink" title="如何判断session是否是新建的呢？"></a>如何判断session是否是新建的呢？</h4><pre><code>request.getSession().isNew()
+</code></pre><h4 id="如果完全不想创建新的会话呢？"><a href="#如果完全不想创建新的会话呢？" class="headerlink" title="如果完全不想创建新的会话呢？"></a>如果完全不想创建新的会话呢？</h4><pre><code>request.getSession(false)
+</code></pre><p>当然这样有可能会为null</p>
+<h4 id="如果客户不支持cookie呢？"><a href="#如果客户不支持cookie呢？" class="headerlink" title="如果客户不支持cookie呢？"></a>如果客户不支持cookie呢？</h4><p>最后一条后路–<strong>URL重写</strong>（encodeURL()）<br>容器在发现用getSesion调用，请求却没有cookie时（可能是第一次请求也可能是不支持cookie），会同时尝试cookie和URL重写两种方法。因为容器不会知道客户是否不支持cookie。没有会话，每一次请求响应直接没有关系（HTTP无状态），容器不会知道自己是不是对这个客户使用过cookie。</p>
+<h4 id="如何结束一个会话？"><a href="#如何结束一个会话？" class="headerlink" title="如何结束一个会话？"></a>如何结束一个会话？</h4><p>三种方法<br>1.超时<br>web.xml设置，单位为分钟</p>
+<pre><code>&lt;session-config&gt;
+    &lt;session-timeout&gt;15&lt;/session-timeout&gt;
+&lt;/session-config&gt;    
+</code></pre><p>如果要设置某个session</p>
+<pre><code>request.getSession().setMaxInactiveInterval(15*60);//15分钟
+</code></pre><p>2.invalidate()方法</p>
+<pre><code>request.getSession().invalidate();
+</code></pre><p>3.应用结束</p>
+<h4 id="但是cookie可以活的更长！"><a href="#但是cookie可以活的更长！" class="headerlink" title="但是cookie可以活的更长！"></a>但是cookie可以活的更长！</h4><p>默认会话结束后，cookie会消失。但是也可以设置让cookie继续活下去。<br><strong>在一个星期后再发出请求，此时虽然会话已到期，客户还存着cookie。服务器还是可以识别到是之前那个客户。</strong></p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/03/23/Java只有值传递/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="wzs63">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/image/01.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="hello">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/03/23/Java只有值传递/" itemprop="url">JAVA只有值传递</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-03-23T21:27:18+08:00">
+                2019-03-23
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
+                  <a href="/categories/Java/" itemprop="url" rel="index">
+                    <span itemprop="name">Java</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="JAVA只有值传递"><a href="#JAVA只有值传递" class="headerlink" title="JAVA只有值传递"></a>JAVA只有值传递</h2><p><strong>值传递即方法传入的是拷贝（比如传入string，就是传入string对象的引用的拷贝</strong>），所以交换什么的，没有用。</p>
+<h4 id="ps：引用传递传入的就是对象的地址，不必再开内存空间，即传入方法的对象就是自己，当然会随之改变了。"><a href="#ps：引用传递传入的就是对象的地址，不必再开内存空间，即传入方法的对象就是自己，当然会随之改变了。" class="headerlink" title="ps：引用传递传入的就是对象的地址，不必再开内存空间，即传入方法的对象就是自己，当然会随之改变了。"></a>ps：引用传递传入的就是对象的地址，不必再开内存空间，即传入方法的对象就是自己，当然会随之改变了。</h4><p>企图用方法直接交换int、交换String(未交换成功)</p>
+<pre><code>public static void main(String[] args) {
+         int a=1;11
+         int b=2;
+         String str1=&quot;str1&quot;;
+         String str2=&quot;str2&quot;;
+         System.out.println(&quot;交换前&quot;);
+         System.out.println(&quot;a:&quot;+a);
+         System.out.println(&quot;b:&quot;+b);
+         System.out.println(&quot;str1:&quot;+str1);
+         System.out.println(&quot;str2:&quot;+str2);
+         change(a, b);
+         change(str1, str2);
+         System.out.println(&quot;交换后&quot;);
+         System.out.println(&quot;a:&quot;+a);
+         System.out.println(&quot;b:&quot;+b);
+         System.out.println(&quot;str1:&quot;+str1);
+         System.out.println(&quot;str2:&quot;+str2);
+    }
+     public static void change(int a,int b) {
+          int c=0;
+          c=a;
+          a=b;
+          b=c;
+     }
+     public static void change(String str1,String  str2) {
+          String str3;
+          str3=str1;
+          str1=str2;
+          str2=str3;
+     }
+</code></pre><p>控制台输出<br><img src="https://s2.ax1x.com/2019/03/23/AJJBX8.th.png" alt="AJJBX8.th.png"></p>
+<h3 id="那到底怎么能用方法进行String交换呢？"><a href="#那到底怎么能用方法进行String交换呢？" class="headerlink" title="那到底怎么能用方法进行String交换呢？"></a>那到底怎么能用方法进行String交换呢？</h3><p>可以将String转为stringbuffer（这个才是参数），利用此类的方法将引用的对象的属性（值）改变，最后交换结束再赋值给原来的String。不过总感觉意义不大。<br>ps:int通过Integer.parseInt()方法也可以同理转换。</p>
+<pre><code>public static void main(String[] args) {
+         String str1=&quot;str1&quot;;
+         String str2=&quot;str2&quot;;
+
+         System.out.println(&quot;交换前&quot;);
+         System.out.println(&quot;str1:&quot;+str1);
+         System.out.println(&quot;str2:&quot;+str2);
+         StringBuffer strbf1=new  StringBuffer(str1);
+         StringBuffer strbf2=new  StringBuffer(str2);
+         change(strbf1, strbf2);
+         str1=strbf1.toString();
+         str2=strbf2.toString();
+         System.out.println(&quot;交换后&quot;);
+         System.out.println(&quot;str1:&quot;+str1);
+         System.out.println(&quot;str2:&quot;+str2);
+    }
+     public static void change(StringBuffer  strbf1,StringBuffer strbf2) {
+          StringBuffer strbf3= new StringBuffer();
+          strbf3.append(strbf1);
+          strbf1.delete(0, strbf1.length()-1);//清空str1
+          strbf1.append(strbf2);
+          strbf2.delete(0, strbf2.length()-1);//清空str2
+          strbf2.append(strbf3);
+     }
+}
+</code></pre><p>控制台输出<br><img src="https://s2.ax1x.com/2019/03/23/AJt1de.th.png" alt="AJt1de.th.png"></p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/03/23/bug1/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="wzs63">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/image/01.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="hello">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/03/23/bug1/" itemprop="url">failed to load the jni shared library报错</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-03-23T19:58:35+08:00">
+                2019-03-23
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
+                  <a href="/categories/一些bug/" itemprop="url" rel="index">
+                    <span itemprop="name">一些bug</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>打开eclipse报错failed to load the jni shared library，经上网搜索知道了是jdk和eclipse位数不匹配。想起上午为了运用一个软件被迫安装了新的jdk是32位，所以在环境变量中将path新添加的jdk路径全部删除，并将控制面板中的Java设置为只开启那个64位的jdk<br><img src="https://s2.ax1x.com/2019/03/23/AJ8bb4.png" alt="AJ8bb4.png"><br>之后再看jdk版本<br><img src="https://s2.ax1x.com/2019/03/23/AJ8tDe.png" alt=""><br>为64位<br>之后查看eclipse文件夹下eclipse.ini文件</p>
+<p><img src="https://s2.ax1x.com/2019/03/23/AJ8aEd.png" alt=""></p>
+<p><img src="https://s2.ax1x.com/2019/03/23/AJ8dUA.png" alt=""></p>
+<p>可以看出eclipse是64位（32位的话x86后无_64）<br>jdk和eclipse位数一致了，但是打开eclipse依旧报同样的错。<br>之后重启了电脑，eclipse运行正常了。</p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/03/22/Java-web/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="wzs63">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/image/01.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="hello">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/03/22/Java-web/" itemprop="url">java web学习笔记（一）</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-03-22T15:02:24+08:00">
+                2019-03-22
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
+                  <a href="/categories/JavaEE/" itemprop="url" rel="index">
+                    <span itemprop="name">JavaEE</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="Tomcat"><a href="#Tomcat" class="headerlink" title="Tomcat"></a>Tomcat</h2><p>Apache开发的Servlet容器，实现了对Servlet和JSP的支持,并且内含了一个HTTP服务器。<br><img src="https://s2.ax1x.com/2019/03/23/AJ8X5R.md.png" alt="AJ8X5R.md.png"><br>tomcat容器模型<br>其中Context容器直接管理Servlet在容器中的包装类Wrapper,并且一个Context容器对应一个web项目</p>
+<h3 id="启动Tomcat"><a href="#启动Tomcat" class="headerlink" title="启动Tomcat"></a>启动Tomcat</h3><p>方式一：运行apache-tomcat-version\bin\startup.bat启动<br>shutdown.bat关闭。<br>ps:如果闪退应该是JDK环境变量没配置好</p>
+<p>方法二：可以在eclipse中添加服务器，之后run就可以了</p>
+<p>Tomcat默认端口号为8080，开启后访问<a href="http://localhost:8080/出现" target="_blank" rel="noopener">http://localhost:8080/出现</a>    Apache Tomcat页面则为开启成功。</p>
+<p>ps:开启时如果提醒端口被占用，可通过命令netstat -ano|findstr 8080查询占用进程的pid，任务管理器中关闭即可，或者也可以改Tomcat的端口。</p>
+<h3 id="web应用初始化"><a href="#web应用初始化" class="headerlink" title="web应用初始化"></a>web应用初始化</h3><p>web应用初始化在ContextConfig的configureStart方法中实现。<br>初始化的任务主要是解析web.xml文件（描述了整个web应用的关键信息，是整个web应用的入口）。<br>过程：Tomcat找globalWebXml-&gt;找hostWebXml-&gt;找WEB-INF/web.xml-&gt;将web.xml中的配置项解析为相应属性放入WebXml对象中-&gt;将WebXml对象的属性设置到Context容器中（这一步将Servlet包装成StandardWrapper,作为子容器存于Context容器中。除了创建servlet对象外还创建了filter和listener）</p>
+<h2 id="Servlet"><a href="#Servlet" class="headerlink" title="Servlet"></a>Servlet</h2><h3 id="生命周期"><a href="#生命周期" class="headerlink" title="生命周期"></a>生命周期</h3><p><strong>加载和实例化</strong><br>创建servelet实例：web.xml中配置load-on-startup&gt;0时服务器启动时就创建，load-on-startup=0（即默认）第一次请求该servlet时才创建<br>无论访问了多少次Servlet，构造方法 只会执行一次，所以Servlet是单实例的</p>
+<p><strong>初始化</strong><br>执行初始化方法init(ServletConfig conf)，将包装了StandardWrapper对象的StandardWrapperFacade作为ServletConfig对象传入方法。</p>
+<p><strong>请求处理</strong><br>servlet对象去处理客户端请求，在service(ServletRequest req，ServletResponse res)方法中执行，URL映射到servlet容器的工作由org.apache.tomcat.util.http.mapper类完成。mapper在request进入container容器之前就更加URL将host和context容器存入request的mappingData属性中，以至于使request知道要访问哪一个子容器</p>
+<p><strong>销毁</strong><br>该Servlet所在的web应用重新启动或者Tomcat关闭时<br>执行destroy()方法。</p>
+<h3 id="创建servlet"><a href="#创建servlet" class="headerlink" title="创建servlet"></a>创建servlet</h3><p>创建类，继承HttpServlet类即可<br>主要用的方法doGet（处理get请求，即直接输入URL的访问方式）和doPost（处理post请求，多为表单提交的方式）需根据需求覆写</p>
+<pre><code>public class ServletName extends HttpServlet{
+    @Override
+    protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        doPost(req, resp);
+    }
+    @Override
+    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        //doSometing
+    }
+}
+</code></pre><h3 id="在xml中配置"><a href="#在xml中配置" class="headerlink" title="在xml中配置"></a>在xml中配置</h3><p>servlet-name：servlet名字，可随意定义<br>servlet-class：servlet的实际路径<br>url-pattern：对应的请求URL映射配置</p>
+<pre><code>&lt;servlet&gt;
+   &lt;servlet-name&gt;showImg&lt;/servlet-name&gt;
+   &lt;servlet-class&gt;com.zr.controller.ImgController&lt;/servlet-class&gt;
+ &lt;/servlet&gt;
+ &lt;servlet-mapping&gt;
+   &lt;servlet-name&gt;showImg&lt;/servlet-name&gt;
+   &lt;url-pattern&gt;/getImg&lt;/url-pattern&gt;
+ &lt;/servlet-mapping&gt;
+</code></pre><p>URL映射两大原则<br>1.精确匹配<br>如servlet1为/index.html,servlet2为/*,请求URL为http:/localhost:8080/项目名/index.html,则匹配到第一个。</p>
+<p>2.最长路径匹配<br>无法精确匹配情况下使用，如servlet1为/ind/<em>,servlet2为/</em>,请求URL为http:/localhost:8080/项目名/index.html,则匹配到第一个。</p>
+<h3 id="注释配URL置映射也可以"><a href="#注释配URL置映射也可以" class="headerlink" title="注释配URL置映射也可以"></a>注释配URL置映射也可以</h3><p>在类上加注释<br>@WebServlet(name=”…”,urlPatterns=”/…”)</p>
+<p>之后访问<a href="http://localhost:8080/项目名/配置的urlPatterns" target="_blank" rel="noopener">http://localhost:8080/项目名/配置的urlPatterns</a><br>就可以将请求发送到刚刚配置的servlet了。</p>
+<h3 id="ServletConfig、ServletRequest、ServletResponse-这三个都是通过容器传给servlet的-、ServletContext"><a href="#ServletConfig、ServletRequest、ServletResponse-这三个都是通过容器传给servlet的-、ServletContext" class="headerlink" title="ServletConfig、ServletRequest、ServletResponse(这三个都是通过容器传给servlet的)、ServletContext"></a>ServletConfig、ServletRequest、ServletResponse(这三个都是通过容器传给servlet的)、ServletContext</h3><h4 id="ServletConfig"><a href="#ServletConfig" class="headerlink" title="ServletConfig"></a>ServletConfig</h4><p>在servlet初始化时就传给了servlet<br>获取途径：getServletConfig();<br>主要方法：<br>getServletName();  //获取servlet的名称，也就是我们在web.xml中配置的servlet-name<br>getServletContext(); //获取ServletContext对象<br>getInitParameter(String); //获取在servlet中初始化参数的值。<br>getInitParameterNames(); //获取在Servlet中所有初始化参数的名字</p>
+<h4 id="ServletContext对象"><a href="#ServletContext对象" class="headerlink" title="ServletContext对象"></a>ServletContext对象</h4><p>获取途径：getServletContext()<br>一个web项目，就存在一个ServletContext实例，在tomcat在启动时创建，服务器关闭时销毁，每个Servlet读可以访问到它。<br>getAttribute(String name)<br>setAttribute(String name, Object obj)<br>removeAttribute(String name)<br>getServletContext().getRealPath(“”)//获取项目绝对路径</p>
+<h4 id="ServletRequest、ServletResponse：请求到达时容器传给servlet"><a href="#ServletRequest、ServletResponse：请求到达时容器传给servlet" class="headerlink" title="ServletRequest、ServletResponse：请求到达时容器传给servlet"></a>ServletRequest、ServletResponse：请求到达时容器传给servlet</h4><p>常用方法<br>request.getRequestURL(): 浏览器发出请求时的完整URL，包括协议 主机名 端口(如果有)”<br>request.getRequestURI(): 浏览器发出请求的资源名部分，去掉了协议和主机名”<br>request.getQueryString(): 请求行中的参数部分，只能显示以get方式发出的参数，post方式的看不到<br>request.getRemoteAddr(): 浏览器所处于的客户机的IP地址<br>request.getRemoteHost(): 浏览器所处于的客户机的主机名<br>request.getRemotePort(): 浏览器所处于的客户机使用的网络端口<br>request.getLocalAddr(): 服务器的IP地址<br>request.getLocalName(): 服务器的主机名<br>request.getMethod(): 得到客户机请求方式一般是GET或者POST<br>request.getHeader() 获取浏览器传递过来的头信息。<br>request.getHeaderNames() 获取浏览器所有的头信息名称，根据头信息名称就能遍历出所有的头信息</p>
+<p>response.setContentType(“text/html; charset=UTF-8”);//不仅发送到浏览器的内容会使用UTF-8编码，而且还通知浏览器使用UTF-8编码方式进行显示。所以总能正常显示中文</p>
+<p>response.setCharacterEncoding(“UTF-8”); //仅仅是发送的浏览器的内容是UTF-8编码的，至于浏览器是用哪种编码方式显示不管。 所以当浏览器的显示编码方式不是UTF-8的时候，就会看到乱码，需要手动再进行一次设置。</p>
+<p>设置不用缓存<br>response.setDateHeader(“Expires”,0 );<br>response.setHeader(“Cache-Control”,”no-cache”);<br>response.setHeader(“pragma”,”no-cache”);</p>
+<p>请求转发<br>request.getRequestDispatcher(String path).forward(request,response);　　<br>path:转发后跳转的页面，这里不管用不用”/“开头，都是以web项目根开始，请求转发只局限与在同一个web项目下使用。</p>
+<p>重定向<br>方式一：手动方案<br>response.setStatus(302);　　//状态码302就代表重定向<br>response.setHeader(“location”,”<a href="http://www.baidu.com&quot;)" target="_blank" rel="noopener">http://www.baidu.com&quot;)</a>;<br>方式二：使用封装好的，通过response.sendRedirect(“<a href="http://www.baidu.com&quot;)" target="_blank" rel="noopener">http://www.baidu.com&quot;)</a>;</p>
+<h4 id="请求转发和重定向的区别"><a href="#请求转发和重定向的区别" class="headerlink" title="请求转发和重定向的区别"></a>请求转发和重定向的区别</h4><p><strong>forward（转发）</strong>：客户浏览器发送http请求–&gt;web服务器接受此请求–&gt;调用内部的一个方法在容器内部完成请求处理和转发动作–&gt;将目标资源发送给客户。<br>转发的路径必须是同一个web容器下的url,在客户浏览器<strong>地址栏还是原来的地址</strong>，也就是说客户是感觉不到服务器做了转发的。<strong>转发跳转过程是在服务器实现</strong>,浏览器只做了一次访问请求。</p>
+<p><strong>redirect（重定向）</strong>：客户浏览器发送http请求–&gt;web服务器接受后发送302状态码响应及对应新的location给客户浏览器–&gt;客户浏览器发现是302响应，则自动再发送一个新的http请求，请求url是新的location地址–&gt;服务器根据此请求寻找资源并发送给客户。<br>可以重定向到任意URL，既然是浏览器重新发出了请求，则就没有什么request传递的概念了。<strong>在客户浏览器路径栏显示新地址</strong>。重定向行为是浏览器做了至少两次的访问请求的。<br>(<strong>转发是服务器行为，重定向是客户端行为</strong>。)</p>
+<h2 id="Listener监听器"><a href="#Listener监听器" class="headerlink" title="Listener监听器"></a>Listener监听器</h2><p> 按监听的对象划分，可以分为</p>
+<p>ServletContext对象监听器<br>HttpSession对象监听器<br>ServletRequest对象监听器 </p>
+<p>接口<strong>ServletContextListener</strong><br>监听当前web应用的初始化<br>public void contextInitialized(ServletContextEvent arg0)<br>监听当前web应用的销毁<br>public void contextDestroyed(ServletContextEvent arg0)   </p>
+<p>接口<strong>ServletContextAttributeListener</strong><br>监听属性的增加<br>public void attributeAdded(ServletContextAttributeEvent e)<br>监听属性的移除<br>public void attributeRemoved(ServletContextAttributeEvent e)<br>监听属性的替换<br>public void attributeReplaced(ServletContextAttributeEvent e)</p>
+<p>接口<strong>HttpSessionListener </strong><br>监听session创建<br>sessionCreated()<br>监听session销毁<br>sessionDestroyed()</p>
+<p>接口<strong>HttpSessionAttributeListener</strong><br>session中增加属性时<br>attributeAdded()<br>session中移除属性时<br>attributeRemoved()<br>替换session中的属性时<br>attributeReplaced()</p>
+<p>接口 <strong>ServletRequestListener</strong>和<strong>ServletRequestAttributeListener </strong><br>创建了一个Request的时候触发<br>requestInitialized()<br>当本次请求结束的时候触发<br>requestDestroyed()<br>当有新增属性时触发<br>attributeAdded()<br>当有替换属性时触发<br>attributeReplaced()<br>当有移除属性时触发<br>attributeRemoved()</p>
+<p>web.xml中配置listener</p>
+<pre><code>&lt;listener&gt;
+   &lt;listener-class&gt;listener类路径&lt;/listener-class&gt;
+&lt;/listener&gt;
+</code></pre><p>利用listener统计在线人数，即监听session创建和销毁。</p>
+<pre><code>public class OnlineNumberListener implements HttpSessionListener {
+
+    @Override
+    public void sessionCreated(HttpSessionEvent e) {
+
+        ServletContext application = e.getSession().getServletContext();
+
+        Integer online_number = (Integer) application.getAttribute(&quot;online_number&quot;);
+
+        if (null == online_number)
+            online_number = 0;
+        online_number++;
+        application.setAttribute(&quot;online_number&quot;, online_number);
+
+        System.out.println(&quot;新增一位在线用户&quot;);
+    }
+
+    @Override
+    public void sessionDestroyed(HttpSessionEvent e) {
+
+        ServletContext application = e.getSession().getServletContext();
+
+        Integer online_number = (Integer) application.getAttribute(&quot;online_number&quot;);
+
+        if(null==online_number){
+            online_number = 0;
+        }
+        else
+            online_number--;
+        application.setAttribute(&quot;online_number&quot;, online_number);
+        System.out.println(&quot;一位用户离线&quot;);
+    }
+}
+</code></pre><p>web.xml配置：</p>
+<pre><code>&lt;listener&gt;
+    &lt;listener-class&gt;listener.OnlineNumberListener&lt;/listener-class&gt;
+&lt;/listener&gt; 
+</code></pre><h2 id="Filter过滤器"><a href="#Filter过滤器" class="headerlink" title="Filter过滤器"></a>Filter过滤器</h2><p>截取用户端的请求和响应信息，并对这些信息进行过滤<br>Filter会随着tomcat的启动自启动。</p>
+<p>新建filter实现Filter接口即可</p>
+<pre><code>public class FilterName implements Filter {
+
+    @Override
+    public void destroy() {
+
+    }
+
+    @Override
+    public void doFilter(ServletRequest req, ServletResponse res, FilterChain chain)
+        //dosomething
+    }
+
+    @Override
+    public void init(FilterConfig arg0) throws ServletException {
+
+    }
+
+}
+</code></pre><p>web.xml配置</p>
+<pre><code>&lt;filter&gt;
+    &lt;filter-name&gt;Filter&lt;/filter-name&gt;
+    &lt;filter-class&gt;filter.Filter&lt;/filter-class&gt;
+&lt;/filter&gt;
+
+&lt;filter-mapping&gt;
+    &lt;filter-name&gt;Filter&lt;/filter-name&gt;
+    &lt;url-pattern&gt;/*&lt;/url-pattern&gt;
+&lt;/filter-mapping&gt;
+</code></pre><p>利用filter解决中文编码问题</p>
+<pre><code>public class  SetCharacterEncodingFilter implements Filter {
+
+     //存储编码格式信息
+      private String encode = null;
+    @Override
+    public void destroy() {
+        // TODO Auto-generated method stub
+
+    }
+
+    @Override
+    public void doFilter(ServletRequest req, ServletResponse resp,
+            FilterChain chain) throws IOException, ServletException {
+        // TODO Auto-generated method stub
+         //转换
+           HttpServletRequest request = (HttpServletRequest)req;
+           HttpServletResponse response = (HttpServletResponse)resp;
+
+           /*
+            * 判断在web.xml文件中是否配置了编码格式的信息
+            * 如果为空，则设置编码格式为配置文件中的编码格式
+            * 否则编码格式设置为utf-8
+            */
+           if(this.encode != null &amp;&amp; !this.encode.equals(&quot;&quot;)){
+            request.setCharacterEncoding(this.encode);
+            response.setCharacterEncoding(this.encode);
+           }else{
+            request.setCharacterEncoding(&quot;utf-8&quot;);
+            response.setCharacterEncoding(&quot;utf-8&quot;);
+           }
+           /*
+            * 使用doFilter方法调用链中的下一个过滤器或目标资源（servlet或JSP页面）。
+            * chain.doFilter处理过滤器的其余部分（如果有的话），最终处理请求的servlet或JSP页面。
+            */
+           chain.doFilter(request, response);
+
+    }
+
+    @Override
+    public void init(FilterConfig arg0) throws ServletException {
+        // TODO Auto-generated method stub
+
+        this.encode=arg0.getInitParameter(&quot;encode&quot;);
+        System.out.println(&quot;this.encode:&quot;+encode);
+    }
+
+}
+</code></pre><p>web.xml配置：</p>
+<pre><code>&lt;!-- 过滤器配置信息 --&gt;
+    &lt;filter&gt;
+        &lt;filter-name&gt;SetCharacterEncodingFilter&lt;/filter-name&gt;
+        &lt;!-- 过滤器设置编码文件 --&gt;
+        &lt;filter-class&gt;filter.SetCharacterEncodingFilter&lt;/filter-class&gt;
+        &lt;init-param&gt;
+            &lt;!-- init-param元素定义了过滤器的初始化参数--&gt;
+            &lt;description&gt;给参数和值设置名称和编码类型&lt;/description&gt;
+            &lt;param-name&gt;encode&lt;/param-name&gt;
+            &lt;param-value&gt;utf-8&lt;/param-value&gt;
+        &lt;/init-param&gt;
+    &lt;/filter&gt;
+    &lt;filter-mapping&gt;
+        &lt;!--  filter-mapping告诉容器所有与模式向匹配的请求都应该允许通过访问控制过滤器。
+                所有以.action结尾的访问都先通过过滤器文件过滤 --&gt;
+        &lt;filter-name&gt;SetCharacterEncodingFilter&lt;/filter-name&gt;
+        &lt;url-pattern&gt;*.do&lt;/url-pattern&gt;
+    &lt;/filter-mapping&gt;
+</code></pre><hr>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/03/16/SSM项目的配置和整体结构的总结/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="wzs63">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/image/01.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="hello">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/03/16/SSM项目的配置和整体结构的总结/" itemprop="url">SSM项目的配置和整体结构的总结</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-03-16T11:32:14+08:00">
+                2019-03-16
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
+                  <a href="/categories/JavaEE/" itemprop="url" rel="index">
+                    <span itemprop="name">JavaEE</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="Spring"><a href="#Spring" class="headerlink" title="Spring"></a>Spring</h2><p>Spring就像是整个项目中装配bean的大工厂，在配置文件中可以指定使用特定的参数去调用实体类的构造方法来实例化对象。也可以称之为项目中的粘合剂。<br>Spring的核心思想是IoC（控制反转），即不再需要程序员去显式地<code>new</code>一个对象，而是让Spring框架帮你来完成这一切。</p>
+<h2 id="SpringMVC"><a href="#SpringMVC" class="headerlink" title="SpringMVC"></a>SpringMVC</h2><p>SpringMVC在项目中拦截用户请求，它的核心Servlet即DispatcherServlet承担中介或是前台这样的职责，将用户请求通过HandlerMapping去匹配Controller，Controller就是具体对应请求所执行的操作。</p>
+<h2 id="mybatis"><a href="#mybatis" class="headerlink" title="mybatis"></a>mybatis</h2><p>mybatis是对jdbc的封装，它让数据库底层操作变的透明。mybatis的操作都是围绕一个sqlSessionFactory实例展开的。mybatis通过配置文件关联到各实体类的Mapper文件，Mapper文件中配置了每个类对数据库所需进行的sql语句映射。在每次与数据库交互时，通过sqlSessionFactory拿到一个sqlSession，再执行sql命令。<br>页面发送请求给控制器，控制器调用业务层处理逻辑，逻辑层向持久层发送请求，持久层与数据库交互，后将结果返回给业务层，业务层将处理逻辑发送给控制器，控制器再调用视图展现数据。</p>
+<h2 id="关于配置："><a href="#关于配置：" class="headerlink" title="关于配置："></a>关于配置：</h2><h3 id="applicationContext-xml"><a href="#applicationContext-xml" class="headerlink" title="applicationContext.xml:"></a>applicationContext.xml:</h3><p>设置连接数据库用的驱动，数据库名称，编码方式，账号密码。</p>
+<pre><code>&lt;bean id=&quot;dataSource&quot;  class=&quot;org.springframework.jdbc.datasource.DriverManagerDataSource&quot;&gt; &lt;!--设置连接数据库用的驱动，数据库名称，编码方式，账号密码--&gt;
+      &lt;property name=&quot;driverClassName&quot;&gt;  
+          &lt;value&gt;com.mysql.jdbc.Driver&lt;/value&gt;  
+      &lt;/property&gt;  
+      &lt;property name=&quot;url&quot;&gt;  
+           &lt;value&gt;jdbc:mysql://127.0.0.1:3306/sjkdzy?characterEncoding=UTF-8&lt;/value&gt;  
+      &lt;/property&gt;  
+      &lt;property name=&quot;username&quot;&gt;  
+          &lt;value&gt;root&lt;/value&gt;  
+      &lt;/property&gt;  
+      &lt;property name=&quot;password&quot;&gt;  
+          &lt;value&gt;123456&lt;/value&gt;  
+      &lt;/property&gt;    
+&lt;/bean&gt;
+</code></pre><p>设置别名，自动扫描pojo下的类型，使得在后续配置文件xml中可以直接使用简单的别名，要不得写全名pojo.类名</p>
+<pre><code>&lt;bean id=&quot;sqlSession&quot;  class=&quot;org.mybatis.spring.SqlSessionFactoryBean&quot;&gt;
+     &lt;property name=&quot;typeAliasesPackage&quot;  value=&quot;pojo&quot;/&gt;&lt;!--设置别名，自动扫描pojo下的类型，使得在后续配置文件xml中可以直接使用简单的别名，要不得写全名pojo.类名--&gt;
+     &lt;property name=&quot;dataSource&quot;  ref=&quot;dataSource&quot;/&gt;&lt;!-- 对应上面配置的dataSource --&gt;
+     &lt;property name=&quot;mapperLocations&quot;  value=&quot;classpath:mapper/*.xml&quot;/&gt;&lt;!--指明映射xml的位置--&gt;
+&lt;/bean&gt;
+</code></pre><p>指定自动扫描的mapper接口的包的位置</p>
+<pre><code>&lt;bean  class=&quot;org.mybatis.spring.mapper.MapperScannerConfigurer&quot;&gt;
+     &lt;property name=&quot;basePackage&quot;  value=&quot;mapper&quot;/&gt;&lt;!-- 扫描mapper类 --&gt;
+&lt;/bean&gt;
+</code></pre><h3 id="springMVC-xml"><a href="#springMVC-xml" class="headerlink" title="springMVC.xml:"></a>springMVC.xml:</h3><p>设置自动扫描的controller，以便于用注解的方法表明哪些类是controller。</p>
+<pre><code>&lt;context:component-scan base-package=&quot;controller&quot;&gt;
+      &lt;context:include-filter type=&quot;annotation&quot;
+       expression=&quot;org.springframework.stereotype.Controller&quot;/&gt;
+&lt;/context:component-scan&gt;
+</code></pre><p>开启注解</p>
+<pre><code>&lt;mvc:annotation-driven /&gt;
+</code></pre><p> 设置jsp的默认路径，之后controller转的时候可以直接写jsp名，</p>
+<pre><code>&lt;bean
+         class=&quot;org.springframework.web.servlet.view.InternalResourceViewResolver&quot;&gt;
+        &lt;property name=&quot;viewClass&quot;
+             value=&quot;org.springframework.web.servlet.view.JstlView&quot; /&gt;
+        &lt;property name=&quot;prefix&quot;  value=&quot;/WEB-INF/jsp/&quot; /&gt;
+        &lt;property name=&quot;suffix&quot; value=&quot;.jsp&quot; /&gt;
+    &lt;/bean&gt;
+</code></pre><p>开放对上传功能的支持，我们的项目有上传头像的功能</p>
+<pre><code>&lt;bean id=&quot;multipartResolver&quot;  class=&quot;org.springframework.web.multipart.commons.CommonsMultipartResolver&quot;/&gt;
+</code></pre><h3 id="Web-xml"><a href="#Web-xml" class="headerlink" title="Web.xml:"></a>Web.xml:</h3><p>配置spring</p>
+<pre><code>&lt;context-param&gt;
+     &lt;param-name&gt;contextConfigLocation&lt;/param-name&gt;
+     &lt;param-value&gt;classpath:applicationContext.xml&lt;/param-value&gt;
+&lt;/context-param&gt;
+</code></pre><p>解决中文问题的过滤器</p>
+<pre><code>&lt;filter&gt;
+     &lt;filter-name&gt;SetCharacterEncodingFilter&lt;/filter-name&gt;
+    &lt;!-- 过滤器设置编码文件 --&gt;
+     &lt;filter-class&gt;filter.SetCharacterEncodingFilter&lt;/filter-class&gt;
+    &lt;init-param&gt;
+        &lt;!-- init-param元素定义了过滤器的初始化参数--&gt;
+        &lt;description&gt;给参数和值设置名称和编码类型&lt;/description&gt;
+        &lt;param-name&gt;encode&lt;/param-name&gt;
+        &lt;param-value&gt;utf-8&lt;/param-value&gt;
+    &lt;/init-param&gt;
+&lt;/filter&gt;
+&lt;filter-mapping&gt;
+    &lt;!--  filter-mapping告诉容器所有与模式向匹配的请求都应该允许通过访问控制过滤器。
+            所有以.action结尾的访问都先通过过滤器文件过滤 --&gt;
+     &lt;filter-name&gt;SetCharacterEncodingFilter&lt;/filter-name&gt;
+    &lt;url-pattern&gt;*.do&lt;/url-pattern&gt;
+&lt;/filter-mapping&gt;
+</code></pre><p>配置springmvc</p>
+<pre><code>&lt;servlet&gt;
+     &lt;servlet-name&gt;mvc-dispatcher&lt;/servlet-name&gt;
+     &lt;servlet-class&gt;org.springframework.web.servlet.DispatcherServlet&lt;/servlet-class&gt;
+     &lt;!-- spring mvc的配置文件 --&gt;
+     &lt;init-param&gt;
+         &lt;param-name&gt;contextConfigLocation&lt;/param-name&gt;
+         &lt;param-value&gt;classpath:springMVC.xml&lt;/param-value&gt;
+     &lt;/init-param&gt;
+     &lt;load-on-startup&gt;1&lt;/load-on-startup&gt;
+&lt;/servlet&gt;
+&lt;servlet-mapping&gt;
+     &lt;servlet-name&gt;mvc-dispatcher&lt;/servlet-name&gt;
+     &lt;url-pattern&gt;*.do&lt;/url-pattern&gt;
+&lt;/servlet-mapping&gt;
+</code></pre><hr>
+<h2 id="全部的结构"><a href="#全部的结构" class="headerlink" title="全部的结构"></a>全部的结构</h2><p><img src="https://s2.ax1x.com/2019/03/23/AJ8x8x.png" alt="AJ8x8x.png"></p>
+<h3 id="Controller：接收相应请求，执行相应方法，并转到相应页面"><a href="#Controller：接收相应请求，执行相应方法，并转到相应页面" class="headerlink" title="Controller：接收相应请求，执行相应方法，并转到相应页面"></a>Controller：接收相应请求，执行相应方法，并转到相应页面</h3><p>以UserController为例：<br>先用注解声明是 UserController一个Controller我们拦截所有.do的请求，UserController写关于user的请求，例如请求login.do,即登录，我们执行login方法，<br>之后转到view层，即jsp页面，在登录完成后填完信息请求loginwc.do,将提取的信息进行验证，数据库里是否有uid为所填uid并且up为所填up的，若记录不为空，则登陆成功，此时我们将uid存入HttpSession中记录了用户登录状态，之后还要用这个数据</p>
+<pre><code>@Controller
+public class UserController {
+    @Autowired
+    UserService userService;
+
+
+    @RequestMapping(&quot;login.do&quot;)//处理login.do这个请求
+    public ModelAndView login() {
+        ModelAndView mav = new ModelAndView();
+        mav.addObject(&quot;islogincg&quot;, 1);
+        mav.setViewName(&quot;login&quot;);
+
+        return mav;
+    }
+    @RequestMapping(&quot;loginwc.do&quot;)//处理loginwc.do这个请求
+    public ModelAndView loginwc(User user,HttpServletRequest req,HttpServletResponse resp) {
+        ModelAndView mav = new ModelAndView();
+        System.out.println(user.getUid());
+        System.out.println(user.getUp());
+        if(userService.isCanLogin(user)) {
+            req.getSession().setAttribute(&quot;uid&quot;, user.getUid());
+            String tximg = userService.selectByUid(user.getUid()).getTximg();
+            req.getSession().setAttribute(&quot;tximg&quot;, tximg);
+            System.out.println(tximg);
+            if(userService.isStore(user)) {
+                req.getSession().setAttribute(&quot;isStore&quot;, 1);
+            }else {
+                req.getSession().setAttribute(&quot;isStore&quot;, 0);
+            }
+            req.getSession().setAttribute(&quot;tximg&quot;, &quot;mrtx.png&quot;);
+            mav.setViewName(&quot;welcome&quot;);
+
+        }else {
+            mav.addObject(&quot;islogincg&quot;, 0);
+            System.out.println(&quot;登录失败&quot;);
+            mav.setViewName(&quot;login&quot;);
+        }
+        return mav;
+    }
+}
+</code></pre><h3 id="Mapper：用于操作数据库"><a href="#Mapper：用于操作数据库" class="headerlink" title="Mapper：用于操作数据库"></a>Mapper：用于操作数据库</h3><p>另外我们需要pojo来一一对应我们的数据库的表</p>
+<p>我们将相应的SQL语句写到mapper的xml中</p>
+<pre><code>&lt;mapper namespace=&quot;mapper.CommodityMapper&quot;&gt;
+     &lt;select id=&quot;selectAll&quot;  resultType=&quot;Commodity&quot;&gt;
+         select * from commodity and cs != 0
+     &lt;/select&gt;
+    &lt;insert id=&quot;add&quot; parameterType=&quot;Commodity&quot;  &gt;
+       insert into  commodity(cname,cs,cp,uid,type) values  (#{cname},#{cs},#{cp},#{uid},#{type})    
+     &lt;/insert&gt;
+     &lt;select id=&quot;selectByUid&quot;  parameterType=&quot;String&quot; resultType=&quot;Commodity&quot;&gt;
+         select * from commodity where uid =  &apos;${_parameter}&apos; and cs != 0
+     &lt;/select&gt;
+     &lt;select id=&quot;selectByType&quot;  parameterType=&quot;_int&quot; resultType=&quot;Commodity&quot;&gt;
+         select * from commodity where type =  ${_parameter} and cs != 0
+     &lt;/select&gt;
+     &lt;select id=&quot;selectByLikeCname&quot;  parameterType=&quot;map&quot; resultType=&quot;Commodity&quot;&gt;
+         select * from commodity where cname  like &apos;%${part}%&apos; and cs != 0 order by cid asc limit  ${first},6
+     &lt;/select&gt;
+     &lt;select id=&quot;selectByCid&quot;  parameterType=&quot;_int&quot; resultType=&quot;Commodity&quot;&gt;
+         select * from commodity where cid =  ${_parameter} and cs != 0
+     &lt;/select&gt;
+     &lt;select id=&quot;selectByYeShu&quot;  parameterType=&quot;map&quot; resultType=&quot;Commodity&quot;&gt;
+         select * from commodity where cs != 0  and type = ${type} order by cid asc limit  ${first},6
+     &lt;/select&gt;
+     &lt;delete id=&quot;delete&quot; parameterType=&quot;_int&quot;&gt;
+         delete from commodity where cid =  ${_parameter}
+     &lt;/delete&gt;
+     &lt;update id=&quot;updateCs&quot; parameterType=&quot;map&quot;&gt;
+         update commodity set cs=#{cs}  where  cid=#{cid}
+     &lt;/update&gt;
+&lt;/mapper&gt;
+</code></pre><p>在同一个包中写相应mapper接口，每个方法都对应xml的语句id，同一个包下自动对应，之后方便对数据库操作</p>
+<pre><code>package mapper;
+
+import java.util.List;
+import java.util.Map;
+
+import pojo.Commodity;
+import pojo.Purchase;
+
+public interface CommodityMapper {
+    void add(Commodity c);
+    List&lt;Commodity&gt; selectAll();
+    List&lt;Commodity&gt; selectByUid(String uid);
+    List&lt;Commodity&gt; selectByType(int type);
+    List&lt;Commodity&gt; selectByLikeCname(Map&lt;String, Object&gt; map);
+    List&lt;Commodity&gt; selectByCid(int cid);
+    List&lt;Commodity&gt; selectByYeShu(Map&lt;String, Integer&gt; map);
+    void delete(int cid);
+    void updateCs(Map&lt;String,Integer&gt; map);
+}
+</code></pre><h3 id="Service：相对具体的业务逻辑服务层"><a href="#Service：相对具体的业务逻辑服务层" class="headerlink" title="Service：相对具体的业务逻辑服务层"></a>Service：相对具体的业务逻辑服务层</h3><pre><code>public interface CommodityService {
+    void add(Commodity c);
+    List&lt;Commodity&gt; selectAll();
+    List&lt;Commodity&gt; selectByUid(String uid);
+    List&lt;Commodity&gt; selectByType(int type);
+    List&lt;Commodity&gt; selectByLikeCname(String part,int first);
+    List&lt;Commodity&gt; selectByCid(int cid);
+    List&lt;Commodity&gt; selectByYeShu(int type,int first);
+    void delete(int cid);
+    void updateCs(int cs,int cid);
+}
+</code></pre><p>###ServiceImpl: Service实现类(持有自动注入的mapper对象以便操作数据库)</p>
+<pre><code>@Service(&quot;CommodityService&quot;)
+public class CommodityServiceImpl implements CommodityService{
+
+    @Autowired
+    CommodityMapper commodityMapper;
+    @Override
+    public void add(Commodity c) {
+        commodityMapper.add(c);
+    }
+
+
+    @Override
+    public List&lt;Commodity&gt; selectAll() {
+        return commodityMapper.selectAll();
+    }
+
+
+    @Override
+    public List&lt;Commodity&gt; selectByUid(String uid) {
+        return commodityMapper.selectByUid(uid);
+
+    }
+    public List&lt;Commodity&gt; selectByType(int type){
+        return commodityMapper.selectByType(type);
+    }
+    public List&lt;Commodity&gt; selectByLikeCname(String part,int first){
+        Map&lt;String,Object&gt; map = new HashMap&lt;&gt;();
+        map.put(&quot;part&quot;, part);
+        map.put(&quot;first&quot;, first);
+        return commodityMapper.selectByLikeCname(map);
+    }
+    public List&lt;Commodity&gt; selectByCid(int cid){
+        return commodityMapper.selectByCid(cid);
+    }
+
+    @Override
+    public List&lt;Commodity&gt; selectByYeShu(int type, int first) {
+        Map&lt;String,Integer&gt; map = new HashMap&lt;&gt;();
+        map.put(&quot;type&quot;, type);
+        map.put(&quot;first&quot;, first);
+        return commodityMapper.selectByYeShu(map);
+    }
+    @Override
+    public void delete(int cid) {
+        commodityMapper.delete(cid);
+    }
+
+
+    @Override
+    public void updateCs(int cs, int cid) {
+        Map&lt;String,Integer&gt; map = new HashMap&lt;&gt;();
+        map.put(&quot;cs&quot;, cs);
+        map.put(&quot;cid&quot;, cid);
+        commodityMapper.updateCs(map);
+    }
+
+}
+</code></pre><h3 id="Filter："><a href="#Filter：" class="headerlink" title="Filter："></a>Filter：</h3><p>实现拦截请求，将请求的编码设为utf-8,以至于支持中文</p>
+<pre><code>public void doFilter(ServletRequest req,  ServletResponse resp,
+            FilterChain chain) throws IOException,  ServletException {
+        // TODO Auto-generated method stub
+         //转换
+           HttpServletRequest request =  (HttpServletRequest)req;
+           HttpServletResponse response =  (HttpServletResponse)resp;
+
+           /*
+            * 判断在web.xml文件中是否配置了编码格式的信息
+            * 如果为空，则设置编码格式为配置文件中的编码格式
+            * 否则编码格式设置为utf-8
+            */
+           if(this.encode != null &amp;&amp;  !this.encode.equals(&quot;&quot;)){
+             request.setCharacterEncoding(this.encode);
+             response.setCharacterEncoding(this.encode);
+           }else{
+            request.setCharacterEncoding(&quot;utf-8&quot;);
+            response.setCharacterEncoding(&quot;utf-8&quot;);
+           }
+           /*
+            * 使用doFilter方法调用链中的下一个过滤器或目标资源（servlet或JSP页面）。
+            * chain.doFilter处理过滤器的其余部分（如果有的话），最终处理请求的servlet或JSP页面。
+            */
+           chain.doFilter(request, response);
+
+    }
+</code></pre><h3 id="Page"><a href="#Page" class="headerlink" title="Page:"></a>Page:</h3><p>用于分页的实现</p>
+<pre><code>public class Page&lt;T&gt; {
+    int first;      // 开始数据
+    int count;      // 每一页的数量
+    int total;      // 总共的数据量
+    private List&lt;T&gt; list;//当前页的数据
+    public Page() {
+
+    }
+    public Page(int first, int count) {
+         super();
+         this.first = first;
+         this.count = count;
+    }
+</code></pre><p>相关jar包：<br><img src="https://s2.ax1x.com/2019/03/23/AJ8z26.md.png" alt="AJ8z26.md.png"></p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/11/26/JDBC/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="wzs63">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/image/01.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="hello">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/11/26/JDBC/" itemprop="url">JDBC总结</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-11-26T18:22:43+08:00">
+                2018-11-26
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
+                  <a href="/categories/java/" itemprop="url" rel="index">
+                    <span itemprop="name">java</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>java对关系数据库的支持是通过JDBC(Java DateBase Connectivity)API来提供的。</p>
+<p>2018.12.14修改：<br>SqlServer连接时：<br>“jdbc:sqlserver://localhost:1433;DatabaseName=数据库名,<br>与MySQL连接不同（不仅仅是端口号）。</p>
+<h1 id="JDBC的使用分为以下几个步骤："><a href="#JDBC的使用分为以下几个步骤：" class="headerlink" title="JDBC的使用分为以下几个步骤："></a>JDBC的使用分为以下几个步骤：</h1><h2 id="一、初始化驱动"><a href="#一、初始化驱动" class="headerlink" title="一、初始化驱动"></a>一、初始化驱动</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">try &#123;</span><br><span class="line">		//以连接mysql为例</span><br><span class="line">           Class.forName(&quot;com.mysql.jdbc.Driver&quot;);</span><br><span class="line">           //若要连接SqlServer，对应初始化驱动类为&quot;com.microsoft.sqlserver.jdbc.SQLServerDriver&quot; </span><br><span class="line">		//若是Oracle数据库，则为&quot;oracle.jdbc.driver.OracleDriver&quot;</span><br><span class="line">           //数据库驱动加载成功 </span><br><span class="line">  </span><br><span class="line">       &#125; catch (ClassNotFoundException e) &#123;</span><br><span class="line">           // TODO Auto-generated catch block</span><br><span class="line">           e.printStackTrace();</span><br><span class="line">       &#125;</span><br></pre></td></tr></table></figure>
+<p>初始化驱动类com.mysql.jdbc.Driver在相关包中,若未引入包，Class.forName(“com.mysql.jdbc.Driver”)会抛出ClassNotFoundException异常。</p>
+<h2 id="二、建立数据库连接"><a href="#二、建立数据库连接" class="headerlink" title="二、建立数据库连接"></a>二、建立数据库连接</h2><p>连接需要提供以下信息：<br>DBMS服务器所运行的机器的<strong>主机名</strong>:127.0.0.1或者localhost (本机)，<br>数据库的<strong>端口号</strong>，用来侦听进入的连接： 3306 （mysql专用端口号）或者1433（SqlServer专用端口号）,或者1521（Oracle专用端口号），<br>希望连接的<strong>数据库名称</strong>，<br><strong>编码方式</strong>，如UTF-8（可选），<br><strong>账号 </strong>，<br><strong>密码 </strong>。</p>
+<p>JDBC中的数据库连接是通过Connection类的实例来表示的，这个类的实例由DriverManager类的静态方法getConnection()返回。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">try &#123;</span><br><span class="line">          Class.forName(&quot;com.mysql.jdbc.Driver&quot;);</span><br><span class="line"></span><br><span class="line">          // 建立与数据库的Connection连接</span><br><span class="line">          Connection c = DriverManager.getConnection(</span><br><span class="line">                          &quot;jdbc:mysql://127.0.0.1:3306/数据库名称?characterEncoding=UTF-8&quot;,</span><br><span class="line">                          &quot;账号&quot;, &quot;密码&quot;);</span><br><span class="line">          //连接成功，c为获取连接对象</span><br><span class="line"></span><br><span class="line">      &#125; catch (ClassNotFoundException e) &#123;</span><br><span class="line">          // TODO Auto-generated catch block</span><br><span class="line">          e.printStackTrace();</span><br><span class="line">      &#125; catch (SQLException e) &#123;</span><br><span class="line">          // TODO Auto-generated catch block</span><br><span class="line">          e.printStackTrace();</span><br><span class="line">      &#125;</span><br></pre></td></tr></table></figure></p>
+<h2 id="三、创建Statement实例"><a href="#三、创建Statement实例" class="headerlink" title="三、创建Statement实例"></a>三、创建Statement实例</h2><p>Statement是用于执行SQL命令的接口。<br>创建一个Statement或其子接口之一（PreparedStatement接口或者CallablesStatement接口）的实例。<br>可以通过调用Connection的createStatement()方法来创建Statement的实例<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">try &#123;</span><br><span class="line">           Class.forName(&quot;com.mysql.jdbc.Driver&quot;);</span><br><span class="line"> </span><br><span class="line">           Connection c = DriverManager .getConnection(&quot;jdbc:mysql://127.0.0.1:3306/数据库名称?characterEncoding=UTF-8&quot;,  &quot;用户名&quot;, &quot;密码&quot;);</span><br><span class="line"> </span><br><span class="line">           // 注意：使用的是 java.sql.Statement， 不要不小心使用到： com.mysql.jdbc.Statement</span><br><span class="line">          </span><br><span class="line">		Statement s = c.createStatement();</span><br><span class="line"> </span><br><span class="line"> </span><br><span class="line">       &#125; catch (ClassNotFoundException e) &#123;</span><br><span class="line">           // TODO Auto-generated catch block</span><br><span class="line">           e.printStackTrace();</span><br><span class="line">       &#125; catch (SQLException e) &#123;</span><br><span class="line">           // TODO Auto-generated catch block</span><br><span class="line">           e.printStackTrace();</span><br><span class="line">       &#125;</span><br></pre></td></tr></table></figure></p>
+<h2 id="四、利用Statement实例执行SQL命令"><a href="#四、利用Statement实例执行SQL命令" class="headerlink" title="四、利用Statement实例执行SQL命令"></a>四、利用Statement实例执行SQL命令</h2><h3 id="Statement实例执行方法："><a href="#Statement实例执行方法：" class="headerlink" title="Statement实例执行方法："></a>Statement实例执行方法：</h3><h4 id="executeUpdata-方法"><a href="#executeUpdata-方法" class="headerlink" title="executeUpdata()方法"></a>executeUpdata()方法</h4><p>int executeUpdate(String sql)<br>执行给定的SQL语句，这可能是 <strong>INSERT ， UPDATE ，或 DELETE语句</strong>，或者不返回任何内容，如SQL DDL语句的SQL语句。<br>返回类型为int，表示所更改的行数。</p>
+<h4 id="executeQuery-方法"><a href="#executeQuery-方法" class="headerlink" title="executeQuery()方法"></a>executeQuery()方法</h4><p>ResultSet executeQuery(String sql)<br>当希望执行查询时（<strong>SELECT语句</strong>）可使用executeQuery()方法。<br>执行给定的SQL语句，该语句返回单个 ResultSet对象，用来处理查询的结果。 </p>
+<h4 id="execute-方法"><a href="#execute-方法" class="headerlink" title="execute()方法"></a>execute()方法</h4><p>boolean execute(String sql)<br>此方法可能会返回多个更新数或者ResultSet实例。<br>如果第一个返回值是ResultSet则返回true<br>如果第一个返回值是int则发布会false<br>可以使用方法getResultSet或getUpdateCount检索结果，然后getMoreResults移动到任何后续结果。（getUpdateCount返回值为-1就会到达结果队列的尾部）<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">try &#123;</span><br><span class="line">            Class.forName(&quot;com.mysql.jdbc.Driver&quot;);</span><br><span class="line">  </span><br><span class="line">            Connection c = DriverManager .getConnection(&quot;jdbc:mysql://127.0.0.1:3306/数据库名称?characterEncoding=UTF-8&quot;,&quot;用户名&quot;, &quot;密码&quot;);</span><br><span class="line">  </span><br><span class="line">            Statement s = c.createStatement();</span><br><span class="line">  </span><br><span class="line">            // 注意： 字符串要用单引号&apos;</span><br><span class="line">            String sql = &quot;insert into tableName values(&apos;value&apos;)&quot;;</span><br><span class="line">            s.execute(sql);</span><br><span class="line"></span><br><span class="line">        &#125; catch (ClassNotFoundException e) &#123;</span><br><span class="line">            // TODO Auto-generated catch block</span><br><span class="line">            e.printStackTrace();</span><br><span class="line">        &#125; catch (SQLException e) &#123;</span><br><span class="line">            // TODO Auto-generated catch block</span><br><span class="line">            e.printStackTrace();</span><br><span class="line">        &#125;</span><br></pre></td></tr></table></figure></p>
+<h3 id="ResultSet介绍"><a href="#ResultSet介绍" class="headerlink" title="ResultSet介绍"></a>ResultSet介绍</h3><h4 id="1-光标定位"><a href="#1-光标定位" class="headerlink" title="1.光标定位"></a>1.光标定位</h4><h5 id="boolean-next-throws-SQLException"><a href="#boolean-next-throws-SQLException" class="headerlink" title="boolean next() throws SQLException"></a>boolean next() throws SQLException</h5><p>将光标从当前位置向前移动一行。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">ResultSet rs = s.executeQuery(SELECT * FROM TABLE1);</span><br><span class="line">while(rs.next())&#123;</span><br><span class="line">	//do something...</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>光标最初位于第一行之前; 第一次调用方法next使第一行成为当前行; 第二个调用使第二行成为当前行，依此类推。<br>当返回false时，光标位于最后一行之后。 </p>
+<h5 id="boolean-relative-int-rows-throws-SQLException"><a href="#boolean-relative-int-rows-throws-SQLException" class="headerlink" title="boolean relative(int rows) throws SQLException"></a>boolean relative(int rows) throws SQLException</h5><p>将光标移动到正或负的相对行数。<br>调用relative(0)是有效的，但不会更改光标位置。</p>
+<h4 id="2-数据检索"><a href="#2-数据检索" class="headerlink" title="2.数据检索"></a>2.数据检索</h4><h5 id="getXXX-，例如String-getString-int-columnIndex-throws-SQLException"><a href="#getXXX-，例如String-getString-int-columnIndex-throws-SQLException" class="headerlink" title="getXXX()，例如String getString(int columnIndex) throws SQLException"></a>getXXX()，例如String getString(int columnIndex) throws SQLException</h5><p>这个检索的当前行中指定列的值，<strong>索引从1开始</strong>。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">//从第二列检索String值</span><br><span class="line">columnValue = rs.getString(2);</span><br></pre></td></tr></table></figure></p>
+<h5 id="根据属性名检索，例如String-getString-String-columnLabel-throws-SQLException"><a href="#根据属性名检索，例如String-getString-String-columnLabel-throws-SQLException" class="headerlink" title="根据属性名检索，例如String getString(String columnLabel) throws SQLException"></a>根据属性名检索，例如String getString(String columnLabel) throws SQLException</h5><h4 id="3-数值修改"><a href="#3-数值修改" class="headerlink" title="3.数值修改"></a>3.数值修改</h4><p>updateXXX(),insertXXX(),deleteXXX()</p>
+<h3 id="PreparedStatement介绍"><a href="#PreparedStatement介绍" class="headerlink" title="PreparedStatement介绍"></a>PreparedStatement介绍</h3><p>PreparedStatement是Statement类的一个子类<br>有时候需要执行的SQL语句相似，仅仅是通过某个参数而区分。<br>那么编译每一个SQL语句会使得性能变差。</p>
+<p>PreparedStatement可以使得这样的SQL语句<strong>只编译一次</strong>（预编译机制），执行多次，使用可改变的参数来修改执行的SQL语句，<br>使得<strong>性能更好</strong>。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">String sql = &quot;insert into table1 values(?,?)&quot;;</span><br><span class="line">PreparedStatement ps = c.prepareStatement(sql);</span><br><span class="line">ps.setString(1, &quot;value&quot;);//设置参数从一开始</span><br><span class="line">ps.setInt(2, 123);</span><br><span class="line">ps.execute();</span><br></pre></td></tr></table></figure></p>
+<h5 id="注意：PreparedStatement设置参数时，从1开始。"><a href="#注意：PreparedStatement设置参数时，从1开始。" class="headerlink" title="注意：PreparedStatement设置参数时，从1开始。"></a>注意：PreparedStatement设置参数时，从1开始。</h5><p>另外，PreparedStatement不需要字符串拼接，而是<strong>参数设置</strong>，所以还有<strong>防止SQL注入式攻击</strong>功能。</p>
+<h2 id="五、最后关闭连接，释放资源"><a href="#五、最后关闭连接，释放资源" class="headerlink" title="五、最后关闭连接，释放资源"></a>五、最后关闭连接，释放资源</h2><p>先关闭Statement<br>后关闭Connection<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">finally &#123;</span><br><span class="line">            if (s != null)</span><br><span class="line">                try &#123;</span><br><span class="line">                    s.close();</span><br><span class="line">                &#125; catch (SQLException e) &#123;</span><br><span class="line">                    // TODO Auto-generated catch block</span><br><span class="line">                    e.printStackTrace();</span><br><span class="line">                &#125;</span><br><span class="line">            if (c != null)</span><br><span class="line">                try &#123;</span><br><span class="line">                    c.close();</span><br><span class="line">                &#125; catch (SQLException e) &#123;</span><br><span class="line">                    // TODO Auto-generated catch block</span><br><span class="line">                    e.printStackTrace();</span><br><span class="line">                &#125;</span><br><span class="line"> </span><br><span class="line">        &#125;</span><br></pre></td></tr></table></figure></p>
+<h1 id="事务"><a href="#事务" class="headerlink" title="事务"></a>事务</h1><p>在事务中的多个操作，要么都成功，要么都失败<br>通过 c.setAutoCommit(false);关闭自动提交<br>使用 c.commit();进行手动提交<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">c.setAutoCommit(false);</span><br><span class="line">//提交前发生了错误，则rollback</span><br><span class="line">String sql1 = &quot;update...&quot;;</span><br><span class="line">s.execute(sql1);</span><br><span class="line">String sql2 = &quot;updata...&quot;;</span><br><span class="line">s.execute(sql2);</span><br><span class="line">// 手动提交</span><br><span class="line">c.commit();</span><br></pre></td></tr></table></figure></p>
+<p>参考书籍：Java高级编程（第二版）。<br>参考网站：how2j</p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/11/15/sjycl2/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="wzs63">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/image/01.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="hello">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/11/15/sjycl2/" itemprop="url">数据统计每一天/每一周发邮件的数量，并用可视化软件实现可视化。</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-11-15T20:50:26+08:00">
+                2018-11-15
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
+                  <a href="/categories/数据处理/" itemprop="url" rel="index">
+                    <span itemprop="name">数据处理</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>下载对公众开放的安然(Enron)公司的电子邮件数据集。<br>下载地址：<br>      <a href="http://www.ahschulz.de/enron-email-data/；" target="_blank" rel="noopener">http://www.ahschulz.de/enron-email-data/；</a> </p>
+<h4 id="将数据导入数据库（message表含有date字段表示发送邮件时间。Mid表示编号），根据date进行分组，统计每一组的mid的数量（即这一天邮箱数量）。"><a href="#将数据导入数据库（message表含有date字段表示发送邮件时间。Mid表示编号），根据date进行分组，统计每一组的mid的数量（即这一天邮箱数量）。" class="headerlink" title="将数据导入数据库（message表含有date字段表示发送邮件时间。Mid表示编号），根据date进行分组，统计每一组的mid的数量（即这一天邮箱数量）。"></a>将数据导入数据库（message表含有date字段表示发送邮件时间。Mid表示编号），根据date进行分组，统计每一组的mid的数量（即这一天邮箱数量）。</h4><p>执行以下SQL语句，将每天/每周（换为weekofyear即可）数据导入Excel（因为之后利用plot.ly进行数据可视化时感觉CSV格式更方便些）</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">select date,count(mid) from message group by dayofyear(date) </span><br><span class="line">                                into outfile &quot;F:\day_apps.csv&quot;</span><br><span class="line">                                FIELDS TERMINATED BY &apos;,&apos;;</span><br></pre></td></tr></table></figure>
+<h4 id="（注：FIELDS-TERMINATED-BY-‘-’-靠‘，’分隔字段，如果没有这个语句date和count（mid）数据会导入到一个格子中）"><a href="#（注：FIELDS-TERMINATED-BY-‘-’-靠‘，’分隔字段，如果没有这个语句date和count（mid）数据会导入到一个格子中）" class="headerlink" title="（注：FIELDS TERMINATED BY ‘,’;  靠‘，’分隔字段，如果没有这个语句date和count（mid）数据会导入到一个格子中）"></a>（注：FIELDS TERMINATED BY ‘,’;  靠‘，’分隔字段，如果没有这个语句date和count（mid）数据会导入到一个格子中）</h4><p>数据库中分组查看结果：<br>每天：<br><img src="https://s2.ax1x.com/2019/03/23/AJGSxK.png" alt="AJGSxK.png"><br><br><br>每周：<br><img src="https://s2.ax1x.com/2019/03/23/AJGCrD.png" alt="AJGCrD.png"></p>
+<p><br></p>
+<h3 id="利用plot-ly进行数据可视化"><a href="#利用plot-ly进行数据可视化" class="headerlink" title="利用plot.ly进行数据可视化"></a>利用plot.ly进行数据可视化</h3><p>每天的发送邮件统计：<br><img src="https://s2.ax1x.com/2019/03/23/AJGPqe.md.png" alt="AJGPqe.md.png"><br>每周的发送邮件统计：<br><img src="https://s2.ax1x.com/2019/03/23/AJGFVH.md.png" alt="AJGFVH.md.png"></p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/11/15/sjycl/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="wzs63">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/image/01.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="hello">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/11/15/sjycl/" itemprop="url">利用Python从json数据集提取出the Growlers的所有音乐的歌名</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-11-15T20:10:42+08:00">
+                2018-11-15
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
+                  <a href="/categories/数据处理/" itemprop="url" rel="index">
+                    <span itemprop="name">数据处理</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>json数据集下载地址：<br><a href="http://itunes.apple.com/search?term=the-growlers" target="_blank" rel="noopener">http://itunes.apple.com/search?term=the-growlers</a> </p>
+<h2 id="提取歌名并放入MySQL数据库中"><a href="#提取歌名并放入MySQL数据库中" class="headerlink" title="提取歌名并放入MySQL数据库中"></a>提取歌名并放入MySQL数据库中</h2><p>先在MySQL数据库中创建相应数据库和表</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"> create database yvchuli                    </span><br><span class="line">                               </span><br><span class="line">create table music(</span><br><span class="line">       </span><br><span class="line">       trackName varchar(60)</span><br><span class="line">       )</span><br></pre></td></tr></table></figure>
+<p>利用Python提取数据集中的歌名，并连接MySQL数据库，存入数据<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">import json </span><br><span class="line">import pymysql.cursors</span><br><span class="line">#连接mysql数据库</span><br><span class="line">connection = pymysql.Connect(host=&apos;localhost&apos;,</span><br><span class="line">                             port=3306,</span><br><span class="line">                             user=&apos;root&apos;,</span><br><span class="line">                             password=&apos;123456&apos;,</span><br><span class="line">                             db=&apos;yvchuli&apos;,</span><br><span class="line">                             charset=&apos;utf8&apos;)</span><br><span class="line">with open(&apos;1.txt&apos;) as f:</span><br><span class="line">    date = json.load(f)</span><br><span class="line">list = date[&quot;results&quot;]</span><br><span class="line"># 获取游标</span><br><span class="line">cursor = connection.cursor()</span><br><span class="line">for item in list:</span><br><span class="line"></span><br><span class="line">    #插入数据</span><br><span class="line">    sql = &quot;INSERT INTO music VALUES (\&quot;%s\&quot;)&quot;</span><br><span class="line">    data = item[&apos;trackName&apos;]</span><br><span class="line">    print(data)</span><br><span class="line">    cursor.execute(sql % data)</span><br><span class="line">    connection.commit()</span><br></pre></td></tr></table></figure></p>
+<p><br></p>
+<h3 id="MySQL数据库储存结果："><a href="#MySQL数据库储存结果：" class="headerlink" title="MySQL数据库储存结果："></a>MySQL数据库储存结果：</h3><p><img src="https://s2.ax1x.com/2019/03/23/AJGAIA.png" alt="AJGAIA.png"></p>
+<p><img scr="../images/yvchuli.PNG"></p>
+<h2 id="另外，也可以提取数据存放入Excel"><a href="#另外，也可以提取数据存放入Excel" class="headerlink" title="另外，也可以提取数据存放入Excel"></a>另外，也可以提取数据存放入Excel</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">import json </span><br><span class="line">import pymysql.cursors</span><br><span class="line">#连接mysql数据库</span><br><span class="line">connection = pymysql.Connect(host=&apos;localhost&apos;,</span><br><span class="line">                             port=3306,</span><br><span class="line">                             user=&apos;root&apos;,</span><br><span class="line">                             password=&apos;123456&apos;,</span><br><span class="line">                             db=&apos;yvchuli&apos;,</span><br><span class="line">                             charset=&apos;utf8&apos;)</span><br><span class="line">with open(&apos;1.txt&apos;) as f:</span><br><span class="line">    date = json.load(f)</span><br><span class="line">list = date[&quot;results&quot;]</span><br><span class="line"># 获取游标</span><br><span class="line">cursor = connection.cursor()</span><br><span class="line">for item in list:</span><br><span class="line"></span><br><span class="line">    #插入数据</span><br><span class="line">    sql = &quot;INSERT INTO music VALUES (\&quot;%s\&quot;)&quot;</span><br><span class="line">    data = item[&apos;trackName&apos;]</span><br><span class="line">    print(data)</span><br><span class="line">    cursor.execute(sql % data)</span><br><span class="line">    connection.commit()</span><br></pre></td></tr></table></figure>
+<p><br></p>
+<h3 id="注：若不加newline-’’，每行数据都会有空行"><a href="#注：若不加newline-’’，每行数据都会有空行" class="headerlink" title="注：若不加newline=’’，每行数据都会有空行"></a>注：若不加newline=’’，每行数据都会有空行</h3><p><img src="https://s2.ax1x.com/2019/03/23/AJGVPI.png" alt="AJGVPI.png"></p>
+<p><br></p>
+<h3 id="加newline-’’后变正常："><a href="#加newline-’’后变正常：" class="headerlink" title="加newline=’’后变正常："></a>加newline=’’后变正常：</h3><p><img src="https://s2.ax1x.com/2019/03/23/AJGZGt.png" alt="AJGZGt.png"><br><br></p>
+<p>If newline=’’ is not specified, newlines embedded inside quoted fields will not be interpreted correctly, and on platforms that use \r\n linendings on write an extra \r will be added. It should always be safe to specify newline=’’, since the csv module does its own (universal) newline handling.<br>– python参考手册</p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+  </section>
+
+  
+  <nav class="pagination">
+    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right"></i></a>
+  </nav>
+
+
+
+          </div>
+          
+
+
+          
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+
+      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="/image/01.png" alt="wzs63">
+            
+              <p class="site-author-name" itemprop="name">wzs63</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">12</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">6</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+
+          </nav>
+
+          
+
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        ﻿<script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">wzs63</span>
+
+  
+</div>
+
+
+  <div class="powered-by">由  强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash;  v5.1.4</div>
+<div class="powered-by">
+<i class="fa fa-user-md"></i><span id="busuanzi_container_site_uv">
+  本站访客数:<span id="busuanzi_value_site_uv"></span>
+</span>
+</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

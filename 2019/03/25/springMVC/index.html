@@ -1,0 +1,960 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-Hans">
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="Hexo, NexT">
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="MVC模式（Model–view–controller）是软件工程中的一种软件架构模式，把软件系统分为三个基本部分：模型（Model）、视图（View）和控制器（Controller）。 控制器（Controller）- 负责转发请求，对请求进行处理。 视图（View） - 负责显示数据，这个部分多为前端应用，而 Controller 会有一个机制将处理的结果 (可能是 Model, 集合或是状态">
+<meta property="og:type" content="article">
+<meta property="og:title" content="springMVC笔记">
+<meta property="og:url" content="http://yoursite.com/2019/03/25/springMVC/index.html">
+<meta property="og:site_name" content="hello">
+<meta property="og:description" content="MVC模式（Model–view–controller）是软件工程中的一种软件架构模式，把软件系统分为三个基本部分：模型（Model）、视图（View）和控制器（Controller）。 控制器（Controller）- 负责转发请求，对请求进行处理。 视图（View） - 负责显示数据，这个部分多为前端应用，而 Controller 会有一个机制将处理的结果 (可能是 Model, 集合或是状态">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2019-03-25T08:55:34.490Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="springMVC笔记">
+<meta name="twitter:description" content="MVC模式（Model–view–controller）是软件工程中的一种软件架构模式，把软件系统分为三个基本部分：模型（Model）、视图（View）和控制器（Controller）。 控制器（Controller）- 负责转发请求，对请求进行处理。 视图（View） - 负责显示数据，这个部分多为前端应用，而 Controller 会有一个机制将处理的结果 (可能是 Model, 集合或是状态">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '5.1.4',
+    sidebar: {"position":"right","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2019/03/25/springMVC/">
+
+
+
+
+
+  <title>springMVC笔记 | hello</title>
+  
+
+
+
+
+
+
+
+
+<!-- Global site tag (gtag.js) - Google Analytics -->
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-129305475-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-129305475-1');
+</script>
+
+</head>
+
+<body itemscope="" itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-right page-post-detail">
+    <div class="headband"></div>
+  
+    <a href="https://github.com/wzs63"><img style="position: absolute; top: 0; left: 0; border: 0;" src="https://s3.amazonaws.com/github/ribbons/forkme_left_darkblue_121621.png" alt="Fork me on GitHub"></a>
+
+    <header id="header" class="header" itemscope="" itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">hello</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br>
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br>
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-search">
+          <a href="/search" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-question-circle"></i> <br>
+            
+            搜索
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-commonweal">
+          <a href="/404/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-heartbeat"></i> <br>
+            
+            公益404
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-something">
+          <a href="/something" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-question-circle"></i> <br>
+            
+            啦啦啦
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/03/25/springMVC/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="wzs63">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/image/01.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="hello">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">springMVC笔记</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-03-25T16:38:59+08:00">
+                2019-03-25
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
+                  <a href="/categories/JavaEE/" itemprop="url" rel="index">
+                    <span itemprop="name">JavaEE</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>MVC模式（Model–view–controller）是软件工程中的一种软件架构模式，把软件系统分为三个基本部分：模型（Model）、视图（View）和控制器（Controller）。</p>
+<p>控制器（Controller）- 负责转发请求，对请求进行处理。</p>
+<p>视图（View） - 负责显示数据，这个部分多为前端应用，而 Controller 会有一个机制将处理的结果 (可能是 Model, 集合或是状态等) 交给 View，然后由 View 来决定怎么显示<br>模型（Model） -    负责数据访问,掌管数据源</p>
+<h4 id="DispatcherServlet是springMVC的入口（所有的请求都提交到该Servlet）"><a href="#DispatcherServlet是springMVC的入口（所有的请求都提交到该Servlet）" class="headerlink" title="DispatcherServlet是springMVC的入口（所有的请求都提交到该Servlet）"></a>DispatcherServlet是springMVC的入口（所有的请求都提交到该Servlet）</h4><p>springmvc自带有org.springframework.web.servlet.DispatcherServlet<br>充当调度员的一个servlet，拦截匹配的请求，并且依据相应的规则分发到目标Controller来处理。</p>
+<h2 id="配置及整体过程"><a href="#配置及整体过程" class="headerlink" title="配置及整体过程"></a>配置及整体过程</h2><h3 id="web-xml下的配置"><a href="#web-xml下的配置" class="headerlink" title="web.xml下的配置"></a>web.xml下的配置</h3><pre><code>&lt;!-- spring mvc核心：分发servlet --&gt;
+    &lt;servlet&gt;
+         &lt;servlet-name&gt;mvc-dispatcher&lt;/servlet-name&gt;
+         &lt;servlet-class&gt;org.springframework.web.servlet.DispatcherServlet&lt;/servlet-class&gt;
+         &lt;!-- spring mvc的配置文件 --&gt;
+         &lt;init-param&gt;
+             &lt;param-name&gt;contextConfigLocation&lt;/param-name&gt;
+             &lt;param-value&gt;classpath:springMVC.xml&lt;/param-value&gt;
+         &lt;/init-param&gt;
+         &lt;load-on-startup&gt;1&lt;/load-on-startup&gt;
+    &lt;/servlet&gt;
+
+    &lt;servlet-mapping&gt;
+         &lt;servlet-name&gt;mvc-dispatcher&lt;/servlet-name&gt;
+         &lt;url-pattern&gt;*.do&lt;/url-pattern&gt;
+    &lt;/servlet-mapping&gt;
+</code></pre><p>设置在web应用启动时就将此servlet创建并初始化（默认值为0，就是在用对应请求到来时才创建）</p>
+<pre><code>&lt;load-on-startup&gt;1&lt;/load-on-startup&gt;
+</code></pre><p>此servlet初始化时会找一个WEB-INF目录下的一个配置文件，命名规则为servletName-servlet.xml（比如对于 <servlet-name>mvc-dispatcher</servlet-name>默认是找WEB-INF\mvc-dispatcher-servlet.xml配置文件）。<br>当然这个配置文件路径和名字可以自己设置</p>
+<pre><code>&lt;!-- spring mvc的配置文件 --&gt;
+         &lt;init-param&gt;
+             &lt;param-name&gt;contextConfigLocation&lt;/param-name&gt;
+             &lt;param-value&gt;classpath:springMVC.xml&lt;/param-value&gt;
+         &lt;/init-param&gt;
+</code></pre><p>这样直接把springMVC.xml放src目录下就可以了</p>
+<p>拦截使用为*.do的请求：</p>
+<pre><code>&lt;servlet-mapping&gt;
+     &lt;servlet-name&gt;mvc-dispatcher&lt;/servlet-name&gt;
+     &lt;url-pattern&gt;*.do&lt;/url-pattern&gt;
+&lt;/servlet-mapping&gt;
+</code></pre><h3 id="springMVC-xml（Spring-MVC的-映射配置文件）"><a href="#springMVC-xml（Spring-MVC的-映射配置文件）" class="headerlink" title="springMVC.xml（Spring MVC的 映射配置文件）"></a>springMVC.xml（Spring MVC的 映射配置文件）</h3><pre><code>&lt;beans&gt;
+    &lt;bean id=&quot;simpleUrlHandlerMapping&quot;
+
+
+        class=&quot;org.springframework.web.servlet.handler.SimpleUrlHandlerMapping&quot;&gt;
+        &lt;property name=&quot;mappings&quot;&gt;
+            &lt;props&gt;
+                &lt;prop key=&quot;/hello.do&quot;&gt;HelloController&lt;/prop&gt;
+            &lt;/props&gt;
+        &lt;/property&gt;
+    &lt;/bean&gt;
+    &lt;bean id=&quot;helloController&quot; class=&quot;controller.HelloController&quot;&gt;&lt;/bean&gt;
+&lt;/beans&gt;
+</code></pre><p>访问路径/hello.do会交给id=helloController的bean处理</p>
+<p>创建控制类控制类 <strong>helloController</strong>实现接口Controller ，提供方法处理请求</p>
+<pre><code>public class HelloController implements Controller {
+    public ModelAndView handleRequest(HttpServletRequest request, HttpServletResponse response)throws Exception {
+        ModelAndView mav = new ModelAndView(&quot;hello.jsp&quot;);//跳转到这个页面
+        mav.addObject(&quot;message&quot;, &quot;Hello Spring MVC&quot;);//JSP中可用&lt;h1&gt;${message}&lt;/h1&gt;  
+        return mav;
+    }
+}
+</code></pre><p>WebContent目录下创建<strong>hello.jsp</strong>，可以用喜欢的方式展示数据（ ${message}）<br>例如： </p>
+<pre><code>&lt;%@ page language=&quot;java&quot; contentType=&quot;text/html; charset=UTF-8&quot;
+    pageEncoding=&quot;UTF-8&quot; isELIgnored=&quot;false&quot;%&gt;
+&lt;h1&gt;${message}&lt;/h1&gt;
+</code></pre><p> 这样一来在用户请求/hello.do时，因为web.xml中的配置 *.do的所有请求都经过DispatcherServlet，再根据配置文件springMVC.xml ，访问路径/hello.do<br>对应HelloController类，在HelloController中指定跳转到页面hello.jsp，并传递message数据，最后在hello.jsp中显示message信息。</p>
+<h2 id="视图定位"><a href="#视图定位" class="headerlink" title="视图定位"></a>视图定位</h2><pre><code>&lt;bean
+         class=&quot;org.springframework.web.servlet.view.InternalResourceViewResolver&quot;&gt;
+        &lt;property name=&quot;viewClass&quot;
+             value=&quot;org.springframework.web.servlet.view.JstlView&quot; /&gt;
+        &lt;property name=&quot;prefix&quot;  value=&quot;/WEB-INF/jsp/&quot; /&gt;
+        &lt;property name=&quot;suffix&quot; value=&quot;.jsp&quot; /&gt;
+    &lt;/bean&gt;
+</code></pre><p>这样一来把视图约定在 /WEB-INF/page/*.jsp 这个位置s<br>Controller中写 ModelAndView mav = new ModelAndView(“hello”)，就是跳转到/WEB-INF/jsp/hello.jsp了</p>
+<h2 id="用注释的方式"><a href="#用注释的方式" class="headerlink" title="用注释的方式"></a>用注释的方式</h2><p>@Controller 表示该类是一个控制器<br>@RequestMapping(“register.do”) 表示此请求会映射到此方法</p>
+<pre><code>@Controller
+public class UserController {
+    @Autowired
+    UserService userService;
+
+    @RequestMapping(&quot;register.do&quot;)
+    public ModelAndView register(){
+         ModelAndView mav = new ModelAndView();
+         mav.setViewName(&quot;register&quot;);
+         return mav;
+    }
+}
+</code></pre><p>springMVC.xml需要添加以下内容<br>1.声明spring-context部分</p>
+<pre><code>&lt;beans 
+        ......
+     xmlns:context=&quot;http://www.springframework.org/schema/context&quot;
+......
+&gt;
+</code></pre><p>2.指定扫描注释的包，把类放到这个包下面并加以@Controller注释就会知道这是个控制器类</p>
+<pre><code>&lt;context:component-scan base-package=&quot;controller&quot; /&gt;
+</code></pre><h3 id="表单提交并自动将数据注入对象"><a href="#表单提交并自动将数据注入对象" class="headerlink" title="表单提交并自动将数据注入对象"></a>表单提交并自动将数据注入对象</h3><p>pojo包下建User类</p>
+<pre><code>package pojo;
+public class User {
+    String uid;
+    String uname;
+    String up;
+    public String getUid() {
+         return uid;
+    }
+    public void setUid(String uid) {
+         this.uid = uid;
+    }
+    public String getUname() {
+         return uname;
+    }
+    public void setUname(String uname) {
+         this.uname = uname;
+    }
+    public String getUp() {
+         return up;
+    }
+    public void setUid(String uid){
+         this.up = up;
+    }
+    public float getUb() {
+         return ub;
+    }
+    public User(){
+
+    }
+}
+</code></pre><p>表单中，要填的两项分别为name=”uid”，name=”up” 与User类setUid(String uid)，setUid(String uid)对应</p>
+<pre><code>&lt;form action=&quot;loginwc.do&quot; method=&quot;post&quot;&gt;
+         &lt;div class=&quot;form-group&quot;&gt;
+           &lt;label&gt;账户&lt;/label&gt;
+           &lt;input type=&quot;text&quot; name=&quot;uid&quot;  placeholder=&quot;用户名/手机&quot; class=&quot;form-control&quot;   style=&quot;width:300px&quot;/&gt;
+        &lt;/div&gt;
+
+         &lt;div class=&quot;form-group&quot;&gt;
+           &lt;label&gt;密码&lt;/label&gt;
+           &lt;input type=&quot;password&quot; name=&quot;up&quot;  placeholder=&quot;密码&quot; class=&quot;form-control&quot;   style=&quot;width:300px&quot;/&gt;
+         &lt;/div&gt; 
+
+&lt;div class=&quot;form-group&quot;&gt;
+              &lt;button type=&quot;submit&quot; class=&quot;btn  btn-primary&quot;&gt;登录&lt;/button&gt;
+        &lt;/div&gt;
+&lt;/form&gt;
+</code></pre><p>对应Controller<br>springmvc发现页面传递过来有参数uid的时候，同时检测到参数的User这个类有setUid方法，那么就会把参数uid的值，注入到这个user对象里去了(up同理）</p>
+<pre><code>@RequestMapping(&quot;loginwc.do&quot;)
+    public ModelAndView loginwc(User  user,HttpServletRequest req,HttpServletResponse  resp) {
+         ModelAndView mav = new ModelAndView();
+         System.out.println(user.getUid());//就是表单输入的值
+         System.out.println(user.getUp());//就是表单输入的值
+        //dosomething
+         return mav;
+    }
+</code></pre><p>另外也可以用@RequestParam注释直接提取表单的数据到方法参数中(当然不一定是非要是String了，springMVC 会尽力转化的)</p>
+<pre><code>public ModelAndView loginwc(@RequestParam String uid,@RequestParam String up,) {
+     ModelAndView mav = new ModelAndView();
+     System.out.println(user.getUid());//就是表单输入的值
+     System.out.println(user.getUp());//就是表单输入的值
+    //dosomething
+     return mav;
+}
+</code></pre><p>字段不同名也可以设置value值 @RequestParam(value=””)</p>
+<pre><code>public ModelAndView loginwc(@RequestParam(value=&quot;uid&quot;) String userId,@RequestParam(value=&quot;uid&quot;) String userPassword,)
+</code></pre><h2 id="请求重定向redirect"><a href="#请求重定向redirect" class="headerlink" title="请求重定向redirect:"></a>请求重定向redirect:</h2><pre><code>@RequestMapping(&quot;/jump.do&quot;)
+    public ModelAndView jump() {
+        ModelAndView mav = new ModelAndView(&quot;redirect:/hello.do&quot;);
+        return mav;
+    }  
+</code></pre><h2 id="页面上传"><a href="#页面上传" class="headerlink" title="页面上传"></a>页面上传</h2><p>springMVC.xml新增加一段配置，开放对上传功能的支持</p>
+<pre><code>&lt;bean id=&quot;multipartResolver&quot; class=&quot;org.springframework.web.multipart.commons.CommonsMultipartResolver&quot;/&gt;
+</code></pre><p>upload.jsp 上传页面<br>上传页面，需要注意的是form 的两个属性必须提供<br>method=”post” 和 enctype=”multipart/form-data” 缺一不可<br>上传组件 增加一个属性 accept=”image/*” 表示只能选择图片进行上传</p>
+<pre><code>&lt;%@ page language=&quot;java&quot; contentType=&quot;text/html; charset=UTF-8&quot;
+    pageEncoding=&quot;UTF-8&quot; import=&quot;java.util.*&quot; isELIgnored=&quot;false&quot;%&gt;
+
+&lt;form action=&quot;uploadImage.do&quot; method=&quot;post&quot; enctype=&quot;multipart/form-data&quot;&gt;
+  选择图片:&lt;input type=&quot;file&quot; name=&quot;image&quot; accept=&quot;image/*&quot; /&gt;
+
+  &lt;input type=&quot;submit&quot; value=&quot;上传&quot;&gt;
+&lt;/form&gt;
+</code></pre><p>pojo.UploadedImageFile</p>
+<pre><code>public class UploadedImageFile {
+    MultipartFile image;
+    public MultipartFile getImage() {
+        return image;
+    }
+    public void setImage(MultipartFile image) {
+        this.image = image;
+    }
+}
+</code></pre><p>之后编写uploadImage.do请求对应的controller的方法对图片进行操作（保存展示等）。</p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/03/24/Session和cookie/" rel="next" title="Session和Cookie">
+                <i class="fa fa-chevron-left"></i> Session和Cookie
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2019/03/27/Java集合/" rel="prev" title="Java集合笔记">
+                Java集合笔记 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="/image/01.png" alt="wzs63">
+            
+              <p class="site-author-name" itemprop="name">wzs63</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">12</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">6</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+
+          </nav>
+
+          
+
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#DispatcherServlet是springMVC的入口（所有的请求都提交到该Servlet）"><span class="nav-number">1.</span> <span class="nav-text">DispatcherServlet是springMVC的入口（所有的请求都提交到该Servlet）</span></a></li></ol><li class="nav-item nav-level-2"><a class="nav-link" href="#配置及整体过程"><span class="nav-number"></span> <span class="nav-text">配置及整体过程</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#web-xml下的配置"><span class="nav-number"></span> <span class="nav-text">web.xml下的配置</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#springMVC-xml（Spring-MVC的-映射配置文件）"><span class="nav-number"></span> <span class="nav-text">springMVC.xml（Spring MVC的 映射配置文件）</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#视图定位"><span class="nav-number"></span> <span class="nav-text">视图定位</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#用注释的方式"><span class="nav-number"></span> <span class="nav-text">用注释的方式</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#表单提交并自动将数据注入对象"><span class="nav-number"></span> <span class="nav-text">表单提交并自动将数据注入对象</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#请求重定向redirect"><span class="nav-number"></span> <span class="nav-text">请求重定向redirect:</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#页面上传"><span class="nav-number"></span> <span class="nav-text">页面上传</span></a></li></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        ﻿<script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">wzs63</span>
+
+  
+</div>
+
+
+  <div class="powered-by">由  强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash;  v5.1.4</div>
+<div class="powered-by">
+<i class="fa fa-user-md"></i><span id="busuanzi_container_site_uv">
+  本站访客数:<span id="busuanzi_value_site_uv"></span>
+</span>
+</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
