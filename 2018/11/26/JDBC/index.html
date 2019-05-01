@@ -8,18 +8,18 @@
   <link rel="dns-prefetch" href="https://wzs63.github.io">
   <title>JDBC总结 | wzs63的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="java对关系数据库的支持是通过JDBC(Java DateBase Connectivity)API来提供的。 2018.12.14修改：SqlServer连接时：“jdbc:sqlserver://localhost:1433;DatabaseName=数据库名,与MySQL连接不同（不仅仅是端口号）。 JDBC的使用分为以下几个步骤：一、初始化驱动 try {             //以">
+  <meta name="description" content="java对关系数据库的支持是通过JDBC(Java DateBase Connectivity)API来提供的。 2018.12.14修改：SqlServer连接时：“jdbc:sqlserver://localhost:1433;DatabaseName=数据库名,与MySQL连接不同（不仅仅是端口号）。 JDBC的使用分为以下几个步骤：一、初始化驱动1234567891011try &amp;#123">
 <meta name="keywords" content="Java">
 <meta property="og:type" content="article">
 <meta property="og:title" content="JDBC总结">
 <meta property="og:url" content="https://wzs63.github.io/2018/11/26/JDBC/index.html">
 <meta property="og:site_name" content="wzs63的博客">
-<meta property="og:description" content="java对关系数据库的支持是通过JDBC(Java DateBase Connectivity)API来提供的。 2018.12.14修改：SqlServer连接时：“jdbc:sqlserver://localhost:1433;DatabaseName=数据库名,与MySQL连接不同（不仅仅是端口号）。 JDBC的使用分为以下几个步骤：一、初始化驱动 try {             //以">
+<meta property="og:description" content="java对关系数据库的支持是通过JDBC(Java DateBase Connectivity)API来提供的。 2018.12.14修改：SqlServer连接时：“jdbc:sqlserver://localhost:1433;DatabaseName=数据库名,与MySQL连接不同（不仅仅是端口号）。 JDBC的使用分为以下几个步骤：一、初始化驱动1234567891011try &amp;#123">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:updated_time" content="2019-04-29T09:12:10.925Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="JDBC总结">
-<meta name="twitter:description" content="java对关系数据库的支持是通过JDBC(Java DateBase Connectivity)API来提供的。 2018.12.14修改：SqlServer连接时：“jdbc:sqlserver://localhost:1433;DatabaseName=数据库名,与MySQL连接不同（不仅仅是端口号）。 JDBC的使用分为以下几个步骤：一、初始化驱动 try {             //以">
+<meta name="twitter:description" content="java对关系数据库的支持是通过JDBC(Java DateBase Connectivity)API来提供的。 2018.12.14修改：SqlServer连接时：“jdbc:sqlserver://localhost:1433;DatabaseName=数据库名,与MySQL连接不同（不仅仅是端口号）。 JDBC的使用分为以下几个步骤：一、初始化驱动1234567891011try &amp;#123">
   
     <link rel="alternative" href="/atom.xml" title="wzs63的博客" type="application/atom+xml">
   
@@ -196,122 +196,26 @@
     	
     		<p>java对关系数据库的支持是通过JDBC(Java DateBase Connectivity)API来提供的。</p>
 <p>2018.12.14修改：<br>SqlServer连接时：<br>“jdbc:sqlserver://localhost:1433;DatabaseName=数据库名,<br>与MySQL连接不同（不仅仅是端口号）。</p>
-<h1 id="JDBC的使用分为以下几个步骤："><a href="#JDBC的使用分为以下几个步骤：" class="headerlink" title="JDBC的使用分为以下几个步骤："></a>JDBC的使用分为以下几个步骤：</h1><h2 id="一、初始化驱动"><a href="#一、初始化驱动" class="headerlink" title="一、初始化驱动"></a>一、初始化驱动</h2><pre><code> try {
-            //以连接mysql为例
-            Class.forName(&quot;com.mysql.jdbc.Driver&quot;);
-            //若要连接SqlServer，对应初始化驱动类为&quot;com.microsoft.sqlserver.jdbc.SQLServerDriver&quot; 
-            //若是Oracle数据库，则为&quot;oracle.jdbc.driver.OracleDriver&quot;
-            //数据库驱动加载成功 
-
-        } catch (ClassNotFoundException e) {
-            // TODO Auto-generated catch block
-            e.printStackTrace();
-        }
-</code></pre><p>初始化驱动类com.mysql.jdbc.Driver在相关包中,若未引入包，Class.forName(“com.mysql.jdbc.Driver”)会抛出ClassNotFoundException异常。</p>
+<h1 id="JDBC的使用分为以下几个步骤："><a href="#JDBC的使用分为以下几个步骤：" class="headerlink" title="JDBC的使用分为以下几个步骤："></a>JDBC的使用分为以下几个步骤：</h1><h2 id="一、初始化驱动"><a href="#一、初始化驱动" class="headerlink" title="一、初始化驱动"></a>一、初始化驱动</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">try &#123;</span><br><span class="line">		//以连接mysql为例</span><br><span class="line">           Class.forName(&quot;com.mysql.jdbc.Driver&quot;);</span><br><span class="line">           //若要连接SqlServer，对应初始化驱动类为&quot;com.microsoft.sqlserver.jdbc.SQLServerDriver&quot; </span><br><span class="line">		//若是Oracle数据库，则为&quot;oracle.jdbc.driver.OracleDriver&quot;</span><br><span class="line">           //数据库驱动加载成功 </span><br><span class="line">  </span><br><span class="line">       &#125; catch (ClassNotFoundException e) &#123;</span><br><span class="line">           // TODO Auto-generated catch block</span><br><span class="line">           e.printStackTrace();</span><br><span class="line">       &#125;</span><br></pre></td></tr></table></figure>
+<p>初始化驱动类com.mysql.jdbc.Driver在相关包中,若未引入包，Class.forName(“com.mysql.jdbc.Driver”)会抛出ClassNotFoundException异常。</p>
 <h2 id="二、建立数据库连接"><a href="#二、建立数据库连接" class="headerlink" title="二、建立数据库连接"></a>二、建立数据库连接</h2><p>连接需要提供以下信息：<br>DBMS服务器所运行的机器的<strong>主机名</strong>:127.0.0.1或者localhost (本机)，<br>数据库的<strong>端口号</strong>，用来侦听进入的连接： 3306 （mysql专用端口号）或者1433（SqlServer专用端口号）,或者1521（Oracle专用端口号），<br>希望连接的<strong>数据库名称</strong>，<br><strong>编码方式</strong>，如UTF-8（可选），<br><strong>账号 </strong>，<br><strong>密码 </strong>。</p>
-<p>JDBC中的数据库连接是通过Connection类的实例来表示的，这个类的实例由DriverManager类的静态方法getConnection()返回。</p>
-<pre><code>  try {
-            Class.forName(&quot;com.mysql.jdbc.Driver&quot;);
-
-            // 建立与数据库的Connection连接
-            Connection c = DriverManager.getConnection(
-                            &quot;jdbc:mysql://127.0.0.1:3306/数据库名称?characterEncoding=UTF-8&quot;,
-                            &quot;账号&quot;, &quot;密码&quot;);
-            //连接成功，c为获取连接对象
-
-        } catch (ClassNotFoundException e) {
-            // TODO Auto-generated catch block
-            e.printStackTrace();
-        } catch (SQLException e) {
-            // TODO Auto-generated catch block
-            e.printStackTrace();
-        }
-</code></pre><h2 id="三、创建Statement实例"><a href="#三、创建Statement实例" class="headerlink" title="三、创建Statement实例"></a>三、创建Statement实例</h2><p>Statement是用于执行SQL命令的接口。<br>创建一个Statement或其子接口之一（PreparedStatement接口或者CallablesStatement接口）的实例。<br>可以通过调用Connection的createStatement()方法来创建Statement的实例</p>
-<pre><code> try {
-            Class.forName(&quot;com.mysql.jdbc.Driver&quot;);
-
-            Connection c = DriverManager .getConnection(&quot;jdbc:mysql://127.0.0.1:3306/数据库名称?characterEncoding=UTF-8&quot;,  &quot;用户名&quot;, &quot;密码&quot;);
-
-            // 注意：使用的是 java.sql.Statement， 不要不小心使用到： com.mysql.jdbc.Statement
-
-            Statement s = c.createStatement();
-
-
-        } catch (ClassNotFoundException e) {
-            // TODO Auto-generated catch block
-            e.printStackTrace();
-        } catch (SQLException e) {
-            // TODO Auto-generated catch block
-            e.printStackTrace();
-        }
-</code></pre><h2 id="四、利用Statement实例执行SQL命令"><a href="#四、利用Statement实例执行SQL命令" class="headerlink" title="四、利用Statement实例执行SQL命令"></a>四、利用Statement实例执行SQL命令</h2><h3 id="Statement实例执行方法："><a href="#Statement实例执行方法：" class="headerlink" title="Statement实例执行方法："></a>Statement实例执行方法：</h3><h4 id="executeUpdata-方法"><a href="#executeUpdata-方法" class="headerlink" title="executeUpdata()方法"></a>executeUpdata()方法</h4><p>int executeUpdate(String sql)<br>执行给定的SQL语句，这可能是 <strong>INSERT ， UPDATE ，或 DELETE语句</strong>，或者不返回任何内容，如SQL DDL语句的SQL语句。<br>返回类型为int，表示所更改的行数。</p>
+<p>JDBC中的数据库连接是通过Connection类的实例来表示的，这个类的实例由DriverManager类的静态方法getConnection()返回。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">try &#123;</span><br><span class="line">          Class.forName(&quot;com.mysql.jdbc.Driver&quot;);</span><br><span class="line"></span><br><span class="line">          // 建立与数据库的Connection连接</span><br><span class="line">          Connection c = DriverManager.getConnection(</span><br><span class="line">                          &quot;jdbc:mysql://127.0.0.1:3306/数据库名称?characterEncoding=UTF-8&quot;,</span><br><span class="line">                          &quot;账号&quot;, &quot;密码&quot;);</span><br><span class="line">          //连接成功，c为获取连接对象</span><br><span class="line"></span><br><span class="line">      &#125; catch (ClassNotFoundException e) &#123;</span><br><span class="line">          // TODO Auto-generated catch block</span><br><span class="line">          e.printStackTrace();</span><br><span class="line">      &#125; catch (SQLException e) &#123;</span><br><span class="line">          // TODO Auto-generated catch block</span><br><span class="line">          e.printStackTrace();</span><br><span class="line">      &#125;</span><br></pre></td></tr></table></figure></p>
+<h2 id="三、创建Statement实例"><a href="#三、创建Statement实例" class="headerlink" title="三、创建Statement实例"></a>三、创建Statement实例</h2><p>Statement是用于执行SQL命令的接口。<br>创建一个Statement或其子接口之一（PreparedStatement接口或者CallablesStatement接口）的实例。<br>可以通过调用Connection的createStatement()方法来创建Statement的实例<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">try &#123;</span><br><span class="line">           Class.forName(&quot;com.mysql.jdbc.Driver&quot;);</span><br><span class="line"> </span><br><span class="line">           Connection c = DriverManager .getConnection(&quot;jdbc:mysql://127.0.0.1:3306/数据库名称?characterEncoding=UTF-8&quot;,  &quot;用户名&quot;, &quot;密码&quot;);</span><br><span class="line"> </span><br><span class="line">           // 注意：使用的是 java.sql.Statement， 不要不小心使用到： com.mysql.jdbc.Statement</span><br><span class="line">          </span><br><span class="line">		Statement s = c.createStatement();</span><br><span class="line"> </span><br><span class="line"> </span><br><span class="line">       &#125; catch (ClassNotFoundException e) &#123;</span><br><span class="line">           // TODO Auto-generated catch block</span><br><span class="line">           e.printStackTrace();</span><br><span class="line">       &#125; catch (SQLException e) &#123;</span><br><span class="line">           // TODO Auto-generated catch block</span><br><span class="line">           e.printStackTrace();</span><br><span class="line">       &#125;</span><br></pre></td></tr></table></figure></p>
+<h2 id="四、利用Statement实例执行SQL命令"><a href="#四、利用Statement实例执行SQL命令" class="headerlink" title="四、利用Statement实例执行SQL命令"></a>四、利用Statement实例执行SQL命令</h2><h3 id="Statement实例执行方法："><a href="#Statement实例执行方法：" class="headerlink" title="Statement实例执行方法："></a>Statement实例执行方法：</h3><h4 id="executeUpdata-方法"><a href="#executeUpdata-方法" class="headerlink" title="executeUpdata()方法"></a>executeUpdata()方法</h4><p>int executeUpdate(String sql)<br>执行给定的SQL语句，这可能是 <strong>INSERT ， UPDATE ，或 DELETE语句</strong>，或者不返回任何内容，如SQL DDL语句的SQL语句。<br>返回类型为int，表示所更改的行数。</p>
 <h4 id="executeQuery-方法"><a href="#executeQuery-方法" class="headerlink" title="executeQuery()方法"></a>executeQuery()方法</h4><p>ResultSet executeQuery(String sql)<br>当希望执行查询时（<strong>SELECT语句</strong>）可使用executeQuery()方法。<br>执行给定的SQL语句，该语句返回单个 ResultSet对象，用来处理查询的结果。 </p>
-<h4 id="execute-方法"><a href="#execute-方法" class="headerlink" title="execute()方法"></a>execute()方法</h4><p>boolean execute(String sql)<br>此方法可能会返回多个更新数或者ResultSet实例。<br>如果第一个返回值是ResultSet则返回true<br>如果第一个返回值是int则发布会false<br>可以使用方法getResultSet或getUpdateCount检索结果，然后getMoreResults移动到任何后续结果。（getUpdateCount返回值为-1就会到达结果队列的尾部）</p>
-<pre><code>try {
-            Class.forName(&quot;com.mysql.jdbc.Driver&quot;);
-
-            Connection c = DriverManager .getConnection(&quot;jdbc:mysql://127.0.0.1:3306/数据库名称?characterEncoding=UTF-8&quot;,&quot;用户名&quot;, &quot;密码&quot;);
-
-            Statement s = c.createStatement();
-
-            // 注意： 字符串要用单引号&#39;
-            String sql = &quot;insert into tableName values(&#39;value&#39;)&quot;;
-            s.execute(sql);
-
-        } catch (ClassNotFoundException e) {
-            // TODO Auto-generated catch block
-            e.printStackTrace();
-        } catch (SQLException e) {
-            // TODO Auto-generated catch block
-            e.printStackTrace();
-        }
-</code></pre><h3 id="ResultSet介绍"><a href="#ResultSet介绍" class="headerlink" title="ResultSet介绍"></a>ResultSet介绍</h3><h4 id="1-光标定位"><a href="#1-光标定位" class="headerlink" title="1.光标定位"></a>1.光标定位</h4><h5 id="boolean-next-throws-SQLException"><a href="#boolean-next-throws-SQLException" class="headerlink" title="boolean next() throws SQLException"></a>boolean next() throws SQLException</h5><p>将光标从当前位置向前移动一行。</p>
-<pre><code>ResultSet rs = s.executeQuery(SELECT * FROM TABLE1);
-while(rs.next()){
-    //do something...
-}
-</code></pre><p>光标最初位于第一行之前; 第一次调用方法next使第一行成为当前行; 第二个调用使第二行成为当前行，依此类推。<br>当返回false时，光标位于最后一行之后。 </p>
+<h4 id="execute-方法"><a href="#execute-方法" class="headerlink" title="execute()方法"></a>execute()方法</h4><p>boolean execute(String sql)<br>此方法可能会返回多个更新数或者ResultSet实例。<br>如果第一个返回值是ResultSet则返回true<br>如果第一个返回值是int则发布会false<br>可以使用方法getResultSet或getUpdateCount检索结果，然后getMoreResults移动到任何后续结果。（getUpdateCount返回值为-1就会到达结果队列的尾部）<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">try &#123;</span><br><span class="line">            Class.forName(&quot;com.mysql.jdbc.Driver&quot;);</span><br><span class="line">  </span><br><span class="line">            Connection c = DriverManager .getConnection(&quot;jdbc:mysql://127.0.0.1:3306/数据库名称?characterEncoding=UTF-8&quot;,&quot;用户名&quot;, &quot;密码&quot;);</span><br><span class="line">  </span><br><span class="line">            Statement s = c.createStatement();</span><br><span class="line">  </span><br><span class="line">            // 注意： 字符串要用单引号&apos;</span><br><span class="line">            String sql = &quot;insert into tableName values(&apos;value&apos;)&quot;;</span><br><span class="line">            s.execute(sql);</span><br><span class="line"></span><br><span class="line">        &#125; catch (ClassNotFoundException e) &#123;</span><br><span class="line">            // TODO Auto-generated catch block</span><br><span class="line">            e.printStackTrace();</span><br><span class="line">        &#125; catch (SQLException e) &#123;</span><br><span class="line">            // TODO Auto-generated catch block</span><br><span class="line">            e.printStackTrace();</span><br><span class="line">        &#125;</span><br></pre></td></tr></table></figure></p>
+<h3 id="ResultSet介绍"><a href="#ResultSet介绍" class="headerlink" title="ResultSet介绍"></a>ResultSet介绍</h3><h4 id="1-光标定位"><a href="#1-光标定位" class="headerlink" title="1.光标定位"></a>1.光标定位</h4><h5 id="boolean-next-throws-SQLException"><a href="#boolean-next-throws-SQLException" class="headerlink" title="boolean next() throws SQLException"></a>boolean next() throws SQLException</h5><p>将光标从当前位置向前移动一行。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">ResultSet rs = s.executeQuery(SELECT * FROM TABLE1);</span><br><span class="line">while(rs.next())&#123;</span><br><span class="line">	//do something...</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>光标最初位于第一行之前; 第一次调用方法next使第一行成为当前行; 第二个调用使第二行成为当前行，依此类推。<br>当返回false时，光标位于最后一行之后。 </p>
 <h5 id="boolean-relative-int-rows-throws-SQLException"><a href="#boolean-relative-int-rows-throws-SQLException" class="headerlink" title="boolean relative(int rows) throws SQLException"></a>boolean relative(int rows) throws SQLException</h5><p>将光标移动到正或负的相对行数。<br>调用relative(0)是有效的，但不会更改光标位置。</p>
-<h4 id="2-数据检索"><a href="#2-数据检索" class="headerlink" title="2.数据检索"></a>2.数据检索</h4><h5 id="getXXX-，例如String-getString-int-columnIndex-throws-SQLException"><a href="#getXXX-，例如String-getString-int-columnIndex-throws-SQLException" class="headerlink" title="getXXX()，例如String getString(int columnIndex) throws SQLException"></a>getXXX()，例如String getString(int columnIndex) throws SQLException</h5><p>这个检索的当前行中指定列的值，<strong>索引从1开始</strong>。</p>
-<pre><code>//从第二列检索String值
-columnValue = rs.getString(2);
-</code></pre><h5 id="根据属性名检索，例如String-getString-String-columnLabel-throws-SQLException"><a href="#根据属性名检索，例如String-getString-String-columnLabel-throws-SQLException" class="headerlink" title="根据属性名检索，例如String getString(String columnLabel) throws SQLException"></a>根据属性名检索，例如String getString(String columnLabel) throws SQLException</h5><h4 id="3-数值修改"><a href="#3-数值修改" class="headerlink" title="3.数值修改"></a>3.数值修改</h4><p>updateXXX(),insertXXX(),deleteXXX()</p>
+<h4 id="2-数据检索"><a href="#2-数据检索" class="headerlink" title="2.数据检索"></a>2.数据检索</h4><h5 id="getXXX-，例如String-getString-int-columnIndex-throws-SQLException"><a href="#getXXX-，例如String-getString-int-columnIndex-throws-SQLException" class="headerlink" title="getXXX()，例如String getString(int columnIndex) throws SQLException"></a>getXXX()，例如String getString(int columnIndex) throws SQLException</h5><p>这个检索的当前行中指定列的值，<strong>索引从1开始</strong>。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">//从第二列检索String值</span><br><span class="line">columnValue = rs.getString(2);</span><br></pre></td></tr></table></figure></p>
+<h5 id="根据属性名检索，例如String-getString-String-columnLabel-throws-SQLException"><a href="#根据属性名检索，例如String-getString-String-columnLabel-throws-SQLException" class="headerlink" title="根据属性名检索，例如String getString(String columnLabel) throws SQLException"></a>根据属性名检索，例如String getString(String columnLabel) throws SQLException</h5><h4 id="3-数值修改"><a href="#3-数值修改" class="headerlink" title="3.数值修改"></a>3.数值修改</h4><p>updateXXX(),insertXXX(),deleteXXX()</p>
 <h3 id="PreparedStatement介绍"><a href="#PreparedStatement介绍" class="headerlink" title="PreparedStatement介绍"></a>PreparedStatement介绍</h3><p>PreparedStatement是Statement类的一个子类<br>有时候需要执行的SQL语句相似，仅仅是通过某个参数而区分。<br>那么编译每一个SQL语句会使得性能变差。</p>
-<p>PreparedStatement可以使得这样的SQL语句<strong>只编译一次</strong>（预编译机制），执行多次，使用可改变的参数来修改执行的SQL语句，<br>使得<strong>性能更好</strong>。</p>
-<pre><code>String sql = &quot;insert into table1 values(?,?)&quot;;
-PreparedStatement ps = c.prepareStatement(sql);
-ps.setString(1, &quot;value&quot;);//设置参数从一开始
-ps.setInt(2, 123);
-ps.execute();
-</code></pre><h5 id="注意：PreparedStatement设置参数时，从1开始。"><a href="#注意：PreparedStatement设置参数时，从1开始。" class="headerlink" title="注意：PreparedStatement设置参数时，从1开始。"></a>注意：PreparedStatement设置参数时，从1开始。</h5><p>另外，PreparedStatement不需要字符串拼接，而是<strong>参数设置</strong>，所以还有<strong>防止SQL注入式攻击</strong>功能。</p>
-<h2 id="五、最后关闭连接，释放资源"><a href="#五、最后关闭连接，释放资源" class="headerlink" title="五、最后关闭连接，释放资源"></a>五、最后关闭连接，释放资源</h2><p>先关闭Statement<br>后关闭Connection</p>
-<pre><code>finally {
-            if (s != null)
-                try {
-                    s.close();
-                } catch (SQLException e) {
-                    // TODO Auto-generated catch block
-                    e.printStackTrace();
-                }
-            if (c != null)
-                try {
-                    c.close();
-                } catch (SQLException e) {
-                    // TODO Auto-generated catch block
-                    e.printStackTrace();
-                }
-
-        }
-</code></pre><h1 id="事务"><a href="#事务" class="headerlink" title="事务"></a>事务</h1><p>在事务中的多个操作，要么都成功，要么都失败<br>通过 c.setAutoCommit(false);关闭自动提交<br>使用 c.commit();进行手动提交</p>
-<pre><code>c.setAutoCommit(false);
-//提交前发生了错误，则rollback
-String sql1 = &quot;update...&quot;;
-s.execute(sql1);
-String sql2 = &quot;updata...&quot;;
-s.execute(sql2);
-// 手动提交
-c.commit();
-</code></pre><p>参考书籍：Java高级编程（第二版）。<br>参考网站：how2j</p>
+<p>PreparedStatement可以使得这样的SQL语句<strong>只编译一次</strong>（预编译机制），执行多次，使用可改变的参数来修改执行的SQL语句，<br>使得<strong>性能更好</strong>。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">String sql = &quot;insert into table1 values(?,?)&quot;;</span><br><span class="line">PreparedStatement ps = c.prepareStatement(sql);</span><br><span class="line">ps.setString(1, &quot;value&quot;);//设置参数从一开始</span><br><span class="line">ps.setInt(2, 123);</span><br><span class="line">ps.execute();</span><br></pre></td></tr></table></figure></p>
+<h5 id="注意：PreparedStatement设置参数时，从1开始。"><a href="#注意：PreparedStatement设置参数时，从1开始。" class="headerlink" title="注意：PreparedStatement设置参数时，从1开始。"></a>注意：PreparedStatement设置参数时，从1开始。</h5><p>另外，PreparedStatement不需要字符串拼接，而是<strong>参数设置</strong>，所以还有<strong>防止SQL注入式攻击</strong>功能。</p>
+<h2 id="五、最后关闭连接，释放资源"><a href="#五、最后关闭连接，释放资源" class="headerlink" title="五、最后关闭连接，释放资源"></a>五、最后关闭连接，释放资源</h2><p>先关闭Statement<br>后关闭Connection<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">finally &#123;</span><br><span class="line">            if (s != null)</span><br><span class="line">                try &#123;</span><br><span class="line">                    s.close();</span><br><span class="line">                &#125; catch (SQLException e) &#123;</span><br><span class="line">                    // TODO Auto-generated catch block</span><br><span class="line">                    e.printStackTrace();</span><br><span class="line">                &#125;</span><br><span class="line">            if (c != null)</span><br><span class="line">                try &#123;</span><br><span class="line">                    c.close();</span><br><span class="line">                &#125; catch (SQLException e) &#123;</span><br><span class="line">                    // TODO Auto-generated catch block</span><br><span class="line">                    e.printStackTrace();</span><br><span class="line">                &#125;</span><br><span class="line"> </span><br><span class="line">        &#125;</span><br></pre></td></tr></table></figure></p>
+<h1 id="事务"><a href="#事务" class="headerlink" title="事务"></a>事务</h1><p>在事务中的多个操作，要么都成功，要么都失败<br>通过 c.setAutoCommit(false);关闭自动提交<br>使用 c.commit();进行手动提交<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">c.setAutoCommit(false);</span><br><span class="line">//提交前发生了错误，则rollback</span><br><span class="line">String sql1 = &quot;update...&quot;;</span><br><span class="line">s.execute(sql1);</span><br><span class="line">String sql2 = &quot;updata...&quot;;</span><br><span class="line">s.execute(sql2);</span><br><span class="line">// 手动提交</span><br><span class="line">c.commit();</span><br></pre></td></tr></table></figure></p>
+<p>参考书籍：Java高级编程（第二版）。<br>参考网站：how2j</p>
 
     	
     
@@ -557,11 +461,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">一些bug</a>
+                <a href="javascript:void(0)" class="js-tag color5">数据处理</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">数据处理</a>
+                <a href="javascript:void(0)" class="js-tag color5">数据结构</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">一些bug</a>
               </li>
              
               <li class="article-tag-list-item">

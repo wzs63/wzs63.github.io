@@ -218,14 +218,14 @@
     }
 }
 </code></pre><h3 id="在xml中配置"><a href="#在xml中配置" class="headerlink" title="在xml中配置"></a>在xml中配置</h3><p>servlet-name：servlet名字，可随意定义<br>servlet-class：servlet的实际路径<br>url-pattern：对应的请求URL映射配置</p>
-<pre><code> &lt;servlet&gt;
-    &lt;servlet-name&gt;showImg&lt;/servlet-name&gt;
-    &lt;servlet-class&gt;com.zr.controller.ImgController&lt;/servlet-class&gt;
-  &lt;/servlet&gt;
-  &lt;servlet-mapping&gt;
-    &lt;servlet-name&gt;showImg&lt;/servlet-name&gt;
-    &lt;url-pattern&gt;/getImg&lt;/url-pattern&gt;
-  &lt;/servlet-mapping&gt;
+<pre><code>&lt;servlet&gt;
+   &lt;servlet-name&gt;showImg&lt;/servlet-name&gt;
+   &lt;servlet-class&gt;com.zr.controller.ImgController&lt;/servlet-class&gt;
+ &lt;/servlet&gt;
+ &lt;servlet-mapping&gt;
+   &lt;servlet-name&gt;showImg&lt;/servlet-name&gt;
+   &lt;url-pattern&gt;/getImg&lt;/url-pattern&gt;
+ &lt;/servlet-mapping&gt;
 </code></pre><p>URL映射两大原则<br>1.精确匹配<br>如servlet1为/index.html,servlet2为/*,请求URL为http:/localhost:8080/项目名/index.html,则匹配到第一个。</p>
 <p>2.最长路径匹配<br>无法精确匹配情况下使用，如servlet1为/ind/<em>,servlet2为/</em>,请求URL为http:/localhost:8080/项目名/index.html,则匹配到第一个。</p>
 <h3 id="注释配URL置映射也可以"><a href="#注释配URL置映射也可以" class="headerlink" title="注释配URL置映射也可以"></a>注释配URL置映射也可以</h3><p>在类上加注释<br>@WebServlet(name=”…”,urlPatterns=”/…”)</p>
@@ -632,11 +632,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">一些bug</a>
+                <a href="javascript:void(0)" class="js-tag color5">数据处理</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">数据处理</a>
+                <a href="javascript:void(0)" class="js-tag color5">数据结构</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">一些bug</a>
               </li>
              
               <li class="article-tag-list-item">

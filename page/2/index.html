@@ -169,6 +169,201 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-sjycl2" class="article article-type-post  article-index" itemscope="" itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/11/15/sjycl2/">数据统计每一天/每一周发邮件的数量，并用可视化软件实现可视化。</a>
+    </h1>
+  
+
+        
+        <a href="/2018/11/15/sjycl2/" class="archive-article-date">
+  	<time datetime="2018-11-15T12:50:26.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-11-15</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+
+    	
+    		<p>下载对公众开放的安然(Enron)公司的电子邮件数据集。<br>下载地址：<br>      <a href="http://www.ahschulz.de/enron-email-data/；" target="_blank" rel="noopener">http://www.ahschulz.de/enron-email-data/；</a> </p>
+<h4 id="将数据导入数据库（message表含有date字段表示发送邮件时间。Mid表示编号），根据date进行分组，统计每一组的mid的数量（即这一天邮箱数量）。"><a href="#将数据导入数据库（message表含有date字段表示发送邮件时间。Mid表示编号），根据date进行分组，统计每一组的mid的数量（即这一天邮箱数量）。" class="headerlink" title="将数据导入数据库（message表含有date字段表示发送邮件时间。Mid表示编号），根据date进行分组，统计每一组的mid的数量（即这一天邮箱数量）。"></a>将数据导入数据库（message表含有date字段表示发送邮件时间。Mid表示编号），根据date进行分组，统计每一组的mid的数量（即这一天邮箱数量）。</h4><p>执行以下SQL语句，将每天/每周（换为weekofyear即可）数据导入Excel（因为之后利用plot.ly进行数据可视化时感觉CSV格式更方便些）</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">select date,count(mid) from message group by dayofyear(date) </span><br><span class="line">                                into outfile &quot;F:\day_apps.csv&quot;</span><br><span class="line">                                FIELDS TERMINATED BY &apos;,&apos;;</span><br></pre></td></tr></table></figure>
+<h4 id="（注：FIELDS-TERMINATED-BY-‘-’-靠‘，’分隔字段，如果没有这个语句date和count（mid）数据会导入到一个格子中）"><a href="#（注：FIELDS-TERMINATED-BY-‘-’-靠‘，’分隔字段，如果没有这个语句date和count（mid）数据会导入到一个格子中）" class="headerlink" title="（注：FIELDS TERMINATED BY ‘,’;  靠‘，’分隔字段，如果没有这个语句date和count（mid）数据会导入到一个格子中）"></a>（注：FIELDS TERMINATED BY ‘,’;  靠‘，’分隔字段，如果没有这个语句date和count（mid）数据会导入到一个格子中）</h4><p>数据库中分组查看结果：<br>每天：<br><img src="https://s2.ax1x.com/2019/03/23/AJGSxK.png" alt="AJGSxK.png"><br><br><br>每周：<br><img src="https://s2.ax1x.com/2019/03/23/AJGCrD.png" alt="AJGCrD.png"></p>
+<p><br></p>
+<h3 id="利用plot-ly进行数据可视化"><a href="#利用plot-ly进行数据可视化" class="headerlink" title="利用plot.ly进行数据可视化"></a>利用plot.ly进行数据可视化</h3><p>每天的发送邮件统计：<br><img src="https://s2.ax1x.com/2019/03/23/AJGPqe.md.png" alt="AJGPqe.md.png"><br>每周的发送邮件统计：<br><img src="https://s2.ax1x.com/2019/03/23/AJGFVH.md.png" alt="AJGFVH.md.png"></p>
+
+    	
+    
+
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">数据处理</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/数据处理//" class="article-tag-list-link color5">数据处理</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2018/11/15/sjycl2/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-sjycl" class="article article-type-post  article-index" itemscope="" itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/11/15/sjycl/">利用Python从json数据集提取出the Growlers的所有音乐的歌名</a>
+    </h1>
+  
+
+        
+        <a href="/2018/11/15/sjycl/" class="archive-article-date">
+  	<time datetime="2018-11-15T12:10:42.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-11-15</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+
+    	
+    		<p>json数据集下载地址：<br><a href="http://itunes.apple.com/search?term=the-growlers" target="_blank" rel="noopener">http://itunes.apple.com/search?term=the-growlers</a> </p>
+<h2 id="提取歌名并放入MySQL数据库中"><a href="#提取歌名并放入MySQL数据库中" class="headerlink" title="提取歌名并放入MySQL数据库中"></a>提取歌名并放入MySQL数据库中</h2><p>先在MySQL数据库中创建相应数据库和表</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"> create database yvchuli                    </span><br><span class="line">                               </span><br><span class="line">create table music(</span><br><span class="line">       </span><br><span class="line">       trackName varchar(60)</span><br><span class="line">       )</span><br></pre></td></tr></table></figure>
+<p>利用Python提取数据集中的歌名，并连接MySQL数据库，存入数据<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">import json </span><br><span class="line">import pymysql.cursors</span><br><span class="line">#连接mysql数据库</span><br><span class="line">connection = pymysql.Connect(host=&apos;localhost&apos;,</span><br><span class="line">                             port=3306,</span><br><span class="line">                             user=&apos;root&apos;,</span><br><span class="line">                             password=&apos;123456&apos;,</span><br><span class="line">                             db=&apos;yvchuli&apos;,</span><br><span class="line">                             charset=&apos;utf8&apos;)</span><br><span class="line">with open(&apos;1.txt&apos;) as f:</span><br><span class="line">    date = json.load(f)</span><br><span class="line">list = date[&quot;results&quot;]</span><br><span class="line"># 获取游标</span><br><span class="line">cursor = connection.cursor()</span><br><span class="line">for item in list:</span><br><span class="line"></span><br><span class="line">    #插入数据</span><br><span class="line">    sql = &quot;INSERT INTO music VALUES (\&quot;%s\&quot;)&quot;</span><br><span class="line">    data = item[&apos;trackName&apos;]</span><br><span class="line">    print(data)</span><br><span class="line">    cursor.execute(sql % data)</span><br><span class="line">    connection.commit()</span><br></pre></td></tr></table></figure></p>
+<p><br></p>
+<h3 id="MySQL数据库储存结果："><a href="#MySQL数据库储存结果：" class="headerlink" title="MySQL数据库储存结果："></a>MySQL数据库储存结果：</h3><p><img src="https://s2.ax1x.com/2019/03/23/AJGAIA.png" alt="AJGAIA.png"></p>
+<p><img scr="../images/yvchuli.PNG"></p>
+<h2 id="另外，也可以提取数据存放入Excel"><a href="#另外，也可以提取数据存放入Excel" class="headerlink" title="另外，也可以提取数据存放入Excel"></a>另外，也可以提取数据存放入Excel</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">import json </span><br><span class="line">import pymysql.cursors</span><br><span class="line">#连接mysql数据库</span><br><span class="line">connection = pymysql.Connect(host=&apos;localhost&apos;,</span><br><span class="line">                             port=3306,</span><br><span class="line">                             user=&apos;root&apos;,</span><br><span class="line">                             password=&apos;123456&apos;,</span><br><span class="line">                             db=&apos;yvchuli&apos;,</span><br><span class="line">                             charset=&apos;utf8&apos;)</span><br><span class="line">with open(&apos;1.txt&apos;) as f:</span><br><span class="line">    date = json.load(f)</span><br><span class="line">list = date[&quot;results&quot;]</span><br><span class="line"># 获取游标</span><br><span class="line">cursor = connection.cursor()</span><br><span class="line">for item in list:</span><br><span class="line"></span><br><span class="line">    #插入数据</span><br><span class="line">    sql = &quot;INSERT INTO music VALUES (\&quot;%s\&quot;)&quot;</span><br><span class="line">    data = item[&apos;trackName&apos;]</span><br><span class="line">    print(data)</span><br><span class="line">    cursor.execute(sql % data)</span><br><span class="line">    connection.commit()</span><br></pre></td></tr></table></figure>
+<p><br></p>
+<h3 id="注：若不加newline-’’，每行数据都会有空行"><a href="#注：若不加newline-’’，每行数据都会有空行" class="headerlink" title="注：若不加newline=’’，每行数据都会有空行"></a>注：若不加newline=’’，每行数据都会有空行</h3><p><img src="https://s2.ax1x.com/2019/03/23/AJGVPI.png" alt="AJGVPI.png"></p>
+<p><br></p>
+<h3 id="加newline-’’后变正常："><a href="#加newline-’’后变正常：" class="headerlink" title="加newline=’’后变正常："></a>加newline=’’后变正常：</h3><p><img src="https://s2.ax1x.com/2019/03/23/AJGZGt.png" alt="AJGZGt.png"><br><br></p>
+<p>If newline=’’ is not specified, newlines embedded inside quoted fields will not be interpreted correctly, and on platforms that use \r\n linendings on write an extra \r will be added. It should always be safe to specify newline=’’, since the csv module does its own (universal) newline handling.<br>– python参考手册</p>
+
+    	
+    
+
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">数据处理</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/数据处理//" class="article-tag-list-link color5">数据处理</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2018/11/15/sjycl/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-sql" class="article article-type-post  article-index" itemscope="" itemprop="blogPost">
   <div class="article-inner">
     
@@ -284,14 +479,14 @@ WHERE Grade &gt;=(SELECT AVG(Grade)
 FROM S     
 WHERE Sage &lt; ALL (SELECT Sage              
                   FROM S              
-                  WHERE Sdept= &#39; CS &#39;)        
-      AND Sdept &lt;&gt; &#39; CS ’;
+                  WHERE Sdept= &apos; CS &apos;)        
+      AND Sdept &lt;&gt; &apos; CS ’;
 </code></pre><h3 id="带有EXISTS谓词的子查询"><a href="#带有EXISTS谓词的子查询" class="headerlink" title="带有EXISTS谓词的子查询"></a>带有EXISTS谓词的子查询</h3><p>例：查询所有选修了1号课程的学生姓名。 </p>
 <pre><code>SELECT Sname      
 FROM S      
 WHERE EXISTS (SELECT *               
               FROM SC             
-              WHERE Sno=S.Sno AND Cno= &#39; 1 &#39;);
+              WHERE Sno=S.Sno AND Cno= &apos; 1 &apos;);
 </code></pre>
     	
     
@@ -381,17 +576,13 @@ WHERE EXISTS (SELECT *
 
     	
     		<p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><pre><code class="bash">$ hexo new &quot;My New Post&quot;
-</code></pre>
+<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
 <p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><pre><code class="bash">$ hexo server
-</code></pre>
+<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
 <p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><pre><code class="bash">$ hexo generate
-</code></pre>
+<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
 <p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><pre><code class="bash">$ hexo deploy
-</code></pre>
+<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
 <p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="noopener">Deployment</a></p>
 
     	
@@ -546,11 +737,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">一些bug</a>
+                <a href="javascript:void(0)" class="js-tag color5">数据处理</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">数据处理</a>
+                <a href="javascript:void(0)" class="js-tag color5">数据结构</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">一些bug</a>
               </li>
              
               <li class="article-tag-list-item">

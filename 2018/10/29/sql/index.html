@@ -287,14 +287,14 @@ WHERE Grade &gt;=(SELECT AVG(Grade)
 FROM S     
 WHERE Sage &lt; ALL (SELECT Sage              
                   FROM S              
-                  WHERE Sdept= &#39; CS &#39;)        
-      AND Sdept &lt;&gt; &#39; CS ’;
+                  WHERE Sdept= &apos; CS &apos;)        
+      AND Sdept &lt;&gt; &apos; CS ’;
 </code></pre><h3 id="带有EXISTS谓词的子查询"><a href="#带有EXISTS谓词的子查询" class="headerlink" title="带有EXISTS谓词的子查询"></a>带有EXISTS谓词的子查询</h3><p>例：查询所有选修了1号课程的学生姓名。 </p>
 <pre><code>SELECT Sname      
 FROM S      
 WHERE EXISTS (SELECT *               
               FROM SC             
-              WHERE Sno=S.Sno AND Cno= &#39; 1 &#39;);
+              WHERE Sno=S.Sno AND Cno= &apos; 1 &apos;);
 </code></pre>
     	
     
@@ -540,11 +540,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">一些bug</a>
+                <a href="javascript:void(0)" class="js-tag color5">数据处理</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">数据处理</a>
+                <a href="javascript:void(0)" class="js-tag color5">数据结构</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">一些bug</a>
               </li>
              
               <li class="article-tag-list-item">

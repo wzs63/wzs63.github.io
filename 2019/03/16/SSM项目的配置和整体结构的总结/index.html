@@ -333,13 +333,13 @@ public class UserController {
        insert into  commodity(cname,cs,cp,uid,type) values  (#{cname},#{cs},#{cp},#{uid},#{type})    
      &lt;/insert&gt;
      &lt;select id=&quot;selectByUid&quot;  parameterType=&quot;String&quot; resultType=&quot;Commodity&quot;&gt;
-         select * from commodity where uid =  &#39;${_parameter}&#39; and cs != 0
+         select * from commodity where uid =  &apos;${_parameter}&apos; and cs != 0
      &lt;/select&gt;
      &lt;select id=&quot;selectByType&quot;  parameterType=&quot;_int&quot; resultType=&quot;Commodity&quot;&gt;
          select * from commodity where type =  ${_parameter} and cs != 0
      &lt;/select&gt;
      &lt;select id=&quot;selectByLikeCname&quot;  parameterType=&quot;map&quot; resultType=&quot;Commodity&quot;&gt;
-         select * from commodity where cname  like &#39;%${part}%&#39; and cs != 0 order by cid asc limit  ${first},6
+         select * from commodity where cname  like &apos;%${part}%&apos; and cs != 0 order by cid asc limit  ${first},6
      &lt;/select&gt;
      &lt;select id=&quot;selectByCid&quot;  parameterType=&quot;_int&quot; resultType=&quot;Commodity&quot;&gt;
          select * from commodity where cid =  ${_parameter} and cs != 0
@@ -730,11 +730,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">一些bug</a>
+                <a href="javascript:void(0)" class="js-tag color5">数据处理</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">数据处理</a>
+                <a href="javascript:void(0)" class="js-tag color5">数据结构</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">一些bug</a>
               </li>
              
               <li class="article-tag-list-item">

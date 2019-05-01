@@ -6,15 +6,23 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="https://wzs63.github.io">
-  <title>Archives: 2018/10 | wzs63的博客</title>
+  <title>数据结构（一）栈和队列 | wzs63的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="wzs63的博客">
-<meta property="og:url" content="https://wzs63.github.io/archives/2018/10/index.html">
+  <meta name="description" content="数据结构（一）栈和队列栈：后进先出最先进的元素在栈底，最后进的元素在栈顶，弹出元素时从栈顶开始（ps:方法里调用其他方法，后开始的却先结束，很符合栈的概念，所以方法的调用用的数据结构就是栈）相关操作 数组实现栈是否空 public boolean empty() {     if(size == 0){         return true;     }     return false; }">
+<meta name="keywords" content="数据结构">
+<meta property="og:type" content="article">
+<meta property="og:title" content="数据结构（一）栈和队列">
+<meta property="og:url" content="https://wzs63.github.io/2019/05/01/数据结构/index.html">
 <meta property="og:site_name" content="wzs63的博客">
+<meta property="og:description" content="数据结构（一）栈和队列栈：后进先出最先进的元素在栈底，最后进的元素在栈顶，弹出元素时从栈顶开始（ps:方法里调用其他方法，后开始的却先结束，很符合栈的概念，所以方法的调用用的数据结构就是栈）相关操作 数组实现栈是否空 public boolean empty() {     if(size == 0){         return true;     }     return false; }">
 <meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="https://s2.ax1x.com/2019/05/01/EYJ2jg.png">
+<meta property="og:image" content="https://s2.ax1x.com/2019/05/01/EYBIUg.png">
+<meta property="og:updated_time" content="2019-05-01T15:49:29.341Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="wzs63的博客">
+<meta name="twitter:title" content="数据结构（一）栈和队列">
+<meta name="twitter:description" content="数据结构（一）栈和队列栈：后进先出最先进的元素在栈底，最后进的元素在栈顶，弹出元素时从栈顶开始（ps:方法里调用其他方法，后开始的却先结束，很符合栈的概念，所以方法的调用用的数据结构就是栈）相关操作 数组实现栈是否空 public boolean empty() {     if(size == 0){         return true;     }     return false; }">
+<meta name="twitter:image" content="https://s2.ax1x.com/2019/05/01/EYJ2jg.png">
   
     <link rel="alternative" href="/atom.xml" title="wzs63的博客" type="application/atom+xml">
   
@@ -167,98 +175,268 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-数据结构" class="article article-type-post " itemscope="" itemprop="blogPost">
+  <div class="article-inner">
     
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2018" class="archive-year">2018</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/10/29/sql/" class="archive-article-date">
-  	<time datetime="2018-10-28T16:06:41.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-10-29</time>
-</a>
-        </div>
-    	 
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/10/29/sql/">sql</a>
+    <h1 class="article-title" itemprop="name">
+      数据结构（一）栈和队列
     </h1>
   
 
-        <div class="article-info info-on-right">
-          
+        
+        <a href="/2019/05/01/数据结构/" class="archive-article-date">
+  	<time datetime="2019-05-01T13:19:08.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-05-01</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+
+    	
+    		<h3 id="数据结构（一）栈和队列"><a href="#数据结构（一）栈和队列" class="headerlink" title="数据结构（一）栈和队列"></a>数据结构（一）栈和队列</h3><h4 id="栈：后进先出"><a href="#栈：后进先出" class="headerlink" title="栈：后进先出"></a>栈：后进先出</h4><p><img src="https://s2.ax1x.com/2019/05/01/EYJ2jg.png" alt="EYJ2jg.png"><br>最先进的元素在栈底，最后进的元素在栈顶，弹出元素时从栈顶开始<br>（ps:方法里调用其他方法，后开始的却先结束，很符合栈的概念，所以方法的调用用的数据结构就是栈）<br>相关操作</p>
+<h6 id="数组实现"><a href="#数组实现" class="headerlink" title="数组实现"></a>数组实现</h6><p>栈是否空</p>
+<pre><code>public boolean empty() {
+    if(size == 0){
+        return true;
+    }
+    return false;
+}
+</code></pre><p>进栈</p>
+<pre><code>public void push(E item) {
+    size++;
+    s[size-1] = item;
+}
+</code></pre><p>出栈  </p>
+<pre><code>public synchronized E pop() {
+    if(empty()) {
+        return null;
+    }
+    size--;
+    return s[size+1-1];
+}
+</code></pre><p>取栈顶</p>
+<pre><code>public E peek() {
+    if(empty()) {
+        return null;
+    }
+    return s[size-1];
+}
+</code></pre><h6 id="链表实现"><a href="#链表实现" class="headerlink" title="链表实现"></a>链表实现</h6><p>是否栈空</p>
+<pre><code>public boolean empty() {
+        if(head.next == null){
+            return true;
+        }
+        return false;
+    }
+</code></pre><p>进栈</p>
+<pre><code>public void push(E item) {
+    Link&lt;E&gt; link = new Link&lt;&gt;(item);
+    tail.next = link;
+    tail = link;
+}
+</code></pre><p>出栈</p>
+<pre><code>public synchronized E pop() {
+    if(empty()) {
+        return null;
+    }
+    Link&lt;E&gt; link = head;
+    Link&lt;E&gt; result = null;
+    while(link.next.next != null) {
+        link = link.next;
+    }
+    //此时link为倒数第二个节点
+    result = link.next;
+    link.next = null;
+    return result.value;
+}
+</code></pre><p>取栈顶</p>
+<pre><code>public E peek() {
+    if(empty()) {
+        return null;
+    }
+    return tail.value;
+}
+</code></pre><h4 id="队列：先进先出"><a href="#队列：先进先出" class="headerlink" title="队列：先进先出"></a>队列：先进先出</h4><p><img src="https://s2.ax1x.com/2019/05/01/EYBIUg.png" alt="EYBIUg.png"></p>
+<h6 id="相关操作"><a href="#相关操作" class="headerlink" title="相关操作"></a>相关操作</h6><p>数组实现循环队列<br>size为数组大小<br>head,tail初始为0;</p>
+<p>是否为空</p>
+<pre><code>public boolean empty() {
+    return (head == tail)? true : false;
+}
+</code></pre><p>是否满</p>
+<pre><code>public boolean full() {
+    return ((tail + 1) % size == head)? true : false;
+}
+</code></pre><p>进队</p>
+<pre><code>public boolean add(E item) {
+    if(full()){
+        System.out.println(&quot;已满&quot;);
+        return false;
+    }
+    else {
+        tail = (tail+1) % size;
+        s[tail] = item;
+        return true;
+    }
+}
+</code></pre><p>出队</p>
+<pre><code>public E poll() {
+    E result;
+    if(empty()) {
+        System.out.println(&quot;队列空&quot;);
+        return null;
+    }
+    else {
+        result = s[tail];
+        tail = (tail+size-1) % size;
+        return result;
+    }
+}
+</code></pre><p>取队首</p>
+<pre><code>public E peek() {
+    if(empty()) {
+        System.out.println(&quot;队列空&quot;);
+        return null;
+    }
+    else {
+        return s[tail];
+    }
+}
+</code></pre>
+    	
+    
+
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">数据库</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">数据结构</a>
         		</li>
       		
 		</ul>
 	</div>
 
-          
+      
 	<div class="article-category tagcloud">
 		<i class="icon-book icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="/categories/数据库//" class="article-tag-list-link color4">数据库</a>
+        			<a href="/categories/数据结构//" class="article-tag-list-link color5">数据结构</a>
         		</li>
       		
 		</ul>
 	</div>
 
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=https://wzs63.github.io/2019/05/01/数据结构/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/10/23/hello-world/" class="archive-article-date">
-  	<time datetime="2018-10-23T05:05:37.871Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-10-23</time>
-</a>
+<nav id="article-nav">
+  
+  
+    <a href="/2019/03/27/Java集合/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Java集合笔记</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/10/23/hello-world/">Hello World</a>
-    </h1>
+        
+        
+    </div>
+</aside>
+
+
+
   
 
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
   
 
-    
+  
+
+  
+
+  
 
 
           </div>
@@ -285,8 +463,8 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,
