@@ -16,10 +16,14 @@
 <meta property="og:site_name" content="wzs63的博客">
 <meta property="og:description" content="利用ajax异步上传头像，并用base64编码在前端显示新头像为了做头像上传功能时为了不刷新页面可以用ajax 首先添加上传文件的input标签，和头像部分，点击头像触发changeHeadPortrait()方法&amp;lt;input type=&amp;quot;file&amp;quot; name=&amp;quot;file&amp;quot; accept=&amp;quot;image/*&amp;quot; /&amp;gt; &amp;lt;a">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-05-27T09:44:47.802Z">
+<meta property="og:image" content="https://s2.ax1x.com/2019/05/27/VZD2lT.png">
+<meta property="og:image" content="https://s2.ax1x.com/2019/05/27/VZrkjS.md.png">
+<meta property="og:image" content="https://s2.ax1x.com/2019/05/27/VZrTbQ.png">
+<meta property="og:updated_time" content="2019-05-27T10:00:01.245Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="利用ajax异步上传头像，并用base64编码在前端显示新头像">
 <meta name="twitter:description" content="利用ajax异步上传头像，并用base64编码在前端显示新头像为了做头像上传功能时为了不刷新页面可以用ajax 首先添加上传文件的input标签，和头像部分，点击头像触发changeHeadPortrait()方法&amp;lt;input type=&amp;quot;file&amp;quot; name=&amp;quot;file&amp;quot; accept=&amp;quot;image/*&amp;quot; /&amp;gt; &amp;lt;a">
+<meta name="twitter:image" content="https://s2.ax1x.com/2019/05/27/VZD2lT.png">
   
     <link rel="alternative" href="/atom.xml" title="wzs63的博客" type="application/atom+xml">
   
@@ -197,10 +201,11 @@
     		<h4 id="利用ajax异步上传头像，并用base64编码在前端显示新头像"><a href="#利用ajax异步上传头像，并用base64编码在前端显示新头像" class="headerlink" title="利用ajax异步上传头像，并用base64编码在前端显示新头像"></a>利用ajax异步上传头像，并用base64编码在前端显示新头像</h4><p>为了做头像上传功能时为了不刷新页面可以用ajax</p>
 <h6 id="首先添加上传文件的input标签，和头像部分，点击头像触发changeHeadPortrait-方法"><a href="#首先添加上传文件的input标签，和头像部分，点击头像触发changeHeadPortrait-方法" class="headerlink" title="首先添加上传文件的input标签，和头像部分，点击头像触发changeHeadPortrait()方法"></a>首先添加上传文件的input标签，和头像部分，点击头像触发changeHeadPortrait()方法</h6><pre><code>&lt;input type=&quot;file&quot; name=&quot;file&quot; accept=&quot;image/*&quot; /&gt;
 &lt;a onclick=&apos;changeHeadPortrait()&apos;&gt;&lt;img  id=&quot;tximg&quot; alt=&quot;无法显示图片&quot;  src=&quot;image/guimie2.jpg&quot;&gt;&lt;/a&gt;
-</code></pre><h6 id="为选择文件完成后绑定方法"><a href="#为选择文件完成后绑定方法" class="headerlink" title="为选择文件完成后绑定方法"></a>为选择文件完成后绑定方法</h6><pre><code>var file = document.getElementsByTagName(&apos;input&apos;)[0];
+</code></pre><p><img src="https://s2.ax1x.com/2019/05/27/VZD2lT.png" alt="VZD2lT.png"><br>点击头像<br><img src="https://s2.ax1x.com/2019/05/27/VZrkjS.md.png" alt="VZrkjS.md.png"><br>选择文件完成</p>
+<h6 id="为选择文件完成后绑定方法"><a href="#为选择文件完成后绑定方法" class="headerlink" title="为选择文件完成后绑定方法"></a>为选择文件完成后绑定方法</h6><pre><code>var file = document.getElementsByTagName(&apos;input&apos;)[0];
 file.onchange = function() {
 
-    //base64编码文件后放置头像的src以改变头像
+    //base64编码文件后放置头像的src（id为&apos;tximg&apos;）以改变头像
     base64ToSrc(&quot;#tximg&quot;, file.files[0]);
 
     //利用FormData()放file文件，ajax上传formFile数据
@@ -242,7 +247,8 @@ file.onchange = function() {
            $(element).attr(&quot;src&quot;,base64Code);
          }
 }
-</code></pre>
+</code></pre><p>头像上传完成<br><img src="https://s2.ax1x.com/2019/05/27/VZrTbQ.png" alt="VZrTbQ.png"></p>
+
     	
     
 
@@ -486,11 +492,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">数据结构</a>
+                <a href="javascript:void(0)" class="js-tag color4">数据库</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">数据库</a>
+                <a href="javascript:void(0)" class="js-tag color5">数据结构</a>
               </li>
             
             <div class="clearfix"></div>
