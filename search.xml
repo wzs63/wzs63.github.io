@@ -1,6 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[利用ajax异步上传头像，并用base64编码在前端显示新头像]]></title>
+    <url>%2F2019%2F05%2F27%2FajaxTX%2F</url>
+    <content type="text"><![CDATA[利用ajax异步上传头像，并用base64编码在前端显示新头像为了做头像上传功能时为了不刷新页面可以用ajax 首先添加上传文件的input标签，和头像部分，点击头像触发changeHeadPortrait()方法&lt;input type=&quot;file&quot; name=&quot;file&quot; accept=&quot;image/*&quot; /&gt; &lt;a onclick=&apos;changeHeadPortrait()&apos;&gt;&lt;img id=&quot;tximg&quot; alt=&quot;无法显示图片&quot; src=&quot;image/guimie2.jpg&quot;&gt;&lt;/a&gt; 为选择文件完成后绑定方法var file = document.getElementsByTagName(&apos;input&apos;)[0]; file.onchange = function() { //base64编码文件后放置头像的src以改变头像 base64ToSrc(&quot;#tximg&quot;, file.files[0]); //利用FormData()放file文件，ajax上传formFile数据 //(不用FormData()而直接用ajax传文件数据会报类型错误，，，) var formFile = new FormData(); formFile.append(&quot;file&quot;, file.files[0]); //ajax异步传给后端数据 $.ajax({ async:true, type: &quot;POST&quot;, url: &quot;/uploadHeadPortrait.do&quot;, data:formFile, dataType: &quot;json&quot;, cache: false, processData: false, contentType: false, success:function(){ console.log(&apos;ok&apos;); }, error:function(){ console.log(&apos;nook&apos;); } }); } 点击头像触发的方法：var changeHeadPortrait = function(){ //获取文件input元素 var file = document.getElementsByTagName(&apos;input&apos;)[0]; //点击 file.click(); } 将图片文件编码为base64并放置头像src的方法var base64ToSrc = function(element, file) { var reader = new FileReader(); reader.readAsDataURL(file); reader.onload = function (e) { base64Code=this.result; $(element).attr(&quot;src&quot;,base64Code); } }]]></content>
+      <categories>
+        <category>JavaEE</category>
+      </categories>
+      <tags>
+        <tag>JavaEE</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[数据结构（一）栈和队列]]></title>
     <url>%2F2019%2F05%2F01%2F%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%2F</url>
     <content type="text"><![CDATA[数据结构（一）栈和队列栈：后进先出最先进的元素在栈底，最后进的元素在栈顶，弹出元素时从栈顶开始（ps:方法里调用其他方法，后开始的却先结束，很符合栈的概念，所以方法的调用用的数据结构就是栈）相关操作 数组实现栈是否空 public boolean empty() { if(size == 0){ return true; } return false; } 进栈 public void push(E item) { size++; s[size-1] = item; } 出栈 public synchronized E pop() { if(empty()) { return null; } size--; return s[size+1-1]; } 取栈顶 public E peek() { if(empty()) { return null; } return s[size-1]; } 链表实现是否栈空 public boolean empty() { if(head.next == null){ return true; } return false; } 进栈 public void push(E item) { Link&lt;E&gt; link = new Link&lt;&gt;(item); tail.next = link; tail = link; } 出栈 public synchronized E pop() { if(empty()) { return null; } Link&lt;E&gt; link = head; Link&lt;E&gt; result = null; while(link.next.next != null) { link = link.next; } //此时link为倒数第二个节点 result = link.next; link.next = null; return result.value; } 取栈顶 public E peek() { if(empty()) { return null; } return tail.value; } 队列：先进先出 相关操作数组实现循环队列size为数组大小head,tail初始为0; 是否为空 public boolean empty() { return (head == tail)? true : false; } 是否满 public boolean full() { return ((tail + 1) % size == head)? true : false; } 进队 public boolean add(E item) { if(full()){ System.out.println(&quot;已满&quot;); return false; } else { tail = (tail+1) % size; s[tail] = item; return true; } } 出队 public E poll() { E result; if(empty()) { System.out.println(&quot;队列空&quot;); return null; } else { result = s[tail]; tail = (tail+size-1) % size; return result; } } 取队首 public E peek() { if(empty()) { System.out.println(&quot;队列空&quot;); return null; } else { return s[tail]; } }]]></content>

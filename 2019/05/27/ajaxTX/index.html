@@ -6,16 +6,20 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="https://wzs63.github.io">
-  <title>文章分类 | wzs63的博客</title>
+  <title>利用ajax异步上传头像，并用base64编码在前端显示新头像 | wzs63的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="文章分类">
-<meta property="og:url" content="https://wzs63.github.io/categories/index.html">
+  <meta name="description" content="利用ajax异步上传头像，并用base64编码在前端显示新头像为了做头像上传功能时为了不刷新页面可以用ajax 首先添加上传文件的input标签，和头像部分，点击头像触发changeHeadPortrait()方法&amp;lt;input type=&amp;quot;file&amp;quot; name=&amp;quot;file&amp;quot; accept=&amp;quot;image/*&amp;quot; /&amp;gt; &amp;lt;a">
+<meta name="keywords" content="JavaEE">
+<meta property="og:type" content="article">
+<meta property="og:title" content="利用ajax异步上传头像，并用base64编码在前端显示新头像">
+<meta property="og:url" content="https://wzs63.github.io/2019/05/27/ajaxTX/index.html">
 <meta property="og:site_name" content="wzs63的博客">
+<meta property="og:description" content="利用ajax异步上传头像，并用base64编码在前端显示新头像为了做头像上传功能时为了不刷新页面可以用ajax 首先添加上传文件的input标签，和头像部分，点击头像触发changeHeadPortrait()方法&amp;lt;input type=&amp;quot;file&amp;quot; name=&amp;quot;file&amp;quot; accept=&amp;quot;image/*&amp;quot; /&amp;gt; &amp;lt;a">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-04-29T08:44:28.714Z">
+<meta property="og:updated_time" content="2019-05-27T09:44:47.802Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="文章分类">
+<meta name="twitter:title" content="利用ajax异步上传头像，并用base64编码在前端显示新头像">
+<meta name="twitter:description" content="利用ajax异步上传头像，并用base64编码在前端显示新头像为了做头像上传功能时为了不刷新页面可以用ajax 首先添加上传文件的input标签，和头像部分，点击头像触发changeHeadPortrait()方法&amp;lt;input type=&amp;quot;file&amp;quot; name=&amp;quot;file&amp;quot; accept=&amp;quot;image/*&amp;quot; /&amp;gt; &amp;lt;a">
   
     <link rel="alternative" href="/atom.xml" title="wzs63的博客" type="application/atom+xml">
   
@@ -168,20 +172,20 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="page-" class="article article-type-page " itemscope="" itemprop="blogPost">
+            <article id="post-ajaxTX" class="article article-type-post " itemscope="" itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      文章分类
+      利用ajax异步上传头像，并用base64编码在前端显示新头像
     </h1>
   
 
         
-        <a href="/categories/index.html" class="archive-article-date">
-  	<time datetime="2019-03-13T13:20:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-03-13</time>
+        <a href="/2019/05/27/ajaxTX/" class="archive-article-date">
+  	<time datetime="2019-05-27T09:42:31.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-05-27</time>
 </a>
         
       </header>
@@ -189,17 +193,57 @@
     <div class="article-entry" itemprop="articleBody">
       
 
-    <div class="category-all-page">
-    	<div class="category-all-title">
-    	counter.categories
-    	</div>
+    	
+    		<h4 id="利用ajax异步上传头像，并用base64编码在前端显示新头像"><a href="#利用ajax异步上传头像，并用base64编码在前端显示新头像" class="headerlink" title="利用ajax异步上传头像，并用base64编码在前端显示新头像"></a>利用ajax异步上传头像，并用base64编码在前端显示新头像</h4><p>为了做头像上传功能时为了不刷新页面可以用ajax</p>
+<h6 id="首先添加上传文件的input标签，和头像部分，点击头像触发changeHeadPortrait-方法"><a href="#首先添加上传文件的input标签，和头像部分，点击头像触发changeHeadPortrait-方法" class="headerlink" title="首先添加上传文件的input标签，和头像部分，点击头像触发changeHeadPortrait()方法"></a>首先添加上传文件的input标签，和头像部分，点击头像触发changeHeadPortrait()方法</h6><pre><code>&lt;input type=&quot;file&quot; name=&quot;file&quot; accept=&quot;image/*&quot; /&gt;
+&lt;a onclick=&apos;changeHeadPortrait()&apos;&gt;&lt;img  id=&quot;tximg&quot; alt=&quot;无法显示图片&quot;  src=&quot;image/guimie2.jpg&quot;&gt;&lt;/a&gt;
+</code></pre><h6 id="为选择文件完成后绑定方法"><a href="#为选择文件完成后绑定方法" class="headerlink" title="为选择文件完成后绑定方法"></a>为选择文件完成后绑定方法</h6><pre><code>var file = document.getElementsByTagName(&apos;input&apos;)[0];
+file.onchange = function() {
 
-    	<div class="category-all">
-    	<ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Java/">Java</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/JavaEE/">JavaEE</a><span class="category-list-count">6</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/一些bug/">一些bug</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/数据处理/">数据处理</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/数据库/">数据库</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/数据结构/">数据结构</a><span class="category-list-count">1</span></li></ul>
-    	</div>
+    //base64编码文件后放置头像的src以改变头像
+    base64ToSrc(&quot;#tximg&quot;, file.files[0]);
 
-    </div>
+    //利用FormData()放file文件，ajax上传formFile数据
+    //(不用FormData()而直接用ajax传文件数据会报类型错误，，，)
+    var formFile = new FormData();
+    formFile.append(&quot;file&quot;, file.files[0]);
 
+    //ajax异步传给后端数据
+    $.ajax({
+        async:true,
+        type: &quot;POST&quot;,
+        url: &quot;/uploadHeadPortrait.do&quot;,
+        data:formFile,
+        dataType: &quot;json&quot;,
+           cache: false,
+           processData: false,
+
+        contentType: false,
+        success:function(){
+            console.log(&apos;ok&apos;);
+        },
+        error:function(){
+            console.log(&apos;nook&apos;);
+        }
+    });
+}
+</code></pre><h6 id="点击头像触发的方法："><a href="#点击头像触发的方法：" class="headerlink" title="点击头像触发的方法："></a>点击头像触发的方法：</h6><pre><code>var changeHeadPortrait = function(){
+            //获取文件input元素
+            var file = document.getElementsByTagName(&apos;input&apos;)[0];
+            //点击
+            file.click();
+
+        }
+</code></pre><h6 id="将图片文件编码为base64并放置头像src的方法"><a href="#将图片文件编码为base64并放置头像src的方法" class="headerlink" title="将图片文件编码为base64并放置头像src的方法"></a>将图片文件编码为base64并放置头像src的方法</h6><pre><code>var base64ToSrc = function(element, file) {
+    var reader = new FileReader();
+    reader.readAsDataURL(file);
+    reader.onload = function (e) {
+           base64Code=this.result;
+           $(element).attr(&quot;src&quot;,base64Code);
+         }
+}
+</code></pre>
+    	
     
 
 
@@ -208,7 +252,29 @@
     <div class="article-info article-info-index">
       
       
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">JavaEE</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
       
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/JavaEE//" class="article-tag-list-link color2">JavaEE</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
 
       
 
@@ -258,7 +324,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=https://wzs63.github.io/categories/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=https://wzs63.github.io/2019/05/27/ajaxTX/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -270,6 +336,16 @@
 </article>
 
   
+<nav id="article-nav">
+  
+  
+    <a href="/2019/05/01/数据结构/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">数据结构（一）栈和队列</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
 
 <aside class="wrap-side-operation">
     <div class="mod-side-operation">
@@ -324,7 +400,7 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
+		isPost: true,
 		isArchive: false,
 		isTag: false,
 		isCategory: false,
