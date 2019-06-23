@@ -6,15 +6,20 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="https://wzs63.github.io">
-  <title>Tag: 一些bug | wzs63的博客</title>
+  <title>登录密码生成MD5摘要后进行请求传输，并在后端+salt再次生成摘要 | wzs63的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="wzs63的博客">
-<meta property="og:url" content="https://wzs63.github.io/tags/一些bug/index.html">
+  <meta name="description" content="登录密码生成MD5摘要后进行请求传输如果将输入密码的值直接生成摘要，提交时密码框会变为很长一串字符(32个字符)。所以为了更好的体验，可以将提交项设为hidden隐藏,而不给密码输入框设置name（form中有name才会被提交）。 &amp;lt;form action=&amp;quot;/register_check.do&amp;quot; method=&amp;quot;post&amp;quot; onsubmit=&amp;qu">
+<meta name="keywords" content="JavaEE">
+<meta property="og:type" content="article">
+<meta property="og:title" content="登录密码生成MD5摘要后进行请求传输，并在后端+salt再次生成摘要">
+<meta property="og:url" content="https://wzs63.github.io/2019/06/19/md5/index.html">
 <meta property="og:site_name" content="wzs63的博客">
+<meta property="og:description" content="登录密码生成MD5摘要后进行请求传输如果将输入密码的值直接生成摘要，提交时密码框会变为很长一串字符(32个字符)。所以为了更好的体验，可以将提交项设为hidden隐藏,而不给密码输入框设置name（form中有name才会被提交）。 &amp;lt;form action=&amp;quot;/register_check.do&amp;quot; method=&amp;quot;post&amp;quot; onsubmit=&amp;qu">
 <meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2019-06-23T09:53:31.187Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="wzs63的博客">
+<meta name="twitter:title" content="登录密码生成MD5摘要后进行请求传输，并在后端+salt再次生成摘要">
+<meta name="twitter:description" content="登录密码生成MD5摘要后进行请求传输如果将输入密码的值直接生成摘要，提交时密码框会变为很长一串字符(32个字符)。所以为了更好的体验，可以将提交项设为hidden隐藏,而不给密码输入框设置name（form中有name才会被提交）。 &amp;lt;form action=&amp;quot;/register_check.do&amp;quot; method=&amp;quot;post&amp;quot; onsubmit=&amp;qu">
   
     <link rel="alternative" href="/atom.xml" title="wzs63的博客" type="application/atom+xml">
   
@@ -167,71 +172,226 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-md5" class="article article-type-post " itemscope="" itemprop="blogPost">
+  <div class="article-inner">
     
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2019" class="archive-year">2019</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/03/23/bug1/" class="archive-article-date">
-  	<time datetime="2019-03-23T11:58:35.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-03-23</time>
-</a>
-        </div>
-    	 
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/03/23/bug1/">failed to load the jni shared library报错</a>
+    <h1 class="article-title" itemprop="name">
+      登录密码生成MD5摘要后进行请求传输，并在后端+salt再次生成摘要
     </h1>
   
 
-        <div class="article-info info-on-right">
-          
+        
+        <a href="/2019/06/19/md5/" class="archive-article-date">
+  	<time datetime="2019-06-19T09:47:28.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-06-19</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+
+    	
+    		<h3 id="登录密码生成MD5摘要后进行请求传输"><a href="#登录密码生成MD5摘要后进行请求传输" class="headerlink" title="登录密码生成MD5摘要后进行请求传输"></a>登录密码生成MD5摘要后进行请求传输</h3><h5 id="如果将输入密码的值直接生成摘要，提交时密码框会变为很长一串字符-32个字符-。所以为了更好的体验，可以将提交项设为hidden隐藏-而不给密码输入框设置name（form中有name才会被提交）。"><a href="#如果将输入密码的值直接生成摘要，提交时密码框会变为很长一串字符-32个字符-。所以为了更好的体验，可以将提交项设为hidden隐藏-而不给密码输入框设置name（form中有name才会被提交）。" class="headerlink" title="如果将输入密码的值直接生成摘要，提交时密码框会变为很长一串字符(32个字符)。所以为了更好的体验，可以将提交项设为hidden隐藏,而不给密码输入框设置name（form中有name才会被提交）。"></a>如果将输入密码的值直接生成摘要，提交时密码框会变为很长一串字符(32个字符)。所以为了更好的体验，可以将提交项设为hidden隐藏,而不给密码输入框设置name（form中有name才会被提交）。</h5><pre><code> &lt;form action=&quot;/register_check.do&quot; method=&quot;post&quot; onsubmit=&quot;return checkForm()&quot;&gt;
+    &lt;div&gt;
+        &lt;input type=&quot;text&quot; name=&quot;userName&quot; placeholder=&quot; 用户名&quot;/&gt;
+    &lt;/div&gt;
+    &lt;div&gt;
+        &lt;!-- 第一个没有name属性不会被提交 --&gt;
+        &lt;input type=&quot;password&quot; placeholder=&quot; 密码&quot; id=&quot;input-password&quot;/&gt;
+    &lt;/div&gt;
+    &lt;input type=&quot;hidden&quot; name=&quot;userPassWord&quot;&gt;
+    &lt;div&gt;
+        &lt;p&gt;
+            &lt;button type=&quot;submit&quot;&gt;确定&lt;/button&gt;
+        &lt;/p&gt;
+    &lt;/div&gt;
+&lt;/form&gt;
+</code></pre><h5 id="onsubmit-”return-checkForm-，提交时会触发checkForm方法，return-true则提交，false不提交"><a href="#onsubmit-”return-checkForm-，提交时会触发checkForm方法，return-true则提交，false不提交" class="headerlink" title="onsubmit=”return checkForm()，提交时会触发checkForm方法，return true则提交，false不提交"></a>onsubmit=”return checkForm()，提交时会触发checkForm方法，return true则提交，false不提交</h5><pre><code>&lt;script&gt;
+    function checkForm() {
+        //取得输入的密码
+        var input_pwd = document.getElementById(&apos;input-password&apos;);
+        //取得要提交的input
+        var md5_pwd = document.getElementsByName(&apos;userPassWord&apos;)[0];
+        //直接用了MD5库生成输入值的摘要传给要提交的值
+        md5_pwd.value = $.md5(input_pwd.value);
+        return true;
+    }
+    &lt;/script&gt;
+</code></pre><h4 id="后端-salt再次生成摘要"><a href="#后端-salt再次生成摘要" class="headerlink" title="后端+salt再次生成摘要"></a>后端+salt再次生成摘要</h4><h5 id="定义摘要类"><a href="#定义摘要类" class="headerlink" title="定义摘要类"></a>定义摘要类</h5><pre><code>public class Zaiyao {
+    static public String deal(String userPassWord) throws NoSuchAlgorithmException{
+        //salt可以为随机生成值（这样的话数据库要加个字段了），这里用的是固定的salt
+        String salt = &quot;cqjtu&quot;;
+        MessageDigest md = MessageDigest.getInstance(&quot;MD5&quot;);
+        // 计算md5函数
+        md.update((userPassWord+salt).getBytes());
+        return new BigInteger(1, md.digest()).toString(16);
+    }
+}
+</code></pre><h5 id="编写controller使得form密码-gt-MD5-SALT-gt-摘要-gt-数据库存储"><a href="#编写controller使得form密码-gt-MD5-SALT-gt-摘要-gt-数据库存储" class="headerlink" title="编写controller使得form密码-&gt;MD5+SALT-&gt;摘要-&gt;数据库存储"></a>编写controller使得form密码-&gt;MD5+SALT-&gt;摘要-&gt;数据库存储</h5><pre><code>@RequestMapping(&quot;/register_check.do&quot;)
+public String registerCheck(User user, Model m) throws NoSuchAlgorithmException {
+    //根据userName数据库查这个用户
+    User fullUser = userMapper.get(user.getUserName());
+    //如果还没有此用户名，成功
+    if(fullUser == null){
+        //密码设置摘要
+        user.setUserPassWord(Zaiyao.deal(user.getUserPassWord()));//需要异常处理NoSuchAlgorithmException
+        //保存用户信息到数据库
+        userMapper.save(user);
+        return &quot;login&quot;;
+    }else{
+        //已经有这个用户名了
+        m.addAttribute(&quot;fail_message&quot;, &quot;用户名已被注册&quot;);
+        return &quot;register&quot;;
+    }
+}
+</code></pre><h6>补充：摘要和加密的区别（参考<a href="https://juejin.im/post/5a7d11be5188257a5e5738c3）" target="_blank" rel="noopener">https://juejin.im/post/5a7d11be5188257a5e5738c3）</a><br>摘要是哈希值，我们通过散列算法比如MD5算法就可以得到这个哈希值。<br>摘要只是用于验证数据完整性和唯一性的哈希值，不管原始数据是什么样的，得到的哈希值都是固定长度的。<br>不管原始数据是什么样的，得到的哈希值都是固定长度的，也就是说摘要并不是原始数据加密后的密文，只是一个验证身份的令牌。所以我们无法通过摘要解密得到原始数据。</h6>
+
+<h6>加密是通过 “加密算法” 将 “明文” 加密成 “密文”。 我们可以通过 “密钥” 和 “解密算法” 将 “密文” 还原成 “明文”。</h6>
+
+
+    	
+    
+
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">一些bug</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">JavaEE</a>
         		</li>
       		
 		</ul>
 	</div>
 
-          
+      
 	<div class="article-category tagcloud">
 		<i class="icon-book icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="/categories/一些bug//" class="article-tag-list-link color1">一些bug</a>
+        			<a href="/categories/JavaEE//" class="article-tag-list-link color2">JavaEE</a>
         		</li>
       		
 		</ul>
 	</div>
 
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=https://wzs63.github.io/2019/06/19/md5/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
+  
+<nav id="article-nav">
+  
+    <a href="/2019/06/21/Javamail/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          注册时邮件验证，防止恶意注册
+        
+      </div>
+    </a>
   
   
-    </div></section>
+    <a href="/2019/05/27/ajaxTX/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">利用ajax异步上传头像，并用base64编码在前端显示新头像</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
   
 
-    
+  
+
+  
+
+  
+
+  
 
 
           </div>
@@ -258,9 +418,9 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
+		isPost: true,
 		isArchive: false,
-		isTag: true,
+		isTag: false,
 		isCategory: false,
 		open_in_new: false,
 		toc_hide_index: true,

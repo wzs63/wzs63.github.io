@@ -6,15 +6,22 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="https://wzs63.github.io">
-  <title>Tag: 一些bug | wzs63的博客</title>
+  <title>注册时邮件验证，防止恶意注册 | wzs63的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="wzs63的博客">
-<meta property="og:url" content="https://wzs63.github.io/tags/一些bug/index.html">
+  <meta name="description" content="邮箱发送可以是异步的，并且是新开一个线程，不然要等很久，而且期间什么都不能做&amp;lt;div&amp;gt;     &amp;lt;input type=&amp;quot;text&amp;quot; name=&amp;quot;userEmail&amp;quot; id=&amp;quot;emailAddress&amp;quot; placeholder=&amp;quot; 邮箱&amp;quot; /&amp;gt;     &amp;lt;button id=&amp;quot;c">
+<meta name="keywords" content="JavaEE">
+<meta property="og:type" content="article">
+<meta property="og:title" content="注册时邮件验证，防止恶意注册">
+<meta property="og:url" content="https://wzs63.github.io/2019/06/21/Javamail/index.html">
 <meta property="og:site_name" content="wzs63的博客">
+<meta property="og:description" content="邮箱发送可以是异步的，并且是新开一个线程，不然要等很久，而且期间什么都不能做&amp;lt;div&amp;gt;     &amp;lt;input type=&amp;quot;text&amp;quot; name=&amp;quot;userEmail&amp;quot; id=&amp;quot;emailAddress&amp;quot; placeholder=&amp;quot; 邮箱&amp;quot; /&amp;gt;     &amp;lt;button id=&amp;quot;c">
 <meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="https://s2.ax1x.com/2019/06/23/ZPxeWd.md.png">
+<meta property="og:updated_time" content="2019-06-23T10:00:47.061Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="wzs63的博客">
+<meta name="twitter:title" content="注册时邮件验证，防止恶意注册">
+<meta name="twitter:description" content="邮箱发送可以是异步的，并且是新开一个线程，不然要等很久，而且期间什么都不能做&amp;lt;div&amp;gt;     &amp;lt;input type=&amp;quot;text&amp;quot; name=&amp;quot;userEmail&amp;quot; id=&amp;quot;emailAddress&amp;quot; placeholder=&amp;quot; 邮箱&amp;quot; /&amp;gt;     &amp;lt;button id=&amp;quot;c">
+<meta name="twitter:image" content="https://s2.ax1x.com/2019/06/23/ZPxeWd.md.png">
   
     <link rel="alternative" href="/atom.xml" title="wzs63的博客" type="application/atom+xml">
   
@@ -167,71 +174,244 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-Javamail" class="article article-type-post " itemscope="" itemprop="blogPost">
+  <div class="article-inner">
     
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2019" class="archive-year">2019</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/03/23/bug1/" class="archive-article-date">
-  	<time datetime="2019-03-23T11:58:35.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-03-23</time>
-</a>
-        </div>
-    	 
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/03/23/bug1/">failed to load the jni shared library报错</a>
+    <h1 class="article-title" itemprop="name">
+      注册时邮件验证，防止恶意注册
     </h1>
   
 
-        <div class="article-info info-on-right">
-          
+        
+        <a href="/2019/06/21/Javamail/" class="archive-article-date">
+  	<time datetime="2019-06-21T09:54:05.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-06-21</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+
+    	
+    		<h5 id="邮箱发送可以是异步的，并且是新开一个线程，不然要等很久，而且期间什么都不能做"><a href="#邮箱发送可以是异步的，并且是新开一个线程，不然要等很久，而且期间什么都不能做" class="headerlink" title="邮箱发送可以是异步的，并且是新开一个线程，不然要等很久，而且期间什么都不能做"></a>邮箱发送可以是异步的，并且是新开一个线程，不然要等很久，而且期间什么都不能做</h5><pre><code>&lt;div&gt;
+    &lt;input type=&quot;text&quot; name=&quot;userEmail&quot; id=&quot;emailAddress&quot; placeholder=&quot; 邮箱&quot; /&gt;
+    &lt;button id=&quot;checkEmail&quot; type=&quot;button&quot; &gt;验证邮箱&lt;/button&gt;
+&lt;/div&gt;
+
+&lt;script&gt;
+//取得邮箱地址
+var checkEmail = document.getElementById(&quot;checkEmail&quot;)
+var code = &quot;&quot;
+//异步发送请求
+checkEmail.onclick = function() {
+     $.ajax({
+         async:true,
+         url: &quot;/checkEmail.do&quot;,
+         type: &quot;POST&quot;,
+         data:{&quot;emailAddress&quot;:document.getElementById(&quot;emailAddress&quot;).value},
+         dataType: &quot;json&quot;,
+         success:function(data){
+             code = data.code;
+         }
+         });
+}
+//得到code后再提交表单时判断输入验证码和code是否一致即可（略）
+&lt;/script&gt;
+</code></pre><h5 id="发送邮件至填写emailAddress并通过ajax返回验证码code给前端"><a href="#发送邮件至填写emailAddress并通过ajax返回验证码code给前端" class="headerlink" title="发送邮件至填写emailAddress并通过ajax返回验证码code给前端"></a>发送邮件至填写emailAddress并通过ajax返回验证码code给前端</h5><pre><code>@RequestMapping(&quot;/checkEmail.do&quot;)
+@ResponseBody//此注解不能省略 否则ajax无法接受返回值
+public Map&lt;String,Object&gt; checkEmail(@RequestParam(value=&quot;emailAddress&quot;)String emailAddress) {
+    Map&lt;String,Object&gt; resultMap = new HashMap&lt;String, Object&gt;();
+    //生成激活码
+    String code = UUID.randomUUID().toString().replaceAll(&quot;-&quot;, &quot;&quot;);
+    //发邮件线程启动
+    new MailServiceImpl(emailAddress, code).run();
+      resultMap.put(&quot;code&quot;, code);
+    return resultMap;
+}
+</code></pre><h5 id="发送邮件服务类（参考网站https-www-jianshu-com-p-8f8d7a46888f）"><a href="#发送邮件服务类（参考网站https-www-jianshu-com-p-8f8d7a46888f）" class="headerlink" title="发送邮件服务类（参考网站https://www.jianshu.com/p/8f8d7a46888f）"></a>发送邮件服务类（参考网站<a href="https://www.jianshu.com/p/8f8d7a46888f）" target="_blank" rel="noopener">https://www.jianshu.com/p/8f8d7a46888f）</a></h5><p><a href="https://imgchr.com/i/ZPxeWd" target="_blank" rel="noopener"><img src="https://s2.ax1x.com/2019/06/23/ZPxeWd.md.png" alt="ZPxeWd.md.png"></a></p>
+<pre><code>public class MailServiceImpl implements Runnable {
+    private String email;// 收件人邮箱
+    private String code;// 激活码
+    public MailServiceImpl(String email, String code) {
+        this.email = email;
+        this.code = code;
+    }
+    public void run() {
+        // 1.创建连接对象javax.mail.Session
+        // 2.创建邮件对象 javax.mail.Message
+        // 3.发送一封激活邮件
+        System.out.println(&quot;线程开始&quot;);
+        String from = &quot;邮箱链接（此处改为自己的）&quot;;// 发件人电子邮箱
+        String host = &quot;smtp.qq.com&quot;; // 指定发送邮件的主机，此处为QQ邮箱
+        Properties properties = System.getProperties();// 获取系统属性
+        properties.setProperty(&quot;mail.smtp.host&quot;, host);// 设置邮件服务器
+        properties.setProperty(&quot;mail.smtp.auth&quot;, &quot;true&quot;);// 打开认证
+        try {
+            //QQ邮箱需要下面这段代码，163邮箱不需要
+            MailSSLSocketFactory sf = new MailSSLSocketFactory();
+            sf.setTrustAllHosts(true);
+            properties.put(&quot;mail.smtp.ssl.enable&quot;, &quot;true&quot;);
+            properties.put(&quot;mail.smtp.ssl.socketFactory&quot;, sf);
+            // 1.获取默认session对象
+            Session session = Session.getDefaultInstance(properties, new Authenticator() {
+                public PasswordAuthentication getPasswordAuthentication() {
+                    return new PasswordAuthentication(&quot;邮箱链接（此处改为自己的）&quot;, &quot;邮箱的授权码（此处改为自己的）&quot;); // 发件人邮箱账号、授权码
+                }
+            });
+            // 2.创建邮件对象
+            Message message = new MimeMessage(session);
+            // 2.1设置发件人
+            message.setFrom(new InternetAddress(from));
+            // 2.2设置接收人
+            message.addRecipient(Message.RecipientType.TO, new InternetAddress(email));
+            // 2.3设置邮件主题
+            message.setSubject(&quot;账号激活&quot;);
+            // 2.4设置邮件内容
+            String content = &quot;&lt;html&gt;&lt;body&gt;&lt;h1&gt;这是一封激活邮件&lt;/h1&gt;&lt;h3&gt;&quot;+code+&quot;&lt;/h3&gt;&lt;/body&gt;&lt;/html&gt;&quot;;
+            message.setContent(content, &quot;text/html;charset=UTF-8&quot;);
+            // 3.发送邮件
+            Transport.send(message);
+            System.out.println(&quot;ok,发送完成 &quot;);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+}
+</code></pre>
+    	
+    
+
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">一些bug</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">JavaEE</a>
         		</li>
       		
 		</ul>
 	</div>
 
-          
+      
 	<div class="article-category tagcloud">
 		<i class="icon-book icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="/categories/一些bug//" class="article-tag-list-link color1">一些bug</a>
+        			<a href="/categories/JavaEE//" class="article-tag-list-link color2">JavaEE</a>
         		</li>
       		
 		</ul>
 	</div>
 
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=https://wzs63.github.io/2019/06/21/Javamail/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
+  
+<nav id="article-nav">
   
   
-    </div></section>
+    <a href="/2019/06/19/md5/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">登录密码生成MD5摘要后进行请求传输，并在后端+salt再次生成摘要</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
   
 
-    
+  
+
+  
+
+  
+
+  
 
 
           </div>
@@ -258,9 +438,9 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
+		isPost: true,
 		isArchive: false,
-		isTag: true,
+		isTag: false,
 		isCategory: false,
 		open_in_new: false,
 		toc_hide_index: true,
