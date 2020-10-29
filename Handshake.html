@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>OAo</title>
+<script src="https://unpkg.com/vue/dist/vue.js"></script>
+
+</head>
+<body>
+<div id="app">
+
+<div id="container"><div id="output"></div></div>
+
+
+    <p>?</p>
+    <input v-model="message">
+    <p>{{resp}}</<p><br><br><br>
+	<p>当前时间:{{time}}</p>
+	<p>PS:12:00之前回复“。”，之后回复“回去跑步”</p>
+    </div>
+</div>
+
+<script>
+
+var vm = new Vue({
+          el: '#app',
+          data: {
+            message: '',
+			resp:' ',
+			time:''
+          }
+        })
+vm.$watch('message', function(nval, oval) {
+  if(nval=="！"||nval=="!")
+  {
+	let timeNow = new Date();
+    // 获取当前小时
+	let hours = timeNow.getHours();
+	if(hours>12){
+		setTimeout(function(){ vm.resp="回去跑步O-O" }, 500);
+
+	}
+	else{
+		setTimeout(function(){ vm.resp="。" }, 500);
+	}
+ }
+
+
+});
+function checkTime(){
+	let timeNow = new Date()
+	vm.time = timeNow.toString().slice(16,24)
+    }
+setInterval("checkTime()","1000");
+</script>
+</body>
+</html>
