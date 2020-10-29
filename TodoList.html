@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TodoList</title>
+</head>
+
+<body>
+    <div>
+        <input type="text" id="content">
+        <button id="add">添加</button>
+    </div>
+    <ul id="todoList">
+    </ul>
+</body>
+<script>
+    const addButton = document.getElementById('add');
+    const inputElement = document.getElementById('content');
+    const todoListDom = document.getElementById('todoList');
+    const todos = JSON.parse(localStorage.getItem('todos')) || [];
+
+    // 点击添加按钮
+    addButton.addEventListener('click', () => {
+
+        if (inputElement.value) {
+            addItem(inputElement.value.trim());
+        }
+    })
+
+    // 新增方法
+    function addItem(content) {
+        let todoItem = document.createElement('li');
+        todoItem.innerText = content;
+        document.getElementById('todoList').appendChild(todoItem);
+
+        // 保存到本地
+        todos.push(content);
+        localStorage.setItem('todos', JSON.stringify(todos));
+    }
+
+    // 点击条目删除
+    todoList.addEventListener('click', (event) => {
+
+        if (event.target.tagName === 'LI') {
+            deleteItem(event.target); //<li>123</li>
+        }
+    }, true)
+
+    // 删除方法
+    function deleteItem(element) {
+
+        element.remove();
+        // 保存到本地
+        todos.map((value, index) => {
+            if (value === element.innerText.trim()) {
+                todos.splice(index, 1);
+            }
+        })
+        localStorage.setItem('todos', JSON.stringify(todos));
+    }
+
+
+    // 默认读取localstorage 遍历todos数组
+    todos.forEach(content => {
+        console.log(content)
+
+        let todoItem = document.createElement('li');
+        todoItem.innerText = content;
+        todoListDom.appendChild(todoItem);
+    });
+</script>
+
+</html>
