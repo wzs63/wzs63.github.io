@@ -43,17 +43,16 @@
     .main-txt{
       position: relative;
       z-index: 1;
-      top: -137px;
-      left: 264px;
+      /* top: -662px;
+      left: 552px; */
+      top: -643px;
+      left: 172px;
       color: deepskyblue;
+      font-family: 'FZShuTi';
+      font-size: 3em;
+
     }
-    .footer{
-      padding: 0 20px;
-      box-sizing: border-box;
-      -ms-flex-negative: 0;
-      flex-shrink: 0;
-      display: block;
-    }
+
     .backgroud{
 
     background-image: url('https://pic1.zhimg.com/80/v2-c494ab147841b24fa08cc0abf6d2ad5a_720w.jpg?source=1940ef5c');
@@ -66,33 +65,33 @@
     background-repeat: no-repeat, repeat-x, repeat;
     opacity: 1;
     width: 100%;
-    height: 1024px;
+    height: 1098px;
     position: relative;
     z-index: -1;
-    top: -3040px;
+    top: -3245px;
     }
-
+    audio{
+                 display: none;
+ }
   </style>
 </head>
 
-<body>
-  <div id="app">
-        <div class="head"><h1>祝俺妈生日快乐~~~</h1></div>
+<body style="height: 4145px;">
+  <div id="app" style=" height: 4145px;">
+        <div class="head" onclick="cl()"><h1>祝俺妈生日快乐~~~ (点我放音乐(ﾉ´▽｀)ﾉ♪)</h1></div>
         <div class="main">
             <div class="main-pic" style="background-image: url('img/m1.jpg');">
                 <!-- <a href="" class="pf-icon image-popup"><span class="icon_plus"></span></a> -->
              </div>
              <div class="main-txt">
-                 <h2>COLORS SPEAK</h2>
-                 <span>Fashion</span>
+                 <p>大树和小花ヾ(✿ﾟ▽ﾟ)ノ~</p>
              </div>
 
              <div class="main-pic" style="background-image: url('img/m2.jpg');">
                 <!-- <a href="" class="pf-icon image-popup"><span class="icon_plus"></span></a> -->
              </div>
              <div class="main-txt">
-                 <h2>COLORS SPEAK</h2>
-                 <span>Fashion</span>
+                 <p>云顶行走ヽ(ﾟ▽ﾟ*) ﾉ~</p>
              </div>
 
              <div class="main-pic" style="background-image: url('img/m3.jpg');">
@@ -100,22 +99,32 @@
 
              </div>
              <div class="main-txt">
-                <h2>COLORS SPEAK</h2>
-                <span>Fashion</span>
+                <p>哈哈哈(ﾉﾟ∀ﾟ)ﾉ ~</p>
              </div>
             </div>
-        <div class="footer">Footer</div>\
+        <!-- <div class="footer">Footer</div> -->
 
         <div class="backgroud"></div>
         <div class="backgroud"></div>
         <div class="backgroud"></div>
-        <div class="backgroud"></div>
+        <div class="backgroud">
+        </br></br></br></br></br></br>
+            <h1 style="font-family: 'FZShuTi'; font-size: 3em; text-align: center;">仰首是春，俯首是秋。</h1>
+            <h1 style="font-family: 'FZShuTi'; font-size: 3em; text-align: center;">愿所有的幸福都追随着你。</h1>
+            <h1 style="font-family: 'FZShuTi'; font-size: 3em; text-align: center;">月圆是画，月缺是诗。</h1>
+        </div>
+
   </div>
-<audio src="audio.mp3" preload="auto" controls></audio>
 
+  <audio autoplay="autoplay" controls="controls"loop="loop" preload="auto"
+                  src="music\guitar.mp3">
+  </audio>
 </body>
 
   <script>
+  let cl = function(){
+          document.getElementsByTagName('audio')[0].play()
+  }
       let dom = document.getElementsByClassName('backgroud')[0]
 
       let dom2 = document.getElementsByClassName('backgroud')[1]
@@ -226,6 +235,7 @@
         dom.style.zIndex=-1
         dom2.style.zIndex=-1
         dom3.style.zIndex=-1
+
       }
       // 1.5s后图片背景图层下移
       setTimeout(
