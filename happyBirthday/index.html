@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <style>
+    .head{
+      background: linear-gradient(#fff1eb,#a2dbf7);
+      padding: 0 20px;
+      box-sizing: border-box;
+      -ms-flex-negative: 0;
+      flex-shrink: 0;
+      height: 140px;
+      display: block;
+      text-align: center;
+      position: fixed;
+      width: 100%;
+      z-index: 30;
+    }
+    .main{
+      display: block;
+      -webkit-box-flex: 1;
+      -ms-flex: 1;
+      flex: 1;
+      -ms-flex-preferred-size: auto;
+      flex-basis: auto;
+      overflow: auto;
+      box-sizing: border-box;
+      padding: 20px;
+    }
+    .main-pic{
+        position: relative;
+        background-size: contain;
+        background-repeat: no-repeat;
+        height: 913px;
+        width: 910px;
+        /* position: relative; */
+        left: 16%;
+
+      /* background-image: url(https://gss0.baidu.com/9vo3dSag_xI4khGko9WTAnF6hhy/zhidao/pic/item/3b292df….jpg); */
+      top: 185px;
+      /* background-image: url(https://gss0.baidu.com/9vo3dSag_xI4khGko9WTAnF6hhy/zhidao/pic/item/3b292df….jpg); */
+    }
+    .main-txt{
+      position: relative;
+      z-index: 1;
+      top: -137px;
+      left: 264px;
+      color: deepskyblue;
+    }
+    .footer{
+      padding: 0 20px;
+      box-sizing: border-box;
+      -ms-flex-negative: 0;
+      flex-shrink: 0;
+      display: block;
+    }
+    .backgroud{
+
+    background-image: url('https://pic1.zhimg.com/80/v2-c494ab147841b24fa08cc0abf6d2ad5a_720w.jpg?source=1940ef5c');
+    /* background-image: url('http://5b0988e595225.cdn.sohucs.com/images/20171007/1f19317ecfc841fbad2e1a9f36a377ee.gif'); */
+
+
+    top: 60px;
+
+    background-size: 980px 90em;
+    background-repeat: no-repeat, repeat-x, repeat;
+    opacity: 1;
+    width: 100%;
+    height: 1024px;
+    position: relative;
+    z-index: -1;
+    top: -3040px;
+    }
+
+  </style>
+</head>
+
+<body>
+  <div id="app">
+        <div class="head"><h1>祝俺妈生日快乐~~~</h1></div>
+        <div class="main">
+            <div class="main-pic" style="background-image: url('img/m1.jpg');">
+                <!-- <a href="" class="pf-icon image-popup"><span class="icon_plus"></span></a> -->
+             </div>
+             <div class="main-txt">
+                 <h2>COLORS SPEAK</h2>
+                 <span>Fashion</span>
+             </div>
+
+             <div class="main-pic" style="background-image: url('img/m2.jpg');">
+                <!-- <a href="" class="pf-icon image-popup"><span class="icon_plus"></span></a> -->
+             </div>
+             <div class="main-txt">
+                 <h2>COLORS SPEAK</h2>
+                 <span>Fashion</span>
+             </div>
+
+             <div class="main-pic" style="background-image: url('img/m3.jpg');">
+                <!-- <a href="" class="pf-icon image-popup"><span class="icon_plus"></span></a> -->
+
+             </div>
+             <div class="main-txt">
+                <h2>COLORS SPEAK</h2>
+                <span>Fashion</span>
+             </div>
+            </div>
+        <div class="footer">Footer</div>\
+
+        <div class="backgroud"></div>
+        <div class="backgroud"></div>
+        <div class="backgroud"></div>
+        <div class="backgroud"></div>
+  </div>
+<audio src="audio.mp3" preload="auto" controls></audio>
+
+</body>
+
+  <script>
+      let dom = document.getElementsByClassName('backgroud')[0]
+
+      let dom2 = document.getElementsByClassName('backgroud')[1]
+      let dom3 = document.getElementsByClassName('backgroud')[2]
+      let dom4 = document.getElementsByClassName('backgroud')[3]
+      dom.style.opacity=1
+      dom.style.zIndex=10
+      dom2.style.opacity=1
+      dom2.style.zIndex=10
+      dom3.style.opacity=1
+      dom3.style.zIndex=10
+      dom4.style.opacity=1
+
+      let state = -1
+      // let n = 25
+      let opaChange = function(){
+        if(dom.style.opacity<=0.3){
+          dom.style.opacity = Number(dom.style.opacity)+0.025
+          state = 1;
+        }
+        if(dom.style.opacity>0.3 && state<0){
+          dom.style.opacity -= 0.025
+          state = -1;
+        }
+
+        if(dom.style.opacity>=1){
+          dom.style.opacity -= 0.025
+          state = -1;
+          // dom.style.opacity = 0.5+n/1000
+          // n++
+        }
+
+        if(dom.style.opacity<1 && state>0){
+          dom.style.opacity = Number(dom.style.opacity)+0.025
+          state = 1;
+        }
+      }
+      let opaChange2 = function(){
+          if(dom2.style.opacity<=0.3){
+            dom2.style.opacity = Number(dom.style.opacity)+0.025
+            state = 1;
+          }
+          if(dom2.style.opacity>0.3 && state<0){
+            dom2.style.opacity -= 0.025
+            state = -1;
+          }
+
+          if(dom2.style.opacity>=1){
+            dom2.style.opacity -= 0.025
+            state = -1;
+            // dom.style.opacity = 0.5+n/1000
+            // n++
+          }
+          if(dom2.style.opacity<1 && state>0){
+            dom2.style.opacity = Number(dom.style.opacity)+0.025
+            state = 1;
+          }
+      }
+          let opaChange3 = function(){
+              if(dom3.style.opacity<=0.3){
+                dom3.style.opacity = Number(dom.style.opacity)+0.025
+                state = 1;
+              }
+              if(dom3.style.opacity>0.3 && state<0){
+                dom3.style.opacity -= 0.025
+                state = -1;
+              }
+
+              if(dom3.style.opacity>=1){
+                dom3.style.opacity -= 0.025
+                state = -1;
+                // dom.style.opacity = 0.5+n/1000
+                // n++
+              }
+              if(dom3.style.opacity<1 && state>0){
+                dom3.style.opacity = Number(dom.style.opacity)+0.025
+                state = 1;
+              }
+          }
+          let opaChange4 = function(){
+              if(dom4.style.opacity<=0.3){
+                dom4.style.opacity = Number(dom.style.opacity)+0.025
+                state = 1;
+              }
+              if(dom4.style.opacity>0.3 && state<0){
+                dom4.style.opacity -= 0.025
+                state = -1;
+              }
+
+              if(dom4.style.opacity>=1){
+                dom4.style.opacity -= 0.025
+                state = -1;
+                // dom.style.opacity = 0.5+n/1000
+                // n++
+              }
+              if(dom4.style.opacity<1 && state>0){
+                dom4.style.opacity = Number(dom.style.opacity)+0.025
+                state = 1;
+              }
+          }
+
+    window.onload = function(){
+      setInterval("opaChange()",150);
+      setInterval("opaChange2()",150);
+      setInterval("opaChange3()",150);
+
+       zindexChange = function(){
+        dom.style.zIndex=-1
+        dom2.style.zIndex=-1
+        dom3.style.zIndex=-1
+      }
+      // 1.5s后图片背景图层下移
+      setTimeout(
+        "zindexChange()"
+      ,5000)
+    }
+
+  </script>
+</html>
